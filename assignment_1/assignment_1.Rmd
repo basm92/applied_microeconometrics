@@ -10,13 +10,22 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse); library(plm); library(stargazer)
+
 dataset <- readr::read_csv("datadynpan2021.csv")
 ```
 
 1. Explain why first differencing the equation does not solve the endogeneity problem of lagged consumption.
 
-First difference estimation is just OLS estimation with transformed data. For the OLS estimator (in general) to be consistent, we need $\text{Cov}(X, U)=0$. In the context of our transformed data, we need $\text{Cov}{\Delta X, \Delta U}=0$. One of the variables in $\Delta X$ is $\Delta Y_{it-1}$. If we evaluate the covariance between $\Delta Y_{it-1}$ and $\Delta U_{it}$, we find that:
+The first difference specification is: 
 
+\begin{align*}
+(\log C_{it} - \log C_{it-1}) = \beta_1 \cdot (\log p_{it} - \log p_{it-1}) + \beta_2 \cdot (\log inc_{it} - \log inc_{it-1}) + \\
+\beta_3 \cdot (\log ilop_{it} - \log ilop_{it-1}) + \beta_4 \cdot (\log C_{it-1} - \log C_{it-2}) + u_{it} - u_{it-1}
+\end{align*}
+
+First difference estimation is just OLS estimation with transformed data. For the OLS estimator (in general) to be consistent, we need $\text{Cov}(X, U)=0$. In the context of our transformed data, we need $\text{Cov}{\Delta X, \Delta U}=0$. One of the variables in $\Delta X$ is $\Delta Y_{it-1}$. If we evaluate the covariance between $\Delta Y_{it-1}$ and $\Delta U_{it}$, we find that:
 
 \begin{align*}
 &\text{Cov}(\Delta Y_{it-1}, \Delta U_{it}) = \\
@@ -29,34 +38,77 @@ First difference estimation is just OLS estimation with transformed data. For th
 We have to keep in mind that the first-stage regression contains all the exogenous regressors $\mathbb{X}$ from the second stage regression, plus the instrument, $C_{it-2}$. Hence, the first-stage model is: 
 
 \begin{align*}
-\widehat{C_{it-1} - C_{it-2}} = \beta_1 \cdot (\log p_{it} - \log p_{it-1}) + \beta_2 \cdot (\log inc_{it} - \log inc_{it-1}) + \\
+\widehat{\log C_{it-1} - \log C_{it-2}} = \beta_1 \cdot (\log p_{it} - \log p_{it-1}) + \beta_2 \cdot (\log inc_{it} - \log inc_{it-1}) + \\
 \beta_3 \cdot (\log ilop_{it} - \log ilop_{it-1}) + \beta_4 \cdot (\log C_{it-2}) + u_{it-1} - u_{it-2}
 \end{align*}
 
 And the predicted values are to be used as follows in the second-stage regression:
 
 \begin{align*}
-C_{it} - C_{it-1} = \beta_1 \cdot (\log p_{it} - \log p_{it-1}) + \beta_2 \cdot (\log inc_{it} - \log inc_{it-1}) + \\
+(\log C_{it} - \log C_{it-1}) = \beta_1 \cdot (\log p_{it} - \log p_{it-1}) + \beta_2 \cdot (\log inc_{it} - \log inc_{it-1}) + \\
 \beta_3 \cdot (\log ilop_{it} - \log ilop_{it-1}) + \beta_4 \cdot \widehat{(C_{it-1} - C_{it-2})} + u_{it} - u_{it-1}
 \end{align*}
 
 Using the data, we find the following first-stage regression:
 
-```{r}
-library(plm)
+```{r results='asis'}
+## Create the first and second differences
+dataset <- dataset %>%
+    group_by(region) %>%
+    mutate(across(contains("log"),
+                  ~ .x - dplyr::lag(.x), .names = "l1_{.col}"),
+           across(starts_with("log"),
+                  ~ dplyr::lag(.x) - dplyr::lag(.x, 2), .names = "l2_{.col}"),
+           level_quantity = dplyr::lag(logquantity, 2))
 
-plm::
+## Run the first-stage regression
+first_stage_reg <- lm(formula = "l2_logquantity ~ l1_logprice + l1_logincome + l1_logillegal +
+   level_quantity",
+   data = dataset)
 
 ```
 
+Whereas the F-statistic is acceptable (higher than 10), it is not _much_ higher than 10, leaving questions about the relevance of the instrument. Indeed, the instrument seems to be lacking statistical relevance, and thus predictive power. This means that consumption is $C_{it-2}$ does not predict differences $C_{it-1} - C_{it-2}$ well, meaning there is no clear relationship between absolute consumption and (near-)future increases/decreases of consumption. 
+
 3. Estimate the specification above using the Anderson & Hsiao approach. Comment on the underlying assumptions, tabulate the results and comment on the outcomes.
+
+```{r results='asis'}
+# Use a package to estimate Anderson-Hsiao
+dataset2 <- plm::pdata.frame(dataset, c("region", "year"))
+
+anderson_hsiao <- plm(l1_logquantity ~ l1_logprice + l1_logincome + 
+                          l1_logillegal + l2_logquantity -1 | 
+                          l1_logprice + l1_logincome + l1_logillegal + 
+                          level_quantity -1,
+                      data=dataset2,
+                      model="pooling"
+          )
+
+# Compare with Manual 2SLS
+dataset <- modelr::add_predictions(dataset, first_stage_reg) %>%
+       rename("c_instrumented"=pred) 
+
+manual_2sls <- lm(data=dataset, 
+   formula = l1_logquantity ~ l1_logprice + l1_logincome + l1_logillegal + c_instrumented - 1) 
+
+stargazer(first_stage_reg, anderson_hsiao, manual_2sls, 
+          label = "tab:reg", header=FALSE, model.names = FALSE,
+          column.sep.width="-5pt",
+          dep.var.labels=c("$C_{it-1} - C_{it-2}$", 
+                           "$C_{it} - C_{it-1}$",
+                           "$C_{it} - C_{it-1}$"),
+          column.labels = c("First-Stage", "A-H", "Manual 2SLS"),
+              omit.stat = c("ll", "ser", "rsq"))
+```
+
+The table is displayed below. The estimates from models (2) and (3) in tabel \ref{tab:reg} are the same. Only the variance of the 2SLS-estimator is off. 
 
 4. Describe the Arellano & Bond GMM estimator for this model.
 
-5.Estimate the model parameters using the Arellano & Bond estimator, tabulate the results and discuss the parameter estimates.
+5. Estimate the model parameters using the Arellano & Bond estimator, tabulate the results and discuss the parameter estimates.
 
 6. What is in your estimate for the short-run and the long-run price elasticity of opium?
 
 7. Now estimate the model parameters using the system estimator (Blundell & Bond). Tabulate results, compute the elasticities (as in 6.).
 
-8. Which parameter estimates do you prefer? Explain why. Are there remain- ing problems with your preferred estimates?
+8. Which parameter estimates do you prefer? Explain why. Are there remaining problems with your preferred estimates?
