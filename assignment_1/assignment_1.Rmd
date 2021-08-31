@@ -1,0 +1,14 @@
+---
+title: "Applied Microeconometrics - Assignment 1"
+author: "Walter Verwer & Bas Machielsen"
+date: "8/31/2021"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction
+
+
