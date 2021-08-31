@@ -13,6 +13,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 First difference estimation is just OLS estimation with transformed data. For the OLS estimator (in general) to be consistent, we need $\text{Cov}(X, U)=0$. In the context of our transformed data, we need $\text{Cov}{\Delta X, \Delta U}=0$. One of the variables in $\Delta X$ is $\Delta Y_{it-1}$. If we evaluate the covariance between $\Delta Y_{it-1}$ and $\Delta U_{it}$, we find that:
 
+
 \begin{align*}
 &\text{Cov}(\Delta Y_{it-1}, \Delta U_{it}) = \\
 &\text{Cov}(\beta \Delta X_{it-1} + \rho \Delta Y_{it-2} + \Delta U_{it-1}, \Delta U_{it}) = \\
