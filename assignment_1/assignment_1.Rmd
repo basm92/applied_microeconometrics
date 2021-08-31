@@ -2,11 +2,15 @@
 title: "Applied Microeconometrics - Assignment 1"
 author: "Walter Verwer & Bas Machielsen"
 date: "8/31/2021"
-output: pdf_document
+output:
+  pdf_document:
+    includes:
+      in_header: "preamble.tex"
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+dataset <- readr::read_csv("datadynpan2021.csv")
 ```
 
 1. Explain why first differencing the equation does not solve the endogeneity problem of lagged consumption.
@@ -22,14 +26,28 @@ First difference estimation is just OLS estimation with transformed data. For th
 
 2. Anderson & Hsiao propose a specific instrumental variable procedure for the model. Write down and perform the associated first stage regression. Comment on its outcomes.
 
-The first-stage model is: 
+We have to keep in mind that the first-stage regression contains all the exogenous regressors $\mathbb{X}$ from the second stage regression, plus the instrument, $C_{it-2}$. Hence, the first-stage model is: 
 
 \begin{align*}
-C_{it} - C_{it-1} = \beta_0 + \beta_1 \cdot (\log p_{it} - \log p_{it-1}) + \beta_2 \cdot (\log inc_{it} - \log inc_{it-1}) + \\
-\beta_3 \cdot (\log ilop_{it} - \log ilop_{it-1}) + \beta_4 \cdot (\log z_{it} - \log z_{it-1}) + u_{it} - u_{it-1}
+\widehat{C_{it-1} - C_{it-2}} = \beta_1 \cdot (\log p_{it} - \log p_{it-1}) + \beta_2 \cdot (\log inc_{it} - \log inc_{it-1}) + \\
+\beta_3 \cdot (\log ilop_{it} - \log ilop_{it-1}) + \beta_4 \cdot (\log C_{it-2}) + u_{it-1} - u_{it-2}
+\end{align*}
+
+And the predicted values are to be used as follows in the second-stage regression:
+
+\begin{align*}
+C_{it} - C_{it-1} = \beta_1 \cdot (\log p_{it} - \log p_{it-1}) + \beta_2 \cdot (\log inc_{it} - \log inc_{it-1}) + \\
+\beta_3 \cdot (\log ilop_{it} - \log ilop_{it-1}) + \beta_4 \cdot \widehat{(C_{it-1} - C_{it-2})} + u_{it} - u_{it-1}
 \end{align*}
 
 Using the data, we find the following first-stage regression:
+
+```{r}
+library(plm)
+
+plm::
+
+```
 
 3. Estimate the specification above using the Anderson & Hsiao approach. Comment on the underlying assumptions, tabulate the results and comment on the outcomes.
 
