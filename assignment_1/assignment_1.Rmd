@@ -49,7 +49,7 @@ And the predicted values are to be used as follows in the second-stage regressio
 \beta_3 \cdot (\log ilop_{it} - \log ilop_{it-1}) + \beta_4 \cdot \widehat{(C_{it-1} - C_{it-2})} + u_{it} - u_{it-1}
 \end{align*}
 
-Using the data, we find the following first-stage regression:
+Using the data, we find the following first-stage regression (table \ref{tab:reg}):
 
 ```{r results='asis'}
 ## Create the first and second differences
@@ -68,7 +68,7 @@ first_stage_reg <- lm(formula = "l2_logquantity ~ l1_logprice + l1_logincome + l
 
 ```
 
-Whereas the F-statistic is acceptable (higher than 10), it is not _much_ higher than 10, leaving questions about the relevance of the instrument. Indeed, the instrument seems to be lacking statistical relevance, and thus predictive power. This means that consumption is $C_{it-2}$ does not predict differences $C_{it-1} - C_{it-2}$ well, meaning there is no clear relationship between absolute consumption and (near-)future increases/decreases of consumption. 
+Whereas the F-statistic is acceptable (higher than 10), it is not _much_ higher than 10, leaving questions about the relevance of the instrument. Indeed, the instrument seems to be lacking statistical relevance, and thus predictive power. The coefficient on level quantity is only `r first_stage_reg$coefficients[5]` and insignificant at the 10% level. This means that consumption is $C_{it-2}$ does not predict differences $C_{it-1} - C_{it-2}$ well, meaning there is no clear relationship between absolute consumption and (near-)future increases/decreases of consumption. 
 
 3. Estimate the specification above using the Anderson & Hsiao approach. Comment on the underlying assumptions, tabulate the results and comment on the outcomes.
 
