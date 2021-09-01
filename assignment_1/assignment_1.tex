@@ -1,0 +1,753 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Applied Microeconometrics - Assignment 1},
+  pdfauthor={Walter Verwer \& Bas Machielsen},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\let\oldShaded\Shaded
+\let\endoldShaded\endShaded
+\renewenvironment{Shaded}{\footnotesize\oldShaded}{\endoldShaded}
+\ifluatex
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\title{Applied Microeconometrics - Assignment 1}
+\author{Walter Verwer \& Bas Machielsen}
+\date{8/31/2021}
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Explain why first differencing the equation does not solve the
+  endogeneity problem of lagged consumption.
+\end{enumerate}
+
+The first difference specification is:
+
+\begin{align*}
+(\log C_{it} - \log C_{it-1}) = \beta_1 \cdot (\log p_{it} - \log p_{it-1}) + \beta_2 \cdot (\log inc_{it} - \log inc_{it-1}) + \\
+\beta_3 \cdot (\log ilop_{it} - \log ilop_{it-1}) + \beta_4 + \beta_5 \cdot (\log C_{it-1} - \log C_{it-2}) + u_{it} - u_{it-1}
+\end{align*}
+
+First difference estimation is just OLS estimation with transformed
+data. For the OLS estimator (in general) to be consistent and unbiased,
+we need \(\text{Cov}(X, U)=0\), where \(X\) is the matrix containing all
+regressors. In the context of our transformed data, we need
+\(\text{Cov}(\Delta X, \Delta U)=0\). One of the variables in
+\(\Delta X\) is \(\Delta \log C_{it-1}\). If we evaluate the covariance
+between \(\Delta \log C_{it-1}\) and \(\Delta U_{it}\), we find that:
+
+\begin{align*}
+&\text{Cov}(\Delta \log C_{it-1}, \Delta U_{it}) = \\
+&\text{Cov}(\beta \Delta X_{it-1} + \beta_5 \Delta \log C_{it-2} + \Delta u_{it-1}, \Delta u_{it}) = \\
+&\text{Cov}(\Delta U_{it-1}, \Delta U_{it}) \neq 0
+\end{align*}
+
+Since we observe that the exogeneity assumption is violated, we can
+conclude that first differencing the equation does not solve the
+endogeneity problem of lagged consumption.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Anderson \& Hsiao propose a specific instrumental variable procedure
+  for the model. Write down and perform the associated first stage
+  regression. Comment on its outcomes.
+\end{enumerate}
+
+We have to keep in mind that the first-stage regression contains all the
+exogenous regressors \(X\) from the second stage regression, plus the
+instrument, \(C_{it-2}\). Hence, the first-stage model is:
+
+\begin{align*}
+\widehat{\log C_{it-1} - \log C_{it-2}} = \beta_1 \cdot (\log p_{it} - \log p_{it-1}) + \beta_2 \cdot (\log inc_{it} - \log inc_{it-1}) + \\
+\beta_3 \cdot (\log ilop_{it} - \log ilop_{it-1}) + \beta_4 + \beta_5 \cdot (\log C_{it-2}) + u_{it-1} - u_{it-2}
+\end{align*}
+
+And the predicted values are to be used as follows in the second-stage
+regression:
+
+\begin{align*}
+(\log C_{it} - \log C_{it-1}) = \beta_1 \cdot (\log p_{it} - \log p_{it-1}) + \beta_2 \cdot (\log inc_{it} - \log inc_{it-1}) + \\
+\beta_3 \cdot (\log ilop_{it} - \log ilop_{it-1}) + \beta_4 + \beta_5 \cdot \widehat{(C_{it-1} - C_{it-2})} + u_{it} - u_{it-1}
+\end{align*}
+
+Using the data, we find the following first-stage regression (table
+\ref{tab:reg}):
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\# Create the first and second differences}
+\NormalTok{dataset }\OtherTok{\textless{}{-}}\NormalTok{ dataset }\SpecialCharTok{\%\textgreater{}\%}
+    \FunctionTok{group\_by}\NormalTok{(region) }\SpecialCharTok{\%\textgreater{}\%}
+    \FunctionTok{mutate}\NormalTok{(}\FunctionTok{across}\NormalTok{(}\FunctionTok{contains}\NormalTok{(}\StringTok{"log"}\NormalTok{),}
+                  \SpecialCharTok{\textasciitilde{}}\NormalTok{ .x }\SpecialCharTok{{-}}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{lag}\NormalTok{(.x), }\AttributeTok{.names =} \StringTok{"l1\_\{.col\}"}\NormalTok{),}
+           \FunctionTok{across}\NormalTok{(}\FunctionTok{starts\_with}\NormalTok{(}\StringTok{"log"}\NormalTok{),}
+                  \SpecialCharTok{\textasciitilde{}}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{lag}\NormalTok{(.x) }\SpecialCharTok{{-}}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{lag}\NormalTok{(.x, }\DecValTok{2}\NormalTok{), }\AttributeTok{.names =} \StringTok{"l2\_\{.col\}"}\NormalTok{),}
+           \AttributeTok{level\_quantity =}\NormalTok{ dplyr}\SpecialCharTok{::}\FunctionTok{lag}\NormalTok{(logquantity, }\DecValTok{2}\NormalTok{))}
+
+\DocumentationTok{\#\# Run the first{-}stage regression}
+\NormalTok{first\_stage\_reg }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(}\AttributeTok{formula =} \StringTok{"l2\_logquantity \textasciitilde{} l1\_logprice + l1\_logincome + l1\_logillegal +}
+\StringTok{   level\_quantity"}\NormalTok{,}
+   \AttributeTok{data =}\NormalTok{ dataset)}
+\end{Highlighting}
+\end{Shaded}
+
+Whereas the F-statistic is acceptable (higher than 10), it is not
+\emph{much} higher than 10, leaving questions about the relevance of the
+instrument. Indeed, the instrument seems to be lacking statistical
+relevance, and thus predictive power. The coefficient on level quantity
+is only -0.0150557 and insignificant at the 10\% level. This means that
+consumption is \(C_{it-2}\) does not predict differences
+\(C_{it-1} - C_{it-2}\) well, meaning there is no clear relationship
+between absolute consumption and (near-)future increases/decreases of
+consumption.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Estimate the specification above using the Anderson \& Hsiao approach.
+  Comment on the underlying assumptions, tabulate the results and
+  comment on the outcomes.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Use a package to estimate Anderson{-}Hsiao}
+\NormalTok{dataset2 }\OtherTok{\textless{}{-}}\NormalTok{ plm}\SpecialCharTok{::}\FunctionTok{pdata.frame}\NormalTok{(dataset, }\FunctionTok{c}\NormalTok{(}\StringTok{"region"}\NormalTok{, }\StringTok{"year"}\NormalTok{))}
+
+\NormalTok{anderson\_hsiao }\OtherTok{\textless{}{-}} \FunctionTok{plm}\NormalTok{(l1\_logquantity }\SpecialCharTok{\textasciitilde{}}\NormalTok{ l1\_logprice }\SpecialCharTok{+}\NormalTok{ l1\_logincome }\SpecialCharTok{+} 
+\NormalTok{                          l1\_logillegal }\SpecialCharTok{+}\NormalTok{ l2\_logquantity }\SpecialCharTok{|} 
+\NormalTok{                          l1\_logprice }\SpecialCharTok{+}\NormalTok{ l1\_logincome }\SpecialCharTok{+}\NormalTok{ l1\_logillegal }\SpecialCharTok{+} 
+\NormalTok{                          level\_quantity,}
+                      \AttributeTok{data=}\NormalTok{dataset2,}
+                      \AttributeTok{model=}\StringTok{"pooling"}
+\NormalTok{          )}
+
+\CommentTok{\# Compare with Manual 2SLS}
+\NormalTok{dataset }\OtherTok{\textless{}{-}}\NormalTok{ modelr}\SpecialCharTok{::}\FunctionTok{add\_predictions}\NormalTok{(dataset, first\_stage\_reg) }\SpecialCharTok{\%\textgreater{}\%}
+       \FunctionTok{rename}\NormalTok{(}\StringTok{"c\_instrumented"}\OtherTok{=}\NormalTok{pred) }
+
+\NormalTok{manual\_2sls }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(}\AttributeTok{data=}\NormalTok{dataset, }
+   \AttributeTok{formula =}\NormalTok{ l1\_logquantity }\SpecialCharTok{\textasciitilde{}}\NormalTok{ l1\_logprice }\SpecialCharTok{+}\NormalTok{ l1\_logincome }\SpecialCharTok{+}\NormalTok{ l1\_logillegal }\SpecialCharTok{+}\NormalTok{ c\_instrumented) }
+
+\FunctionTok{stargazer}\NormalTok{(first\_stage\_reg, anderson\_hsiao, manual\_2sls, }
+          \AttributeTok{label =} \StringTok{"tab:reg"}\NormalTok{, }\AttributeTok{header=}\ConstantTok{FALSE}\NormalTok{, }\AttributeTok{model.names =} \ConstantTok{FALSE}\NormalTok{,}
+          \AttributeTok{column.sep.width=}\StringTok{"{-}5pt"}\NormalTok{,}
+          \AttributeTok{dep.var.labels=}\FunctionTok{c}\NormalTok{(}\StringTok{"$C\_\{it{-}1\} {-} C\_\{it{-}2\}$"}\NormalTok{, }
+                           \StringTok{"$C\_\{it\} {-} C\_\{it{-}1\}$"}\NormalTok{,}
+                           \StringTok{"$C\_\{it\} {-} C\_\{it{-}1\}$"}\NormalTok{),}
+          \AttributeTok{column.labels =} \FunctionTok{c}\NormalTok{(}\StringTok{"First{-}Stage"}\NormalTok{, }\StringTok{"A{-}H"}\NormalTok{, }\StringTok{"Manual 2SLS"}\NormalTok{),}
+              \AttributeTok{omit.stat =} \FunctionTok{c}\NormalTok{(}\StringTok{"ll"}\NormalTok{, }\StringTok{"ser"}\NormalTok{, }\StringTok{"rsq"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}[!htbp] \centering 
+  \caption{} 
+  \label{tab:reg} 
+\begin{tabular}{@{\extracolsep{-5pt}}lccc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{3}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-4} 
+\\[-1.8ex] & $C_{it-1} - C_{it-2}$ & \multicolumn{2}{c}{$C_{it} - C_{it-1}$} \\ 
+ & First-Stage & A-H & Manual 2SLS \\ 
+\\[-1.8ex] & (1) & (2) & (3)\\ 
+\hline \\[-1.8ex] 
+ l1\_logprice & $-$0.617$^{***}$ & 0.022 & 0.022 \\ 
+  & (0.089) & (0.556) & (0.338) \\ 
+  & & & \\ 
+ l1\_logincome & $-$0.836$^{***}$ & 1.878$^{**}$ & 1.878$^{***}$ \\ 
+  & (0.219) & (0.762) & (0.463) \\ 
+  & & & \\ 
+ l1\_logillegal & $-$0.005 & $-$0.029 & $-$0.029$^{**}$ \\ 
+  & (0.013) & (0.018) & (0.011) \\ 
+  & & & \\ 
+ level\_quantity & $-$0.015 &  &  \\ 
+  & (0.009) &  &  \\ 
+  & & & \\ 
+ l2\_logquantity &  & 1.470$^{*}$ &  \\ 
+  &  & (0.851) &  \\ 
+  & & & \\ 
+ c\_instrumented &  &  & 1.470$^{***}$ \\ 
+  &  &  & (0.517) \\ 
+  & & & \\ 
+ Constant & 0.086 & $-$0.002 & $-$0.002 \\ 
+  & (0.061) & (0.023) & (0.014) \\ 
+  & & & \\ 
+\hline \\[-1.8ex] 
+Observations & 308 & 308 & 308 \\ 
+Adjusted R$^{2}$ & 0.157 & 0.275 & 0.398 \\ 
+F Statistic (df = 4; 303) & 15.264$^{***}$ & 76.600$^{***}$ & 51.812$^{***}$ \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{3}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} 
+\end{table}
+
+The table is displayed below. The estimates from models (2) and (3) in
+tabel \ref{tab:reg} are the same. Only the variance of the
+2SLS-estimator is off.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  Describe the Arellano \& Bond GMM estimator for this model.
+\end{enumerate}
+
+In general the Arellano \& Bond GMM estimator aims to use lagged values
+of endogenous regressors as an instrument. All possible moment
+conditions are for \(t=2,\dots,T\) and \(k=2,\dots,t\), applied to the
+current model given by:
+
+\begin{equation*}
+\mathbb{E}[\log(C_{it-k})(u_{it}-u_{it-1})]
+\end{equation*}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\tightlist
+\item
+  Estimate the model parameters using the Arellano \& Bond estimator,
+  tabulate the results and discuss the parameter estimates.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{plm}\SpecialCharTok{::}\NormalTok{pgmm}
+\end{Highlighting}
+\end{Shaded}
+
+function (formula, data, subset, na.action, effect = c(``twoways'',
+``individual''), model = c(``onestep'', ``twosteps''), collapse = FALSE,
+lost.ts = NULL, transformation = c(``d'', ``ld''), fsm = NULL, index =
+NULL, \ldots) \{ cl \textless- match.call(expand.dots = TRUE) effect
+\textless- match.arg(effect) model \textless- match.arg(model)
+transformation \textless- match.arg(transformation) namesV \textless-
+NULL if (inherits(formula, ``dynformula'') \textbar\textbar{}
+length(Formula(formula)){[}2L{]} == 1) \{ if (!inherits(formula,
+``dynformula'')) \{ formula \textless- match.call(expand.dots = TRUE) m
+\textless- match(c(``formula'', ``lag.form'', ``diff.form'',
+``log.form''), names(formula), 0) formula \textless- formula{[}c(1,
+m){]} formula{[}{[}1{]}{]} \textless- as.name(``dynformula'') formula
+\textless-
+cl\(formula <- eval(formula, parent.frame())  }  response.name <- paste(deparse(formula[[2L]]))  main.lags <- attr(formula, "lag")  if (length(main.lags[[1L]]) == 1 && main.lags[[1L]] >  1)  main.lags[[1L]] <- c(1, main.lags[[1L]])  main.lags[2:length(main.lags)] <- lapply(main.lags[2:length(main.lags)],  function(x) {  if (length(x) == 1 && x != 0)  x <- c(0, x)  x  })  main.form <- dynterms2formula(main.lags, response.name)  dots <- list(...)  gmm.inst <- dots\)gmm.inst
+lag.gmm \textless- dots\(lag.gmm  instruments <- dots\)instruments
+gmm.form \textless- dynformula(gmm.inst, lag.form = lag.gmm) gmm.lags
+\textless- attr(gmm.form, ``lag'') gmm.lags \textless- lapply(gmm.lags,
+function(x) min(x):max(x)) gmm.form \textless-
+dynterms2formula(gmm.lags) formula \textless- as.Formula(main.form,
+gmm.form) \} x \textless- formula if (!inherits(x, ``Formula'')) x
+\textless- Formula(formula) gmm.form \textless- formula(x, rhs = 2, lhs
+= 0) gmm.lags \textless- dynterms(gmm.form) cardW \textless-
+length(gmm.lags) if (is.null(names(collapse))) \{ if (length(collapse)
+== 1) \{ collapse \textless- as.vector(rep(collapse, cardW), mode =
+``list'') \} else \{ if (length(collapse) != cardW) stop(``the collapse
+vector has a wrong length'') \} names(collapse) \textless-
+names(gmm.lags) \} else \{ if (any(!(names(collapse) \%in\%
+names(gmm.lags)))) stop(``unknown names in the collapse vector'') else
+\{ bcollapse \textless- as.vector(rep(FALSE, cardW), mode = ``list'')
+names(bcollapse) \textless- names(gmm.lags)
+bcollapse{[}names(collapse){]} \textless- collapse collapse \textless-
+bcollapse \} \} main.form \textless- formula(x, rhs = 1, lhs = 1)
+main.lags \textless- dynterms(main.form) if (length(x){[}2L{]} == 3) \{
+normal.instruments \textless- TRUE inst.form \textless- formula(x, rhs =
+3, lhs = 0) inst.form \textless- update(main.form, inst.form) inst.form
+\textless- formula(Formula(inst.form), lhs = 0) inst.lags \textless-
+dynterms(inst.form) \} else \{ iv \textless-
+names(main.lags){[}!names(main.lags) \%in\% names(gmm.lags){]} inst.lags
+\textless- main.lags{[}iv{]} if (length(inst.lags) \textgreater{} 0) \{
+normal.instruments \textless- TRUE inst.form \textless-
+dynterms2formula(inst.lags) \} else \{ normal.instruments \textless-
+FALSE inst.form \textless- NULL inst.lags \textless- NULL \} \} if
+(!is.null(lost.ts)) \{ if (!is.numeric(lost.ts)) stop(``lost.ts should
+be numeric'') lost.ts \textless- as.numeric(lost.ts) if
+(!(length(lost.ts) \%in\% c(1, 2))) stop(``lost.ts should be of length 1
+or 2'') TL1 \textless- lost.ts{[}1L{]} TL2 \textless-
+ifelse(length(lost.ts) == 1, TL1 - 1, lost.ts{[}2L{]}) \} else \{
+gmm.minlag \textless- min(sapply(gmm.lags, min)) if
+(!is.null(inst.lags)) inst.maxlag \textless- max(sapply(inst.lags, max))
+else inst.maxlag \textless- 0 main.maxlag \textless-
+max(sapply(main.lags, max)) TL1 \textless- max(main.maxlag + 1,
+inst.maxlag + 1, gmm.minlag) TL2 \textless- max(main.maxlag,
+inst.maxlag, gmm.minlag - 1) TL1 \textless- max(main.maxlag + 1,
+gmm.minlag) TL2 \textless- max(main.maxlag, gmm.minlag - 1) \} gmm.form
+\textless- as.formula(paste(``\textasciitilde{}'',
+paste(names(gmm.lags), collapse = ``+''))) if (!is.null(inst.form)) Form
+\textless- as.Formula(main.form, gmm.form, inst.form) else Form
+\textless- as.Formula(main.form, gmm.form) mf \textless-
+match.call(expand.dots = FALSE) m \textless- match(c(``formula'',
+``data'', ``subset'', ``na.action'', ``index''), names(mf), 0) mf
+\textless- mf{[}c(1, m){]}
+mf\(drop.unused.levels <- TRUE  mf[[1L]] <- as.name("plm")  mf\)model
+\textless- NA mf\(formula <- Form  mf\)na.action \textless- ``na.pass''
+mf\(subset <- NULL  data <- eval(mf, parent.frame())  index <- index(data)  N <- length(levels(index[[1L]]))  T <- length(levels(index[[2L]]))  pdim <- pdim(data)  balanced <- pdim\)balanced
+if (!balanced) \{ un.id \textless- sort(unique(index(data, ``id'')))
+un.time \textless- sort(unique(index(data, ``time''))) rownames(data)
+\textless- paste(index(data, ``id''), index(data, ``time''), sep =
+``.'') allRows \textless- as.character(t(outer(un.id, un.time, paste,
+sep = ``.''))) data \textless- data{[}allRows, {]} rownames(data)
+\textless- allRows index \textless- data.frame(id = rep(un.id, each =
+length(un.time)), time = rep(un.time, length(un.id)), row.names =
+rownames(data)) class(index) \textless- c(``pindex'', ``data.frame'')
+attr(data, ``index'') \textless- index \} attr(data, ``formula'')
+\textless- formula(main.form) yX \textless- extract.data(data)
+names.coef \textless- colnames(yX{[}{[}1L{]}{]}){[}-1L{]} if
+(normal.instruments) \{ attr(data, ``formula'') \textless- inst.form Z
+\textless- extract.data(data) \} else Z \textless- NULL attr(data,
+``formula'') \textless- gmm.form W \textless- extract.data(data,
+as.matrix = FALSE) W1 \textless- lapply(W, function(x) \{ u \textless-
+mapply(makegmm, x, gmm.lags, TL1, collapse, SIMPLIFY = FALSE) u
+\textless- matrix(unlist(u), nrow = nrow(u{[}{[}1L{]}{]})) u \}) yX1
+\textless- lapply(yX, function(x) \{ xd \textless- diff(x) xd \textless-
+xd{[}-c(1:(TL1 - 1)), , drop = FALSE{]} xd \}) if (normal.instruments)
+\{ Z1 \textless- lapply(Z, function(x) \{ xd \textless- diff(x) xd
+\textless- xd{[}-c(1:(TL1 - 1)), , drop = FALSE{]} xd \}) \} if
+(transformation == ``ld'') \{ W2 \textless- lapply(W, function(x) \{ u
+\textless- mapply(makeW2, x, collapse, SIMPLIFY = FALSE) nrow.ud
+\textless- ifelse(TL2 == 1, T - 2, T - TL2) u \textless-
+matrix(unlist(u), nrow = nrow.ud) if (TL2 == 1) u \textless- rbind(0, u)
+u \}) yX2 \textless- lapply(yX, function(x) \{ x \textless-
+x{[}-c(0:TL2), , drop = FALSE{]} x \}) if (normal.instruments) \{ Z2
+\textless- lapply(Z, function(x) \{ x \textless- x{[}-c(0:TL2), , drop =
+FALSE{]} x \}) \} \} if (effect == ``twoways'') \{ namesV \textless-
+levels(index(data, which = ``time'')) if (transformation == ``d'') \{ V1
+\textless- td.model.diff \textless- diff(diag(1, T - TL1 + 1)){[}, -1{]}
+namesV \textless- namesV{[}-c(0:(TL1)){]} \} else \{ td \textless-
+cbind(1, rbind(0, diag(1, T - 1))) V2 \textless- td{[}-c(1:TL2), -c(2:(2
++ TL2 - 1)){]} V1 \textless- diff(V2) namesV \textless-
+c(``(intercept)'', namesV{[}-c(0:TL2 + 1){]}) \} for (i in 1:N) \{
+yX1{[}{[}i{]}{]} \textless- cbind(yX1{[}{[}i{]}{]}, V1) if
+(transformation == ``d'') \{ W1{[}{[}i{]}{]} \textless-
+cbind(W1{[}{[}i{]}{]}, V1) \} else \{ W2{[}{[}i{]}{]} \textless-
+cbind(W2{[}{[}i{]}{]}, V2) yX2{[}{[}i{]}{]} \textless-
+cbind(yX2{[}{[}i{]}{]}, V2) \} \} \} if (effect == ``individual'' \&\&
+transformation == ``ld'') \{ namesV \textless- levels(index(data, which
+= ``time'')) namesV \textless- c(``(intercept)'', namesV{[}-c(0:TL2 +
+1){]}) \} for (i in 1:N) \{ narows \textless- apply(yX1{[}{[}i{]}{]}, 1,
+function(z) anyNA(z)) yX1{[}{[}i{]}{]}{[}narows, {]} \textless- 0
+W1{[}{[}i{]}{]}{[}is.na(W1{[}{[}i{]}{]}){]} \textless- 0
+W1{[}{[}i{]}{]}{[}narows, {]} \textless- 0 if (normal.instruments) \{
+Z1{[}{[}i{]}{]}{[}is.na(Z1{[}{[}i{]}{]}){]} \textless- 0
+Z1{[}{[}i{]}{]}{[}narows, {]} \textless- 0 \} if (transformation ==
+``ld'') \{ narows \textless- apply(yX2{[}{[}i{]}{]}, 1, function(z)
+anyNA(z)) yX2{[}{[}i{]}{]}{[}narows, {]} \textless- 0
+W2{[}{[}i{]}{]}{[}is.na(W2{[}{[}i{]}{]}){]} \textless- 0
+W2{[}{[}i{]}{]}{[}narows, {]} \textless- 0 if (normal.instruments) \{
+Z2{[}{[}i{]}{]}{[}is.na(Z2{[}{[}i{]}{]}){]} \textless- 0
+Z2{[}{[}i{]}{]}{[}narows, {]} \textless- 0 \} \} \} if (transformation
+== ``ld'') \{ for (i in 1:N) \{ W1{[}{[}i{]}{]} \textless-
+bdiag(W1{[}{[}i{]}{]}, W2{[}{[}i{]}{]}) yX1{[}{[}i{]}{]} \textless-
+rbind(yX1{[}{[}i{]}{]}, yX2{[}{[}i{]}{]}) if (normal.instruments)
+Z1{[}{[}i{]}{]} \textless- bdiag(Z1{[}{[}i{]}{]}, Z2{[}{[}i{]}{]}) \} \}
+if (normal.instruments) \{ for (i in 1:N) W1{[}{[}i{]}{]} \textless-
+cbind(W1{[}{[}i{]}{]}, Z1{[}{[}i{]}{]}) \} W \textless- W1 yX \textless-
+yX1 if (transformation == ``d'') A1 \textless- tcrossprod(diff(diag(1, T
+- TL1 + 1))) if (transformation == ``ld'') A1 \textless- FSM(T - TL2,
+``full'') WX \textless- mapply(function(x, y) crossprod(x, y), W, yX,
+SIMPLIFY = FALSE) Wy \textless- lapply(WX, function(x) x{[}, 1{]}) WX
+\textless- lapply(WX, function(x) x{[}, -1, drop = FALSE{]}) A1
+\textless- lapply(W, function(x) crossprod(t(crossprod(x, A1)), x)) A1
+\textless- Reduce(``+'', A1) minevA1 \textless-
+min(eigen(A1)\(values)  eps <- 1e-09  if (minevA1 < eps) {  A1 <- ginv(A1) * length(W)  warning("the first-step matrix is singular, a general inverse is used")  }  else A1 <- solve(A1) * length(W)  WX <- Reduce("+", WX)  Wy <- Reduce("+", Wy)  B1 <- solve(crossprod(WX, t(crossprod(WX, A1))))  Y1 <- crossprod(t(crossprod(WX, A1)), Wy)  coefficients <- as.numeric(crossprod(B1, Y1))  if (effect == "twoways")  names.coef <- c(names.coef, namesV)  names(coefficients) <- names.coef  residuals <- lapply(yX, function(x) as.vector(x[, 1] - crossprod(t(x[,  -1, drop = FALSE]), coefficients)))  outresid <- lapply(residuals, function(x) outer(x, x))  A2 <- mapply(function(x, y) crossprod(t(crossprod(x, y)),  x), W, outresid, SIMPLIFY = FALSE)  A2 <- Reduce("+", A2)  minevA2 <- min(eigen(A2)\)values)
+eps \textless- 1e-09 if (minevA2 \textless{} eps) \{ A2 \textless-
+ginv(A2) warning(``the second-step matrix is singular, a general inverse
+is used'') \} else A2 \textless- solve(A2) B2 \textless-
+solve(crossprod(WX, t(crossprod(WX, A2)))) if (model == ``twosteps'') \{
+coef1s \textless- coefficients Y2 \textless- crossprod(t(crossprod(WX,
+A2)), Wy) coefficients \textless- as.numeric(crossprod(B2, Y2))
+names(coefficients) \textless- names.coef vcov \textless- B2 \} else
+vcov \textless- B1 rownames(vcov) \textless- colnames(vcov) \textless-
+names.coef residuals \textless- lapply(yX, function(x) \{ nz \textless-
+rownames(x) z \textless- as.vector(x{[}, 1{]} - crossprod(t(x{[}, -1,
+drop = FALSE{]}), coefficients)) names(z) \textless- nz z \})
+fitted.values \textless- mapply(function(x, y) x{[}, 1{]} - y, yX,
+residuals) if (model == ``twosteps'') coefficients \textless-
+list(coef1s, coefficients) args \textless- list(model = model, effect =
+effect, transformation = transformation, namest = namesV) result
+\textless- list(coefficients = coefficients, residuals = residuals, vcov
+= vcov, fitted.values = fitted.values, model = yX, W = W, A1 = A1, A2 =
+A2, call = cl, args = args) result \textless- structure(result, class =
+c(``pgmm'', ``panelmodel''), pdim = pdim) result \} \textless bytecode:
+0x0000000019945dd0\textgreater{} \textless environment:
+namespace:plm\textgreater{}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Here, we use the \_normal\_ specification as default and not the first difference:}
+\CommentTok{\# The package will transform the data accordingly}
+\NormalTok{arellano\_bond }\OtherTok{\textless{}{-}} \FunctionTok{pgmm}\NormalTok{(}\AttributeTok{data =}\NormalTok{ dataset2,}
+\NormalTok{                          logquantity }\SpecialCharTok{\textasciitilde{}}\NormalTok{ logincome }\SpecialCharTok{+}\NormalTok{ logprice }\SpecialCharTok{+} 
+\NormalTok{                            logillegal }\SpecialCharTok{+} \FunctionTok{lag}\NormalTok{(logquantity, }\DecValTok{1}\NormalTok{)}
+                          \SpecialCharTok{|} \FunctionTok{lag}\NormalTok{(logquantity, }\DecValTok{2}\SpecialCharTok{:}\DecValTok{99}\NormalTok{), }\AttributeTok{transformation =} \StringTok{\textquotesingle{}d\textquotesingle{}}\NormalTok{)}
+
+\FunctionTok{stargazer}\NormalTok{(arellano\_bond, }\AttributeTok{label =} \StringTok{"tab:reg\_ab"}\NormalTok{, }\AttributeTok{header=}\ConstantTok{FALSE}\NormalTok{, }\AttributeTok{model.names =} \ConstantTok{FALSE}\NormalTok{,}
+          \AttributeTok{column.sep.width=}\StringTok{"{-}5pt"}\NormalTok{,}
+          \AttributeTok{column.labels =} \FunctionTok{c}\NormalTok{(}\StringTok{\textquotesingle{}Arellano \& Bond\textquotesingle{}}\NormalTok{),}
+              \AttributeTok{omit.stat =} \FunctionTok{c}\NormalTok{(}\StringTok{"ll"}\NormalTok{, }\StringTok{"ser"}\NormalTok{, }\StringTok{"rsq"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}[!htbp] \centering 
+  \caption{} 
+  \label{tab:reg_ab} 
+\begin{tabular}{@{\extracolsep{-5pt}}lc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{1}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-2} 
+\\[-1.8ex] & logquantity \\ 
+ & Arellano & Bond \\ 
+\hline \\[-1.8ex] 
+ logincome & 0.576$^{**}$ \\ 
+  & (0.248) \\ 
+  & \\ 
+ logprice & $-$0.410$^{**}$ \\ 
+  & (0.190) \\ 
+  & \\ 
+ logillegal & $-$0.041$^{***}$ \\ 
+  & (0.013) \\ 
+  & \\ 
+ lag(logquantity, 1) & 0.828$^{***}$ \\ 
+  & (0.039) \\ 
+  & \\ 
+\hline \\[-1.8ex] 
+Observations & 22 \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{1}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} 
+\end{table}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{5}
+\item
+  What is in your estimate for the short-run and the long-run price
+  elasticity of opium?
+\item
+  Now estimate the model parameters using the system estimator (Blundell
+  \& Bond). Tabulate results, compute the elasticities (as in 6.).
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{plm}\SpecialCharTok{::}\NormalTok{pgmm}
+\end{Highlighting}
+\end{Shaded}
+
+function (formula, data, subset, na.action, effect = c(``twoways'',
+``individual''), model = c(``onestep'', ``twosteps''), collapse = FALSE,
+lost.ts = NULL, transformation = c(``d'', ``ld''), fsm = NULL, index =
+NULL, \ldots) \{ cl \textless- match.call(expand.dots = TRUE) effect
+\textless- match.arg(effect) model \textless- match.arg(model)
+transformation \textless- match.arg(transformation) namesV \textless-
+NULL if (inherits(formula, ``dynformula'') \textbar\textbar{}
+length(Formula(formula)){[}2L{]} == 1) \{ if (!inherits(formula,
+``dynformula'')) \{ formula \textless- match.call(expand.dots = TRUE) m
+\textless- match(c(``formula'', ``lag.form'', ``diff.form'',
+``log.form''), names(formula), 0) formula \textless- formula{[}c(1,
+m){]} formula{[}{[}1{]}{]} \textless- as.name(``dynformula'') formula
+\textless-
+cl\(formula <- eval(formula, parent.frame())  }  response.name <- paste(deparse(formula[[2L]]))  main.lags <- attr(formula, "lag")  if (length(main.lags[[1L]]) == 1 && main.lags[[1L]] >  1)  main.lags[[1L]] <- c(1, main.lags[[1L]])  main.lags[2:length(main.lags)] <- lapply(main.lags[2:length(main.lags)],  function(x) {  if (length(x) == 1 && x != 0)  x <- c(0, x)  x  })  main.form <- dynterms2formula(main.lags, response.name)  dots <- list(...)  gmm.inst <- dots\)gmm.inst
+lag.gmm \textless- dots\(lag.gmm  instruments <- dots\)instruments
+gmm.form \textless- dynformula(gmm.inst, lag.form = lag.gmm) gmm.lags
+\textless- attr(gmm.form, ``lag'') gmm.lags \textless- lapply(gmm.lags,
+function(x) min(x):max(x)) gmm.form \textless-
+dynterms2formula(gmm.lags) formula \textless- as.Formula(main.form,
+gmm.form) \} x \textless- formula if (!inherits(x, ``Formula'')) x
+\textless- Formula(formula) gmm.form \textless- formula(x, rhs = 2, lhs
+= 0) gmm.lags \textless- dynterms(gmm.form) cardW \textless-
+length(gmm.lags) if (is.null(names(collapse))) \{ if (length(collapse)
+== 1) \{ collapse \textless- as.vector(rep(collapse, cardW), mode =
+``list'') \} else \{ if (length(collapse) != cardW) stop(``the collapse
+vector has a wrong length'') \} names(collapse) \textless-
+names(gmm.lags) \} else \{ if (any(!(names(collapse) \%in\%
+names(gmm.lags)))) stop(``unknown names in the collapse vector'') else
+\{ bcollapse \textless- as.vector(rep(FALSE, cardW), mode = ``list'')
+names(bcollapse) \textless- names(gmm.lags)
+bcollapse{[}names(collapse){]} \textless- collapse collapse \textless-
+bcollapse \} \} main.form \textless- formula(x, rhs = 1, lhs = 1)
+main.lags \textless- dynterms(main.form) if (length(x){[}2L{]} == 3) \{
+normal.instruments \textless- TRUE inst.form \textless- formula(x, rhs =
+3, lhs = 0) inst.form \textless- update(main.form, inst.form) inst.form
+\textless- formula(Formula(inst.form), lhs = 0) inst.lags \textless-
+dynterms(inst.form) \} else \{ iv \textless-
+names(main.lags){[}!names(main.lags) \%in\% names(gmm.lags){]} inst.lags
+\textless- main.lags{[}iv{]} if (length(inst.lags) \textgreater{} 0) \{
+normal.instruments \textless- TRUE inst.form \textless-
+dynterms2formula(inst.lags) \} else \{ normal.instruments \textless-
+FALSE inst.form \textless- NULL inst.lags \textless- NULL \} \} if
+(!is.null(lost.ts)) \{ if (!is.numeric(lost.ts)) stop(``lost.ts should
+be numeric'') lost.ts \textless- as.numeric(lost.ts) if
+(!(length(lost.ts) \%in\% c(1, 2))) stop(``lost.ts should be of length 1
+or 2'') TL1 \textless- lost.ts{[}1L{]} TL2 \textless-
+ifelse(length(lost.ts) == 1, TL1 - 1, lost.ts{[}2L{]}) \} else \{
+gmm.minlag \textless- min(sapply(gmm.lags, min)) if
+(!is.null(inst.lags)) inst.maxlag \textless- max(sapply(inst.lags, max))
+else inst.maxlag \textless- 0 main.maxlag \textless-
+max(sapply(main.lags, max)) TL1 \textless- max(main.maxlag + 1,
+inst.maxlag + 1, gmm.minlag) TL2 \textless- max(main.maxlag,
+inst.maxlag, gmm.minlag - 1) TL1 \textless- max(main.maxlag + 1,
+gmm.minlag) TL2 \textless- max(main.maxlag, gmm.minlag - 1) \} gmm.form
+\textless- as.formula(paste(``\textasciitilde{}'',
+paste(names(gmm.lags), collapse = ``+''))) if (!is.null(inst.form)) Form
+\textless- as.Formula(main.form, gmm.form, inst.form) else Form
+\textless- as.Formula(main.form, gmm.form) mf \textless-
+match.call(expand.dots = FALSE) m \textless- match(c(``formula'',
+``data'', ``subset'', ``na.action'', ``index''), names(mf), 0) mf
+\textless- mf{[}c(1, m){]}
+mf\(drop.unused.levels <- TRUE  mf[[1L]] <- as.name("plm")  mf\)model
+\textless- NA mf\(formula <- Form  mf\)na.action \textless- ``na.pass''
+mf\(subset <- NULL  data <- eval(mf, parent.frame())  index <- index(data)  N <- length(levels(index[[1L]]))  T <- length(levels(index[[2L]]))  pdim <- pdim(data)  balanced <- pdim\)balanced
+if (!balanced) \{ un.id \textless- sort(unique(index(data, ``id'')))
+un.time \textless- sort(unique(index(data, ``time''))) rownames(data)
+\textless- paste(index(data, ``id''), index(data, ``time''), sep =
+``.'') allRows \textless- as.character(t(outer(un.id, un.time, paste,
+sep = ``.''))) data \textless- data{[}allRows, {]} rownames(data)
+\textless- allRows index \textless- data.frame(id = rep(un.id, each =
+length(un.time)), time = rep(un.time, length(un.id)), row.names =
+rownames(data)) class(index) \textless- c(``pindex'', ``data.frame'')
+attr(data, ``index'') \textless- index \} attr(data, ``formula'')
+\textless- formula(main.form) yX \textless- extract.data(data)
+names.coef \textless- colnames(yX{[}{[}1L{]}{]}){[}-1L{]} if
+(normal.instruments) \{ attr(data, ``formula'') \textless- inst.form Z
+\textless- extract.data(data) \} else Z \textless- NULL attr(data,
+``formula'') \textless- gmm.form W \textless- extract.data(data,
+as.matrix = FALSE) W1 \textless- lapply(W, function(x) \{ u \textless-
+mapply(makegmm, x, gmm.lags, TL1, collapse, SIMPLIFY = FALSE) u
+\textless- matrix(unlist(u), nrow = nrow(u{[}{[}1L{]}{]})) u \}) yX1
+\textless- lapply(yX, function(x) \{ xd \textless- diff(x) xd \textless-
+xd{[}-c(1:(TL1 - 1)), , drop = FALSE{]} xd \}) if (normal.instruments)
+\{ Z1 \textless- lapply(Z, function(x) \{ xd \textless- diff(x) xd
+\textless- xd{[}-c(1:(TL1 - 1)), , drop = FALSE{]} xd \}) \} if
+(transformation == ``ld'') \{ W2 \textless- lapply(W, function(x) \{ u
+\textless- mapply(makeW2, x, collapse, SIMPLIFY = FALSE) nrow.ud
+\textless- ifelse(TL2 == 1, T - 2, T - TL2) u \textless-
+matrix(unlist(u), nrow = nrow.ud) if (TL2 == 1) u \textless- rbind(0, u)
+u \}) yX2 \textless- lapply(yX, function(x) \{ x \textless-
+x{[}-c(0:TL2), , drop = FALSE{]} x \}) if (normal.instruments) \{ Z2
+\textless- lapply(Z, function(x) \{ x \textless- x{[}-c(0:TL2), , drop =
+FALSE{]} x \}) \} \} if (effect == ``twoways'') \{ namesV \textless-
+levels(index(data, which = ``time'')) if (transformation == ``d'') \{ V1
+\textless- td.model.diff \textless- diff(diag(1, T - TL1 + 1)){[}, -1{]}
+namesV \textless- namesV{[}-c(0:(TL1)){]} \} else \{ td \textless-
+cbind(1, rbind(0, diag(1, T - 1))) V2 \textless- td{[}-c(1:TL2), -c(2:(2
++ TL2 - 1)){]} V1 \textless- diff(V2) namesV \textless-
+c(``(intercept)'', namesV{[}-c(0:TL2 + 1){]}) \} for (i in 1:N) \{
+yX1{[}{[}i{]}{]} \textless- cbind(yX1{[}{[}i{]}{]}, V1) if
+(transformation == ``d'') \{ W1{[}{[}i{]}{]} \textless-
+cbind(W1{[}{[}i{]}{]}, V1) \} else \{ W2{[}{[}i{]}{]} \textless-
+cbind(W2{[}{[}i{]}{]}, V2) yX2{[}{[}i{]}{]} \textless-
+cbind(yX2{[}{[}i{]}{]}, V2) \} \} \} if (effect == ``individual'' \&\&
+transformation == ``ld'') \{ namesV \textless- levels(index(data, which
+= ``time'')) namesV \textless- c(``(intercept)'', namesV{[}-c(0:TL2 +
+1){]}) \} for (i in 1:N) \{ narows \textless- apply(yX1{[}{[}i{]}{]}, 1,
+function(z) anyNA(z)) yX1{[}{[}i{]}{]}{[}narows, {]} \textless- 0
+W1{[}{[}i{]}{]}{[}is.na(W1{[}{[}i{]}{]}){]} \textless- 0
+W1{[}{[}i{]}{]}{[}narows, {]} \textless- 0 if (normal.instruments) \{
+Z1{[}{[}i{]}{]}{[}is.na(Z1{[}{[}i{]}{]}){]} \textless- 0
+Z1{[}{[}i{]}{]}{[}narows, {]} \textless- 0 \} if (transformation ==
+``ld'') \{ narows \textless- apply(yX2{[}{[}i{]}{]}, 1, function(z)
+anyNA(z)) yX2{[}{[}i{]}{]}{[}narows, {]} \textless- 0
+W2{[}{[}i{]}{]}{[}is.na(W2{[}{[}i{]}{]}){]} \textless- 0
+W2{[}{[}i{]}{]}{[}narows, {]} \textless- 0 if (normal.instruments) \{
+Z2{[}{[}i{]}{]}{[}is.na(Z2{[}{[}i{]}{]}){]} \textless- 0
+Z2{[}{[}i{]}{]}{[}narows, {]} \textless- 0 \} \} \} if (transformation
+== ``ld'') \{ for (i in 1:N) \{ W1{[}{[}i{]}{]} \textless-
+bdiag(W1{[}{[}i{]}{]}, W2{[}{[}i{]}{]}) yX1{[}{[}i{]}{]} \textless-
+rbind(yX1{[}{[}i{]}{]}, yX2{[}{[}i{]}{]}) if (normal.instruments)
+Z1{[}{[}i{]}{]} \textless- bdiag(Z1{[}{[}i{]}{]}, Z2{[}{[}i{]}{]}) \} \}
+if (normal.instruments) \{ for (i in 1:N) W1{[}{[}i{]}{]} \textless-
+cbind(W1{[}{[}i{]}{]}, Z1{[}{[}i{]}{]}) \} W \textless- W1 yX \textless-
+yX1 if (transformation == ``d'') A1 \textless- tcrossprod(diff(diag(1, T
+- TL1 + 1))) if (transformation == ``ld'') A1 \textless- FSM(T - TL2,
+``full'') WX \textless- mapply(function(x, y) crossprod(x, y), W, yX,
+SIMPLIFY = FALSE) Wy \textless- lapply(WX, function(x) x{[}, 1{]}) WX
+\textless- lapply(WX, function(x) x{[}, -1, drop = FALSE{]}) A1
+\textless- lapply(W, function(x) crossprod(t(crossprod(x, A1)), x)) A1
+\textless- Reduce(``+'', A1) minevA1 \textless-
+min(eigen(A1)\(values)  eps <- 1e-09  if (minevA1 < eps) {  A1 <- ginv(A1) * length(W)  warning("the first-step matrix is singular, a general inverse is used")  }  else A1 <- solve(A1) * length(W)  WX <- Reduce("+", WX)  Wy <- Reduce("+", Wy)  B1 <- solve(crossprod(WX, t(crossprod(WX, A1))))  Y1 <- crossprod(t(crossprod(WX, A1)), Wy)  coefficients <- as.numeric(crossprod(B1, Y1))  if (effect == "twoways")  names.coef <- c(names.coef, namesV)  names(coefficients) <- names.coef  residuals <- lapply(yX, function(x) as.vector(x[, 1] - crossprod(t(x[,  -1, drop = FALSE]), coefficients)))  outresid <- lapply(residuals, function(x) outer(x, x))  A2 <- mapply(function(x, y) crossprod(t(crossprod(x, y)),  x), W, outresid, SIMPLIFY = FALSE)  A2 <- Reduce("+", A2)  minevA2 <- min(eigen(A2)\)values)
+eps \textless- 1e-09 if (minevA2 \textless{} eps) \{ A2 \textless-
+ginv(A2) warning(``the second-step matrix is singular, a general inverse
+is used'') \} else A2 \textless- solve(A2) B2 \textless-
+solve(crossprod(WX, t(crossprod(WX, A2)))) if (model == ``twosteps'') \{
+coef1s \textless- coefficients Y2 \textless- crossprod(t(crossprod(WX,
+A2)), Wy) coefficients \textless- as.numeric(crossprod(B2, Y2))
+names(coefficients) \textless- names.coef vcov \textless- B2 \} else
+vcov \textless- B1 rownames(vcov) \textless- colnames(vcov) \textless-
+names.coef residuals \textless- lapply(yX, function(x) \{ nz \textless-
+rownames(x) z \textless- as.vector(x{[}, 1{]} - crossprod(t(x{[}, -1,
+drop = FALSE{]}), coefficients)) names(z) \textless- nz z \})
+fitted.values \textless- mapply(function(x, y) x{[}, 1{]} - y, yX,
+residuals) if (model == ``twosteps'') coefficients \textless-
+list(coef1s, coefficients) args \textless- list(model = model, effect =
+effect, transformation = transformation, namest = namesV) result
+\textless- list(coefficients = coefficients, residuals = residuals, vcov
+= vcov, fitted.values = fitted.values, model = yX, W = W, A1 = A1, A2 =
+A2, call = cl, args = args) result \textless- structure(result, class =
+c(``pgmm'', ``panelmodel''), pdim = pdim) result \} \textless bytecode:
+0x0000000019945dd0\textgreater{} \textless environment:
+namespace:plm\textgreater{}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{blundell\_bond }\OtherTok{\textless{}{-}} \FunctionTok{pgmm}\NormalTok{(}\AttributeTok{data =}\NormalTok{ dataset2,}
+\NormalTok{                          logquantity }\SpecialCharTok{\textasciitilde{}}\NormalTok{ logincome }\SpecialCharTok{+}\NormalTok{ logprice }\SpecialCharTok{+} 
+\NormalTok{                            logillegal }\SpecialCharTok{+} \FunctionTok{lag}\NormalTok{(logquantity, }\DecValTok{1}\NormalTok{) }\SpecialCharTok{|} 
+                            \FunctionTok{lag}\NormalTok{(logquantity, }\DecValTok{2}\SpecialCharTok{:}\DecValTok{99}\NormalTok{) }\SpecialCharTok{+} \FunctionTok{lag}\NormalTok{(l1\_logquantity, }\DecValTok{2}\SpecialCharTok{:}\DecValTok{99}\NormalTok{))}
+
+\FunctionTok{stargazer}\NormalTok{(blundell\_bond, }\AttributeTok{label =} \StringTok{"tab:reg\_bb"}\NormalTok{, }\AttributeTok{header=}\ConstantTok{FALSE}\NormalTok{, }\AttributeTok{model.names =} \ConstantTok{FALSE}\NormalTok{,}
+          \AttributeTok{column.sep.width=}\StringTok{"{-}5pt"}\NormalTok{,}
+          \AttributeTok{column.labels =} \FunctionTok{c}\NormalTok{(}\StringTok{\textquotesingle{}Blundell \& Bond\textquotesingle{}}\NormalTok{),}
+              \AttributeTok{omit.stat =} \FunctionTok{c}\NormalTok{(}\StringTok{"ll"}\NormalTok{, }\StringTok{"ser"}\NormalTok{, }\StringTok{"rsq"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}[!htbp] \centering 
+  \caption{} 
+  \label{tab:reg_bb} 
+\begin{tabular}{@{\extracolsep{-5pt}}lc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{1}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-2} 
+\\[-1.8ex] & logquantity \\ 
+ & Blundell & Bond \\ 
+\hline \\[-1.8ex] 
+ logincome & 0.677$^{***}$ \\ 
+  & (0.235) \\ 
+  & \\ 
+ logprice & $-$0.434$^{**}$ \\ 
+  & (0.174) \\ 
+  & \\ 
+ logillegal & $-$0.047$^{***}$ \\ 
+  & (0.014) \\ 
+  & \\ 
+ lag(logquantity, 1) & 0.781$^{***}$ \\ 
+  & (0.030) \\ 
+  & \\ 
+\hline \\[-1.8ex] 
+Observations & 22 \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{1}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} 
+\end{table}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{7}
+\tightlist
+\item
+  Which parameter estimates do you prefer? Explain why. Are there
+  remaining problems with your preferred estimates?
+\end{enumerate}
+
+\end{document}

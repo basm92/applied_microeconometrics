@@ -123,11 +123,10 @@ In general the Arellano & Bond GMM estimator aims to use lagged values of endoge
 
 5. Estimate the model parameters using the Arellano & Bond estimator, tabulate the results and discuss the parameter estimates.
 
-```{r warning=FALSE}
-
+```{r results='asis', warning=FALSE}
 # Here, we use the _normal_ specification as default and not the first difference:
 # The package will transform the data accordingly
-arellano_bond <- plm::pgmm(data = dataset2,
+arellano_bond <- pgmm(data = dataset2,
                           logquantity ~ logincome + logprice + 
                             logillegal + lag(logquantity, 1)
                           | lag(logquantity, 2:99), transformation = 'd')
@@ -142,12 +141,16 @@ stargazer(arellano_bond, label = "tab:reg_ab", header=FALSE, model.names = FALSE
 
 7. Now estimate the model parameters using the system estimator (Blundell & Bond). Tabulate results, compute the elasticities (as in 6.).
 
-```{r warning = FALSE}
-blundell_bond <- plm::pgmm(data = dataset2,
+```{r results='asis', warning = FALSE}
+blundell_bond <- pgmm(data = dataset2,
                           logquantity ~ logincome + logprice + 
                             logillegal + lag(logquantity, 1) | 
                             lag(logquantity, 2:99) + lag(l1_logquantity, 2:99))
 
+stargazer(blundell_bond, label = "tab:reg_bb", header=FALSE, model.names = FALSE,
+          column.sep.width="-5pt",
+          column.labels = c('Blundell & Bond'),
+              omit.stat = c("ll", "ser", "rsq"))
 ```
 
 8. Which parameter estimates do you prefer? Explain why. Are there remaining problems with your preferred estimates?
