@@ -109,11 +109,12 @@ stargazer(first_stage_reg, anderson_hsiao, manual_2sls,
               omit.stat = c("ll", "ser", "rsq"))
 ```
 
-The table is displayed below. The estimates from models (2) and (3) in tabel \ref{tab:reg} are the same. Only the variance of the 2SLS-estimator is off. Nevertheless, the results show a point estimate that is comparable in magnitude, and both of the point estimates are significantly different from zero. The interpretation is [about elasticities, expand later]. 
+The table is displayed below. The estimates from models (2) and (3) in tabel \ref{tab:reg} are the same. Only the variance of the 2SLS-estimator is off. Nevertheless, the results show a point estimate that is comparable in magnitude, and both of the point estimates are significantly different from zero. The assumptions underlying the approach are (i) no autocorrelation in the error terms, implying that the autoregressive order is correctly specified, and (ii) weak exogeneity, implying that contemporaneous error terms are unrelated to past values. Thirdly, and a less strict assumption is instrument relevance: the lagged level-endogenous variable should be a relevant instrument, meaning with sufficient power to predict the (contemporaneous) first-differences $Y_{it} - Y_{it-1}$. The interpretation is [about elasticities, expand later]. 
 
 <!---
 Walter: misschien moeten we SEs clusteren per groep?
 -->
+\clearpage
 
 4. Describe the Arellano & Bond GMM estimator for this model.
 
@@ -122,6 +123,8 @@ In general the Arellano & Bond GMM estimator aims to use lagged values of endoge
 \begin{equation*}
 \mathbb{E}[\log(C_{it-k})(u_{it}-u_{it-1})]
 \end{equation*}
+
+When there are more moment conditions than identifiable parameters, the A&B estimator has to deal with a overidentification. It does so by employing a weighing matrix of the moment conditions. The ideal weighing matrix minimizes the variance, and is usually obtained by generating a sensible estimate (a first-stage estimate with homoskedastic errors implies a Toeplitz-band structure with 2 on the diagonals, 1 on the off-diagonals), which is then used to estimate the parameters, which are then used to derive new estimates and a new matrix. This two-step procedure should lead to efficient standard errors. 
 
 5. Estimate the model parameters using the Arellano & Bond estimator, tabulate the results and discuss the parameter estimates.
 
@@ -142,9 +145,8 @@ arellano_bond2 <- pgmm(data = dataset2,
 
 6. What is in your estimate for the short-run and the long-run price elasticity of opium?
 
-<!---
-Walter: short run lees uit tabel. Long run: ik denk iets van een ADL achtige berekening? Nog geen tijd gehad om dit op te schrijven :)
--->
+Because the regression equation is in logs, the short-term price elasticity is simply the coefficient belonging to $\log \text{Price}$, which is `r arellano_bond$coefficients[2]`, meaning that a price increase of 1% means a consumption decrease of 0.42%, which is not small. The long-run price elasticity can be found by calculating the long-run multiplier of that coefficient: $LRM = \frac{\beta_{\text{log(Price)}}}{1 - \beta_{\text{log(Consumption)}_{it-1}}}$. Concretely, this means that the long-run multiplier in the model using the Arellano-Bond estimator is `r arellano_bond$coefficients[2]/(1-arellano_bond$coefficients[4])`. 
+
 
 7. Now estimate the model parameters using the system estimator (Blundell & Bond). Tabulate results, compute the elasticities (as in 6.).
 
@@ -161,17 +163,24 @@ blundell_bond2 <- pgmm(data = dataset2,
                             lag(logquantity, 2:5) + lag(l1_logquantity, 2:5), transformation = 'ld', 
                             effect = 'individual')
 
+no_obs <- list(arellano_bond, arellano_bond2, blundell_bond, blundell_bond2) %>%
+  map(~ summary(.x)) %>%
+  map_dbl(~ .x$fitted.values %>%
+        length())
+  
 stargazer(arellano_bond, arellano_bond2, blundell_bond, blundell_bond2,
           label = "tab:reg_bb", header=FALSE, model.names = FALSE,
           column.sep.width="-5pt",
+          add.lines=list(c("Observations", no_obs)),
+           omit.stat = c("ll", "ser", "n"),
           column.labels = c("Arellano-Bond", "Arellano-Bond", "Blundell-Bond", "Blundell-Bond"))
 ```
 
 8. Which parameter estimates do you prefer? Explain why. Are there remaining problems with your preferred estimates?
 
 ```{r results='asis', warning = FALSE}
-sargan(arellano_bond)
-sargan(blundell_bond)
+ab_sargantest <- sargan(arellano_bond)
+bb_sargantest <- sargan(blundell_bond)
 ```
 
-Conducting the Sargan test on both models, we observe that for both models the null hypothesis is not rejected. This means that for both models we find no evidence to conclude that the models are misspecified.
+Conducting the Sargan test on both models, we observe that for both models the null hypothesis is not rejected (for the Arellano-Bond model, we have a statistic of `r ab_sargantest$statistic` and a p-value of `r ab_sargantest$p.value`, and for the Blundell-Bond estimator, we have a statistic of `r bb_sargantest$statistic` and a p-value of `r bb_sargantest$p.value` This means that for both models we find no evidence to conclude that the models are misspecified.
