@@ -109,7 +109,13 @@ stargazer(first_stage_reg, anderson_hsiao, manual_2sls,
 
 The table is displayed below. The estimates from models (2) and (3) in tabel \ref{tab:reg} are the same. Only the variance of the 2SLS-estimator is off. 
 
+<!---
+Walter: misschien moeten we SEs clusteren per groep?
+-->
+
 4. Describe the Arellano & Bond GMM estimator for this model.
+
+
 
 5. Estimate the model parameters using the Arellano & Bond estimator, tabulate the results and discuss the parameter estimates.
 
