@@ -109,7 +109,7 @@ stargazer(first_stage_reg, anderson_hsiao, manual_2sls,
               omit.stat = c("ll", "ser", "rsq"))
 ```
 
-The table is displayed below. The estimates from models (2) and (3) in tabel \ref{tab:reg} are the same. Only the variance of the 2SLS-estimator is off. 
+The table is displayed below. The estimates from models (2) and (3) in tabel \ref{tab:reg} are the same. Only the variance of the 2SLS-estimator is off. Nevertheless, the results show a point estimate that is comparable in magnitude, and both of the point estimates are significantly different from zero. The interpretation is [about elasticities, expand later]. 
 
 <!---
 Walter: misschien moeten we SEs clusteren per groep?
@@ -125,7 +125,7 @@ In general the Arellano & Bond GMM estimator aims to use lagged values of endoge
 
 5. Estimate the model parameters using the Arellano & Bond estimator, tabulate the results and discuss the parameter estimates.
 
-```{r results='asis', warning=FALSE}
+```{r, warning=FALSE}
 # Here, we use the _normal_ specification as default and not the first difference:
 # The package will transform the data accordingly
 arellano_bond <- pgmm(data = dataset2,
@@ -133,12 +133,15 @@ arellano_bond <- pgmm(data = dataset2,
                             logillegal + lag(logquantity, 1) + as.numeric(year)
                           | lag(logquantity, 2:99), transformation = 'd', effect = 'individual')
 
-stargazer(arellano_bond, label = "tab:reg_ab", header=FALSE, model.names = FALSE,
-          column.sep.width="-5pt",
-          column.labels = c('Arellano-Bond'))
+arellano_bond2 <- pgmm(data = dataset2,
+                          logquantity ~ logincome + logprice + 
+                            logillegal + lag(logquantity, 1) + as.numeric(year)
+                          | lag(logquantity, 2:5), transformation = 'd', effect = 'individual')
+
 ```
 
 6. What is in your estimate for the short-run and the long-run price elasticity of opium?
+
 <!---
 Walter: short run lees uit tabel. Long run: ik denk iets van een ADL achtige berekening? Nog geen tijd gehad om dit op te schrijven :)
 -->
@@ -152,14 +155,23 @@ blundell_bond <- pgmm(data = dataset2,
                             lag(logquantity, 2:99) + lag(l1_logquantity, 2:99), transformation = 'ld', 
                             effect = 'individual')
 
-stargazer(blundell_bond, label = "tab:reg_bb", header=FALSE, model.names = FALSE,
+blundell_bond2 <- pgmm(data = dataset2,
+                          logquantity ~ logincome + logprice + 
+                            logillegal + lag(logquantity, 1) + as.numeric(year)| 
+                            lag(logquantity, 2:5) + lag(l1_logquantity, 2:5), transformation = 'ld', 
+                            effect = 'individual')
+
+stargazer(arellano_bond, arellano_bond2, blundell_bond, blundell_bond2,
+          label = "tab:reg_bb", header=FALSE, model.names = FALSE,
           column.sep.width="-5pt",
-          column.labels = c('Blundell-Bond'))
+          column.labels = c("Arellano-Bond", "Arellano-Bond", "Blundell-Bond", "Blundell-Bond"))
 ```
 
 8. Which parameter estimates do you prefer? Explain why. Are there remaining problems with your preferred estimates?
+
 ```{r results='asis', warning = FALSE}
 sargan(arellano_bond)
 sargan(blundell_bond)
 ```
+
 Conducting the Sargan test on both models, we observe that for both models the null hypothesis is not rejected. This means that for both models we find no evidence to conclude that the models are misspecified.
