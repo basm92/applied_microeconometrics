@@ -118,7 +118,9 @@ The table is displayed below. The estimates from models (2) and (3) in tabel \re
 # Here, we use the _normal_ specification as default and not the first difference:
 # The package will transform the data accordingly
 arellano_bond <- plm::pgmm(data = dataset2,
-                          logquantity ~ logincome + logprice + logillegal + lag(logquantity, 1) | lag(logquantity, 2:99))
+                          logquantity ~ logincome + logprice + 
+                            logillegal + lag(logquantity, 1)
+                          | lag(logquantity, 2:99))
 ```
 
 6. What is in your estimate for the short-run and the long-run price elasticity of opium?
@@ -127,7 +129,9 @@ arellano_bond <- plm::pgmm(data = dataset2,
 
 ```{r warning = FALSE}
 blundell_bond <- plm::pgmm(data = dataset2,
-                          logquantity ~ logincome + logprice + logillegal + lag(logquantity, 1) | lag(logquantity, 2:99) + lag(l1_logquantity, 2:99))
+                          logquantity ~ logincome + logprice + 
+                            logillegal + lag(logquantity, 1) | 
+                            lag(logquantity, 2:99) + lag(l1_logquantity, 2:99))
 
 ```
 
