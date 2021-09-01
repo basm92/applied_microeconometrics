@@ -22,31 +22,37 @@ The first difference specification is:
 
 \begin{align*}
 (\log C_{it} - \log C_{it-1}) = \beta_1 \cdot (\log p_{it} - \log p_{it-1}) + \beta_2 \cdot (\log inc_{it} - \log inc_{it-1}) + \\
-\beta_3 \cdot (\log ilop_{it} - \log ilop_{it-1}) + \beta_4 \cdot (\log C_{it-1} - \log C_{it-2}) + u_{it} - u_{it-1}
+\beta_3 \cdot (\log ilop_{it} - \log ilop_{it-1}) + \beta_4 + \beta_5 \cdot (\log C_{it-1} - \log C_{it-2}) + u_{it} - u_{it-1}
 \end{align*}
 
-First difference estimation is just OLS estimation with transformed data. For the OLS estimator (in general) to be consistent, we need $\text{Cov}(X, U)=0$. In the context of our transformed data, we need $\text{Cov}(\Delta X, \Delta U)=0$. One of the variables in $\Delta X$ is $\Delta Y_{it-1}$. If we evaluate the covariance between $\Delta Y_{it-1}$ and $\Delta U_{it}$, we find that:
+First difference estimation is just OLS estimation with transformed data. For the OLS estimator (in general) to be consistent and unbiased, we need $\text{Cov}(X, U)=0$, where $X$ is the matrix containing all regressors. In the context of our transformed data, we need $\text{Cov}(\Delta X, \Delta U)=0$. One of the variables in $\Delta X$ is $\Delta \log C_{it-1}$. If we evaluate the covariance between $\Delta \log C_{it-1}$ and $\Delta U_{it}$, we find that:
 
 \begin{align*}
-&\text{Cov}(\Delta Y_{it-1}, \Delta U_{it}) = \\
-&\text{Cov}(\beta \Delta X_{it-1} + \rho \Delta Y_{it-2} + \Delta U_{it-1}, \Delta U_{it}) = \\
+&\text{Cov}(\Delta \log C_{it-1}, \Delta U_{it}) = \\
+&\text{Cov}(\beta \Delta X_{it-1} + \beta_5 \Delta \log C_{it-2} + \Delta u_{it-1}, \Delta u_{it}) = \\
 &\text{Cov}(\Delta U_{it-1}, \Delta U_{it}) \neq 0
 \end{align*}
 
+Since we observe that the exogeneity assumption is violated, we can conclude that first differencing the equation does not solve the endogeneity problem of lagged consumption.
+
 2. Anderson & Hsiao propose a specific instrumental variable procedure for the model. Write down and perform the associated first stage regression. Comment on its outcomes.
 
-We have to keep in mind that the first-stage regression contains all the exogenous regressors $\mathbb{X}$ from the second stage regression, plus the instrument, $C_{it-2}$. Hence, the first-stage model is: 
+We have to keep in mind that the first-stage regression contains all the exogenous regressors $X$ from the second stage regression, plus the instrument, $C_{it-2}$. Hence, the first-stage model is: 
 
 \begin{align*}
 \widehat{\log C_{it-1} - \log C_{it-2}} = \beta_1 \cdot (\log p_{it} - \log p_{it-1}) + \beta_2 \cdot (\log inc_{it} - \log inc_{it-1}) + \\
-\beta_3 \cdot (\log ilop_{it} - \log ilop_{it-1}) + \beta_4 \cdot (\log C_{it-2}) + u_{it-1} - u_{it-2}
+\beta_3 \cdot (\log ilop_{it} - \log ilop_{it-1}) + \beta_4 + \beta_5 \cdot (\log C_{it-2}) + u_{it-1} - u_{it-2}
 \end{align*}
 
 And the predicted values are to be used as follows in the second-stage regression:
 
+<!---
+Walter: moet het niet \log C_it-1 - \log C_it-2 zijn ipv zonder log?
+-->
+
 \begin{align*}
 (\log C_{it} - \log C_{it-1}) = \beta_1 \cdot (\log p_{it} - \log p_{it-1}) + \beta_2 \cdot (\log inc_{it} - \log inc_{it-1}) + \\
-\beta_3 \cdot (\log ilop_{it} - \log ilop_{it-1}) + \beta_4 \cdot \widehat{(C_{it-1} - C_{it-2})} + u_{it} - u_{it-1}
+\beta_3 \cdot (\log ilop_{it} - \log ilop_{it-1}) + \beta_4 + \beta_5 \cdot \widehat{(C_{it-1} - C_{it-2})} + u_{it} - u_{it-1}
 \end{align*}
 
 Using the data, we find the following first-stage regression (table \ref{tab:reg}):
@@ -77,9 +83,9 @@ Whereas the F-statistic is acceptable (higher than 10), it is not _much_ higher 
 dataset2 <- plm::pdata.frame(dataset, c("region", "year"))
 
 anderson_hsiao <- plm(l1_logquantity ~ l1_logprice + l1_logincome + 
-                          l1_logillegal + l2_logquantity -1 | 
+                          l1_logillegal + l2_logquantity | 
                           l1_logprice + l1_logincome + l1_logillegal + 
-                          level_quantity -1,
+                          level_quantity,
                       data=dataset2,
                       model="pooling"
           )
@@ -89,7 +95,7 @@ dataset <- modelr::add_predictions(dataset, first_stage_reg) %>%
        rename("c_instrumented"=pred) 
 
 manual_2sls <- lm(data=dataset, 
-   formula = l1_logquantity ~ l1_logprice + l1_logincome + l1_logillegal + c_instrumented - 1) 
+   formula = l1_logquantity ~ l1_logprice + l1_logincome + l1_logillegal + c_instrumented) 
 
 stargazer(first_stage_reg, anderson_hsiao, manual_2sls, 
           label = "tab:reg", header=FALSE, model.names = FALSE,
