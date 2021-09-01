@@ -115,7 +115,11 @@ Walter: misschien moeten we SEs clusteren per groep?
 
 4. Describe the Arellano & Bond GMM estimator for this model.
 
+In general the Arellano & Bond GMM estimator aims to use lagged values of endogenous regressors as an instrument. All possible moment conditions are for $t=2,\dots,T$ and $k=2,\dots,t$, applied to the current model given by:
 
+\begin{equation*}
+\mathbb{E}[\log(C_{it-k})(u_{it}-u_{it-1})]
+\end{equation*}
 
 5. Estimate the model parameters using the Arellano & Bond estimator, tabulate the results and discuss the parameter estimates.
 
@@ -126,7 +130,12 @@ Walter: misschien moeten we SEs clusteren per groep?
 arellano_bond <- plm::pgmm(data = dataset2,
                           logquantity ~ logincome + logprice + 
                             logillegal + lag(logquantity, 1)
-                          | lag(logquantity, 2:99))
+                          | lag(logquantity, 2:99), transformation = 'd')
+
+stargazer(arellano_bond, label = "tab:reg_ab", header=FALSE, model.names = FALSE,
+          column.sep.width="-5pt",
+          column.labels = c('Arellano & Bond'),
+              omit.stat = c("ll", "ser", "rsq"))
 ```
 
 6. What is in your estimate for the short-run and the long-run price elasticity of opium?
