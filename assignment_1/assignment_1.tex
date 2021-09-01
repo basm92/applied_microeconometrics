@@ -324,13 +324,12 @@ current model given by:
 \CommentTok{\# The package will transform the data accordingly}
 \NormalTok{arellano\_bond }\OtherTok{\textless{}{-}} \FunctionTok{pgmm}\NormalTok{(}\AttributeTok{data =}\NormalTok{ dataset2,}
 \NormalTok{                          logquantity }\SpecialCharTok{\textasciitilde{}}\NormalTok{ logincome }\SpecialCharTok{+}\NormalTok{ logprice }\SpecialCharTok{+} 
-\NormalTok{                            logillegal }\SpecialCharTok{+} \FunctionTok{lag}\NormalTok{(logquantity, }\DecValTok{1}\NormalTok{)}
-                          \SpecialCharTok{|} \FunctionTok{lag}\NormalTok{(logquantity, }\DecValTok{2}\SpecialCharTok{:}\DecValTok{99}\NormalTok{), }\AttributeTok{transformation =} \StringTok{\textquotesingle{}d\textquotesingle{}}\NormalTok{)}
+\NormalTok{                            logillegal }\SpecialCharTok{+} \FunctionTok{lag}\NormalTok{(logquantity, }\DecValTok{1}\NormalTok{) }\SpecialCharTok{+} \FunctionTok{as.numeric}\NormalTok{(year)}
+                          \SpecialCharTok{|} \FunctionTok{lag}\NormalTok{(logquantity, }\DecValTok{2}\SpecialCharTok{:}\DecValTok{99}\NormalTok{), }\AttributeTok{transformation =} \StringTok{\textquotesingle{}d\textquotesingle{}}\NormalTok{, }\AttributeTok{effect =} \StringTok{\textquotesingle{}individual\textquotesingle{}}\NormalTok{)}
 
 \FunctionTok{stargazer}\NormalTok{(arellano\_bond, }\AttributeTok{label =} \StringTok{"tab:reg\_ab"}\NormalTok{, }\AttributeTok{header=}\ConstantTok{FALSE}\NormalTok{, }\AttributeTok{model.names =} \ConstantTok{FALSE}\NormalTok{,}
           \AttributeTok{column.sep.width=}\StringTok{"{-}5pt"}\NormalTok{,}
-          \AttributeTok{column.labels =} \FunctionTok{c}\NormalTok{(}\StringTok{\textquotesingle{}Arellano \& Bond\textquotesingle{}}\NormalTok{),}
-              \AttributeTok{omit.stat =} \FunctionTok{c}\NormalTok{(}\StringTok{"ll"}\NormalTok{, }\StringTok{"ser"}\NormalTok{, }\StringTok{"rsq"}\NormalTok{))}
+          \AttributeTok{column.labels =} \FunctionTok{c}\NormalTok{(}\StringTok{\textquotesingle{}Arellano{-}Bond\textquotesingle{}}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
 
@@ -343,19 +342,22 @@ current model given by:
  & \multicolumn{1}{c}{\textit{Dependent variable:}} \\ 
 \cline{2-2} 
 \\[-1.8ex] & logquantity \\ 
- & Arellano & Bond \\ 
+ & Arellano-Bond \\ 
 \hline \\[-1.8ex] 
- logincome & 0.576$^{**}$ \\ 
-  & (0.248) \\ 
+ logincome & 1.662$^{***}$ \\ 
+  & (0.206) \\ 
   & \\ 
- logprice & $-$0.410$^{**}$ \\ 
-  & (0.190) \\ 
+ logprice & $-$0.422$^{***}$ \\ 
+  & (0.043) \\ 
   & \\ 
- logillegal & $-$0.041$^{***}$ \\ 
-  & (0.013) \\ 
+ logillegal & $-$0.024$^{**}$ \\ 
+  & (0.011) \\ 
   & \\ 
- lag(logquantity, 1) & 0.828$^{***}$ \\ 
-  & (0.039) \\ 
+ lag(logquantity, 1) & 0.681$^{***}$ \\ 
+  & (0.030) \\ 
+  & \\ 
+ as.numeric(year) & $-$0.018$^{***}$ \\ 
+  & (0.006) \\ 
   & \\ 
 \hline \\[-1.8ex] 
 Observations & 22 \\ 
@@ -380,13 +382,13 @@ Observations & 22 \\
 \begin{Highlighting}[]
 \NormalTok{blundell\_bond }\OtherTok{\textless{}{-}} \FunctionTok{pgmm}\NormalTok{(}\AttributeTok{data =}\NormalTok{ dataset2,}
 \NormalTok{                          logquantity }\SpecialCharTok{\textasciitilde{}}\NormalTok{ logincome }\SpecialCharTok{+}\NormalTok{ logprice }\SpecialCharTok{+} 
-\NormalTok{                            logillegal }\SpecialCharTok{+} \FunctionTok{lag}\NormalTok{(logquantity, }\DecValTok{1}\NormalTok{) }\SpecialCharTok{|} 
-                            \FunctionTok{lag}\NormalTok{(logquantity, }\DecValTok{2}\SpecialCharTok{:}\DecValTok{99}\NormalTok{) }\SpecialCharTok{+} \FunctionTok{lag}\NormalTok{(l1\_logquantity, }\DecValTok{2}\SpecialCharTok{:}\DecValTok{99}\NormalTok{))}
+\NormalTok{                            logillegal }\SpecialCharTok{+} \FunctionTok{lag}\NormalTok{(logquantity, }\DecValTok{1}\NormalTok{) }\SpecialCharTok{+} \FunctionTok{as.numeric}\NormalTok{(year)}\SpecialCharTok{|} 
+                            \FunctionTok{lag}\NormalTok{(logquantity, }\DecValTok{2}\SpecialCharTok{:}\DecValTok{99}\NormalTok{) }\SpecialCharTok{+} \FunctionTok{lag}\NormalTok{(l1\_logquantity, }\DecValTok{2}\SpecialCharTok{:}\DecValTok{99}\NormalTok{), }\AttributeTok{transformation =} \StringTok{\textquotesingle{}ld\textquotesingle{}}\NormalTok{, }
+                            \AttributeTok{effect =} \StringTok{\textquotesingle{}individual\textquotesingle{}}\NormalTok{)}
 
 \FunctionTok{stargazer}\NormalTok{(blundell\_bond, }\AttributeTok{label =} \StringTok{"tab:reg\_bb"}\NormalTok{, }\AttributeTok{header=}\ConstantTok{FALSE}\NormalTok{, }\AttributeTok{model.names =} \ConstantTok{FALSE}\NormalTok{,}
           \AttributeTok{column.sep.width=}\StringTok{"{-}5pt"}\NormalTok{,}
-          \AttributeTok{column.labels =} \FunctionTok{c}\NormalTok{(}\StringTok{\textquotesingle{}Blundell \& Bond\textquotesingle{}}\NormalTok{),}
-              \AttributeTok{omit.stat =} \FunctionTok{c}\NormalTok{(}\StringTok{"ll"}\NormalTok{, }\StringTok{"ser"}\NormalTok{, }\StringTok{"rsq"}\NormalTok{))}
+          \AttributeTok{column.labels =} \FunctionTok{c}\NormalTok{(}\StringTok{\textquotesingle{}Blundell{-}Bond\textquotesingle{}}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
 
@@ -399,19 +401,22 @@ Observations & 22 \\
  & \multicolumn{1}{c}{\textit{Dependent variable:}} \\ 
 \cline{2-2} 
 \\[-1.8ex] & logquantity \\ 
- & Blundell & Bond \\ 
+ & Blundell-Bond \\ 
 \hline \\[-1.8ex] 
- logincome & 0.677$^{***}$ \\ 
-  & (0.235) \\ 
+ logincome & 0.287$^{***}$ \\ 
+  & (0.017) \\ 
   & \\ 
- logprice & $-$0.434$^{**}$ \\ 
-  & (0.174) \\ 
+ logprice & $-$0.546$^{***}$ \\ 
+  & (0.041) \\ 
   & \\ 
- logillegal & $-$0.047$^{***}$ \\ 
-  & (0.014) \\ 
+ logillegal & 0.040$^{***}$ \\ 
+  & (0.008) \\ 
   & \\ 
- lag(logquantity, 1) & 0.781$^{***}$ \\ 
-  & (0.030) \\ 
+ lag(logquantity, 1) & 0.890$^{***}$ \\ 
+  & (0.011) \\ 
+  & \\ 
+ as.numeric(year) & 0.036$^{***}$ \\ 
+  & (0.005) \\ 
   & \\ 
 \hline \\[-1.8ex] 
 Observations & 22 \\ 
@@ -429,5 +434,36 @@ Observations & 22 \\
   Which parameter estimates do you prefer? Explain why. Are there
   remaining problems with your preferred estimates?
 \end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sargan}\NormalTok{(arellano\_bond)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Sargan test
+\end{verbatim}
+
+data: logquantity \textasciitilde{} logincome + logprice + logillegal +
+lag(logquantity, \ldots{} chisq = 22, df = 104, p-value = 1 alternative
+hypothesis: overidentifying restrictions not valid
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sargan}\NormalTok{(blundell\_bond)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Sargan test
+\end{verbatim}
+
+data: logquantity \textasciitilde{} logincome + logprice + logillegal +
+lag(logquantity, \ldots{} chisq = 22, df = 241, p-value = 1 alternative
+hypothesis: overidentifying restrictions not valid Conducting the Sargan
+test on both models, we observe that for both models the null hypothesis
+is not rejected. This means that for both models we find no evidence to
+conclude that the models are misspecified.
 
 \end{document}

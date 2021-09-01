@@ -130,29 +130,36 @@ In general the Arellano & Bond GMM estimator aims to use lagged values of endoge
 # The package will transform the data accordingly
 arellano_bond <- pgmm(data = dataset2,
                           logquantity ~ logincome + logprice + 
-                            logillegal + lag(logquantity, 1)
-                          | lag(logquantity, 2:99), transformation = 'd')
+                            logillegal + lag(logquantity, 1) + as.numeric(year)
+                          | lag(logquantity, 2:99), transformation = 'd', effect = 'individual')
 
 stargazer(arellano_bond, label = "tab:reg_ab", header=FALSE, model.names = FALSE,
           column.sep.width="-5pt",
-          column.labels = c('Arellano & Bond'),
-              omit.stat = c("ll", "ser", "rsq"))
+          column.labels = c('Arellano-Bond'))
 ```
 
 6. What is in your estimate for the short-run and the long-run price elasticity of opium?
+<!---
+Walter: short run lees uit tabel. Long run: ik denk iets van een ADL achtige berekening? Nog geen tijd gehad om dit op te schrijven :)
+-->
 
 7. Now estimate the model parameters using the system estimator (Blundell & Bond). Tabulate results, compute the elasticities (as in 6.).
 
 ```{r results='asis', warning = FALSE}
 blundell_bond <- pgmm(data = dataset2,
                           logquantity ~ logincome + logprice + 
-                            logillegal + lag(logquantity, 1) | 
-                            lag(logquantity, 2:99) + lag(l1_logquantity, 2:99))
+                            logillegal + lag(logquantity, 1) + as.numeric(year)| 
+                            lag(logquantity, 2:99) + lag(l1_logquantity, 2:99), transformation = 'ld', 
+                            effect = 'individual')
 
 stargazer(blundell_bond, label = "tab:reg_bb", header=FALSE, model.names = FALSE,
           column.sep.width="-5pt",
-          column.labels = c('Blundell & Bond'),
-              omit.stat = c("ll", "ser", "rsq"))
+          column.labels = c('Blundell-Bond'))
 ```
 
 8. Which parameter estimates do you prefer? Explain why. Are there remaining problems with your preferred estimates?
+```{r results='asis', warning = FALSE}
+sargan(arellano_bond)
+sargan(blundell_bond)
+```
+Conducting the Sargan test on both models, we observe that for both models the null hypothesis is not rejected. This means that for both models we find no evidence to conclude that the models are misspecified.
