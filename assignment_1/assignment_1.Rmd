@@ -5,7 +5,9 @@ date: "8/31/2021"
 output:
   pdf_document:
     includes:
-      in_header: "preamble.tex"
+      in_header: preamble.tex
+  html_document:
+    df_print: paged
 ---
 
 ```{r setup, include=FALSE}

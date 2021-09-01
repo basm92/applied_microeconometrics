@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.8.31)  1 SEP 2021 14:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.9.1)  1 SEP 2021 14:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -546,16 +546,23 @@ LaTeX Font Warning: Font shape `T1/lmtt/bx/it' in size <8> not available
 
 {c:/Users/walte/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdfte
 x.map}] [2] [3]
-! Extra }, or forgotten $.
-l.340 ...rmula <- eval(formula, parent.frame())  }
-                                                    response.name <- paste(d...
- 
+LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 
+328.
+(c:/Users/walte/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmtt.fd
+File: ts1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+! Extra alignment tab has been changed to \cr.
+<recently read> \endtemplate 
+                             
+l.346  & Arellano &
+                    Bond \\ 
 Here is how much of TeX's memory you used:
- 10524 strings out of 480559
- 155125 string characters out of 5901528
+ 10561 strings out of 480559
+ 155789 string characters out of 5901529
  471718 words of memory out of 5000000
- 27961 multiletter control sequences out of 15000+600000
- 451231 words of font info for 69 fonts, out of 8000000 for 9000
+ 27994 multiletter control sequences out of 15000+600000
+ 451537 words of font info for 70 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 60i,10n,66p,495b,411s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,10n,66p,348b,411s stack positions out of 5000i,500n,10000p,200000b,80000s
+
 !  ==> Fatal error occurred, no output PDF file produced!
