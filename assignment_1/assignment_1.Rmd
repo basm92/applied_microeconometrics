@@ -189,9 +189,9 @@ bb_sargantest <- sargan(blundell_bond)
 
 Conducting the Sargan test on both models, we observe that for both models the null hypothesis is not rejected (for the Arellano-Bond model, we have a statistic of `r ab_sargantest$statistic` and a p-value of `r ab_sargantest$p.value`, and for the Blundell-Bond estimator, we have a statistic of `r bb_sargantest$statistic` and a p-value of `r bb_sargantest$p.value` This means that for both models we find no evidence to conclude that the models are misspecified.
 
-We prefer the Blundell-Bond model estimates. The reason is that the system estimator is robust for estimating coefficients of variables that are very persistent through time. Opium consumption is likely to be a variable of such type. 
+We prefer the Blundell-Bond model estimates. The reason is that the system estimator is robust for estimating coefficients of variables that are very persistent through time. Opium consumption is likely to be a variable of such type. Additionally, economically speaking, the context of colonial Indonesia makes it likely that the long-run elasticity of the good is very elastic (>4%, as implied by the B&B estimates) rather than the ~1% elasticity implied by the A&B estimates. The reason is that opium-users might live not so far above the subsistence minimum, so if their incomes fall, they might be inclined to reduce opium consumption (a luxury good) disproportionally.
 
-We believe that the following problems remain. First, we believe that our estimates are not causally interpretable. This is because there could be variables that are correlated with opium consumption which are not captured in the model. If there would be a source of randomization this could possibly be overcome. Second, our estimates seem to be not very robust to our model choice, hence the model choice matters a lot, and this could indicate underlying problems.
+We believe that the following problems remain. First, we believe that our estimates are not causally interpretable. This is because there could be variables that are correlated with opium consumption which are not captured in the model. If there would be a source of randomization this could possibly be overcome. Second, our estimates seem to be not very robust to our model choice, and the model choice matters a lot, this could indicate underlying problems.
 
 
 
