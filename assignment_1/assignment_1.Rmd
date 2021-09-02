@@ -176,6 +176,8 @@ stargazer(arellano_bond, arellano_bond2, blundell_bond, blundell_bond2,
           column.labels = c("Arellano-Bond", "Arellano-Bond", "Blundell-Bond", "Blundell-Bond"))
 ```
 
+The short-term elasticity is -0.546 for the model in which we used all lags possible (model (3)). For robustness, we used a smaller amount of instruments and find a very comparable estimate of -0.569 (model (4)). Both these results are significant at the 1% level. The long-run elasticity for model (3) is `r blundell_bond$coefficients[2]/(1-blundell_bond$coefficients[4])`. Model (4) yields a similar long-run elasticity of `r blundell_bond2$coefficients[2]/(1-blundell_bond2$coefficients[4])`.
+
 8. Which parameter estimates do you prefer? Explain why. Are there remaining problems with your preferred estimates?
 
 ```{r results='asis', warning = FALSE}
@@ -184,3 +186,16 @@ bb_sargantest <- sargan(blundell_bond)
 ```
 
 Conducting the Sargan test on both models, we observe that for both models the null hypothesis is not rejected (for the Arellano-Bond model, we have a statistic of `r ab_sargantest$statistic` and a p-value of `r ab_sargantest$p.value`, and for the Blundell-Bond estimator, we have a statistic of `r bb_sargantest$statistic` and a p-value of `r bb_sargantest$p.value` This means that for both models we find no evidence to conclude that the models are misspecified.
+
+We prefer the Blundell-Bond model estimates. The reason is that the system estimator is robust for estimating coefficients of variables that are very persistent through time. Opium consumption is likely to be a variable of such type. 
+
+We believe that the following problems remain. First, we believe that our estimates are not causally interpretable. This is because there could be variables that are correlated with opium consumption which are not captured in the model. If there would be a source of randomization this could possibly be overcome. Second, our estimates seem to be not very robust to our model choice, hence the model choice matters a lot, and this could indicate underlying problems.
+
+
+
+
+
+
+
+
+
