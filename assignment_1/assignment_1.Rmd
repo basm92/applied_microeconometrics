@@ -1,7 +1,7 @@
 ---
 title: "Applied Microeconometrics - Assignment 1"
-author: "Walter Verwer & Bas Machielsen"
-date: "8/31/2021"
+author: "Walter Verwer (589962) & Bas Machielsen (590049)"
+date: \today
 output:
   pdf_document:
     includes:
@@ -126,7 +126,7 @@ In general the Arellano & Bond GMM estimator aims to use lagged values of endoge
 \mathbb{E}[\log(C_{it-k})(u_{it}-u_{it-1})]
 \end{equation*}
 
-When there are more moment conditions than identifiable parameters, the A&B estimator has to deal with a overidentification. It does so by employing a weighing matrix of the moment conditions. The ideal weighing matrix minimizes the variance, and is usually obtained by generating a sensible estimate (a first-stage estimate with homoskedastic errors implies a Toeplitz-band structure with 2 on the diagonals, 1 on the off-diagonals), which is then used to estimate the parameters, which are then used to derive new estimates and a new matrix. This two-step procedure should lead to efficient standard errors. 
+When there are more moment conditions than identifiable parameters, the A&B estimator has to deal with an overidentification. It does so by employing a weighing matrix of the moment conditions. The ideal weighing matrix minimizes the variance, and is usually obtained by generating a sensible estimate (a first-stage estimate with homoskedastic errors implies a Toeplitz-band structure with 2 on the diagonals, 1 on the off-diagonals), which is then used to estimate the parameters, which are then used to derive new estimates and a new matrix. This two-step procedure should lead to efficient standard errors. 
 
 5. Estimate the model parameters using the Arellano & Bond estimator, tabulate the results and discuss the parameter estimates.
 
@@ -191,7 +191,7 @@ Conducting the Sargan test on both models, we observe that for both models the n
 
 We prefer the Blundell-Bond model estimates. The reason is that the system estimator is robust for estimating coefficients of variables that are very persistent through time. Opium consumption is likely to be a variable of such type. Additionally, economically speaking, the context of colonial Indonesia makes it likely that the long-run elasticity of the good is very elastic (>4%, as implied by the B&B estimates) rather than the ~1% elasticity implied by the A&B estimates. The reason is that opium-users might live not so far above the subsistence minimum, so if their incomes fall, they might be inclined to reduce opium consumption (a luxury good) disproportionally.
 
-We believe that the following problems remain. First, we believe that our estimates are not causally interpretable. This is because there could be variables that are correlated with opium consumption which are not captured in the model. If there would be a source of randomization this could possibly be overcome. Second, our estimates seem to be not very robust to our model choice, and the model choice matters a lot, this could indicate underlying problems.
+We believe that the following problem remains. Our estimates seem to be not very robust to our model choice, and the model choice matters a lot, which could indicate that there are underlying problems.
 
 
 
