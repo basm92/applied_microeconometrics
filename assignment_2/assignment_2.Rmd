@@ -92,6 +92,59 @@ The results imply that the treatment is effective in reducing by 10-percentage p
 
 4. Compute the no-assumption bounds for the treatment effects.
 
+```{r}
+# Implement the no assumption bounds
+no_assumption_bounds <- function(dataset, y_min, y_max, treatmentvar, depvar){
+  depvar <- dplyr::enquo(depvar)
+  treatmentvar <- dplyr::enquo(treatmentvar)
+  
+  pr_treated <- dataset %>%
+    summarize(mean = mean(UQ(treatmentvar), na.rm = TRUE)) %>%
+    pull() 
+  
+  pr_untreated <- 1-pr_treated
+  
+  expected_y_given_deq1 <- dataset %>%
+    dplyr::filter(UQ(treatmentvar) == 1) %>%
+             summarize(mean = mean(UQ(depvar), na.rm = TRUE)) %>%
+             pull()
+  
+  expected_y_given_deq0 <- dataset%>%
+    dplyr::filter(UQ(treatmentvar) == 0) %>%
+             summarize(mean = mean(UQ(depvar), na.rm = TRUE)) %>%
+             pull()
+           
+  # bounds on y^*_1: 
+  lower_bound_y1 <- expected_y_given_deq1 * pr_treated + y_min * pr_untreated 
+  upper_bound_y1 <- expected_y_given_deq1 * pr_treated + y_max * pr_untreated
+  
+  # bounds on y^*_0:
+  lower_bound_y0 <- expected_y_given_deq0 * pr_untreated + y_min * pr_treated 
+  upper_bound_y0 <- expected_y_given_deq0 * pr_untreated + y_max * pr_treated
+  
+  # bounds on the ATE:
+  lower_bound_ate <- expected_y_given_deq1*pr_treated - expected_y_given_deq0*pr_untreated + 
+    (y_min + y_max)*pr_untreated - y_max 
+  upper_bound_ate <- expected_y_given_deq1*pr_treated - expected_y_given_deq0*pr_untreated + 
+    (y_min + y_max)*pr_untreated - y_min
+  
+  out <- tribble(~"lower_bound_y1", ~"upper_bound_y1", ~"lower_bound_y0",
+                 ~"upper_bound_y0", ~"lower_bound_ate", ~"upper_bound_ate",
+          lower_bound_y1, upper_bound_y1, lower_bound_y0, upper_bound_y0, lower_bound_ate, upper_bound_ate)
+  
+  return(out)
+}
+
+no_assumption_bounds(dataset, 0,1,searchperiod, benefits_week10) %>%
+  knitr::kable(booktabs=T) %>%
+    kableExtra::kable_styling(font_size = 7, latex_options = "hold_position")
+
+no_assumption_bounds(dataset, 0,1,searchperiod, benefits_week30) %>%
+  knitr::kable(booktabs=T) %>%
+    kableExtra::kable_styling(font_size = 7, latex_options = "hold_position")
+```
+
+
 5. Assume that caseworkers only apply search periods to applicants who benefit from it. How does this affects the bounds.
 
 6. Next, imposed the monotone treatment response and the monotone treatment selection assumption separately and also jointly.
