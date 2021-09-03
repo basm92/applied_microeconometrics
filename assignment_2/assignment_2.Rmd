@@ -1,0 +1,99 @@
+---
+title: "Applied Microeconometrics - Assignment 2"
+author: "Walter Verwer (589962) & Bas Machielsen (590049)"
+date: \today
+output:
+  pdf_document:
+    includes:
+      in_header: preamble.tex
+  html_document:
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse); library(plm); library(stargazer); library(modelsummary)
+
+dataset <- foreign::read.dta("./searchperiod.dta")
+```
+
+1. Compute the average probability to receive benefits 10 and 30 weeks after application for applicants that had a search period and applicants that did not have a search period.
+
+```{r}
+dataset %>%
+    group_by(searchperiod) %>%
+    summarize(prob_10weeks = mean(benefits_week10), prob_30weeks = mean(benefits_week30)) %>%
+    knitr::kable()
+```
+
+It seems that there is a large difference in unconditional means in the outcome variable among treated and controlled groups. Individuals exposed to the treatment (a search period) have much lower probabilities of ultimately receiving benefits, whether this is after 10 weeks, or after 30 weeks. This could be a potential indication of the presence of a treatment effect, but a more rigorous examination should ensue. 
+
+2. Make a balancing table in which you compare characteristics of applicants with and without a search period.
+
+```{r results='asis'}
+modelsummary::datasummary_balance(~ searchperiod,
+                                  data = dataset %>%
+                                      select(c(1,4:23)) %>%
+                                      mutate(searchperiod = if_else(
+                                          searchperiod == 1,
+                                          "With Search", 
+                                          "Without Search")), 
+                                  output = "latex", 
+                                  fmt = "%.3f",
+                                  dinm = TRUE,
+                                  dinm_statistic = "p.value"
+                                    ) %>%
+    kableExtra::kable_styling(font_size = 10)
+
+```
+
+It seems that all covariates are rather balanced, indicated by the absence of significant differences in means among the treated and the control group. Of course, because we are dealing with a large number of joint null-hypotheses, we should only reject the null hypothesis according to a Bonferroni-corrected p-value. If our regular p-value criterion would be $p < 0.05$, in this case, we reject the null hypothesis when $p < \frac{0.05}{20} = 0.0025$. Even with this criterion, most of the location dummies are still significantly different in treatment and control groups, indicating that perhaps the treatment was administered in different regions, but was stratified according to all other observables. Adding region-specific fixed effects to the regression specifications should solve this problem. 
+
+3. Regress the outcome variables first only on whether or not a search period was applied (which should give the difference-in-means estimate) and next include other covariates in the regression.
+
+```{r}
+model1 <- lm(data = dataset, formula = benefits_week10 ~ searchperiod)
+model2 <- lm(data = dataset, formula = benefits_week30 ~ searchperiod)
+model3 <- update(model1, . ~ . + period1 + period2 + period3 + period4 + 
+                     location1 + location2 + location3 + location4)
+model4 <- update(model2, . ~ . + period1 + period2 + period3 + period4 + 
+                     location1 + location2 + location3 + location4)
+model5 <- update(model3, . ~ . + sumincome_12monthsbefore + 
+                     sumincome_24monthsbefore + age + female + children + 
+                     partner + educ_bachelormaster + educ_prepvocational + 
+                     educ_primaryorless + educ_unknown + educ_vocational)
+model6 <- update(model4, . ~ . + sumincome_12monthsbefore + 
+                     sumincome_24monthsbefore + age + female + children + 
+                     partner + educ_bachelormaster + educ_prepvocational +
+                     educ_primaryorless + educ_unknown + educ_vocational)
+
+models <- list(model1, model2, model3, model4, model5, model6)
+```
+
+
+```{r, results='asis'}
+stargazer(models, title = "Estimations of the Effect of Search on P(Benefits)",
+          label = "tab:reg", header=FALSE, model.names = FALSE,
+          column.sep.width="0pt",
+          df=F,
+          dep.var.labels = c(rep("Benefits",6)),
+          column.labels= c(rep(c("10 Weeks", "30 Weeks"),3)),
+          omit = c("period1", "period2", "period3", "period4","location"),
+          add.lines = list(c("Period Dummies", rep("No", 2), rep("Yes", 4)),
+                            c("Region Dummies", rep("No", 2), rep("Yes", 4))),
+          omit.stat = c("ll", "ser", "rsq"))
+
+```
+
+The results imply that the treatment is effective in reducing by 10-percentage points the probability of receiving benefits on the long-term (30 weeks), and slightly higher (15 percentage points) on the short-term (10-weeks). If there is no selection on unobservables, these estimates give a good estimate of the ATE. But to what extent can these estimates be trusted? 
+
+\clearpage
+
+4. Compute the no-assumption bounds for the treatment effects.
+
+5. Assume that caseworkers only apply search periods to applicants who benefit from it. How does this affects the bounds.
+
+6. Next, imposed the monotone treatment response and the monotone treatment selection assumption separately and also jointly.
+
+7. Usually higher educated workers have more favorable labor market outcomes. Use education as monotone instrumental variable and compute the bounds.
