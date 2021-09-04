@@ -147,6 +147,35 @@ no_assumption_bounds(dataset, 0,1,searchperiod, benefits_week30) %>%
 
 5. Assume that caseworkers only apply search periods to applicants who benefit from it. How does this affects the bounds.
 
+If people only select into the treatment if it works (meaning, decreasing the probability of benefits), we have:
+
+$$
+\mathbb{E}[Y^*_1 | D=1] \leq \mathbb{E}[Y^*_0 | D = 1] \text{ and } \mathbb{E}[Y^*_0 | D = 0] \leq \mathbb{E}[Y^*_1 | D = 0]
+$$
+Since the case is the opposite of the case that is worked out on the lecture slides, we cannot blindly apply the formulate, but realizing that:
+
+$$
+y_{min} \leq \mathbb{E}[Y^*_1 | D=1] \leq \mathbb{E}[Y^*_0 | D = 1] \leq y_{max} \text{ and} \\
+y_{min} \leq \mathbb{E}[Y^*_0 | D = 0] \leq \mathbb{E}[Y^*_1 | D = 0] \leq y_{max}
+$$
+We can evaluate $\mathbb{E}[Y^*_1]$, and we get:
+
+$$
+\mathbb{E}[Y^*_1 | D = 1] * \text{Pr}[D=1] + \text{Pr}[D=0] * \mathbb{E}[Y^*_0 | D=0] \leq \mathbb{E}[Y^*_1] \leq \mathbb{E}[Y^*_1 | D = 1] * \text{Pr}[D=1] + y_{max} * \text{Pr}[D=0]
+$$
+And for $\mathbb{E}[Y^*_0]$, we get:
+
+$$
+\mathbb{E}[Y^*_0 | D = 0] * \text{Pr}[D=0] + \text{Pr}[D=1] * \mathbb{E}[Y^*_1 | D = 1] \leq \mathbb{E}[Y^*_0] \leq \mathbb{E}[Y^*_0 | D = 0] * \text{Pr}[D=0] + \text{Pr}[D=1]*y_{max}
+$$
+Then, realizing that the lower bound of $\mathbb{E}[Y^*_1 - Y^*_0]$ is the lower bound of $\mathbb{E}[Y^*_1]$ minus the upper bound of $\mathbb{E}[Y^*_0]$, and _mutatis mutandis_ for the upper bound of $\mathbb{E}[Y^*_1 - Y^*_0]$, after rewriting, we find:
+
+$$
+-\text{Pr}(D=1) \cdot \left( y_{max} - \mathbb{E}[Y^*_1 | D = 1] \right) \leq \mathbb{E}[Y^*_1 - Y^*_0] \leq \text{Pr}(D=0) \cdot \left( y_{max} - \mathbb{E}[Y^*_0 | D = 0] \right)
+$$
+
+Which corresponds to the same properties as found in the lecture slides (i.e. narrower bounds, but without ever excluding zero). 
+
 6. Next, imposed the monotone treatment response and the monotone treatment selection assumption separately and also jointly.
 
 7. Usually higher educated workers have more favorable labor market outcomes. Use education as monotone instrumental variable and compute the bounds.
