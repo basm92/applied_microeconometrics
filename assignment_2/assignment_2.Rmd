@@ -48,7 +48,7 @@ modelsummary::datasummary_balance(~ searchperiod,
 
 ```
 
-It seems that all covariates are rather balanced, indicated by the absence of significant differences in means among the treated and the control group. Of course, because we are dealing with a large number of joint null-hypotheses, we should only reject the null hypothesis according to a Bonferroni-corrected p-value. If our regular p-value criterion would be $p < 0.05$, in this case, we reject the null hypothesis when $p < \frac{0.05}{20} = 0.0025$. Even with this criterion, most of the location dummies are still significantly different in treatment and control groups, indicating that perhaps the treatment was administered in different regions, but was stratified according to all other observables. Adding region-specific fixed effects to the regression specifications should solve this problem. 
+It seems that all covariates are rather balanced, indicated by the absence of significant differences in means among the treated and the control group. Of course, because we are dealing with a large number of joint null-hypotheses, we should only reject the null hypothesis according to a Bonferroni-corrected p-value. If our regular p-value criterion would be $p < 0.05$, in this case, we reject the null hypothesis when $p < \frac{0.05}{20} = 0.0025$. Even with this criterion, most of the location dummies are still significantly different in treatment and control groups, indicating that perhaps the treatment was administered in different regions, but was stratified according to all other observables. Adding region-specific fixed effects to the regression specifications should solve this problem. Another variable that differs significantly is age. We observe that older individuals are assigned to the no search group more often than younger individuals.
 
 3. Regress the outcome variables first only on whether or not a search period was applied (which should give the difference-in-means estimate) and next include other covariates in the regression.
 
@@ -86,7 +86,7 @@ stargazer(models, title = "Estimations of the Effect of Search on P(Benefits)",
 
 ```
 
-The results imply that the treatment is effective in reducing by 10-percentage points the probability of receiving benefits on the long-term (30 weeks), and slightly higher (15 percentage points) on the short-term (10-weeks). If there is no selection on unobservables, these estimates give a good estimate of the ATE. But to what extent can these estimates be trusted? 
+The results imply that the treatment is effective in reducing the probability of receiving benefits on the long-term (30 weeks) by 10-percentage points, and slightly higher (15 percentage points) on the short-term (10-weeks). If there is no selection on unobservables, these estimates give a good estimate of the ATE. But to what extent can these estimates be trusted? 
 
 \clearpage
 
