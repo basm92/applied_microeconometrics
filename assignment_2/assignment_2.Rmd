@@ -75,7 +75,7 @@ models <- list(model1, model2, model3, model4, model5, model6)
 ```{r, results='asis'}
 stargazer(models, title = "Estimations of the Effect of Search on P(Benefits)",
           label = "tab:reg", header=FALSE, model.names = FALSE,
-          column.sep.width="0pt",
+          column.sep.width="0pt", font.size = "footnotesize",
           df=F,
           dep.var.labels = c(rep("Benefits",6)),
           column.labels= c(rep(c("10 Weeks", "30 Weeks"),3)),
@@ -134,7 +134,9 @@ no_assumption_bounds <- function(dataset, y_min, y_max, treatmentvar, depvar){
   
   return(out)
 }
+```
 
+```{r}
 no_assumption_bounds(dataset, 0,1,searchperiod, benefits_week10) %>%
   knitr::kable(booktabs=T) %>%
     kableExtra::kable_styling(font_size = 7, latex_options = "hold_position")
@@ -174,8 +176,50 @@ $$
 -\text{Pr}(D=1) \cdot \left( y_{max} - \mathbb{E}[Y^*_1 | D = 1] \right) \leq \mathbb{E}[Y^*_1 - Y^*_0] \leq \text{Pr}(D=0) \cdot \left( y_{max} - \mathbb{E}[Y^*_0 | D = 0] \right)
 $$
 
-Which corresponds to the same properties as found in the lecture slides (i.e. narrower bounds, but without ever excluding zero). 
+Which corresponds to the same properties as found in the lecture slides (i.e. narrower bounds, but without ever excluding zero). Implementing these bounds gives the following:
+
+```{r, results='asis'}
+bounds_info <- dataset %>%
+  summarize(pr_treated = mean(searchperiod, na.rm = TRUE), 
+            pr_untreated = 1 - pr_treated,
+            y_max = 1)
+
+expected_y_given_deq1 <- dataset %>%
+    dplyr::filter(searchperiod == 1) %>%
+             summarize(mean = mean(benefits_week10, na.rm = TRUE)) %>%
+             pull()
+  
+expected_y_given_deq0 <- dataset%>%
+    dplyr::filter(searchperiod == 0) %>%
+             summarize(mean = mean(benefits_week10, na.rm = TRUE)) %>%
+             pull()
+
+lower_bound10 <- -bounds_info$pr_treated *(bounds_info$y_max - expected_y_given_deq1)
+upper_bound10 <- bounds_info$pr_untreated * (bounds_info$y_max - expected_y_given_deq0)
+
+paste('For the 10-weeks outcome, the lower bound for E$[Y^*_1 - Y^*_0]$ = ', lower_bound10)
+paste('For the 10-weeks outcome, the upper bound for E$[Y^*_1 - Y^*_0]$= ', upper_bound10)
+
+
+expected_y_given_deq1 <- dataset %>%
+    dplyr::filter(searchperiod == 1) %>%
+             summarize(mean = mean(benefits_week30, na.rm = TRUE)) %>%
+             pull()
+  
+expected_y_given_deq0 <- dataset%>%
+    dplyr::filter(searchperiod == 0) %>%
+             summarize(mean = mean(benefits_week30, na.rm = TRUE)) %>%
+             pull()
+
+lower_bound30 <- -bounds_info$pr_treated *(bounds_info$y_max - expected_y_given_deq1)
+upper_bound30 <- bounds_info$pr_untreated * (bounds_info$y_max - expected_y_given_deq0)
+
+paste('For the 30-weeks outcome, the lower bound for E$[Y^*_1 - Y^*_0]$ = ', lower_bound30)
+paste('For the 30-weeks outcome, the upper bound for E$[Y^*_1 - Y^*_0]$= ', upper_bound30)
+```
 
 6. Next, imposed the monotone treatment response and the monotone treatment selection assumption separately and also jointly.
+
+
 
 7. Usually higher educated workers have more favorable labor market outcomes. Use education as monotone instrumental variable and compute the bounds.
