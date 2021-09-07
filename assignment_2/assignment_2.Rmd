@@ -220,6 +220,59 @@ paste('For the 30-weeks outcome, the upper bound for E$[Y^*_1 - Y^*_0]$= ', uppe
 
 6. Next, imposed the monotone treatment response and the monotone treatment selection assumption separately and also jointly.
 
+(i) First, we work out the case for our data, in which a favorable outcome is no benefits. Then, the MTS assumption becomes:
 
+\begin{align*}
+&y_{min} \leq \mathbb{E}[Y^*_1 | D = 1] \leq \mathbb{E}[Y^*_1 | D = 0 ] \leq y_{max} \\
+&y_{min} \leq \mathbb{E}[Y^*_0 | D = 1] \leq \mathbb{E}[Y^*_0 | D = 0] \leq y_{max}
+\end{align*}
+
+This means that individuals who are or would have been assigned to the treatment group would have more favorable outcomes than non-treated subjects, whatever their treatment status. Bounding $\mathbb{E}[Y^*_1]$ gives: 
+
+$$
+\mathbb{E}[Y^*_1 | D = 1] * \text{Pr}[D=1] + \mathbb{E}[Y^*_1 | D = 1] * \text{Pr}[D=0] \leq \mathbb{E}[Y^*_1] \leq \mathbb{E}[Y^*_1 | D = 1] * \text{Pr}[D=1] + y_{max} * \text{Pr}[D=0]
+$$
+
+And bounding $\mathbb{E}[Y^*_0]$ gives:
+$$
+\mathbb{E}[Y^*_0 | D = 0] * \text{Pr}[D=0] + y_{min} * \text{Pr}[D=1] \leq \mathbb{E}[Y^*_0] \leq \mathbb{E}[Y^*_0 | D = 0] * \text{Pr}[D=0] + \mathbb{E}[Y^*_0 | D = 0] * \text{Pr}[D=1]
+$$
+
+Simplifying both bounds, and realizing that the lower bound for $\mathbb{E}[Y^*_1 - Y^*_0]$ equals the lower bound for $Y^*_1$ minus the upper bound for $Y^*_0$, and the upper bound for $\mathbb{E}[Y^*_1 - Y^*_0]$ equals the upper bound for $Y^*_1$ minus the lower bound for $Y^*_0$, we find that the MTS bounds are:*
+
+\begin{multline}
+\mathbb{E}[Y^*_1 | D=1] - \mathbb{E}[Y^*_0 | D = 0 ] \leq \mathbb{E}[Y^*_1 - Y^*_0] \leq \\
+\text{Pr}[D=1] * \mathbb{E}[Y^*_1 | D =1] + \text{Pr}[D=0] * y_{max} - \text{Pr}[D=0] * \mathbb{E}[Y^*_0 | D = 0] - \text{Pr}[D=1] * y_{min}
+\end{multline}
+
+After some rewriting, this result is a nice "mirror case" of the results on the slides, as it should be. 
+
+(ii) Imposing the MTR means in our case: $y_{min} \leq Y^*_1 \leq Y^*_0 \leq y_{max}$. We then again proceed to analyse the bounds for $Y^*_1$ and $Y^*_0$:
+
+$$
+\mathbb{E}[Y^*_1 | D = 1] * \text{Pr}[D=1] + \text{Pr}[D=0] * y_{min} \leq \mathbb{E}[Y^*_1] \leq \mathbb{E}[Y^*_1 | D = 1] * \text{Pr}[D=1] + \mathbb{E}[Y^*_0 | D = 0 ] * \text{Pr}[D=0]
+$$
+
+$$
+\mathbb{E}[Y^*_0 | D = 0] * \text{Pr}[D=0] + \mathbb{E}[Y^*_1 | D = 1] * \text{Pr}[D=1] \leq \mathbb{E}[Y^*_0] \leq \mathbb{E}[Y^*_0 | D = 0] * \text{Pr}[D=0]  + y_{max} * \text{Pr}[D=1]
+$$
+
+Then, applying the same procedure as before, we find that $\mathbb{E}[Y^*_1 - Y^*_0]$ is bounded as follows:
+
+\begin{align*}
+\mathbb{E}[Y^*_1 | D = 1] * \text{Pr}[D=1]  + \text{Pr}[D=0] * y_{min} \\
+- \mathbb{E}[Y^*_0 | D = 0] * \text{Pr}[D=0] - \text{Pr}[D=1] * y_{max} \leq 
+\mathbb{E}[Y^*_1 - Y^*_0] \leq 0
+\end{align*}
+
+We observe that we have again a mirror case compared to the lecture slides: the upper bound is now 0, instead of the lower bound.
+
+(iii) Applying MTS and MTR together simply yields the most strict bounds from both sides. After some simplifying, we find that it reduces to:
+
+$$
+\mathbb{E}[Y^*_1 | D = 1] - \mathbb{E}[Y^*_0 | D = 0] \leq \mathbb{E}[Y^*_1 - Y^*_0] \leq 0
+$$
 
 7. Usually higher educated workers have more favorable labor market outcomes. Use education as monotone instrumental variable and compute the bounds.
+
+We still have to do this
