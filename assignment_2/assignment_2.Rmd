@@ -88,8 +88,6 @@ stargazer(models, title = "Estimations of the Effect of Search on P(Benefits)",
 
 The results imply that the treatment is effective in reducing the probability of receiving benefits on the long-term (30 weeks) by 10-percentage points, and slightly higher (15 percentage points) on the short-term (10-weeks). If there is no selection on unobservables, these estimates give a good estimate of the ATE. But to what extent can these estimates be trusted? 
 
-\clearpage
-
 4. Compute the no-assumption bounds for the treatment effects.
 
 ```{r}
@@ -275,4 +273,193 @@ $$
 
 7. Usually higher educated workers have more favorable labor market outcomes. Use education as monotone instrumental variable and compute the bounds.
 
-We still have to do this
+In our case, the monotone instrumental variable assumption is that the higher the education, the lower on average the benefits, i.e.:
+
+$$
+\mathbb{E}[Y^*_d | Z = \text{BachelorMaster}] \leq \mathbb{E}[Y^*_d | Z = \text{Vocational}] \leq \text {Etc.}
+$$
+
+After repeating the way of thinking in the lecture slides, but omitting the algebraic "proof" for brevity, in comparison to the slides, the formula for the bounds on the expected potential outcomes, conditional on $Z$ changes to:
+
+$$
+\max_{z' \geq z} \{ LB(d,z) \} \leq  \mathbb{E}[Y^*_d | Z=z] \leq \min_{z' \leq z} \{ UB(d,z)\} 
+$$
+And unconditionally, to: 
+
+$$
+\sum_{z} \text{Pr}[Z=z] \max_{z' \geq z} LB(d, z') \leq \mathbb{E}[Y^*_d] \leq \sum_{z} \text{Pr}[Z=z] \max_{z'\leq z} UB(d,z')
+$$
+
+We now implement this in a function, after slightly modifying the data so that education is in one column, and we omit the "unknown" education from the dataset, because it is unclear where that fits in the monotonicity:
+
+```{r}
+dataset_new <- dataset %>%
+  mutate(education = dplyr::case_when(educ_bachelormaster == 1 ~ 4,
+                                      educ_vocational == 1 ~ 3,
+                                      educ_prepvocational == 1 ~ 2,
+                                      educ_primaryorless == 1 ~ 1)) %>%
+  filter(!is.na(education))
+
+```
+
+First, we conduct the analysis for the 10-weeks outcome: 
+
+```{r}
+
+# We start with calculating the original lower and upper bounds using the previous function
+# no_assumption_bounds for each group separately
+original_bounds <- dataset_new %>%
+  group_split(education) %>%
+  map_df(~ no_assumption_bounds(.x, 0, 1, searchperiod, benefits_week10)) %>%
+  mutate(z = c(1,2,3,4))
+
+# Write an empty data frame to which we will write the effective LBs and UBs
+effective_bounds <- data.frame(z = rep(c(1,2,3,4),2),
+                               effective_lb = rep(0,8),  
+                               effective_ub = rep(0,8),
+                               d = c(rep(0,4), rep(1,4))) %>%
+  arrange(z)
+ # Then, we for each Z and d, we find the "maximum" and "minimum" bounds among the feasible z'
+for(i in 1:4){
+  
+  # Find the maximum lower bound y0 and write them to the effective bounds df
+  effective_bounds[2*i-1, "effective_lb"] <- original_bounds %>%
+    filter(z >= i) %>%
+    summarize(effective_lb = max(lower_bound_y0)) %>% pull()
+  
+  # Find the maximum lower bound y1 and write them to the effective bounds df
+  effective_bounds[2*i, "effective_lb"] <- original_bounds %>%
+    filter(z >= i) %>%
+    summarize(effective_lb = max(lower_bound_y1)) %>% pull()
+  
+  # Find the minimum upper bound y0 ..
+  effective_bounds[2*i-1, "effective_ub"] <- original_bounds %>%
+    filter(z <= i) %>%
+    summarize(effective_ub = min(upper_bound_y0)) %>% pull()
+  
+  # Find the minimum upper bound y1
+  effective_bounds[2*i, "effective_ub"] <- original_bounds %>%
+    filter(z <= i) %>%
+    summarize(effective_ub = min(upper_bound_y1)) %>% pull()
+  
+}
+```
+
+```{r}
+# Then, we weight average the "effective" bounds to arrive at the bounds for Y^*_1 and Y^*_0
+## First, calculate the probabilities
+probs <- dataset_new %>%
+  group_by(education) %>% 
+  summarize(n = n()) %>%
+  mutate(freq = n/sum(n)) %>% pull()
+
+## Lower Bound Y_0:
+lb_y0 <- effective_bounds %>%
+  filter(d == 0) %>%
+  select(effective_lb) %>% pull()
+
+## Upper Bound Y_0:
+ub_y0 <- effective_bounds %>%
+  filter(d == 0) %>%
+  select(effective_ub) %>% pull()
+
+## Lower Bound Y_1:
+lb_y1 <- effective_bounds %>%
+  filter(d == 1) %>%  
+  select(effective_lb) %>% pull()
+
+## Upper Bound Y_1:
+ub_y1 <- effective_bounds %>%
+  filter(d == 1) %>%  
+  select(effective_ub) %>% pull()
+
+## Summarize in data.frame
+data.frame(lower_bound_y0 = sum(probs*lb_y0), upper_bound_y0 = sum(probs*ub_y0),
+           lower_bound_y1 = sum(probs*lb_y1), upper_bound_y1 = sum(probs*ub_y1)) %>%
+  mutate(lower_bound_ate = lower_bound_y1 - upper_bound_y0,
+         upper_bound_ate = upper_bound_y1 - lower_bound_y0) %>%
+  knitr::kable(booktabs=T) %>%
+  kableExtra::kable_styling(font_size = 7, latex_options = "hold_position")
+```
+
+
+We repeate the above exercise again for the 30-weeks outcome:
+
+
+```{r}
+
+# We start with calculating the original lower and upper bounds using the previous function
+# no_assumption_bounds for each group separately
+original_bounds <- dataset_new %>%
+  group_split(education) %>%
+  map_df(~ no_assumption_bounds(.x, 0, 1, searchperiod, benefits_week30)) %>%
+  mutate(z = c(1,2,3,4))
+
+# Write an empty data frame to which we will write the effective LBs and UBs
+effective_bounds <- data.frame(z = rep(c(1,2,3,4),2),
+                               effective_lb = rep(0,8),  
+                               effective_ub = rep(0,8),
+                               d = c(rep(0,4), rep(1,4))) %>%
+  arrange(z)
+ # Then, we for each Z and d, we find the "maximum" and "minimum" bounds among the feasible z'
+for(i in 1:4){
+  
+  # Find the maximum lower bound y0 and write them to the effective bounds df
+  effective_bounds[2*i-1, "effective_lb"] <- original_bounds %>%
+    filter(z >= i) %>%
+    summarize(effective_lb = max(lower_bound_y0)) %>% pull()
+  
+  # Find the maximum lower bound y1 and write them to the effective bounds df
+  effective_bounds[2*i, "effective_lb"] <- original_bounds %>%
+    filter(z >= i) %>%
+    summarize(effective_lb = max(lower_bound_y1)) %>% pull()
+  
+  # Find the minimum upper bound y0 ..
+  effective_bounds[2*i-1, "effective_ub"] <- original_bounds %>%
+    filter(z <= i) %>%
+    summarize(effective_ub = min(upper_bound_y0)) %>% pull()
+  
+  # Find the minimum upper bound y1
+  effective_bounds[2*i, "effective_ub"] <- original_bounds %>%
+    filter(z <= i) %>%
+    summarize(effective_ub = min(upper_bound_y1)) %>% pull()
+  
+}
+```
+
+```{r}
+# Then, we weight average the "effective" bounds to arrive at the bounds for Y^*_1 and Y^*_0
+## First, calculate the probabilities
+probs <- dataset_new %>%
+  group_by(education) %>% 
+  summarize(n = n()) %>%
+  mutate(freq = n/sum(n)) %>% pull()
+
+## Lower Bound Y_0:
+lb_y0 <- effective_bounds %>%
+  filter(d == 0) %>%
+  select(effective_lb) %>% pull()
+
+## Upper Bound Y_0:
+ub_y0 <- effective_bounds %>%
+  filter(d == 0) %>%
+  select(effective_ub) %>% pull()
+
+## Lower Bound Y_1:
+lb_y1 <- effective_bounds %>%
+  filter(d == 1) %>%  
+  select(effective_lb) %>% pull()
+
+## Upper Bound Y_1:
+ub_y1 <- effective_bounds %>%
+  filter(d == 1) %>%  
+  select(effective_ub) %>% pull()
+
+## Summarize in data.frame
+data.frame(lower_bound_y0 = sum(probs*lb_y0), upper_bound_y0 = sum(probs*ub_y0),
+           lower_bound_y1 = sum(probs*lb_y1), upper_bound_y1 = sum(probs*ub_y1)) %>%
+  mutate(lower_bound_ate = lower_bound_y1 - upper_bound_y0,
+         upper_bound_ate = upper_bound_y1 - lower_bound_y0) %>%
+  knitr::kable(booktabs=T) %>%
+  kableExtra::kable_styling(font_size = 7, latex_options = "hold_position")
+```
