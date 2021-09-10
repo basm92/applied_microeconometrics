@@ -281,11 +281,33 @@ Then, applying the same procedure as before, we find that $\mathbb{E}[Y^*_1 - Y^
 
 We observe that we have again a mirror case compared to the lecture slides: the upper bound is now 0, instead of the lower bound.
 
+```{r results='asis'}
+pr_treated <- mean(dataset$searchperiod, na.rm = TRUE)
+pr_untreated = 1 - pr_treated
+y_max <- 1
+y_min <- 0 
+
+paste("The lower bound for $E[Y^*_1 - Y^*_0]$ is", expected_y_given_deq1 * pr_treated + pr_untreated * y_min
+      - expected_y_given_deq0 * pr_untreated - pr_treated*y_max)
+paste("The upper bound for $E[Y^*_1 - Y^*_0]$ is", 0)
+
+```
+
 (iii) Applying MTS and MTR together simply yields the most strict bounds from both sides. After some simplifying, we find that it reduces to:
 
 $$
 \mathbb{E}[Y^*_1 | D = 1] - \mathbb{E}[Y^*_0 | D = 0] \leq \mathbb{E}[Y^*_1 - Y^*_0] \leq 0
 $$
+```{r results='asis'}
+pr_treated <- mean(dataset$searchperiod, na.rm = TRUE)
+pr_untreated = 1 - pr_treated
+y_max <- 1
+y_min <- 0 
+
+paste("The lower bound for $E[Y^*_1 - Y^*_0]$ is", expected_y_given_deq1 -expected_y_given_deq0)
+paste("The upper bound for $E[Y^*_1 - Y^*_0]$ is", 0)
+
+```
 
 7. Usually higher educated workers have more favorable labor market outcomes. Use education as monotone instrumental variable and compute the bounds.
 
