@@ -399,7 +399,7 @@ data.frame(lower_bound_y0 = sum(probs*lb_y0), upper_bound_y0 = sum(probs*ub_y0),
 ```
 
 
-We repeate the above exercise again for the 30-weeks outcome:
+We repeat the above exercise again for the 30-weeks outcome:
 
 
 ```{r}
