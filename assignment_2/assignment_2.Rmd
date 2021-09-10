@@ -15,7 +15,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 library(tidyverse); library(plm); library(stargazer); library(modelsummary)
 
-dataset <- foreign::read.dta("./searchperiod.dta")
+dataset <- foreign::read.dta("./searchperiod.dta") 
 ```
 
 1. Compute the average probability to receive benefits 10 and 30 weeks after application for applicants that had a search period and applicants that did not have a search period.
@@ -31,14 +31,15 @@ It seems that there is a large difference in unconditional means in the outcome 
 
 2. Make a balancing table in which you compare characteristics of applicants with and without a search period.
 
-```{r results='asis'}
+```{r results='asis', warning = FALSE}
 modelsummary::datasummary_balance(~ searchperiod,
                                   data = dataset %>%
                                       select(c(1,4:23)) %>%
                                       mutate(searchperiod = if_else(
                                           searchperiod == 1,
                                           "With Search", 
-                                          "Without Search")), 
+                                          "Without Search")) %>%
+                                      rename_with(.fn = ~ stringr::str_replace(.x, "_", "")),
                                   output = "latex", 
                                   fmt = "%.3f",
                                   dinm = TRUE,
@@ -212,8 +213,8 @@ expected_y_given_deq0 <- dataset%>%
 lower_bound30 <- -bounds_info$pr_treated *(bounds_info$y_max - expected_y_given_deq1)
 upper_bound30 <- bounds_info$pr_untreated * (bounds_info$y_max - expected_y_given_deq0)
 
-paste('For the 30-weeks outcome, the lower bound for E$[Y^*_1 - Y^*_0]$ = ', lower_bound30)
-paste('For the 30-weeks outcome, the upper bound for E$[Y^*_1 - Y^*_0]$= ', upper_bound30)
+paste('For the 30-weeks outcome, the lower bound for E[Y^*_1 - Y^*_0] = ', lower_bound30)
+paste('For the 30-weeks outcome, the upper bound for E[Y^*_1 - Y^*_0]= ', upper_bound30)
 ```
 
 6. Next, imposed the monotone treatment response and the monotone treatment selection assumption separately and also jointly.
@@ -242,6 +243,21 @@ Simplifying both bounds, and realizing that the lower bound for $\mathbb{E}[Y^*_
 \mathbb{E}[Y^*_1 | D=1] - \mathbb{E}[Y^*_0 | D = 0 ] \leq \mathbb{E}[Y^*_1 - Y^*_0] \leq \\
 \text{Pr}[D=1] * \mathbb{E}[Y^*_1 | D =1] + \text{Pr}[D=0] * y_{max} - \text{Pr}[D=0] * \mathbb{E}[Y^*_0 | D = 0] - \text{Pr}[D=1] * y_{min}
 \end{multline}
+
+```{r, results='asis'}
+pr_treated <- mean(dataset$searchperiod, na.rm = TRUE)
+pr_untreated = 1 - pr_treated
+y_max <- 1
+y_min <- 0 
+
+paste("The lower bound for $E[Y^*_1 - Y^*_0]$ is", expected_y_given_deq1 - expected_y_given_deq0)
+paste("The upper bound for $E[Y^*_1 - Y^*_0]$ is", 
+      pr_treated*expected_y_given_deq1 + 
+        pr_untreated * y_max -
+        pr_untreated * expected_y_given_deq0 -
+        pr_treated * y_min)
+
+```
 
 After some rewriting, this result is a nice "mirror case" of the results on the slides, as it should be. 
 
