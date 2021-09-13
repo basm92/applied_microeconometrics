@@ -1,0 +1,140 @@
+---
+title: "Applied Microeconometrics - Assignment 3"
+author: "Walter Verwer (589962) & Bas Machielsen (590049)"
+date: \today
+output:
+  pdf_document:
+    includes:
+      in_header: preamble.tex
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse); library(plm); library(stargazer); library(modelsummary)
+library(kableExtra)
+
+dataset <- haven::read_dta("./CardKrueger.dta") 
+```
+
+Construct a variable full-time equivalent for both waves, which is the number of full-time employees plus the number of part-time employees divided by two and also add the number of managers.  I will simply refer to employees for this outcome variable. 
+
+```{r}
+dataset <- dataset %>%
+    mutate(employees = (EMPFT + EMPPT)/2 + NMGRS,
+           employees2 = (EMPFT2 + EMPPT2)/2 + NMGRS2,
+           changeemployees = employees - employees2)
+
+```
+
+(i) Compute separately for New Jersey and Pennsylvania the average number of employees in both waves, and compute the difference-in-difference estimate
+
+```{r}
+did <- dataset %>%
+    group_by(STATE) %>%
+    summarize(mean_before = mean(employees, na.rm = TRUE),
+              mean_after = mean(employees2, na.rm = TRUE)) %>%
+    mutate(STATE = if_else(STATE == 0, "PA", "NJ")) 
+
+did %>%
+  knitr::kable(booktabs=T) %>%
+  kableExtra::kable_styling(font_size = 7, latex_options = "hold_position")
+
+did$mean_after[2] - did$mean_after[1] - (did$mean_before[2] - did$mean_before[1])
+```
+
+Next  repeat  this,  but  only  considering  the  restaurants  that  responded  in both waves of the survey.
+
+```{r}
+did2 <- dataset %>%
+    group_by(STATE) %>%
+    filter(!is.na(employees), !is.na(employees2)) %>%
+    summarize(mean_before = mean(employees, na.rm = TRUE),
+              mean_after = mean(employees2, na.rm = TRUE)) %>%
+    mutate(STATE = if_else(STATE == 0, "PA", "NJ")) 
+    
+did2$mean_after[2] - did2$mean_after[1] - (did2$mean_before[2] - did2$mean_before[1])
+```
+
+(ii) Estimate this model and next subsequently add characteristics of the restaurants observed in the first wave.  But think carefully which characteristics can be included.  How does the latter affect the estimate for the coefficient $\delta$?
+
+```{r}
+model1 <- lm(data = dataset, 
+   formula = changeemployees ~ STATE)
+
+model2 <- update(model1, . ~ . + WAGE_ST)
+model3 <- update(model2, . ~ . + INCTIME)
+model4 <- update(model3, . ~ . + FIRSTINC)
+model5 <- update(model4, . ~ . + BONUS)
+model6 <- update(model5, . ~ . + PCTAFF)
+model7 <- update(model6, . ~ . + MEALS)
+model8 <- update(model7, . ~ . + OPEN)
+model9 <- update(model8, . ~ . + HRSOPEN)
+model10 <- update(model9, . ~ . + PSODA)
+model11 <- update(model10, . ~ . + PFRY)
+
+```
+
+
+
+(iii) Provide  a  balancing  table,  i.e.   show  the  sample  mean  of  characteristics observed  in  the  first  survey  separately  for  the  restaurants  in  New  Jersey and Pennsylvania.  What is your opinion about the balancing table?
+
+```{r, results='asis', warning = FALSE}
+dataset %>%
+    mutate(STATE = if_else(STATE == 0, "PA", "NJ")) %>%
+    filter(!is.na(changeemployees)) %>%
+    rename_with(.fn = ~ stringr::str_replace(.x, "_", "")) %>%
+    select(changeemployees, STATE, NCALLS, WAGEST, INCTIME, FIRSTINC, BONUS, PCTAFF, MEALS,
+           OPEN, HRSOPEN, PSODA, PFRY, PENTREE, NREGS, NREGS11) %>%
+    modelsummary::datasummary_balance(formula = ~ STATE, 
+                                      dinm= TRUE, 
+                                      output = "latex", 
+                                      fmt = "%.3f",
+                                      dinm_statistic = "p.value")
+```
+
+(iv) Check  for  the  different  characteristics  if  there  is  a  common  support  for restaurants in New Jersey and Pennsylvania.  And estimate a propensity score for being a restaurant in New Jersey.
+
+```{r, warning = FALSE}
+# Check for common support
+dataset2 <- dataset %>%
+    mutate(STATE = if_else(STATE == 0, "PA", "NJ")) %>%
+    filter(!is.na(changeemployees)) %>%
+    rename_with(.fn = ~ stringr::str_replace(.x, "_", "")) %>%
+    select(changeemployees, STATE, NCALLS, WAGEST, INCTIME, FIRSTINC, BONUS, PCTAFF, MEALS,
+           OPEN, HRSOPEN, PSODA, PFRY, PENTREE, NREGS, NREGS11) 
+
+emptycol = function(x) " "
+
+boxplot1 <- lapply(dataset2 %>%
+                     filter(STATE == "NJ") %>%
+                  select(-STATE), na.omit) %>% lapply(scale)
+boxplot2 <- lapply(dataset2 %>%
+                     filter(STATE == "PA") %>%
+                  select(-STATE), na.omit) %>% lapply(scale)
+
+modelsummary::datasummary(
+  data = dataset2, 
+   NCALLS + WAGEST + INCTIME + FIRSTINC + BONUS + PCTAFF + MEALS +
+           OPEN + HRSOPEN + PSODA + PFRY + PENTREE + NREGS + NREGS11 ~ 
+    STATE * (Mean + SD + Heading("Boxplot")*emptycol + Heading("Histogram")*emptycol)) %>%
+  column_spec(column = 4, image = spec_boxplot(boxplot1)) %>%
+  column_spec(column = 8, image = spec_boxplot(boxplot2)) %>%
+  column_spec(column = 5, image = spec_hist(boxplot1)) %>%
+  column_spec(column = 9, image = spec_hist(boxplot2))
+
+
+```
+
+
+```{r}
+# Estimate propensity score
+
+```
+
+(v) Use propensity score matching to estimate the average treatment effect on the treated for the employment before and after the minimum wage increase in New Jersey, so on $E_{0i}$ and $E_{1i}$ separately. 
+
+(vi) Now use propensity score matching to estimate the average treatment effect on the treated on the change in employment in the restaurants, so $E_{1i}-E_{0i}$. 
+
+(vii) Now check the sensitivity of the propensity score matching estimate by also computing the weighting estimators for the average treatment effect on the treated. 
+
