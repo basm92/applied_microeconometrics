@@ -218,7 +218,6 @@ paste('For the 30-weeks outcome, the upper bound for E[Y^*_1 - Y^*_0]= ', upper_
 ```
 
 6. Next, imposed the monotone treatment response and the monotone treatment selection assumption separately and also jointly.
-
 (i) First, we work out the case for our data, in which a favorable outcome is no benefits. Then, the MTS assumption becomes:
 
 \begin{align*}
@@ -245,17 +244,48 @@ Simplifying both bounds, and realizing that the lower bound for $\mathbb{E}[Y^*_
 \end{multline}
 
 ```{r, results='asis'}
+
+expected_y_given_deq1_10 <- dataset %>%
+    dplyr::filter(searchperiod == 1) %>%
+             summarize(mean = mean(benefits_week10, na.rm = TRUE)) %>%
+             pull()
+  
+expected_y_given_deq0_10 <- dataset%>%
+    dplyr::filter(searchperiod == 0) %>%
+             summarize(mean = mean(benefits_week10, na.rm = TRUE)) %>%
+             pull()
+
+expected_y_given_deq1_30 <- dataset %>%
+    dplyr::filter(searchperiod == 1) %>%
+             summarize(mean = mean(benefits_week30, na.rm = TRUE)) %>%
+             pull()
+  
+expected_y_given_deq0_30 <- dataset%>%
+    dplyr::filter(searchperiod == 0) %>%
+             summarize(mean = mean(benefits_week30, na.rm = TRUE)) %>%
+             pull()
+
 pr_treated <- mean(dataset$searchperiod, na.rm = TRUE)
 pr_untreated = 1 - pr_treated
 y_max <- 1
 y_min <- 0 
 
-paste("The lower bound for $E[Y^*_1 - Y^*_0]$ is", expected_y_given_deq1 - expected_y_given_deq0)
-paste("The upper bound for $E[Y^*_1 - Y^*_0]$ is", 
-      pr_treated*expected_y_given_deq1 + 
+paste("The lower bound for $E[Y^*_1 - Y^*_0]$, for 10 weeks is", expected_y_given_deq1_10 - 
+          expected_y_given_deq0_10)
+paste("The upper bound for $E[Y^*_1 - Y^*_0]$, for 10 weeks is", 
+      pr_treated*expected_y_given_deq1_10 + 
         pr_untreated * y_max -
-        pr_untreated * expected_y_given_deq0 -
+        pr_untreated * expected_y_given_deq0_10 -
         pr_treated * y_min)
+
+paste("The lower bound for $E[Y^*_1 - Y^*_0]$, for 30 weeks is", expected_y_given_deq1_30 - 
+          expected_y_given_deq0_30)
+paste("The upper bound for $E[Y^*_1 - Y^*_0]$, for 30 weeks is", 
+      pr_treated*expected_y_given_deq1_30 + 
+        pr_untreated * y_max -
+        pr_untreated * expected_y_given_deq0_30 -
+        pr_treated * y_min)
+
 
 ```
 
@@ -287,9 +317,13 @@ pr_untreated = 1 - pr_treated
 y_max <- 1
 y_min <- 0 
 
-paste("The lower bound for $E[Y^*_1 - Y^*_0]$ is", expected_y_given_deq1 * pr_treated + pr_untreated * y_min
-      - expected_y_given_deq0 * pr_untreated - pr_treated*y_max)
-paste("The upper bound for $E[Y^*_1 - Y^*_0]$ is", 0)
+paste("The lower bound for $E[Y^*_1 - Y^*_0]$, for 10 weeks is", expected_y_given_deq1_10 * pr_treated + 
+          pr_untreated * y_min - expected_y_given_deq0_10 * pr_untreated - pr_treated*y_max)
+paste("The upper bound for $E[Y^*_1 - Y^*_0]$, for 10 weeks is", 0)
+
+paste("The lower bound for $E[Y^*_1 - Y^*_0]$, for 30 weeks is", expected_y_given_deq1_30 * pr_treated + 
+          pr_untreated * y_min - expected_y_given_deq0_30 * pr_untreated - pr_treated*y_max)
+paste("The upper bound for $E[Y^*_1 - Y^*_0]$, for 30 weeks is", 0)
 
 ```
 
@@ -304,8 +338,13 @@ pr_untreated = 1 - pr_treated
 y_max <- 1
 y_min <- 0 
 
-paste("The lower bound for $E[Y^*_1 - Y^*_0]$ is", expected_y_given_deq1 -expected_y_given_deq0)
-paste("The upper bound for $E[Y^*_1 - Y^*_0]$ is", 0)
+paste("The lower bound for $E[Y^*_1 - Y^*_0]$, for 10 weeks is", expected_y_given_deq1_10 
+      - expected_y_given_deq0_10)
+paste("The upper bound for $E[Y^*_1 - Y^*_0]$, for 10 weeks is", 0)
+
+paste("The lower bound for $E[Y^*_1 - Y^*_0]$, for 30 weeks is", expected_y_given_deq1_30 
+      - expected_y_given_deq0_30)
+paste("The upper bound for $E[Y^*_1 - Y^*_0]$, for 30 weeks is", 0)
 
 ```
 
