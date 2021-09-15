@@ -127,9 +127,15 @@ modelsummary::datasummary(
 ```
 
 
-```{r}
-# Estimate propensity score
+```{r results='asis'}
 
+# Estimate propensity score: p(X_i) = Pr(D_i=1|X_i), estimate via Logit.
+logit <- glm(STATE ~ WAGE_ST + INCTIME + FIRSTINC + BONUS + PCTAFF + MEALS +
+                  OPEN + HRSOPEN + PSODA + PFRY + PENTREE + NREGS + NREGS11 ,
+                  family='binomial', data=dataset)
+
+dataset['prop_score_nj'] <- NA
+dataset[['prop_score_nj']][!(rownames(dataset) %in% logit[['na.action']])] <- logit[['fitted.values']]
 ```
 
 (v) Use propensity score matching to estimate the average treatment effect on the treated for the employment before and after the minimum wage increase in New Jersey, so on $E_{0i}$ and $E_{1i}$ separately. 
