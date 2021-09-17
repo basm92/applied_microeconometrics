@@ -12,7 +12,7 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 
 library(tidyverse); library(plm); library(stargazer); library(modelsummary)
-library(kableExtra)
+library(kableExtra); library(MatchIt)
 
 dataset <- haven::read_dta("./CardKrueger.dta") 
 ```
@@ -21,8 +21,8 @@ Construct a variable full-time equivalent for both waves, which is the number of
 
 ```{r}
 dataset <- dataset %>%
-    mutate(employees = (EMPFT + EMPPT)/2 + NMGRS,
-           employees2 = (EMPFT2 + EMPPT2)/2 + NMGRS2,
+    mutate(employees = EMPFT  + EMPPT/2 + NMGRS,
+           employees2 = EMPFT2 + EMPPT2/2 + NMGRS2,
            changeemployees = employees - employees2)
 
 ```
@@ -58,24 +58,33 @@ did2$mean_after[2] - did2$mean_after[1] - (did2$mean_before[2] - did2$mean_befor
 
 (ii) Estimate this model and next subsequently add characteristics of the restaurants observed in the first wave.  But think carefully which characteristics can be included.  How does the latter affect the estimate for the coefficient $\delta$?
 
-```{r}
+```{r, results='asis'}
+
 model1 <- lm(data = dataset, 
    formula = changeemployees ~ STATE)
+model2 <- lm(data = dataset, 
+             formula = changeemployees ~ STATE + SOUTHJ + CENTRALJ + SHORE + PA1)
+model3 <- update(model1, . ~ . + NCALLS + WAGE_ST + INCTIME + FIRSTINC +
+                   BONUS + MEALS + OPEN + HRSOPEN + PSODA + PFRY + NREGS + NREGS11)
+model4 <- update(model2, . ~ . + NCALLS + WAGE_ST + INCTIME + FIRSTINC +
+                   BONUS + MEALS + OPEN + HRSOPEN + PSODA + PFRY + NREGS + NREGS11)
 
-model2 <- update(model1, . ~ . + WAGE_ST)
-model3 <- update(model2, . ~ . + INCTIME)
-model4 <- update(model3, . ~ . + FIRSTINC)
-model5 <- update(model4, . ~ . + BONUS)
-model6 <- update(model5, . ~ . + PCTAFF)
-model7 <- update(model6, . ~ . + MEALS)
-model8 <- update(model7, . ~ . + OPEN)
-model9 <- update(model8, . ~ . + HRSOPEN)
-model10 <- update(model9, . ~ . + PSODA)
-model11 <- update(model10, . ~ . + PFRY)
+models <- list(model1, model2, model3, model4) 
+
+stargazer(models, omit.stat = c("ll", "ser", "rsq"), df=F, 
+          omit = c("SOUTHJ", "CENTRALJ", "SHORE", "PA1"),
+          add.lines = list(c("Region Dummies", "No", "Yes", "No", "Yes")),
+          header = FALSE, font.size = "footnotesize")
 
 ```
 
+<!--
+purrr::map(models, ~ sandwich::vcovCL(.x, cluster = ))
 
+How much can we trust DiD estimates? as a ref. paper as to why not to cluster
+-->
+
+We want to isolate the effect of the minimum wage by attributing it to the coefficient belonging to STATE, which means we have to account for all possible sources of variation not due to the minimum wage. This also means we cannot control for PCTAFF, because this is the mechanism we care about: if we conditioned on this variable, that would absorb all variation due to the minimum wage policy changes and would change our interpretation of the STATE coefficient to a partial instead of a total effect and bias it towards zero. 
 
 (iii) Provide  a  balancing  table,  i.e.   show  the  sample  mean  of  characteristics observed  in  the  first  survey  separately  for  the  restaurants  in  New  Jersey and Pennsylvania.  What is your opinion about the balancing table?
 
@@ -126,21 +135,87 @@ modelsummary::datasummary(
 
 ```
 
+As indicated in the table, there is no common support for any of the variables, as we are dealing with continuous variables, so that the probability of realizing two zero outcomes is practically zero. We estimate two propensity scores, one extensive model, which sacrifices many observations, and one parsimonious model, which does not. 
 
-```{r results='asis'}
+```{r}
+# Estimate propensity score
+ps1 <- glm(STATE ~ WAGE_ST + INCTIME + FIRSTINC + BONUS + PCTAFF + MEALS + OPEN + HRSOPEN +
+      PSODA + PFRY + PENTREE + NREGS + NREGS11 + NCALLS, 
+    data = dataset, 
+    family="binomial") 
 
-# Estimate propensity score: p(X_i) = Pr(D_i=1|X_i), estimate via Logit.
-logit <- glm(STATE ~ WAGE_ST + INCTIME + FIRSTINC + BONUS + PCTAFF + MEALS +
-                  OPEN + HRSOPEN + PSODA + PFRY + PENTREE + NREGS + NREGS11 ,
-                  family='binomial', data=dataset)
+ps2 <- glm(STATE ~ MEALS + OPEN + HRSOPEN + PSODA + PFRY, 
+           data = dataset, 
+    family="binomial") 
 
-dataset['prop_score_nj'] <- NA
-dataset[['prop_score_nj']][!(rownames(dataset) %in% logit[['na.action']])] <- logit[['fitted.values']]
+dataset <- dataset %>%
+  modelr::add_predictions(ps1, type = "response") %>%
+  rename("ps1" = "pred")
+
+dataset <- dataset %>%
+  modelr::add_predictions(ps2, type = "response") %>%
+  rename("p2" = "pred")
+```
+
+
+```{r, warning = FALSE, message = FALSE}
+dataset %>%
+  ggplot(aes(x = ps1)) + geom_histogram()+ facet_wrap(~as.factor(STATE)) + theme_bw()
 ```
 
 (v) Use propensity score matching to estimate the average treatment effect on the treated for the employment before and after the minimum wage increase in New Jersey, so on $E_{0i}$ and $E_{1i}$ separately. 
 
+We report the results of (v), (vi) and (viii) in table \ref{tab:hoi}. We use the `MatchIt` package to estimate the propensity-score again and subsequently match using the nearest neighbor algorithm to compute $E_{0i}$:
+
+```{r, warning = FALSE}
+matched_data1 <- MatchIt::matchit(STATE ~ MEALS + OPEN + HRSOPEN + PSODA + PFRY,
+                 data = dataset %>%
+                   select(employees, STATE, MEALS, OPEN, HRSOPEN, PSODA, PFRY) %>%
+                   na.omit(), 
+                 method = "nearest") %>%
+  match.data()
+
+e_0i <- lm(employees ~ STATE + MEALS + OPEN + HRSOPEN + PSODA + PFRY, data = matched_data1)
+```
+
+And $E_{1i}$:
+
+```{r, warning = FALSE}
+matched_data2 <- MatchIt::matchit(STATE ~ MEALS + OPEN + HRSOPEN + PSODA + PFRY,
+                 data = dataset %>%
+                   select(employees2, STATE, MEALS, OPEN, HRSOPEN, PSODA, PFRY) %>%
+                   na.omit(), 
+                 method = "nearest") %>%
+  match.data()
+
+e_1i <- lm(employees2 ~ STATE + MEALS + OPEN + HRSOPEN + PSODA + PFRY, data = matched_data2)
+
+```
+
 (vi) Now use propensity score matching to estimate the average treatment effect on the treated on the change in employment in the restaurants, so $E_{1i}-E_{0i}$. 
 
+```{r, warning = FALSE}
+matched_data3 <- MatchIt::matchit(STATE ~ MEALS + OPEN + HRSOPEN + PSODA + PFRY,
+                 data = dataset %>%
+                   select(changeemployees, STATE, MEALS, OPEN, HRSOPEN, PSODA, PFRY) %>%
+                   na.omit(), 
+                 method = "nearest") %>%
+  match.data()
+
+ate <- lm(changeemployees ~ STATE + MEALS + OPEN + HRSOPEN + PSODA + PFRY, data = matched_data3)
+
+```
+
+
+```{r, results='asis'}
+stargazer(e_0i, e_1i, ate, header = F, 
+          omit.stat = c("ll", "ser", "rsq"), df = F,
+          font.size = "footnotesize",
+          label="tab:hoi")
+
+```
 (vii) Now check the sensitivity of the propensity score matching estimate by also computing the weighting estimators for the average treatment effect on the treated. 
 
+```{r}
+
+```
