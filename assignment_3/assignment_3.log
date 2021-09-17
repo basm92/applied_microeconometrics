@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.10.9)  17 SEP 2021 15:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.10.9)  17 SEP 2021 17:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -721,452 +721,452 @@ l.321
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <8> not available
 (Font)              Font shape `T1/lmtt/b/n' tried instead on input line 396.
 [3]
-<assignment_3_files/figure-latex//boxplot_2810276c633d3.pdf, id=39, 48.18pt x 1
+<assignment_3_files/figure-latex//boxplot_296cb71716a54.pdf, id=39, 48.18pt x 1
 2.045pt>
-File: assignment_3_files/figure-latex//boxplot_2810276c633d3.pdf Graphic file (
+File: assignment_3_files/figure-latex//boxplot_296cb71716a54.pdf Graphic file (
 type pdf)
-<use assignment_3_files/figure-latex//boxplot_2810276c633d3.pdf>
-Package pdftex.def Info: assignment_3_files/figure-latex//boxplot_2810276c633d3
+<use assignment_3_files/figure-latex//boxplot_296cb71716a54.pdf>
+Package pdftex.def Info: assignment_3_files/figure-latex//boxplot_296cb71716a54
 .pdf  used on input line 425.
 (pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<assignment_3_files/figure-latex//hist_281025dd29999.pdf, id=40, 48.18pt x 12.0
+<assignment_3_files/figure-latex//hist_296cb5a24735e.pdf, id=40, 48.18pt x 12.0
 45pt>
-File: assignment_3_files/figure-latex//hist_281025dd29999.pdf Graphic file (typ
+File: assignment_3_files/figure-latex//hist_296cb5a24735e.pdf Graphic file (typ
 e pdf)
-<use assignment_3_files/figure-latex//hist_281025dd29999.pdf>
-Package pdftex.def Info: assignment_3_files/figure-latex//hist_281025dd29999.pd
+<use assignment_3_files/figure-latex//hist_296cb5a24735e.pdf>
+Package pdftex.def Info: assignment_3_files/figure-latex//hist_296cb5a24735e.pd
 f  used on input line 425.
 (pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<assignment_3_files/figure-latex//boxplot_2810241167a4d.pdf, id=41, 48.18pt x 1
+<assignment_3_files/figure-latex//boxplot_296cb20e5e17f.pdf, id=41, 48.18pt x 1
 2.045pt>
-File: assignment_3_files/figure-latex//boxplot_2810241167a4d.pdf Graphic file (
+File: assignment_3_files/figure-latex//boxplot_296cb20e5e17f.pdf Graphic file (
 type pdf)
-<use assignment_3_files/figure-latex//boxplot_2810241167a4d.pdf>
-Package pdftex.def Info: assignment_3_files/figure-latex//boxplot_2810241167a4d
+<use assignment_3_files/figure-latex//boxplot_296cb20e5e17f.pdf>
+Package pdftex.def Info: assignment_3_files/figure-latex//boxplot_296cb20e5e17f
 .pdf  used on input line 425.
 (pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<assignment_3_files/figure-latex//hist_281024031c143.pdf, id=42, 48.18pt x 12.0
+<assignment_3_files/figure-latex//hist_296cb6072d242.pdf, id=42, 48.18pt x 12.0
 45pt>
-File: assignment_3_files/figure-latex//hist_281024031c143.pdf Graphic file (typ
+File: assignment_3_files/figure-latex//hist_296cb6072d242.pdf Graphic file (typ
 e pdf)
-<use assignment_3_files/figure-latex//hist_281024031c143.pdf>
-Package pdftex.def Info: assignment_3_files/figure-latex//hist_281024031c143.pd
+<use assignment_3_files/figure-latex//hist_296cb6072d242.pdf>
+Package pdftex.def Info: assignment_3_files/figure-latex//hist_296cb6072d242.pd
 f  used on input line 425.
 (pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<assignment_3_files/figure-latex//boxplot_28102768ab485.pdf, id=43, 48.18pt x 1
+<assignment_3_files/figure-latex//boxplot_296cb5927bc3b.pdf, id=43, 48.18pt x 1
 2.045pt>
-File: assignment_3_files/figure-latex//boxplot_28102768ab485.pdf Graphic file (
+File: assignment_3_files/figure-latex//boxplot_296cb5927bc3b.pdf Graphic file (
 type pdf)
-<use assignment_3_files/figure-latex//boxplot_28102768ab485.pdf>
-Package pdftex.def Info: assignment_3_files/figure-latex//boxplot_28102768ab485
+<use assignment_3_files/figure-latex//boxplot_296cb5927bc3b.pdf>
+Package pdftex.def Info: assignment_3_files/figure-latex//boxplot_296cb5927bc3b
 .pdf  used on input line 426.
 (pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<assignment_3_files/figure-latex//hist_28102720f9e6b.pdf, id=44, 48.18pt x 12.0
+<assignment_3_files/figure-latex//hist_296cb2682b6ea.pdf, id=44, 48.18pt x 12.0
 45pt>
-File: assignment_3_files/figure-latex//hist_28102720f9e6b.pdf Graphic file (typ
+File: assignment_3_files/figure-latex//hist_296cb2682b6ea.pdf Graphic file (typ
 e pdf)
-<use assignment_3_files/figure-latex//hist_28102720f9e6b.pdf>
-Package pdftex.def Info: assignment_3_files/figure-latex//hist_28102720f9e6b.pd
+<use assignment_3_files/figure-latex//hist_296cb2682b6ea.pdf>
+Package pdftex.def Info: assignment_3_files/figure-latex//hist_296cb2682b6ea.pd
 f  used on input line 426.
 (pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<assignment_3_files/figure-latex//boxplot_281026d556cc5.pdf, id=45, 48.18pt x 1
+<assignment_3_files/figure-latex//boxplot_296cb4b84f319.pdf, id=45, 48.18pt x 1
 2.045pt>
-File: assignment_3_files/figure-latex//boxplot_281026d556cc5.pdf Graphic file (
+File: assignment_3_files/figure-latex//boxplot_296cb4b84f319.pdf Graphic file (
 type pdf)
-<use assignment_3_files/figure-latex//boxplot_281026d556cc5.pdf>
-Package pdftex.def Info: assignment_3_files/figure-latex//boxplot_281026d556cc5
+<use assignment_3_files/figure-latex//boxplot_296cb4b84f319.pdf>
+Package pdftex.def Info: assignment_3_files/figure-latex//boxplot_296cb4b84f319
 .pdf  used on input line 426.
 (pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<assignment_3_files/figure-latex//hist_281028fd629f.pdf, id=46, 48.18pt x 12.04
-5pt>
-File: assignment_3_files/figure-latex//hist_281028fd629f.pdf Graphic file (type
- pdf)
-<use assignment_3_files/figure-latex//hist_281028fd629f.pdf>
-Package pdftex.def Info: assignment_3_files/figure-latex//hist_281028fd629f.pdf
-  used on input line 426.
+<assignment_3_files/figure-latex//hist_296cb48d10897.pdf, id=46, 48.18pt x 12.0
+45pt>
+File: assignment_3_files/figure-latex//hist_296cb48d10897.pdf Graphic file (typ
+e pdf)
+<use assignment_3_files/figure-latex//hist_296cb48d10897.pdf>
+Package pdftex.def Info: assignment_3_files/figure-latex//hist_296cb48d10897.pd
+f  used on input line 426.
 (pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<assignment_3_files/figure-latex//boxplot_28102651d2698.pdf, id=47, 48.18pt x 1
+<assignment_3_files/figure-latex//boxplot_296cb28b4cb19.pdf, id=47, 48.18pt x 1
 2.045pt>
-File: assignment_3_files/figure-latex//boxplot_28102651d2698.pdf Graphic file (
+File: assignment_3_files/figure-latex//boxplot_296cb28b4cb19.pdf Graphic file (
 type pdf)
-<use assignment_3_files/figure-latex//boxplot_28102651d2698.pdf>
-Package pdftex.def Info: assignment_3_files/figure-latex//boxplot_28102651d2698
+<use assignment_3_files/figure-latex//boxplot_296cb28b4cb19.pdf>
+Package pdftex.def Info: assignment_3_files/figure-latex//boxplot_296cb28b4cb19
 .pdf  used on input line 427.
 (pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<assignment_3_files/figure-latex//hist_281021eae5188.pdf, id=48, 48.18pt x 12.0
+<assignment_3_files/figure-latex//hist_296cb6d90879e.pdf, id=48, 48.18pt x 12.0
 45pt>
-File: assignment_3_files/figure-latex//hist_281021eae5188.pdf Graphic file (typ
+File: assignment_3_files/figure-latex//hist_296cb6d90879e.pdf Graphic file (typ
 e pdf)
-<use assignment_3_files/figure-latex//hist_281021eae5188.pdf>
-Package pdftex.def Info: assignment_3_files/figure-latex//hist_281021eae5188.pd
+<use assignment_3_files/figure-latex//hist_296cb6d90879e.pdf>
+Package pdftex.def Info: assignment_3_files/figure-latex//hist_296cb6d90879e.pd
 f  used on input line 427.
 (pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<assignment_3_files/figure-latex//boxplot_281021500e240.pdf, id=49, 48.18pt x 1
-2.045pt>
-File: assignment_3_files/figure-latex//boxplot_281021500e240.pdf Graphic file (
-type pdf)
-<use assignment_3_files/figure-latex//boxplot_281021500e240.pdf>
-Package pdftex.def Info: assignment_3_files/figure-latex//boxplot_281021500e240
-.pdf  used on input line 427.
+<assignment_3_files/figure-latex//boxplot_296cb7ae91b5.pdf, id=49, 48.18pt x 12
+.045pt>
+File: assignment_3_files/figure-latex//boxplot_296cb7ae91b5.pdf Graphic file (t
+ype pdf)
+<use assignment_3_files/figure-latex//boxplot_296cb7ae91b5.pdf>
+Package pdftex.def Info: assignment_3_files/figure-latex//boxplot_296cb7ae91b5.
+pdf  used on input line 427.
 (pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<assignment_3_files/figure-latex//hist_2810210ef3864.pdf, id=50, 48.18pt x 12.0
+<assignment_3_files/figure-latex//hist_296cb4c47dfad.pdf, id=50, 48.18pt x 12.0
 45pt>
-File: assignment_3_files/figure-latex//hist_2810210ef3864.pdf Graphic file (typ
+File: assignment_3_files/figure-latex//hist_296cb4c47dfad.pdf Graphic file (typ
 e pdf)
-<use assignment_3_files/figure-latex//hist_2810210ef3864.pdf>
-Package pdftex.def Info: assignment_3_files/figure-latex//hist_2810210ef3864.pd
+<use assignment_3_files/figure-latex//hist_296cb4c47dfad.pdf>
+Package pdftex.def Info: assignment_3_files/figure-latex//hist_296cb4c47dfad.pd
 f  used on input line 427.
 (pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<assignment_3_files/figure-latex//boxplot_281022efc7759.pdf, id=51, 48.18pt x 1
-2.045pt>
-File: assignment_3_files/figure-latex//boxplot_281022efc7759.pdf Graphic file (
-type pdf)
-<use assignment_3_files/figure-latex//boxplot_281022efc7759.pdf>
-Package pdftex.def Info: assignment_3_files/figure-latex//boxplot_281022efc7759
-.pdf  used on input line 428.
+<assignment_3_files/figure-latex//boxplot_296cbe28bc15.pdf, id=51, 48.18pt x 12
+.045pt>
+File: assignment_3_files/figure-latex//boxplot_296cbe28bc15.pdf Graphic file (t
+ype pdf)
+<use assignment_3_files/figure-latex//boxplot_296cbe28bc15.pdf>
+Package pdftex.def Info: assignment_3_files/figure-latex//boxplot_296cbe28bc15.
+pdf  used on input line 428.
 (pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<assignment_3_files/figure-latex//hist_281021d9a99bb.pdf, id=52, 48.18pt x 12.0
+<assignment_3_files/figure-latex//hist_296cb19e324ab.pdf, id=52, 48.18pt x 12.0
 45pt>
-File: assignment_3_files/figure-latex//hist_281021d9a99bb.pdf Graphic file (typ
+File: assignment_3_files/figure-latex//hist_296cb19e324ab.pdf Graphic file (typ
 e pdf)
-<use assignment_3_files/figure-latex//hist_281021d9a99bb.pdf>
-Package pdftex.def Info: assignment_3_files/figure-latex//hist_281021d9a99bb.pd
+<use assignment_3_files/figure-latex//hist_296cb19e324ab.pdf>
+Package pdftex.def Info: assignment_3_files/figure-latex//hist_296cb19e324ab.pd
 f  used on input line 428.
 (pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<assignment_3_files/figure-latex//boxplot_2810270c00a19.pdf, id=53, 48.18pt x 1
+<assignment_3_files/figure-latex//boxplot_296cb7b9db22b.pdf, id=53, 48.18pt x 1
 2.045pt>
-File: assignment_3_files/figure-latex//boxplot_2810270c00a19.pdf Graphic file (
+File: assignment_3_files/figure-latex//boxplot_296cb7b9db22b.pdf Graphic file (
 type pdf)
-<use assignment_3_files/figure-latex//boxplot_2810270c00a19.pdf>
-Package pdftex.def Info: assignment_3_files/figure-latex//boxplot_2810270c00a19
+<use assignment_3_files/figure-latex//boxplot_296cb7b9db22b.pdf>
+Package pdftex.def Info: assignment_3_files/figure-latex//boxplot_296cb7b9db22b
 .pdf  used on input line 428.
 (pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<assignment_3_files/figure-latex//hist_281023951e05a.pdf, id=54, 48.18pt x 12.0
+<assignment_3_files/figure-latex//hist_296cb3526d1cb.pdf, id=54, 48.18pt x 12.0
 45pt>
-File: assignment_3_files/figure-latex//hist_281023951e05a.pdf Graphic file (typ
+File: assignment_3_files/figure-latex//hist_296cb3526d1cb.pdf Graphic file (typ
 e pdf)
-<use assignment_3_files/figure-latex//hist_281023951e05a.pdf>
-Package pdftex.def Info: assignment_3_files/figure-latex//hist_281023951e05a.pd
+<use assignment_3_files/figure-latex//hist_296cb3526d1cb.pdf>
+Package pdftex.def Info: assignment_3_files/figure-latex//hist_296cb3526d1cb.pd
 f  used on input line 428.
 (pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<assignment_3_files/figure-latex//boxplot_28102428fe807.pdf, id=55, 48.18pt x 1
+<assignment_3_files/figure-latex//boxplot_296cb469b5c66.pdf, id=55, 48.18pt x 1
 2.045pt>
-File: assignment_3_files/figure-latex//boxplot_28102428fe807.pdf Graphic file (
+File: assignment_3_files/figure-latex//boxplot_296cb469b5c66.pdf Graphic file (
 type pdf)
-<use assignment_3_files/figure-latex//boxplot_28102428fe807.pdf>
-Package pdftex.def Info: assignment_3_files/figure-latex//boxplot_28102428fe807
+<use assignment_3_files/figure-latex//boxplot_296cb469b5c66.pdf>
+Package pdftex.def Info: assignment_3_files/figure-latex//boxplot_296cb469b5c66
 .pdf  used on input line 429.
 (pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<assignment_3_files/figure-latex//hist_281024b0dda46.pdf, id=56, 48.18pt x 12.0
+<assignment_3_files/figure-latex//hist_296cb44089669.pdf, id=56, 48.18pt x 12.0
 45pt>
-File: assignment_3_files/figure-latex//hist_281024b0dda46.pdf Graphic file (typ
+File: assignment_3_files/figure-latex//hist_296cb44089669.pdf Graphic file (typ
 e pdf)
-<use assignment_3_files/figure-latex//hist_281024b0dda46.pdf>
-Package pdftex.def Info: assignment_3_files/figure-latex//hist_281024b0dda46.pd
+<use assignment_3_files/figure-latex//hist_296cb44089669.pdf>
+Package pdftex.def Info: assignment_3_files/figure-latex//hist_296cb44089669.pd
 f  used on input line 429.
 (pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<assignment_3_files/figure-latex//boxplot_28102640212c.pdf, id=57, 48.18pt x 12
+<assignment_3_files/figure-latex//boxplot_296cb78fdce8.pdf, id=57, 48.18pt x 12
 .045pt>
-File: assignment_3_files/figure-latex//boxplot_28102640212c.pdf Graphic file (t
+File: assignment_3_files/figure-latex//boxplot_296cb78fdce8.pdf Graphic file (t
 ype pdf)
-<use assignment_3_files/figure-latex//boxplot_28102640212c.pdf>
-Package pdftex.def Info: assignment_3_files/figure-latex//boxplot_28102640212c.
+<use assignment_3_files/figure-latex//boxplot_296cb78fdce8.pdf>
+Package pdftex.def Info: assignment_3_files/figure-latex//boxplot_296cb78fdce8.
 pdf  used on input line 429.
 (pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<assignment_3_files/figure-latex//hist_28102371a0fc8.pdf, id=58, 48.18pt x 12.0
+<assignment_3_files/figure-latex//hist_296cb1f8fc9ff.pdf, id=58, 48.18pt x 12.0
 45pt>
-File: assignment_3_files/figure-latex//hist_28102371a0fc8.pdf Graphic file (typ
+File: assignment_3_files/figure-latex//hist_296cb1f8fc9ff.pdf Graphic file (typ
 e pdf)
-<use assignment_3_files/figure-latex//hist_28102371a0fc8.pdf>
-Package pdftex.def Info: assignment_3_files/figure-latex//hist_28102371a0fc8.pd
+<use assignment_3_files/figure-latex//hist_296cb1f8fc9ff.pdf>
+Package pdftex.def Info: assignment_3_files/figure-latex//hist_296cb1f8fc9ff.pd
 f  used on input line 429.
 (pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<assignment_3_files/figure-latex//boxplot_281021d5c376c.pdf, id=59, 48.18pt x 1
+<assignment_3_files/figure-latex//boxplot_296cb7a758da5.pdf, id=59, 48.18pt x 1
 2.045pt>
-File: assignment_3_files/figure-latex//boxplot_281021d5c376c.pdf Graphic file (
+File: assignment_3_files/figure-latex//boxplot_296cb7a758da5.pdf Graphic file (
 type pdf)
-<use assignment_3_files/figure-latex//boxplot_281021d5c376c.pdf>
-Package pdftex.def Info: assignment_3_files/figure-latex//boxplot_281021d5c376c
+<use assignment_3_files/figure-latex//boxplot_296cb7a758da5.pdf>
+Package pdftex.def Info: assignment_3_files/figure-latex//boxplot_296cb7a758da5
 .pdf  used on input line 430.
 (pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<assignment_3_files/figure-latex//hist_2810242be4dc1.pdf, id=60, 48.18pt x 12.0
+<assignment_3_files/figure-latex//hist_296cb2b67485b.pdf, id=60, 48.18pt x 12.0
 45pt>
-File: assignment_3_files/figure-latex//hist_2810242be4dc1.pdf Graphic file (typ
+File: assignment_3_files/figure-latex//hist_296cb2b67485b.pdf Graphic file (typ
 e pdf)
-<use assignment_3_files/figure-latex//hist_2810242be4dc1.pdf>
-Package pdftex.def Info: assignment_3_files/figure-latex//hist_2810242be4dc1.pd
+<use assignment_3_files/figure-latex//hist_296cb2b67485b.pdf>
+Package pdftex.def Info: assignment_3_files/figure-latex//hist_296cb2b67485b.pd
 f  used on input line 430.
 (pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<assignment_3_files/figure-latex//boxplot_2810231875884.pdf, id=61, 48.18pt x 1
+<assignment_3_files/figure-latex//boxplot_296cb3ec738fc.pdf, id=61, 48.18pt x 1
 2.045pt>
-File: assignment_3_files/figure-latex//boxplot_2810231875884.pdf Graphic file (
+File: assignment_3_files/figure-latex//boxplot_296cb3ec738fc.pdf Graphic file (
 type pdf)
-<use assignment_3_files/figure-latex//boxplot_2810231875884.pdf>
-Package pdftex.def Info: assignment_3_files/figure-latex//boxplot_2810231875884
+<use assignment_3_files/figure-latex//boxplot_296cb3ec738fc.pdf>
+Package pdftex.def Info: assignment_3_files/figure-latex//boxplot_296cb3ec738fc
 .pdf  used on input line 430.
 (pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<assignment_3_files/figure-latex//hist_2810252648d07.pdf, id=62, 48.18pt x 12.0
-45pt>
-File: assignment_3_files/figure-latex//hist_2810252648d07.pdf Graphic file (typ
-e pdf)
-<use assignment_3_files/figure-latex//hist_2810252648d07.pdf>
-Package pdftex.def Info: assignment_3_files/figure-latex//hist_2810252648d07.pd
-f  used on input line 430.
+<assignment_3_files/figure-latex//hist_296cb79e05ec.pdf, id=62, 48.18pt x 12.04
+5pt>
+File: assignment_3_files/figure-latex//hist_296cb79e05ec.pdf Graphic file (type
+ pdf)
+<use assignment_3_files/figure-latex//hist_296cb79e05ec.pdf>
+Package pdftex.def Info: assignment_3_files/figure-latex//hist_296cb79e05ec.pdf
+  used on input line 430.
 (pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<assignment_3_files/figure-latex//boxplot_28102196b973e.pdf, id=63, 48.18pt x 1
+<assignment_3_files/figure-latex//boxplot_296cb561738bf.pdf, id=63, 48.18pt x 1
 2.045pt>
-File: assignment_3_files/figure-latex//boxplot_28102196b973e.pdf Graphic file (
+File: assignment_3_files/figure-latex//boxplot_296cb561738bf.pdf Graphic file (
 type pdf)
-<use assignment_3_files/figure-latex//boxplot_28102196b973e.pdf>
-Package pdftex.def Info: assignment_3_files/figure-latex//boxplot_28102196b973e
+<use assignment_3_files/figure-latex//boxplot_296cb561738bf.pdf>
+Package pdftex.def Info: assignment_3_files/figure-latex//boxplot_296cb561738bf
 .pdf  used on input line 431.
 (pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<assignment_3_files/figure-latex//hist_281024777137f.pdf, id=64, 48.18pt x 12.0
+<assignment_3_files/figure-latex//hist_296cb23786c21.pdf, id=64, 48.18pt x 12.0
 45pt>
-File: assignment_3_files/figure-latex//hist_281024777137f.pdf Graphic file (typ
+File: assignment_3_files/figure-latex//hist_296cb23786c21.pdf Graphic file (typ
 e pdf)
-<use assignment_3_files/figure-latex//hist_281024777137f.pdf>
-Package pdftex.def Info: assignment_3_files/figure-latex//hist_281024777137f.pd
+<use assignment_3_files/figure-latex//hist_296cb23786c21.pdf>
+Package pdftex.def Info: assignment_3_files/figure-latex//hist_296cb23786c21.pd
 f  used on input line 431.
 (pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<assignment_3_files/figure-latex//boxplot_28102fffdf5e.pdf, id=65, 48.18pt x 12
-.045pt>
-File: assignment_3_files/figure-latex//boxplot_28102fffdf5e.pdf Graphic file (t
-ype pdf)
-<use assignment_3_files/figure-latex//boxplot_28102fffdf5e.pdf>
-Package pdftex.def Info: assignment_3_files/figure-latex//boxplot_28102fffdf5e.
-pdf  used on input line 431.
-(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<assignment_3_files/figure-latex//hist_28102f4ed6b.pdf, id=66, 48.18pt x 12.045
-pt>
-File: assignment_3_files/figure-latex//hist_28102f4ed6b.pdf Graphic file (type 
-pdf)
-<use assignment_3_files/figure-latex//hist_28102f4ed6b.pdf>
-Package pdftex.def Info: assignment_3_files/figure-latex//hist_28102f4ed6b.pdf 
- used on input line 431.
-(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<assignment_3_files/figure-latex//boxplot_28102cd9df37.pdf, id=67, 48.18pt x 12
-.045pt>
-File: assignment_3_files/figure-latex//boxplot_28102cd9df37.pdf Graphic file (t
-ype pdf)
-<use assignment_3_files/figure-latex//boxplot_28102cd9df37.pdf>
-Package pdftex.def Info: assignment_3_files/figure-latex//boxplot_28102cd9df37.
-pdf  used on input line 432.
-(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<assignment_3_files/figure-latex//hist_281024788228d.pdf, id=68, 48.18pt x 12.0
-45pt>
-File: assignment_3_files/figure-latex//hist_281024788228d.pdf Graphic file (typ
-e pdf)
-<use assignment_3_files/figure-latex//hist_281024788228d.pdf>
-Package pdftex.def Info: assignment_3_files/figure-latex//hist_281024788228d.pd
-f  used on input line 432.
-(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<assignment_3_files/figure-latex//boxplot_281023f043d86.pdf, id=69, 48.18pt x 1
+<assignment_3_files/figure-latex//boxplot_296cb26894b5d.pdf, id=65, 48.18pt x 1
 2.045pt>
-File: assignment_3_files/figure-latex//boxplot_281023f043d86.pdf Graphic file (
+File: assignment_3_files/figure-latex//boxplot_296cb26894b5d.pdf Graphic file (
 type pdf)
-<use assignment_3_files/figure-latex//boxplot_281023f043d86.pdf>
-Package pdftex.def Info: assignment_3_files/figure-latex//boxplot_281023f043d86
+<use assignment_3_files/figure-latex//boxplot_296cb26894b5d.pdf>
+Package pdftex.def Info: assignment_3_files/figure-latex//boxplot_296cb26894b5d
+.pdf  used on input line 431.
+(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
+<assignment_3_files/figure-latex//hist_296cb7bff379a.pdf, id=66, 48.18pt x 12.0
+45pt>
+File: assignment_3_files/figure-latex//hist_296cb7bff379a.pdf Graphic file (typ
+e pdf)
+<use assignment_3_files/figure-latex//hist_296cb7bff379a.pdf>
+Package pdftex.def Info: assignment_3_files/figure-latex//hist_296cb7bff379a.pd
+f  used on input line 431.
+(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
+<assignment_3_files/figure-latex//boxplot_296cb5a476bc8.pdf, id=67, 48.18pt x 1
+2.045pt>
+File: assignment_3_files/figure-latex//boxplot_296cb5a476bc8.pdf Graphic file (
+type pdf)
+<use assignment_3_files/figure-latex//boxplot_296cb5a476bc8.pdf>
+Package pdftex.def Info: assignment_3_files/figure-latex//boxplot_296cb5a476bc8
 .pdf  used on input line 432.
 (pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<assignment_3_files/figure-latex//hist_281024c968aa8.pdf, id=70, 48.18pt x 12.0
+<assignment_3_files/figure-latex//hist_296cb17ae4121.pdf, id=68, 48.18pt x 12.0
 45pt>
-File: assignment_3_files/figure-latex//hist_281024c968aa8.pdf Graphic file (typ
+File: assignment_3_files/figure-latex//hist_296cb17ae4121.pdf Graphic file (typ
 e pdf)
-<use assignment_3_files/figure-latex//hist_281024c968aa8.pdf>
-Package pdftex.def Info: assignment_3_files/figure-latex//hist_281024c968aa8.pd
+<use assignment_3_files/figure-latex//hist_296cb17ae4121.pdf>
+Package pdftex.def Info: assignment_3_files/figure-latex//hist_296cb17ae4121.pd
 f  used on input line 432.
 (pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<assignment_3_files/figure-latex//boxplot_28102281f7bc9.pdf, id=71, 48.18pt x 1
+<assignment_3_files/figure-latex//boxplot_296cb42228abe.pdf, id=69, 48.18pt x 1
 2.045pt>
-File: assignment_3_files/figure-latex//boxplot_28102281f7bc9.pdf Graphic file (
+File: assignment_3_files/figure-latex//boxplot_296cb42228abe.pdf Graphic file (
 type pdf)
-<use assignment_3_files/figure-latex//boxplot_28102281f7bc9.pdf>
-Package pdftex.def Info: assignment_3_files/figure-latex//boxplot_28102281f7bc9
+<use assignment_3_files/figure-latex//boxplot_296cb42228abe.pdf>
+Package pdftex.def Info: assignment_3_files/figure-latex//boxplot_296cb42228abe
+.pdf  used on input line 432.
+(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
+<assignment_3_files/figure-latex//hist_296cb1ce7a612.pdf, id=70, 48.18pt x 12.0
+45pt>
+File: assignment_3_files/figure-latex//hist_296cb1ce7a612.pdf Graphic file (typ
+e pdf)
+<use assignment_3_files/figure-latex//hist_296cb1ce7a612.pdf>
+Package pdftex.def Info: assignment_3_files/figure-latex//hist_296cb1ce7a612.pd
+f  used on input line 432.
+(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
+<assignment_3_files/figure-latex//boxplot_296cb381ff8a7.pdf, id=71, 48.18pt x 1
+2.045pt>
+File: assignment_3_files/figure-latex//boxplot_296cb381ff8a7.pdf Graphic file (
+type pdf)
+<use assignment_3_files/figure-latex//boxplot_296cb381ff8a7.pdf>
+Package pdftex.def Info: assignment_3_files/figure-latex//boxplot_296cb381ff8a7
 .pdf  used on input line 433.
 (pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<assignment_3_files/figure-latex//hist_281026f97ebb4.pdf, id=72, 48.18pt x 12.0
+<assignment_3_files/figure-latex//hist_296cb52c14ade.pdf, id=72, 48.18pt x 12.0
 45pt>
-File: assignment_3_files/figure-latex//hist_281026f97ebb4.pdf Graphic file (typ
+File: assignment_3_files/figure-latex//hist_296cb52c14ade.pdf Graphic file (typ
 e pdf)
-<use assignment_3_files/figure-latex//hist_281026f97ebb4.pdf>
-Package pdftex.def Info: assignment_3_files/figure-latex//hist_281026f97ebb4.pd
+<use assignment_3_files/figure-latex//hist_296cb52c14ade.pdf>
+Package pdftex.def Info: assignment_3_files/figure-latex//hist_296cb52c14ade.pd
 f  used on input line 433.
 (pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<assignment_3_files/figure-latex//boxplot_28102673f6ee1.pdf, id=73, 48.18pt x 1
+<assignment_3_files/figure-latex//boxplot_296cb424c1c57.pdf, id=73, 48.18pt x 1
 2.045pt>
-File: assignment_3_files/figure-latex//boxplot_28102673f6ee1.pdf Graphic file (
+File: assignment_3_files/figure-latex//boxplot_296cb424c1c57.pdf Graphic file (
 type pdf)
-<use assignment_3_files/figure-latex//boxplot_28102673f6ee1.pdf>
-Package pdftex.def Info: assignment_3_files/figure-latex//boxplot_28102673f6ee1
+<use assignment_3_files/figure-latex//boxplot_296cb424c1c57.pdf>
+Package pdftex.def Info: assignment_3_files/figure-latex//boxplot_296cb424c1c57
 .pdf  used on input line 433.
 (pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<assignment_3_files/figure-latex//hist_281022056f18c.pdf, id=74, 48.18pt x 12.0
+<assignment_3_files/figure-latex//hist_296cb10b168ed.pdf, id=74, 48.18pt x 12.0
 45pt>
-File: assignment_3_files/figure-latex//hist_281022056f18c.pdf Graphic file (typ
+File: assignment_3_files/figure-latex//hist_296cb10b168ed.pdf Graphic file (typ
 e pdf)
-<use assignment_3_files/figure-latex//hist_281022056f18c.pdf>
-Package pdftex.def Info: assignment_3_files/figure-latex//hist_281022056f18c.pd
+<use assignment_3_files/figure-latex//hist_296cb10b168ed.pdf>
+Package pdftex.def Info: assignment_3_files/figure-latex//hist_296cb10b168ed.pd
 f  used on input line 433.
 (pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<assignment_3_files/figure-latex//boxplot_281024d46cbf4.pdf, id=75, 48.18pt x 1
+<assignment_3_files/figure-latex//boxplot_296cb34ab3303.pdf, id=75, 48.18pt x 1
 2.045pt>
-File: assignment_3_files/figure-latex//boxplot_281024d46cbf4.pdf Graphic file (
+File: assignment_3_files/figure-latex//boxplot_296cb34ab3303.pdf Graphic file (
 type pdf)
-<use assignment_3_files/figure-latex//boxplot_281024d46cbf4.pdf>
-Package pdftex.def Info: assignment_3_files/figure-latex//boxplot_281024d46cbf4
+<use assignment_3_files/figure-latex//boxplot_296cb34ab3303.pdf>
+Package pdftex.def Info: assignment_3_files/figure-latex//boxplot_296cb34ab3303
 .pdf  used on input line 434.
 (pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<assignment_3_files/figure-latex//hist_281026d9f0a55.pdf, id=76, 48.18pt x 12.0
+<assignment_3_files/figure-latex//hist_296cb5fdd7a45.pdf, id=76, 48.18pt x 12.0
 45pt>
-File: assignment_3_files/figure-latex//hist_281026d9f0a55.pdf Graphic file (typ
+File: assignment_3_files/figure-latex//hist_296cb5fdd7a45.pdf Graphic file (typ
 e pdf)
-<use assignment_3_files/figure-latex//hist_281026d9f0a55.pdf>
-Package pdftex.def Info: assignment_3_files/figure-latex//hist_281026d9f0a55.pd
+<use assignment_3_files/figure-latex//hist_296cb5fdd7a45.pdf>
+Package pdftex.def Info: assignment_3_files/figure-latex//hist_296cb5fdd7a45.pd
 f  used on input line 434.
 (pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<assignment_3_files/figure-latex//boxplot_281023ae97760.pdf, id=77, 48.18pt x 1
+<assignment_3_files/figure-latex//boxplot_296cb56459a76.pdf, id=77, 48.18pt x 1
 2.045pt>
-File: assignment_3_files/figure-latex//boxplot_281023ae97760.pdf Graphic file (
+File: assignment_3_files/figure-latex//boxplot_296cb56459a76.pdf Graphic file (
 type pdf)
-<use assignment_3_files/figure-latex//boxplot_281023ae97760.pdf>
-Package pdftex.def Info: assignment_3_files/figure-latex//boxplot_281023ae97760
+<use assignment_3_files/figure-latex//boxplot_296cb56459a76.pdf>
+Package pdftex.def Info: assignment_3_files/figure-latex//boxplot_296cb56459a76
 .pdf  used on input line 434.
 (pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<assignment_3_files/figure-latex//hist_281027744a167.pdf, id=78, 48.18pt x 12.0
+<assignment_3_files/figure-latex//hist_296cb6da7d634.pdf, id=78, 48.18pt x 12.0
 45pt>
-File: assignment_3_files/figure-latex//hist_281027744a167.pdf Graphic file (typ
+File: assignment_3_files/figure-latex//hist_296cb6da7d634.pdf Graphic file (typ
 e pdf)
-<use assignment_3_files/figure-latex//hist_281027744a167.pdf>
-Package pdftex.def Info: assignment_3_files/figure-latex//hist_281027744a167.pd
+<use assignment_3_files/figure-latex//hist_296cb6da7d634.pdf>
+Package pdftex.def Info: assignment_3_files/figure-latex//hist_296cb6da7d634.pd
 f  used on input line 434.
 (pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<assignment_3_files/figure-latex//boxplot_281023db1025a.pdf, id=79, 48.18pt x 1
+<assignment_3_files/figure-latex//boxplot_296cb5813818d.pdf, id=79, 48.18pt x 1
 2.045pt>
-File: assignment_3_files/figure-latex//boxplot_281023db1025a.pdf Graphic file (
+File: assignment_3_files/figure-latex//boxplot_296cb5813818d.pdf Graphic file (
 type pdf)
-<use assignment_3_files/figure-latex//boxplot_281023db1025a.pdf>
-Package pdftex.def Info: assignment_3_files/figure-latex//boxplot_281023db1025a
+<use assignment_3_files/figure-latex//boxplot_296cb5813818d.pdf>
+Package pdftex.def Info: assignment_3_files/figure-latex//boxplot_296cb5813818d
 .pdf  used on input line 435.
 (pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<assignment_3_files/figure-latex//hist_28102634dcc44.pdf, id=80, 48.18pt x 12.0
+<assignment_3_files/figure-latex//hist_296cb50f1acd3.pdf, id=80, 48.18pt x 12.0
 45pt>
-File: assignment_3_files/figure-latex//hist_28102634dcc44.pdf Graphic file (typ
+File: assignment_3_files/figure-latex//hist_296cb50f1acd3.pdf Graphic file (typ
 e pdf)
-<use assignment_3_files/figure-latex//hist_28102634dcc44.pdf>
-Package pdftex.def Info: assignment_3_files/figure-latex//hist_28102634dcc44.pd
+<use assignment_3_files/figure-latex//hist_296cb50f1acd3.pdf>
+Package pdftex.def Info: assignment_3_files/figure-latex//hist_296cb50f1acd3.pd
 f  used on input line 435.
 (pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<assignment_3_files/figure-latex//boxplot_2810223c06faf.pdf, id=81, 48.18pt x 1
+<assignment_3_files/figure-latex//boxplot_296cb3c061038.pdf, id=81, 48.18pt x 1
 2.045pt>
-File: assignment_3_files/figure-latex//boxplot_2810223c06faf.pdf Graphic file (
+File: assignment_3_files/figure-latex//boxplot_296cb3c061038.pdf Graphic file (
 type pdf)
-<use assignment_3_files/figure-latex//boxplot_2810223c06faf.pdf>
-Package pdftex.def Info: assignment_3_files/figure-latex//boxplot_2810223c06faf
+<use assignment_3_files/figure-latex//boxplot_296cb3c061038.pdf>
+Package pdftex.def Info: assignment_3_files/figure-latex//boxplot_296cb3c061038
 .pdf  used on input line 435.
 (pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<assignment_3_files/figure-latex//hist_2810266afd970.pdf, id=82, 48.18pt x 12.0
+<assignment_3_files/figure-latex//hist_296cb18afd646.pdf, id=82, 48.18pt x 12.0
 45pt>
-File: assignment_3_files/figure-latex//hist_2810266afd970.pdf Graphic file (typ
+File: assignment_3_files/figure-latex//hist_296cb18afd646.pdf Graphic file (typ
 e pdf)
-<use assignment_3_files/figure-latex//hist_2810266afd970.pdf>
-Package pdftex.def Info: assignment_3_files/figure-latex//hist_2810266afd970.pd
+<use assignment_3_files/figure-latex//hist_296cb18afd646.pdf>
+Package pdftex.def Info: assignment_3_files/figure-latex//hist_296cb18afd646.pd
 f  used on input line 435.
 (pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<assignment_3_files/figure-latex//boxplot_2810272e1898.pdf, id=83, 48.18pt x 12
-.045pt>
-File: assignment_3_files/figure-latex//boxplot_2810272e1898.pdf Graphic file (t
-ype pdf)
-<use assignment_3_files/figure-latex//boxplot_2810272e1898.pdf>
-Package pdftex.def Info: assignment_3_files/figure-latex//boxplot_2810272e1898.
-pdf  used on input line 436.
-(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<assignment_3_files/figure-latex//hist_28102231bdccf.pdf, id=84, 48.18pt x 12.0
-45pt>
-File: assignment_3_files/figure-latex//hist_28102231bdccf.pdf Graphic file (typ
-e pdf)
-<use assignment_3_files/figure-latex//hist_28102231bdccf.pdf>
-Package pdftex.def Info: assignment_3_files/figure-latex//hist_28102231bdccf.pd
-f  used on input line 436.
-(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<assignment_3_files/figure-latex//boxplot_2810264c2e768.pdf, id=85, 48.18pt x 1
+<assignment_3_files/figure-latex//boxplot_296cb56f9e878.pdf, id=83, 48.18pt x 1
 2.045pt>
-File: assignment_3_files/figure-latex//boxplot_2810264c2e768.pdf Graphic file (
+File: assignment_3_files/figure-latex//boxplot_296cb56f9e878.pdf Graphic file (
 type pdf)
-<use assignment_3_files/figure-latex//boxplot_2810264c2e768.pdf>
-Package pdftex.def Info: assignment_3_files/figure-latex//boxplot_2810264c2e768
+<use assignment_3_files/figure-latex//boxplot_296cb56f9e878.pdf>
+Package pdftex.def Info: assignment_3_files/figure-latex//boxplot_296cb56f9e878
 .pdf  used on input line 436.
 (pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<assignment_3_files/figure-latex//hist_281021f5575e5.pdf, id=86, 48.18pt x 12.0
+<assignment_3_files/figure-latex//hist_296cb57600158.pdf, id=84, 48.18pt x 12.0
 45pt>
-File: assignment_3_files/figure-latex//hist_281021f5575e5.pdf Graphic file (typ
+File: assignment_3_files/figure-latex//hist_296cb57600158.pdf Graphic file (typ
 e pdf)
-<use assignment_3_files/figure-latex//hist_281021f5575e5.pdf>
-Package pdftex.def Info: assignment_3_files/figure-latex//hist_281021f5575e5.pd
+<use assignment_3_files/figure-latex//hist_296cb57600158.pdf>
+Package pdftex.def Info: assignment_3_files/figure-latex//hist_296cb57600158.pd
 f  used on input line 436.
 (pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<assignment_3_files/figure-latex//boxplot_281024f25fc6e.pdf, id=87, 48.18pt x 1
+<assignment_3_files/figure-latex//boxplot_296cb68a7fdca.pdf, id=85, 48.18pt x 1
 2.045pt>
-File: assignment_3_files/figure-latex//boxplot_281024f25fc6e.pdf Graphic file (
+File: assignment_3_files/figure-latex//boxplot_296cb68a7fdca.pdf Graphic file (
 type pdf)
-<use assignment_3_files/figure-latex//boxplot_281024f25fc6e.pdf>
-Package pdftex.def Info: assignment_3_files/figure-latex//boxplot_281024f25fc6e
+<use assignment_3_files/figure-latex//boxplot_296cb68a7fdca.pdf>
+Package pdftex.def Info: assignment_3_files/figure-latex//boxplot_296cb68a7fdca
+.pdf  used on input line 436.
+(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
+<assignment_3_files/figure-latex//hist_296cbc726db0.pdf, id=86, 48.18pt x 12.04
+5pt>
+File: assignment_3_files/figure-latex//hist_296cbc726db0.pdf Graphic file (type
+ pdf)
+<use assignment_3_files/figure-latex//hist_296cbc726db0.pdf>
+Package pdftex.def Info: assignment_3_files/figure-latex//hist_296cbc726db0.pdf
+  used on input line 436.
+(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
+<assignment_3_files/figure-latex//boxplot_296cb606f6de4.pdf, id=87, 48.18pt x 1
+2.045pt>
+File: assignment_3_files/figure-latex//boxplot_296cb606f6de4.pdf Graphic file (
+type pdf)
+<use assignment_3_files/figure-latex//boxplot_296cb606f6de4.pdf>
+Package pdftex.def Info: assignment_3_files/figure-latex//boxplot_296cb606f6de4
 .pdf  used on input line 437.
 (pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<assignment_3_files/figure-latex//hist_281023c4e024b.pdf, id=88, 48.18pt x 12.0
+<assignment_3_files/figure-latex//hist_296cb2ee3832e.pdf, id=88, 48.18pt x 12.0
 45pt>
-File: assignment_3_files/figure-latex//hist_281023c4e024b.pdf Graphic file (typ
+File: assignment_3_files/figure-latex//hist_296cb2ee3832e.pdf Graphic file (typ
 e pdf)
-<use assignment_3_files/figure-latex//hist_281023c4e024b.pdf>
-Package pdftex.def Info: assignment_3_files/figure-latex//hist_281023c4e024b.pd
+<use assignment_3_files/figure-latex//hist_296cb2ee3832e.pdf>
+Package pdftex.def Info: assignment_3_files/figure-latex//hist_296cb2ee3832e.pd
 f  used on input line 437.
 (pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<assignment_3_files/figure-latex//boxplot_28102325a6544.pdf, id=89, 48.18pt x 1
+<assignment_3_files/figure-latex//boxplot_296cb7fa72937.pdf, id=89, 48.18pt x 1
 2.045pt>
-File: assignment_3_files/figure-latex//boxplot_28102325a6544.pdf Graphic file (
+File: assignment_3_files/figure-latex//boxplot_296cb7fa72937.pdf Graphic file (
 type pdf)
-<use assignment_3_files/figure-latex//boxplot_28102325a6544.pdf>
-Package pdftex.def Info: assignment_3_files/figure-latex//boxplot_28102325a6544
+<use assignment_3_files/figure-latex//boxplot_296cb7fa72937.pdf>
+Package pdftex.def Info: assignment_3_files/figure-latex//boxplot_296cb7fa72937
 .pdf  used on input line 437.
 (pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<assignment_3_files/figure-latex//hist_2810222a32157.pdf, id=90, 48.18pt x 12.0
+<assignment_3_files/figure-latex//hist_296cb78332da6.pdf, id=90, 48.18pt x 12.0
 45pt>
-File: assignment_3_files/figure-latex//hist_2810222a32157.pdf Graphic file (typ
+File: assignment_3_files/figure-latex//hist_296cb78332da6.pdf Graphic file (typ
 e pdf)
-<use assignment_3_files/figure-latex//hist_2810222a32157.pdf>
-Package pdftex.def Info: assignment_3_files/figure-latex//hist_2810222a32157.pd
+<use assignment_3_files/figure-latex//hist_296cb78332da6.pdf>
+Package pdftex.def Info: assignment_3_files/figure-latex//hist_296cb78332da6.pd
 f  used on input line 437.
 (pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<assignment_3_files/figure-latex//boxplot_281026023f115.pdf, id=91, 48.18pt x 1
+<assignment_3_files/figure-latex//boxplot_296cb75cbb210.pdf, id=91, 48.18pt x 1
 2.045pt>
-File: assignment_3_files/figure-latex//boxplot_281026023f115.pdf Graphic file (
+File: assignment_3_files/figure-latex//boxplot_296cb75cbb210.pdf Graphic file (
 type pdf)
-<use assignment_3_files/figure-latex//boxplot_281026023f115.pdf>
-Package pdftex.def Info: assignment_3_files/figure-latex//boxplot_281026023f115
+<use assignment_3_files/figure-latex//boxplot_296cb75cbb210.pdf>
+Package pdftex.def Info: assignment_3_files/figure-latex//boxplot_296cb75cbb210
 .pdf  used on input line 438.
 (pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<assignment_3_files/figure-latex//hist_281027bf99782.pdf, id=92, 48.18pt x 12.0
-45pt>
-File: assignment_3_files/figure-latex//hist_281027bf99782.pdf Graphic file (typ
-e pdf)
-<use assignment_3_files/figure-latex//hist_281027bf99782.pdf>
-Package pdftex.def Info: assignment_3_files/figure-latex//hist_281027bf99782.pd
-f  used on input line 438.
+<assignment_3_files/figure-latex//hist_296cb2b1164d.pdf, id=92, 48.18pt x 12.04
+5pt>
+File: assignment_3_files/figure-latex//hist_296cb2b1164d.pdf Graphic file (type
+ pdf)
+<use assignment_3_files/figure-latex//hist_296cb2b1164d.pdf>
+Package pdftex.def Info: assignment_3_files/figure-latex//hist_296cb2b1164d.pdf
+  used on input line 438.
 (pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<assignment_3_files/figure-latex//boxplot_28102597f5bc8.pdf, id=93, 48.18pt x 1
+<assignment_3_files/figure-latex//boxplot_296cb64af1b31.pdf, id=93, 48.18pt x 1
 2.045pt>
-File: assignment_3_files/figure-latex//boxplot_28102597f5bc8.pdf Graphic file (
+File: assignment_3_files/figure-latex//boxplot_296cb64af1b31.pdf Graphic file (
 type pdf)
-<use assignment_3_files/figure-latex//boxplot_28102597f5bc8.pdf>
-Package pdftex.def Info: assignment_3_files/figure-latex//boxplot_28102597f5bc8
+<use assignment_3_files/figure-latex//boxplot_296cb64af1b31.pdf>
+Package pdftex.def Info: assignment_3_files/figure-latex//boxplot_296cb64af1b31
 .pdf  used on input line 438.
 (pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<assignment_3_files/figure-latex//hist_281025f41f853.pdf, id=94, 48.18pt x 12.0
+<assignment_3_files/figure-latex//hist_296cb4717022e.pdf, id=94, 48.18pt x 12.0
 45pt>
-File: assignment_3_files/figure-latex//hist_281025f41f853.pdf Graphic file (typ
+File: assignment_3_files/figure-latex//hist_296cb4717022e.pdf Graphic file (typ
 e pdf)
-<use assignment_3_files/figure-latex//hist_281025f41f853.pdf>
-Package pdftex.def Info: assignment_3_files/figure-latex//hist_281025f41f853.pd
+<use assignment_3_files/figure-latex//hist_296cb4717022e.pdf>
+Package pdftex.def Info: assignment_3_files/figure-latex//hist_296cb4717022e.pd
 f  used on input line 438.
 (pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
 <assignment_3_files/figure-latex/unnamed-chunk-8-1.pdf, id=95, 459.7175pt x 315
@@ -1177,90 +1177,95 @@ pdf)
 Package pdftex.def Info: assignment_3_files/figure-latex/unnamed-chunk-8-1.pdf 
  used on input line 478.
 (pdftex.def)             Requested size: 459.74442pt x 315.19595pt.
-[4 <./assignment_3_files/figure-latex//boxplot_2810276c633d3.pdf> <./assignment
-_3_files/figure-latex//hist_281025dd29999.pdf> <./assignment_3_files/figure-lat
-ex//boxplot_2810241167a4d.pdf> <./assignment_3_files/figure-latex//hist_2810240
-31c143.pdf> <./assignment_3_files/figure-latex//boxplot_28102768ab485.pdf> <./a
-ssignment_3_files/figure-latex//hist_28102720f9e6b.pdf> <./assignment_3_files/f
-igure-latex//boxplot_281026d556cc5.pdf> <./assignment_3_files/figure-latex//his
-t_281028fd629f.pdf> <./assignment_3_files/figure-latex//boxplot_28102651d2698.p
-df> <./assignment_3_files/figure-latex//hist_281021eae5188.pdf> <./assignment_3
-_files/figure-latex//boxplot_281021500e240.pdf> <./assignment_3_files/figure-la
-tex//hist_2810210ef3864.pdf> <./assignment_3_files/figure-latex//boxplot_281022
-efc7759.pdf> <./assignment_3_files/figure-latex//hist_281021d9a99bb.pdf> <./ass
-ignment_3_files/figure-latex//boxplot_2810270c00a19.pdf> <./assignment_3_files/
-figure-latex//hist_281023951e05a.pdf> <./assignment_3_files/figure-latex//boxpl
-ot_28102428fe807.pdf> <./assignment_3_files/figure-latex//hist_281024b0dda46.pd
-f> <./assignment_3_files/figure-latex//boxplot_28102640212c.pdf> <./assignment_
-3_files/figure-latex//hist_28102371a0fc8.pdf> <./assignment_3_files/figure-late
-x//boxplot_281021d5c376c.pdf> <./assignment_3_files/figure-latex//hist_2810242b
-e4dc1.pdf> <./assignment_3_files/figure-latex//boxplot_2810231875884.pdf> <./as
-signment_3_files/figure-latex//hist_2810252648d07.pdf> <./assignment_3_files/fi
-gure-latex//boxplot_28102196b973e.pdf> <./assignment_3_files/figure-latex//hist
-_281024777137f.pdf> <./assignment_3_files/figure-latex//boxplot_28102fffdf5e.pd
-f> <./assignment_3_files/figure-latex//hist_28102f4ed6b.pdf> <./assignment_3_fi
-les/figure-latex//boxplot_28102cd9df37.pdf> <./assignment_3_files/figure-latex/
-/hist_281024788228d.pdf> <./assignment_3_files/figure-latex//boxplot_281023f043
-d86.pdf> <./assignment_3_files/figure-latex//hist_281024c968aa8.pdf> <./assignm
-ent_3_files/figure-latex//boxplot_28102281f7bc9.pdf> <./assignment_3_files/figu
-re-latex//hist_281026f97ebb4.pdf> <./assignment_3_files/figure-latex//boxplot_2
-8102673f6ee1.pdf> <./assignment_3_files/figure-latex//hist_281022056f18c.pdf> <
-./assignment_3_files/figure-latex//boxplot_281024d46cbf4.pdf> <./assignment_3_f
-iles/figure-latex//hist_281026d9f0a55.pdf> <./assignment_3_files/figure-latex//
-boxplot_281023ae97760.pdf> <./assignment_3_files/figure-latex//hist_281027744a1
-67.pdf> <./assignment_3_files/figure-latex//boxplot_281023db1025a.pdf> <./assig
-nment_3_files/figure-latex//hist_28102634dcc44.pdf> <./assignment_3_files/figur
-e-latex//boxplot_2810223c06faf.pdf> <./assignment_3_files/figure-latex//hist_28
-10266afd970.pdf> <./assignment_3_files/figure-latex//boxplot_2810272e1898.pdf> 
-<./assignment_3_files/figure-latex//hist_28102231bdccf.pdf> <./assignment_3_fil
-es/figure-latex//boxplot_2810264c2e768.pdf> <./assignment_3_files/figure-latex/
-/hist_281021f5575e5.pdf> <./assignment_3_files/figure-latex//boxplot_281024f25f
-c6e.pdf> <./assignment_3_files/figure-latex//hist_281023c4e024b.pdf> <./assignm
-ent_3_files/figure-latex//boxplot_28102325a6544.pdf> <./assignment_3_files/figu
-re-latex//hist_2810222a32157.pdf> <./assignment_3_files/figure-latex//boxplot_2
-81026023f115.pdf> <./assignment_3_files/figure-latex//hist_281027bf99782.pdf> <
-./assignment_3_files/figure-latex//boxplot_28102597f5bc8.pdf> <./assignment_3_f
-iles/figure-latex//hist_281025f41f853.pdf>] [5 <./assignment_3_files/figure-lat
-ex/unnamed-chunk-8-1.pdf>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 608.
-[6pdfTeX warning (ext4): destination with the same identifier (name{table.2}) h
-as been already used, duplicate ignored
+[4 <./assignment_3_files/figure-latex//boxplot_296cb71716a54.pdf> <./assignment
+_3_files/figure-latex//hist_296cb5a24735e.pdf> <./assignment_3_files/figure-lat
+ex//boxplot_296cb20e5e17f.pdf> <./assignment_3_files/figure-latex//hist_296cb60
+72d242.pdf> <./assignment_3_files/figure-latex//boxplot_296cb5927bc3b.pdf> <./a
+ssignment_3_files/figure-latex//hist_296cb2682b6ea.pdf> <./assignment_3_files/f
+igure-latex//boxplot_296cb4b84f319.pdf> <./assignment_3_files/figure-latex//his
+t_296cb48d10897.pdf> <./assignment_3_files/figure-latex//boxplot_296cb28b4cb19.
+pdf> <./assignment_3_files/figure-latex//hist_296cb6d90879e.pdf> <./assignment_
+3_files/figure-latex//boxplot_296cb7ae91b5.pdf> <./assignment_3_files/figure-la
+tex//hist_296cb4c47dfad.pdf> <./assignment_3_files/figure-latex//boxplot_296cbe
+28bc15.pdf> <./assignment_3_files/figure-latex//hist_296cb19e324ab.pdf> <./assi
+gnment_3_files/figure-latex//boxplot_296cb7b9db22b.pdf> <./assignment_3_files/f
+igure-latex//hist_296cb3526d1cb.pdf> <./assignment_3_files/figure-latex//boxplo
+t_296cb469b5c66.pdf> <./assignment_3_files/figure-latex//hist_296cb44089669.pdf
+> <./assignment_3_files/figure-latex//boxplot_296cb78fdce8.pdf> <./assignment_3
+_files/figure-latex//hist_296cb1f8fc9ff.pdf> <./assignment_3_files/figure-latex
+//boxplot_296cb7a758da5.pdf> <./assignment_3_files/figure-latex//hist_296cb2b67
+485b.pdf> <./assignment_3_files/figure-latex//boxplot_296cb3ec738fc.pdf> <./ass
+ignment_3_files/figure-latex//hist_296cb79e05ec.pdf> <./assignment_3_files/figu
+re-latex//boxplot_296cb561738bf.pdf> <./assignment_3_files/figure-latex//hist_2
+96cb23786c21.pdf> <./assignment_3_files/figure-latex//boxplot_296cb26894b5d.pdf
+> <./assignment_3_files/figure-latex//hist_296cb7bff379a.pdf> <./assignment_3_f
+iles/figure-latex//boxplot_296cb5a476bc8.pdf> <./assignment_3_files/figure-late
+x//hist_296cb17ae4121.pdf> <./assignment_3_files/figure-latex//boxplot_296cb422
+28abe.pdf> <./assignment_3_files/figure-latex//hist_296cb1ce7a612.pdf> <./assig
+nment_3_files/figure-latex//boxplot_296cb381ff8a7.pdf> <./assignment_3_files/fi
+gure-latex//hist_296cb52c14ade.pdf> <./assignment_3_files/figure-latex//boxplot
+_296cb424c1c57.pdf> <./assignment_3_files/figure-latex//hist_296cb10b168ed.pdf>
+ <./assignment_3_files/figure-latex//boxplot_296cb34ab3303.pdf> <./assignment_3
+_files/figure-latex//hist_296cb5fdd7a45.pdf> <./assignment_3_files/figure-latex
+//boxplot_296cb56459a76.pdf> <./assignment_3_files/figure-latex//hist_296cb6da7
+d634.pdf> <./assignment_3_files/figure-latex//boxplot_296cb5813818d.pdf> <./ass
+ignment_3_files/figure-latex//hist_296cb50f1acd3.pdf> <./assignment_3_files/fig
+ure-latex//boxplot_296cb3c061038.pdf> <./assignment_3_files/figure-latex//hist_
+296cb18afd646.pdf> <./assignment_3_files/figure-latex//boxplot_296cb56f9e878.pd
+f> <./assignment_3_files/figure-latex//hist_296cb57600158.pdf> <./assignment_3_
+files/figure-latex//boxplot_296cb68a7fdca.pdf> <./assignment_3_files/figure-lat
+ex//hist_296cbc726db0.pdf> <./assignment_3_files/figure-latex//boxplot_296cb606
+f6de4.pdf> <./assignment_3_files/figure-latex//hist_296cb2ee3832e.pdf> <./assig
+nment_3_files/figure-latex//boxplot_296cb7fa72937.pdf> <./assignment_3_files/fi
+gure-latex//hist_296cb78332da6.pdf> <./assignment_3_files/figure-latex//boxplot
+_296cb75cbb210.pdf> <./assignment_3_files/figure-latex//hist_296cb2b1164d.pdf> 
+<./assignment_3_files/figure-latex//boxplot_296cb64af1b31.pdf> <./assignment_3_
+files/figure-latex//hist_296cb4717022e.pdf>] [5 <./assignment_3_files/figure-la
+tex/unnamed-chunk-8-1.pdf>] [6pdfTeX warning (ext4): destination with the same 
+identifier (name{table.2}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.608 \end{document}
+l.640 \begin{Shaded}
                     ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 608.
+LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 
+648.
+(/usr/share/texmf/tex/latex/lm/ts1lmtt.fd
+File: ts1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+) [7]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 800.
+[8]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 800.
 (./assignment_3.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 608.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 608.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 800.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 800.
  ) 
 Here is how much of TeX's memory you used:
- 18030 strings out of 481239
- 315568 string characters out of 5920377
- 590488 words of memory out of 5000000
- 32843 multiletter control sequences out of 15000+600000
- 598193 words of font info for 108 fonts, out of 8000000 for 9000
+ 18070 strings out of 481239
+ 316200 string characters out of 5920377
+ 590648 words of memory out of 5000000
+ 32877 multiletter control sequences out of 15000+600000
+ 598499 words of font info for 109 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,13n,42p,811b,798s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/en
-c/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share
-/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}</usr/share/texmf/fonts/type1/public/lm
-/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi7.pfb></usr/share/texmf
-/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.
-pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/t
-ype1/public/lm/lmr17.pfb></usr/share/texmf/fonts/type1/public/lm/lmr6.pfb></usr
-/share/texmf/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf/fonts/type1/publi
-c/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmri8.pfb></usr/share/tex
-mf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lms
-y6.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf/font
-s/type1/public/lm/lmtk10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb
-></usr/share/texmf/fonts/type1/public/lm/lmtt8.pfb></usr/share/texmf/fonts/type
-1/public/lm/lmtti10.pfb>
-Output written on assignment_3.pdf (6 pages, 484658 bytes).
+{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/share/texmf/fonts/enc/d
+vips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/shar
+e/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ma
+thsy.enc}</usr/share/texmf/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf/f
+onts/type1/public/lm/lmmi7.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi8.pf
+b></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/typ
+e1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr17.pfb></usr/
+share/texmf/fonts/type1/public/lm/lmr6.pfb></usr/share/texmf/fonts/type1/public
+/lm/lmr7.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf
+/fonts/type1/public/lm/lmri8.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10
+.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy6.pfb></usr/share/texmf/fonts/
+type1/public/lm/lmsy8.pfb></usr/share/texmf/fonts/type1/public/lm/lmtk10.pfb></
+usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf/fonts/type1/
+public/lm/lmtt8.pfb></usr/share/texmf/fonts/type1/public/lm/lmtti10.pfb>
+Output written on assignment_3.pdf (8 pages, 496973 bytes).
 PDF statistics:
- 356 PDF objects out of 1000 (max. 8388607)
- 213 compressed objects within 3 object streams
- 16 named destinations out of 1000 (max. 500000)
+ 369 PDF objects out of 1000 (max. 8388607)
+ 224 compressed objects within 3 object streams
+ 18 named destinations out of 1000 (max. 500000)
  20766 words of extra memory for PDF output out of 24883 (max. 10000000)
 

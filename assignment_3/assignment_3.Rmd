@@ -214,8 +214,116 @@ stargazer(e_0i, e_1i, ate, header = F,
           label="tab:hoi")
 
 ```
+
 (vii) Now check the sensitivity of the propensity score matching estimate by also computing the weighting estimators for the average treatment effect on the treated. 
 
+We first calculate the nearest neighbour weighting estimate, using the `matched_data3` data.frame, which implements nearest-neighbor matching:
+
 ```{r}
+matched_data3 %>%
+  arrange(subclass) %>%
+  head(6) %>%
+  kable(booktabs = TRUE) %>%
+  kableExtra::kable_styling(latex_options = c("hold_position", "scale_down"))
+```
+
+```{r}
+treated_subjects <- sum(matched_data3$STATE)
+
+differences <- matched_data3 %>%
+  group_split(subclass) %>%
+  map_dbl(.f =~ .x$changeemployees[2]- .x$changeemployees[1])
+
+paste('The mean difference in employees is', mean(differences))
+paste('The standard deviation is', sd(differences))
+```
+
+Now, we calculate the neighborhood matching weighting estimate, with $k=4$, implemented again in the `MatchIt` package:
+
+```{r}
+matched_data4 <- MatchIt::matchit(STATE ~ MEALS + OPEN + HRSOPEN + PSODA + PFRY,
+                 data = dataset %>%
+                   select(changeemployees, STATE, MEALS, OPEN, HRSOPEN, PSODA, PFRY) %>%
+                   na.omit(), 
+                 method = "nearest", 
+                 replace = TRUE,
+                 ratio = 4,
+                 min.controls = 3) %>%
+  get_matches()
+
+matched_data4 %>%
+  arrange(subclass) %>%
+  head(6) %>%
+  kable(booktabs=T) %>%
+  kableExtra::kable_styling(latex_options = c("hold_position", "scale_down"))
+
+differences <- matched_data4 %>%
+  group_split(subclass) %>%
+  map_dbl(.f = ~ .x$changeemployees[1] - 0.25*(.x$changeemployees[2] + 
+                                                 .x$changeemployees[3] +
+                                                 .x$changeemployees[4] +
+                                                 .x$changeemployees[5])
+  )
+
+paste('The mean difference in employees is', mean(differences))
+paste('The standard deviation is', sd(differences))
+  
+```
+
+Finally, we manually implement the normal kernel density with $\Sigma = I$:
+
+```{r}
+library(mvtnorm)
+
+normalkernel <- function(dataset){
+  
+  treated_outcomes <- dataset %>%
+    filter(STATE ==1) %>%
+    select(changeemployees)
+  
+  untreated_outcomes <- dataset %>%
+    filter(STATE == 0) %>%
+    select(changeemployees)
+    
+  treated_obs <- dataset %>%
+    filter(STATE == 1) %>%
+    select(MEALS, OPEN, HRSOPEN, PSODA, PFRY)
+  
+  untreated_obs <- dataset %>%
+    filter(STATE == 0) %>%
+    select(MEALS, OPEN, HRSOPEN, PSODA, PFRY)
+  
+  outcomes <- vector(length = nrow(treated_obs))
+  w <- matrix(nrow = nrow(treated_obs), ncol = nrow(untreated_obs))
+  
+  for (i in 1:nrow(treated_obs)){
+    
+    for(j in 1:nrow(untreated_obs)){
+      # Create the weight matrix
+      w[i,j] <- mvtnorm::dmvnorm(as.numeric(untreated_obs[j,]), 
+                                 mean = as.numeric(treated_obs[i,]))
+    }
+    
+    # Normalize the weights
+  weightstotal <- sum(w[i,], na.rm = TRUE)
+  w[i,] = w[i,] / weightstotal
+  
+  # Compute the estimated outcomes
+  outcomes[i] <- treated_outcomes[i,] - sum(w[i,]*untreated_outcomes[,1], na.rm = TRUE)
+
+  }
+  
+  outcomes <- unlist(outcomes)
+  
+  print(paste('The estimated ATT is equal to:', mean(outcomes, na.rm = TRUE)))
+  print(paste('The std. deviation is equal to:', sd(outcomes, na.rm = TRUE)))
+  # Compute the average - final number
+}
+
+```
+
+```{r}
+
+normalkernel(dataset)
 
 ```
