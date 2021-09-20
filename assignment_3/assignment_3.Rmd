@@ -12,7 +12,7 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 
 library(tidyverse); library(plm); library(stargazer); library(modelsummary)
-library(kableExtra); library(MatchIt)
+library(kableExtra); library(MatchIt); library(plm)
 
 dataset <- haven::read_dta("./CardKrueger.dta") 
 ```
@@ -74,7 +74,7 @@ models <- list(model1, model2, model3, model4)
 stargazer(models, omit.stat = c("ll", "ser", "rsq"), df=F, 
           omit = c("SOUTHJ", "CENTRALJ", "SHORE", "PA1"),
           add.lines = list(c("Region Dummies", "No", "Yes", "No", "Yes")),
-          header = FALSE, font.size = "footnotesize")
+          header = FALSE, font.size = "footnotesize", title='Estimated model for Q2.')
 
 ```
 
@@ -126,7 +126,8 @@ modelsummary::datasummary(
   data = dataset2, 
    NCALLS + WAGEST + INCTIME + FIRSTINC + BONUS + PCTAFF + MEALS +
            OPEN + HRSOPEN + PSODA + PFRY + PENTREE + NREGS + NREGS11 ~ 
-    STATE * (Mean + SD + Heading("Boxplot")*emptycol + Heading("Histogram")*emptycol)) %>%
+    STATE * (Mean + SD + Heading("Boxplot")*emptycol + Heading("Histogram")*emptycol),
+  title = 'Common support table.') %>%
   column_spec(column = 4, image = spec_boxplot(boxplot1)) %>%
   column_spec(column = 8, image = spec_boxplot(boxplot2)) %>%
   column_spec(column = 5, image = spec_hist(boxplot1)) %>%
@@ -176,6 +177,7 @@ matched_data1 <- MatchIt::matchit(STATE ~ MEALS + OPEN + HRSOPEN + PSODA + PFRY,
   match.data()
 
 e_0i <- lm(employees ~ STATE + MEALS + OPEN + HRSOPEN + PSODA + PFRY, data = matched_data1)
+
 ```
 
 And $E_{1i}$:
@@ -204,6 +206,7 @@ matched_data3 <- MatchIt::matchit(STATE ~ MEALS + OPEN + HRSOPEN + PSODA + PFRY,
 
 ate <- lm(changeemployees ~ STATE + MEALS + OPEN + HRSOPEN + PSODA + PFRY, data = matched_data3)
 
+
 ```
 
 
@@ -211,7 +214,9 @@ ate <- lm(changeemployees ~ STATE + MEALS + OPEN + HRSOPEN + PSODA + PFRY, data 
 stargazer(e_0i, e_1i, ate, header = F, 
           omit.stat = c("ll", "ser", "rsq"), df = F,
           font.size = "footnotesize",
-          label="tab:hoi")
+          label="tab:hoi",
+          title='Application of propensity score matching to estimate the average treatment 
+          effect on the treated on the change in employments in the restaurants.')
 
 ```
 
@@ -223,7 +228,8 @@ We first calculate the nearest neighbour weighting estimate, using the `matched_
 matched_data3 %>%
   arrange(subclass) %>%
   head(6) %>%
-  kable(booktabs = TRUE) %>%
+  kable(booktabs = TRUE, caption = "Nearest neigbour
+                            weighting estimate.") %>%
   kableExtra::kable_styling(latex_options = c("hold_position", "scale_down"))
 ```
 
@@ -254,7 +260,8 @@ matched_data4 <- MatchIt::matchit(STATE ~ MEALS + OPEN + HRSOPEN + PSODA + PFRY,
 matched_data4 %>%
   arrange(subclass) %>%
   head(6) %>%
-  kable(booktabs=T) %>%
+  kable(booktabs=T, caption = "Neigborhood
+                            weighting estimate, with $k=4$.") %>%
   kableExtra::kable_styling(latex_options = c("hold_position", "scale_down"))
 
 differences <- matched_data4 %>%
