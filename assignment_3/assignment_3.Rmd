@@ -56,6 +56,8 @@ did2 <- dataset %>%
 did2$mean_after[2] - did2$mean_after[1] - (did2$mean_before[2] - did2$mean_before[1])
 ```
 
+\clearpage
+
 (ii) Estimate this model and next subsequently add characteristics of the restaurants observed in the first wave.  But think carefully which characteristics can be included.  How does the latter affect the estimate for the coefficient $\delta$?
 
 ```{r, results='asis'}
@@ -93,15 +95,14 @@ stargazer(models, omit.stat = c("ll", "ser", "rsq"), df=F,
 
 ```
 
-<!--
-purrr::map(models, ~ sandwich::vcovCL(.x, cluster = ))
-
-How much can we trust DiD estimates? as a ref. paper as to why not to cluster
--->
-
 We want to isolate the effect of the minimum wage by attributing it to the coefficient belonging to STATE, which means we have to account for all possible sources of variation not due to the minimum wage. This also means we cannot control for PCTAFF, because this is the mechanism we care about: if we conditioned on this variable, that would absorb all variation due to the minimum wage policy changes and would change our interpretation of the STATE coefficient to a partial instead of a total effect and bias it towards zero. 
 
+\clearpage 
+
 (iii) Provide  a  balancing  table,  i.e.   show  the  sample  mean  of  characteristics observed  in  the  first  survey  separately  for  the  restaurants  in  New  Jersey and Pennsylvania.  What is your opinion about the balancing table?
+
+We think that the table indicates that the covariates are balanced across the two groups, approaching the situation of an experiment. There are, however, a couple of variables that are significantly different across the two groups: MEALS, PSODA and PFRY. Omitting them could have consequences for the estimated effect of the minimum wage on employment, because those variables (i.e. MEALS, PSODA and FRY) could be correlated or even have a causal effect on employment. For example, if the price is higher in one country, they might serve a higher segment of the market, and higher less personnel in general, and pay above the minimum wage. 
+
 
 ```{r, results='asis', warning = FALSE}
 dataset %>%
@@ -114,8 +115,13 @@ dataset %>%
                                       dinm= TRUE, 
                                       output = "latex", 
                                       fmt = "%.3f",
-                                      dinm_statistic = "p.value")
+                                      dinm_statistic = "p.value") %>%
+  kableExtra::kable_styling(latex_options = "hold_position")
 ```
+
+None of this is particularly plausible in our opinion, but it makes sense to control for these factors anyway, so that the eventual effect takes into account these possible causal links. 
+
+\clearpage
 
 (iv) Check  for  the  different  characteristics  if  there  is  a  common  support  for restaurants in New Jersey and Pennsylvania.  And estimate a propensity score for being a restaurant in New Jersey.
 
@@ -146,7 +152,8 @@ modelsummary::datasummary(
   column_spec(column = 4, image = spec_boxplot(boxplot1)) %>%
   column_spec(column = 8, image = spec_boxplot(boxplot2)) %>%
   column_spec(column = 5, image = spec_hist(boxplot1)) %>%
-  column_spec(column = 9, image = spec_hist(boxplot2))
+  column_spec(column = 9, image = spec_hist(boxplot2)) %>%
+  kableExtra::kable_styling(latex_options = "hold_position")
 
 
 ```
@@ -173,15 +180,18 @@ dataset <- dataset %>%
   rename("p2" = "pred")
 ```
 
+We show the distribution of propensity scores across the two groups:
 
 ```{r, warning = FALSE, message = FALSE}
 dataset %>%
   ggplot(aes(x = ps1)) + geom_histogram()+ facet_wrap(~as.factor(STATE)) + theme_bw()
 ```
 
+\clearpage
+
 (v) Use propensity score matching to estimate the average treatment effect on the treated for the employment before and after the minimum wage increase in New Jersey, so on $E_{0i}$ and $E_{1i}$ separately. 
 
-We report the results of (v), (vi) and (viii) in table \ref{tab:hoi}. We use the `MatchIt` package to estimate the propensity-score again and subsequently match using the nearest neighbor algorithm to compute $E_{0i}$:
+We report the results of (v) and (vi) in table \ref{tab:hoi}. We use the `MatchIt` package to estimate the propensity-score again and subsequently match using the nearest neighbor algorithm to compute $E_{0i}$:
 
 ```{r, warning = FALSE}
 matched_data1 <- MatchIt::matchit(STATE ~ MEALS + OPEN + HRSOPEN + PSODA + PFRY,
@@ -199,7 +209,7 @@ robust_se0i    <- sqrt(diag(cov0i))
 
 ```
 
-And $E_{1i}$:
+And for $E_{1i}$:
 
 ```{r, warning = FALSE}
 matched_data2 <- MatchIt::matchit(STATE ~ MEALS + OPEN + HRSOPEN + PSODA + PFRY,
@@ -216,6 +226,8 @@ cov1i         <- vcovHC(e_1i, type = "HC1")
 robust_se1i    <- sqrt(diag(cov1i))
 
 ```
+
+\clearpage 
 
 (vi) Now use propensity score matching to estimate the average treatment effect on the treated on the change in employment in the restaurants, so $E_{1i}-E_{0i}$. 
 
@@ -248,9 +260,11 @@ stargazer(e_0i, e_1i, ate, header = F,
 
 ```
 
+\clearpage 
+
 (vii) Now check the sensitivity of the propensity score matching estimate by also computing the weighting estimators for the average treatment effect on the treated. 
 
-We first calculate the nearest neighbour weighting estimate, using the `matched_data3` data.frame, which implements nearest-neighbor matching:
+For transparency, we show (the first rows of) intermediate datasets we use. We first calculate the nearest neighbour weighting estimate, using the `matched_data3` data.frame, which implements nearest-neighbor matching:
 
 ```{r}
 matched_data3 %>%
@@ -358,7 +372,5 @@ normalkernel <- function(dataset){
 ```
 
 ```{r}
-
 normalkernel(dataset)
-
 ```
