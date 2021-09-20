@@ -12,7 +12,7 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 
 library(tidyverse); library(plm); library(stargazer); library(modelsummary)
-library(kableExtra); library(MatchIt); library(plm)
+library(kableExtra); library(MatchIt); library(plm); library(sandwich)
 
 dataset <- haven::read_dta("./CardKrueger.dta") 
 ```
@@ -71,10 +71,25 @@ model4 <- update(model2, . ~ . + NCALLS + WAGE_ST + INCTIME + FIRSTINC +
 
 models <- list(model1, model2, model3, model4) 
 
+# Adjust standard errors
+cov1 <- vcovHC(model1, type = "HC1")
+robust_se1    <- sqrt(diag(cov1))
+
+cov2 <- vcovHC(model2, type = "HC1")
+robust_se2    <- sqrt(diag(cov2))
+
+cov3 <- vcovHC(model3, type = "HC1")
+robust_se3    <- sqrt(diag(cov3))
+
+cov4 <- vcovHC(model4, type = "HC1")
+robust_se4    <- sqrt(diag(cov4))
+
 stargazer(models, omit.stat = c("ll", "ser", "rsq"), df=F, 
           omit = c("SOUTHJ", "CENTRALJ", "SHORE", "PA1"),
           add.lines = list(c("Region Dummies", "No", "Yes", "No", "Yes")),
-          header = FALSE, font.size = "footnotesize", title='Estimated model for Q2.')
+          header = FALSE, font.size = "footnotesize", title='Estimated model for Q2 with robust standard errors.',
+          se=list(robust_se1, robust_se2, robust_se3,
+                  robust_se4))
 
 ```
 
@@ -178,6 +193,10 @@ matched_data1 <- MatchIt::matchit(STATE ~ MEALS + OPEN + HRSOPEN + PSODA + PFRY,
 
 e_0i <- lm(employees ~ STATE + MEALS + OPEN + HRSOPEN + PSODA + PFRY, data = matched_data1)
 
+# Adjust standard errors
+cov0i         <- vcovHC(e_0i, type = "HC1")
+robust_se0i    <- sqrt(diag(cov0i))
+
 ```
 
 And $E_{1i}$:
@@ -191,6 +210,10 @@ matched_data2 <- MatchIt::matchit(STATE ~ MEALS + OPEN + HRSOPEN + PSODA + PFRY,
   match.data()
 
 e_1i <- lm(employees2 ~ STATE + MEALS + OPEN + HRSOPEN + PSODA + PFRY, data = matched_data2)
+
+# Adjust standard errors
+cov1i         <- vcovHC(e_1i, type = "HC1")
+robust_se1i    <- sqrt(diag(cov1i))
 
 ```
 
@@ -206,6 +229,10 @@ matched_data3 <- MatchIt::matchit(STATE ~ MEALS + OPEN + HRSOPEN + PSODA + PFRY,
 
 ate <- lm(changeemployees ~ STATE + MEALS + OPEN + HRSOPEN + PSODA + PFRY, data = matched_data3)
 
+# Adjust standard errors
+cov_ate         <- vcovHC(ate, type = "HC1")
+robust_se_ate    <- sqrt(diag(cov_ate))
+
 
 ```
 
@@ -216,7 +243,8 @@ stargazer(e_0i, e_1i, ate, header = F,
           font.size = "footnotesize",
           label="tab:hoi",
           title='Application of propensity score matching to estimate the average treatment 
-          effect on the treated on the change in employments in the restaurants.')
+          effect on the treated on the change in employments in the restaurants. Standard erros are robust',
+          se= list(robust_se0i, robust_se1i, robust_se_ate))
 
 ```
 

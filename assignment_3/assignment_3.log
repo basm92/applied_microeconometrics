@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.9.1)  20 SEP 2021 11:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.9.20)  20 SEP 2021 12:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -417,7 +417,7 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 )
 (c:/Users/walte/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/siunitx/siunitx.st
 y
-Package: siunitx 2021-09-06 v3.0.29 A comprehensive (SI) units package
+Package: siunitx 2021-09-14 v3.0.30 A comprehensive (SI) units package
 \l__siunitx_angle_tmp_dim=\dimen179
 \l__siunitx_angle_marker_box=\box53
 \l__siunitx_angle_unit_box=\box54
@@ -737,835 +737,837 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 {c:/Users/walte/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdfte
 x.map}]
 LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 
-244.
+257.
 (c:/Users/walte/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmtt.fd
 File: ts1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <8> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 396.
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 411.
 [2] [3pdfTeX warning (ext4): destination with the same identifier (name{table.1
 }) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.416 \end{Shaded}
+l.431 \end{Shaded}
                   ]
 <D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
-ent_3/assignment_3_files/figure-latex/boxplot_29ec41ab10b4.pdf, id=38, 48.18pt 
+ent_3/assignment_3_files/figure-latex/boxplot_2554450f4c30.pdf, id=37, 48.18pt 
 x 12.045pt>
 File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
-signment_3/assignment_3_files/figure-latex/boxplot_29ec41ab10b4.pdf Graphic fil
+signment_3/assignment_3_files/figure-latex/boxplot_2554450f4c30.pdf Graphic fil
 e (type pdf)
 <use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
-ignment_3/assignment_3_files/figure-latex/boxplot_29ec41ab10b4.pdf>
+ignment_3/assignment_3_files/figure-latex/boxplot_2554450f4c30.pdf>
 Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
-icroeconometrics/assignment_3/assignment_3_files/figure-latex/boxplot_29ec41ab1
-0b4.pdf  used on input line 428.
+icroeconometrics/assignment_3/assignment_3_files/figure-latex/boxplot_2554450f4
+c30.pdf  used on input line 443.
 (pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
 <D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
-ent_3/assignment_3_files/figure-latex/hist_29ec32322587.pdf, id=39, 48.18pt x 1
+ent_3/assignment_3_files/figure-latex/hist_255456a6394d.pdf, id=38, 48.18pt x 1
 2.045pt>
 File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
-signment_3/assignment_3_files/figure-latex/hist_29ec32322587.pdf Graphic file (
+signment_3/assignment_3_files/figure-latex/hist_255456a6394d.pdf Graphic file (
 type pdf)
 <use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
-ignment_3/assignment_3_files/figure-latex/hist_29ec32322587.pdf>
+ignment_3/assignment_3_files/figure-latex/hist_255456a6394d.pdf>
 Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
-icroeconometrics/assignment_3/assignment_3_files/figure-latex/hist_29ec32322587
-.pdf  used on input line 428.
+icroeconometrics/assignment_3/assignment_3_files/figure-latex/hist_255456a6394d
+.pdf  used on input line 443.
 (pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
 <D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
-ent_3/assignment_3_files/figure-latex/boxplot_29ec5b06135f.pdf, id=40, 48.18pt 
+ent_3/assignment_3_files/figure-latex/boxplot_25544fbb30b8.pdf, id=39, 48.18pt 
 x 12.045pt>
 File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
-signment_3/assignment_3_files/figure-latex/boxplot_29ec5b06135f.pdf Graphic fil
+signment_3/assignment_3_files/figure-latex/boxplot_25544fbb30b8.pdf Graphic fil
 e (type pdf)
 <use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
-ignment_3/assignment_3_files/figure-latex/boxplot_29ec5b06135f.pdf>
+ignment_3/assignment_3_files/figure-latex/boxplot_25544fbb30b8.pdf>
 Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
-icroeconometrics/assignment_3/assignment_3_files/figure-latex/boxplot_29ec5b061
-35f.pdf  used on input line 428.
+icroeconometrics/assignment_3/assignment_3_files/figure-latex/boxplot_25544fbb3
+0b8.pdf  used on input line 443.
 (pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
 <D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
-ent_3/assignment_3_files/figure-latex/hist_29ec302071aa.pdf, id=41, 48.18pt x 1
+ent_3/assignment_3_files/figure-latex/hist_25547fb02373.pdf, id=40, 48.18pt x 1
 2.045pt>
 File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
-signment_3/assignment_3_files/figure-latex/hist_29ec302071aa.pdf Graphic file (
+signment_3/assignment_3_files/figure-latex/hist_25547fb02373.pdf Graphic file (
 type pdf)
 <use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
-ignment_3/assignment_3_files/figure-latex/hist_29ec302071aa.pdf>
+ignment_3/assignment_3_files/figure-latex/hist_25547fb02373.pdf>
 Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
-icroeconometrics/assignment_3/assignment_3_files/figure-latex/hist_29ec302071aa
-.pdf  used on input line 428.
+icroeconometrics/assignment_3/assignment_3_files/figure-latex/hist_25547fb02373
+.pdf  used on input line 443.
 (pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
 <D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
-ent_3/assignment_3_files/figure-latex/boxplot_29ec468b3a49.pdf, id=42, 48.18pt 
+ent_3/assignment_3_files/figure-latex/boxplot_255450f8780b.pdf, id=41, 48.18pt 
 x 12.045pt>
 File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
-signment_3/assignment_3_files/figure-latex/boxplot_29ec468b3a49.pdf Graphic fil
+signment_3/assignment_3_files/figure-latex/boxplot_255450f8780b.pdf Graphic fil
 e (type pdf)
 <use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
-ignment_3/assignment_3_files/figure-latex/boxplot_29ec468b3a49.pdf>
+ignment_3/assignment_3_files/figure-latex/boxplot_255450f8780b.pdf>
 Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
-icroeconometrics/assignment_3/assignment_3_files/figure-latex/boxplot_29ec468b3
-a49.pdf  used on input line 429.
+icroeconometrics/assignment_3/assignment_3_files/figure-latex/boxplot_255450f87
+80b.pdf  used on input line 444.
 (pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
 <D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
-ent_3/assignment_3_files/figure-latex/hist_29ec5d9a49b1.pdf, id=43, 48.18pt x 1
+ent_3/assignment_3_files/figure-latex/hist_25544c946728.pdf, id=42, 48.18pt x 1
 2.045pt>
 File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
-signment_3/assignment_3_files/figure-latex/hist_29ec5d9a49b1.pdf Graphic file (
+signment_3/assignment_3_files/figure-latex/hist_25544c946728.pdf Graphic file (
 type pdf)
 <use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
-ignment_3/assignment_3_files/figure-latex/hist_29ec5d9a49b1.pdf>
+ignment_3/assignment_3_files/figure-latex/hist_25544c946728.pdf>
 Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
-icroeconometrics/assignment_3/assignment_3_files/figure-latex/hist_29ec5d9a49b1
-.pdf  used on input line 429.
+icroeconometrics/assignment_3/assignment_3_files/figure-latex/hist_25544c946728
+.pdf  used on input line 444.
 (pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
 <D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
-ent_3/assignment_3_files/figure-latex/boxplot_29ec12fd4961.pdf, id=44, 48.18pt 
+ent_3/assignment_3_files/figure-latex/boxplot_255422f964e0.pdf, id=43, 48.18pt 
 x 12.045pt>
 File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
-signment_3/assignment_3_files/figure-latex/boxplot_29ec12fd4961.pdf Graphic fil
+signment_3/assignment_3_files/figure-latex/boxplot_255422f964e0.pdf Graphic fil
 e (type pdf)
 <use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
-ignment_3/assignment_3_files/figure-latex/boxplot_29ec12fd4961.pdf>
+ignment_3/assignment_3_files/figure-latex/boxplot_255422f964e0.pdf>
 Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
-icroeconometrics/assignment_3/assignment_3_files/figure-latex/boxplot_29ec12fd4
-961.pdf  used on input line 429.
+icroeconometrics/assignment_3/assignment_3_files/figure-latex/boxplot_255422f96
+4e0.pdf  used on input line 444.
 (pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
 <D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
-ent_3/assignment_3_files/figure-latex/hist_29ec8af1e46.pdf, id=45, 48.18pt x 12
-.045pt>
-File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
-signment_3/assignment_3_files/figure-latex/hist_29ec8af1e46.pdf Graphic file (t
-ype pdf)
-<use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
-ignment_3/assignment_3_files/figure-latex/hist_29ec8af1e46.pdf>
-Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
-icroeconometrics/assignment_3/assignment_3_files/figure-latex/hist_29ec8af1e46.
-pdf  used on input line 429.
-(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
-ent_3/assignment_3_files/figure-latex/boxplot_29ec4490387f.pdf, id=46, 48.18pt 
-x 12.045pt>
-File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
-signment_3/assignment_3_files/figure-latex/boxplot_29ec4490387f.pdf Graphic fil
-e (type pdf)
-<use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
-ignment_3/assignment_3_files/figure-latex/boxplot_29ec4490387f.pdf>
-Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
-icroeconometrics/assignment_3/assignment_3_files/figure-latex/boxplot_29ec44903
-87f.pdf  used on input line 430.
-(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
-ent_3/assignment_3_files/figure-latex/hist_29ec6d133b77.pdf, id=47, 48.18pt x 1
+ent_3/assignment_3_files/figure-latex/hist_25544fdd1ead.pdf, id=44, 48.18pt x 1
 2.045pt>
 File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
-signment_3/assignment_3_files/figure-latex/hist_29ec6d133b77.pdf Graphic file (
+signment_3/assignment_3_files/figure-latex/hist_25544fdd1ead.pdf Graphic file (
 type pdf)
 <use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
-ignment_3/assignment_3_files/figure-latex/hist_29ec6d133b77.pdf>
+ignment_3/assignment_3_files/figure-latex/hist_25544fdd1ead.pdf>
 Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
-icroeconometrics/assignment_3/assignment_3_files/figure-latex/hist_29ec6d133b77
-.pdf  used on input line 430.
+icroeconometrics/assignment_3/assignment_3_files/figure-latex/hist_25544fdd1ead
+.pdf  used on input line 444.
 (pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
 <D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
-ent_3/assignment_3_files/figure-latex/boxplot_29ec261f377b.pdf, id=48, 48.18pt 
+ent_3/assignment_3_files/figure-latex/boxplot_255460ba4655.pdf, id=45, 48.18pt 
 x 12.045pt>
 File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
-signment_3/assignment_3_files/figure-latex/boxplot_29ec261f377b.pdf Graphic fil
+signment_3/assignment_3_files/figure-latex/boxplot_255460ba4655.pdf Graphic fil
 e (type pdf)
 <use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
-ignment_3/assignment_3_files/figure-latex/boxplot_29ec261f377b.pdf>
+ignment_3/assignment_3_files/figure-latex/boxplot_255460ba4655.pdf>
 Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
-icroeconometrics/assignment_3/assignment_3_files/figure-latex/boxplot_29ec261f3
-77b.pdf  used on input line 430.
+icroeconometrics/assignment_3/assignment_3_files/figure-latex/boxplot_255460ba4
+655.pdf  used on input line 445.
 (pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
 <D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
-ent_3/assignment_3_files/figure-latex/hist_29ec2d1e4808.pdf, id=49, 48.18pt x 1
+ent_3/assignment_3_files/figure-latex/hist_25545f8f2501.pdf, id=46, 48.18pt x 1
 2.045pt>
 File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
-signment_3/assignment_3_files/figure-latex/hist_29ec2d1e4808.pdf Graphic file (
+signment_3/assignment_3_files/figure-latex/hist_25545f8f2501.pdf Graphic file (
 type pdf)
 <use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
-ignment_3/assignment_3_files/figure-latex/hist_29ec2d1e4808.pdf>
+ignment_3/assignment_3_files/figure-latex/hist_25545f8f2501.pdf>
 Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
-icroeconometrics/assignment_3/assignment_3_files/figure-latex/hist_29ec2d1e4808
-.pdf  used on input line 430.
+icroeconometrics/assignment_3/assignment_3_files/figure-latex/hist_25545f8f2501
+.pdf  used on input line 445.
 (pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
 <D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
-ent_3/assignment_3_files/figure-latex/boxplot_29ec21a17f37.pdf, id=50, 48.18pt 
-x 12.045pt>
-File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
-signment_3/assignment_3_files/figure-latex/boxplot_29ec21a17f37.pdf Graphic fil
-e (type pdf)
-<use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
-ignment_3/assignment_3_files/figure-latex/boxplot_29ec21a17f37.pdf>
-Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
-icroeconometrics/assignment_3/assignment_3_files/figure-latex/boxplot_29ec21a17
-f37.pdf  used on input line 431.
-(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
-ent_3/assignment_3_files/figure-latex/hist_29ec5fcb2fa.pdf, id=51, 48.18pt x 12
-.045pt>
-File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
-signment_3/assignment_3_files/figure-latex/hist_29ec5fcb2fa.pdf Graphic file (t
-ype pdf)
-<use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
-ignment_3/assignment_3_files/figure-latex/hist_29ec5fcb2fa.pdf>
-Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
-icroeconometrics/assignment_3/assignment_3_files/figure-latex/hist_29ec5fcb2fa.
-pdf  used on input line 431.
-(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
-ent_3/assignment_3_files/figure-latex/boxplot_29ec5a3d27ed.pdf, id=52, 48.18pt 
-x 12.045pt>
-File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
-signment_3/assignment_3_files/figure-latex/boxplot_29ec5a3d27ed.pdf Graphic fil
-e (type pdf)
-<use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
-ignment_3/assignment_3_files/figure-latex/boxplot_29ec5a3d27ed.pdf>
-Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
-icroeconometrics/assignment_3/assignment_3_files/figure-latex/boxplot_29ec5a3d2
-7ed.pdf  used on input line 431.
-(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
-ent_3/assignment_3_files/figure-latex/hist_29ec732d5b37.pdf, id=53, 48.18pt x 1
-2.045pt>
-File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
-signment_3/assignment_3_files/figure-latex/hist_29ec732d5b37.pdf Graphic file (
-type pdf)
-<use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
-ignment_3/assignment_3_files/figure-latex/hist_29ec732d5b37.pdf>
-Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
-icroeconometrics/assignment_3/assignment_3_files/figure-latex/hist_29ec732d5b37
-.pdf  used on input line 431.
-(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
-ent_3/assignment_3_files/figure-latex/boxplot_29ec15f21091.pdf, id=54, 48.18pt 
-x 12.045pt>
-File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
-signment_3/assignment_3_files/figure-latex/boxplot_29ec15f21091.pdf Graphic fil
-e (type pdf)
-<use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
-ignment_3/assignment_3_files/figure-latex/boxplot_29ec15f21091.pdf>
-Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
-icroeconometrics/assignment_3/assignment_3_files/figure-latex/boxplot_29ec15f21
-091.pdf  used on input line 432.
-(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
-ent_3/assignment_3_files/figure-latex/hist_29ec459641cd.pdf, id=55, 48.18pt x 1
-2.045pt>
-File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
-signment_3/assignment_3_files/figure-latex/hist_29ec459641cd.pdf Graphic file (
-type pdf)
-<use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
-ignment_3/assignment_3_files/figure-latex/hist_29ec459641cd.pdf>
-Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
-icroeconometrics/assignment_3/assignment_3_files/figure-latex/hist_29ec459641cd
-.pdf  used on input line 432.
-(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
-ent_3/assignment_3_files/figure-latex/boxplot_29ecc822c2f.pdf, id=56, 48.18pt x
+ent_3/assignment_3_files/figure-latex/boxplot_25542726294.pdf, id=47, 48.18pt x
  12.045pt>
 File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
-signment_3/assignment_3_files/figure-latex/boxplot_29ecc822c2f.pdf Graphic file
+signment_3/assignment_3_files/figure-latex/boxplot_25542726294.pdf Graphic file
  (type pdf)
 <use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
-ignment_3/assignment_3_files/figure-latex/boxplot_29ecc822c2f.pdf>
+ignment_3/assignment_3_files/figure-latex/boxplot_25542726294.pdf>
 Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
-icroeconometrics/assignment_3/assignment_3_files/figure-latex/boxplot_29ecc822c
-2f.pdf  used on input line 432.
+icroeconometrics/assignment_3/assignment_3_files/figure-latex/boxplot_255427262
+94.pdf  used on input line 445.
 (pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
 <D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
-ent_3/assignment_3_files/figure-latex/hist_29ec1acf6506.pdf, id=57, 48.18pt x 1
-2.045pt>
-File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
-signment_3/assignment_3_files/figure-latex/hist_29ec1acf6506.pdf Graphic file (
-type pdf)
-<use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
-ignment_3/assignment_3_files/figure-latex/hist_29ec1acf6506.pdf>
-Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
-icroeconometrics/assignment_3/assignment_3_files/figure-latex/hist_29ec1acf6506
-.pdf  used on input line 432.
-(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
-ent_3/assignment_3_files/figure-latex/boxplot_29ec187b336a.pdf, id=58, 48.18pt 
-x 12.045pt>
-File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
-signment_3/assignment_3_files/figure-latex/boxplot_29ec187b336a.pdf Graphic fil
-e (type pdf)
-<use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
-ignment_3/assignment_3_files/figure-latex/boxplot_29ec187b336a.pdf>
-Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
-icroeconometrics/assignment_3/assignment_3_files/figure-latex/boxplot_29ec187b3
-36a.pdf  used on input line 433.
-(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
-ent_3/assignment_3_files/figure-latex/hist_29ec26e46afc.pdf, id=59, 48.18pt x 1
-2.045pt>
-File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
-signment_3/assignment_3_files/figure-latex/hist_29ec26e46afc.pdf Graphic file (
-type pdf)
-<use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
-ignment_3/assignment_3_files/figure-latex/hist_29ec26e46afc.pdf>
-Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
-icroeconometrics/assignment_3/assignment_3_files/figure-latex/hist_29ec26e46afc
-.pdf  used on input line 433.
-(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
-ent_3/assignment_3_files/figure-latex/boxplot_29ec71a76232.pdf, id=60, 48.18pt 
-x 12.045pt>
-File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
-signment_3/assignment_3_files/figure-latex/boxplot_29ec71a76232.pdf Graphic fil
-e (type pdf)
-<use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
-ignment_3/assignment_3_files/figure-latex/boxplot_29ec71a76232.pdf>
-Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
-icroeconometrics/assignment_3/assignment_3_files/figure-latex/boxplot_29ec71a76
-232.pdf  used on input line 433.
-(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
-ent_3/assignment_3_files/figure-latex/hist_29ec71dc625e.pdf, id=61, 48.18pt x 1
-2.045pt>
-File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
-signment_3/assignment_3_files/figure-latex/hist_29ec71dc625e.pdf Graphic file (
-type pdf)
-<use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
-ignment_3/assignment_3_files/figure-latex/hist_29ec71dc625e.pdf>
-Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
-icroeconometrics/assignment_3/assignment_3_files/figure-latex/hist_29ec71dc625e
-.pdf  used on input line 433.
-(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
-ent_3/assignment_3_files/figure-latex/boxplot_29ec6fa97323.pdf, id=62, 48.18pt 
-x 12.045pt>
-File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
-signment_3/assignment_3_files/figure-latex/boxplot_29ec6fa97323.pdf Graphic fil
-e (type pdf)
-<use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
-ignment_3/assignment_3_files/figure-latex/boxplot_29ec6fa97323.pdf>
-Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
-icroeconometrics/assignment_3/assignment_3_files/figure-latex/boxplot_29ec6fa97
-323.pdf  used on input line 434.
-(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
-ent_3/assignment_3_files/figure-latex/hist_29ec28f13c4d.pdf, id=63, 48.18pt x 1
-2.045pt>
-File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
-signment_3/assignment_3_files/figure-latex/hist_29ec28f13c4d.pdf Graphic file (
-type pdf)
-<use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
-ignment_3/assignment_3_files/figure-latex/hist_29ec28f13c4d.pdf>
-Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
-icroeconometrics/assignment_3/assignment_3_files/figure-latex/hist_29ec28f13c4d
-.pdf  used on input line 434.
-(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
-ent_3/assignment_3_files/figure-latex/boxplot_29ec26671ee9.pdf, id=64, 48.18pt 
-x 12.045pt>
-File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
-signment_3/assignment_3_files/figure-latex/boxplot_29ec26671ee9.pdf Graphic fil
-e (type pdf)
-<use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
-ignment_3/assignment_3_files/figure-latex/boxplot_29ec26671ee9.pdf>
-Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
-icroeconometrics/assignment_3/assignment_3_files/figure-latex/boxplot_29ec26671
-ee9.pdf  used on input line 434.
-(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
-ent_3/assignment_3_files/figure-latex/hist_29ec60066bde.pdf, id=65, 48.18pt x 1
-2.045pt>
-File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
-signment_3/assignment_3_files/figure-latex/hist_29ec60066bde.pdf Graphic file (
-type pdf)
-<use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
-ignment_3/assignment_3_files/figure-latex/hist_29ec60066bde.pdf>
-Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
-icroeconometrics/assignment_3/assignment_3_files/figure-latex/hist_29ec60066bde
-.pdf  used on input line 434.
-(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
-ent_3/assignment_3_files/figure-latex/boxplot_29ec3a534ca4.pdf, id=66, 48.18pt 
-x 12.045pt>
-File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
-signment_3/assignment_3_files/figure-latex/boxplot_29ec3a534ca4.pdf Graphic fil
-e (type pdf)
-<use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
-ignment_3/assignment_3_files/figure-latex/boxplot_29ec3a534ca4.pdf>
-Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
-icroeconometrics/assignment_3/assignment_3_files/figure-latex/boxplot_29ec3a534
-ca4.pdf  used on input line 435.
-(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
-ent_3/assignment_3_files/figure-latex/hist_29ec423b5cc5.pdf, id=67, 48.18pt x 1
-2.045pt>
-File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
-signment_3/assignment_3_files/figure-latex/hist_29ec423b5cc5.pdf Graphic file (
-type pdf)
-<use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
-ignment_3/assignment_3_files/figure-latex/hist_29ec423b5cc5.pdf>
-Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
-icroeconometrics/assignment_3/assignment_3_files/figure-latex/hist_29ec423b5cc5
-.pdf  used on input line 435.
-(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
-ent_3/assignment_3_files/figure-latex/boxplot_29ec24332208.pdf, id=68, 48.18pt 
-x 12.045pt>
-File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
-signment_3/assignment_3_files/figure-latex/boxplot_29ec24332208.pdf Graphic fil
-e (type pdf)
-<use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
-ignment_3/assignment_3_files/figure-latex/boxplot_29ec24332208.pdf>
-Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
-icroeconometrics/assignment_3/assignment_3_files/figure-latex/boxplot_29ec24332
-208.pdf  used on input line 435.
-(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
-ent_3/assignment_3_files/figure-latex/hist_29ec6f0e6321.pdf, id=69, 48.18pt x 1
-2.045pt>
-File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
-signment_3/assignment_3_files/figure-latex/hist_29ec6f0e6321.pdf Graphic file (
-type pdf)
-<use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
-ignment_3/assignment_3_files/figure-latex/hist_29ec6f0e6321.pdf>
-Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
-icroeconometrics/assignment_3/assignment_3_files/figure-latex/hist_29ec6f0e6321
-.pdf  used on input line 435.
-(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
-ent_3/assignment_3_files/figure-latex/boxplot_29ec4ef2ca1.pdf, id=70, 48.18pt x
- 12.045pt>
-File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
-signment_3/assignment_3_files/figure-latex/boxplot_29ec4ef2ca1.pdf Graphic file
- (type pdf)
-<use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
-ignment_3/assignment_3_files/figure-latex/boxplot_29ec4ef2ca1.pdf>
-Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
-icroeconometrics/assignment_3/assignment_3_files/figure-latex/boxplot_29ec4ef2c
-a1.pdf  used on input line 436.
-(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
-ent_3/assignment_3_files/figure-latex/hist_29ec1339446e.pdf, id=71, 48.18pt x 1
-2.045pt>
-File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
-signment_3/assignment_3_files/figure-latex/hist_29ec1339446e.pdf Graphic file (
-type pdf)
-<use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
-ignment_3/assignment_3_files/figure-latex/hist_29ec1339446e.pdf>
-Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
-icroeconometrics/assignment_3/assignment_3_files/figure-latex/hist_29ec1339446e
-.pdf  used on input line 436.
-(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
-ent_3/assignment_3_files/figure-latex/boxplot_29ec6e26370c.pdf, id=72, 48.18pt 
-x 12.045pt>
-File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
-signment_3/assignment_3_files/figure-latex/boxplot_29ec6e26370c.pdf Graphic fil
-e (type pdf)
-<use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
-ignment_3/assignment_3_files/figure-latex/boxplot_29ec6e26370c.pdf>
-Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
-icroeconometrics/assignment_3/assignment_3_files/figure-latex/boxplot_29ec6e263
-70c.pdf  used on input line 436.
-(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
-ent_3/assignment_3_files/figure-latex/hist_29ec233853f.pdf, id=73, 48.18pt x 12
+ent_3/assignment_3_files/figure-latex/hist_25543c52125.pdf, id=48, 48.18pt x 12
 .045pt>
 File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
-signment_3/assignment_3_files/figure-latex/hist_29ec233853f.pdf Graphic file (t
+signment_3/assignment_3_files/figure-latex/hist_25543c52125.pdf Graphic file (t
 ype pdf)
 <use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
-ignment_3/assignment_3_files/figure-latex/hist_29ec233853f.pdf>
+ignment_3/assignment_3_files/figure-latex/hist_25543c52125.pdf>
 Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
-icroeconometrics/assignment_3/assignment_3_files/figure-latex/hist_29ec233853f.
-pdf  used on input line 436.
+icroeconometrics/assignment_3/assignment_3_files/figure-latex/hist_25543c52125.
+pdf  used on input line 445.
 (pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
 <D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
-ent_3/assignment_3_files/figure-latex/boxplot_29ec3f06231c.pdf, id=74, 48.18pt 
+ent_3/assignment_3_files/figure-latex/boxplot_25542b1d7dfa.pdf, id=49, 48.18pt 
 x 12.045pt>
 File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
-signment_3/assignment_3_files/figure-latex/boxplot_29ec3f06231c.pdf Graphic fil
+signment_3/assignment_3_files/figure-latex/boxplot_25542b1d7dfa.pdf Graphic fil
 e (type pdf)
 <use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
-ignment_3/assignment_3_files/figure-latex/boxplot_29ec3f06231c.pdf>
+ignment_3/assignment_3_files/figure-latex/boxplot_25542b1d7dfa.pdf>
 Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
-icroeconometrics/assignment_3/assignment_3_files/figure-latex/boxplot_29ec3f062
-31c.pdf  used on input line 437.
+icroeconometrics/assignment_3/assignment_3_files/figure-latex/boxplot_25542b1d7
+dfa.pdf  used on input line 446.
 (pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
 <D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
-ent_3/assignment_3_files/figure-latex/hist_29ec374a5158.pdf, id=75, 48.18pt x 1
-2.045pt>
-File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
-signment_3/assignment_3_files/figure-latex/hist_29ec374a5158.pdf Graphic file (
-type pdf)
-<use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
-ignment_3/assignment_3_files/figure-latex/hist_29ec374a5158.pdf>
-Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
-icroeconometrics/assignment_3/assignment_3_files/figure-latex/hist_29ec374a5158
-.pdf  used on input line 437.
-(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
-ent_3/assignment_3_files/figure-latex/boxplot_29eca3b677b.pdf, id=76, 48.18pt x
- 12.045pt>
-File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
-signment_3/assignment_3_files/figure-latex/boxplot_29eca3b677b.pdf Graphic file
- (type pdf)
-<use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
-ignment_3/assignment_3_files/figure-latex/boxplot_29eca3b677b.pdf>
-Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
-icroeconometrics/assignment_3/assignment_3_files/figure-latex/boxplot_29eca3b67
-7b.pdf  used on input line 437.
-(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
-ent_3/assignment_3_files/figure-latex/hist_29ec37fc696.pdf, id=77, 48.18pt x 12
+ent_3/assignment_3_files/figure-latex/hist_25545d52bf2.pdf, id=50, 48.18pt x 12
 .045pt>
 File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
-signment_3/assignment_3_files/figure-latex/hist_29ec37fc696.pdf Graphic file (t
+signment_3/assignment_3_files/figure-latex/hist_25545d52bf2.pdf Graphic file (t
 ype pdf)
 <use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
-ignment_3/assignment_3_files/figure-latex/hist_29ec37fc696.pdf>
+ignment_3/assignment_3_files/figure-latex/hist_25545d52bf2.pdf>
 Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
-icroeconometrics/assignment_3/assignment_3_files/figure-latex/hist_29ec37fc696.
-pdf  used on input line 437.
+icroeconometrics/assignment_3/assignment_3_files/figure-latex/hist_25545d52bf2.
+pdf  used on input line 446.
 (pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
 <D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
-ent_3/assignment_3_files/figure-latex/boxplot_29ec24e5702c.pdf, id=78, 48.18pt 
-x 12.045pt>
-File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
-signment_3/assignment_3_files/figure-latex/boxplot_29ec24e5702c.pdf Graphic fil
-e (type pdf)
-<use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
-ignment_3/assignment_3_files/figure-latex/boxplot_29ec24e5702c.pdf>
-Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
-icroeconometrics/assignment_3/assignment_3_files/figure-latex/boxplot_29ec24e57
-02c.pdf  used on input line 438.
-(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
-ent_3/assignment_3_files/figure-latex/hist_29ec21ec2dde.pdf, id=79, 48.18pt x 1
-2.045pt>
-File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
-signment_3/assignment_3_files/figure-latex/hist_29ec21ec2dde.pdf Graphic file (
-type pdf)
-<use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
-ignment_3/assignment_3_files/figure-latex/hist_29ec21ec2dde.pdf>
-Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
-icroeconometrics/assignment_3/assignment_3_files/figure-latex/hist_29ec21ec2dde
-.pdf  used on input line 438.
-(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
-ent_3/assignment_3_files/figure-latex/boxplot_29ec1abe226d.pdf, id=80, 48.18pt 
-x 12.045pt>
-File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
-signment_3/assignment_3_files/figure-latex/boxplot_29ec1abe226d.pdf Graphic fil
-e (type pdf)
-<use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
-ignment_3/assignment_3_files/figure-latex/boxplot_29ec1abe226d.pdf>
-Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
-icroeconometrics/assignment_3/assignment_3_files/figure-latex/boxplot_29ec1abe2
-26d.pdf  used on input line 438.
-(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
-ent_3/assignment_3_files/figure-latex/hist_29ec14fe1bca.pdf, id=81, 48.18pt x 1
-2.045pt>
-File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
-signment_3/assignment_3_files/figure-latex/hist_29ec14fe1bca.pdf Graphic file (
-type pdf)
-<use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
-ignment_3/assignment_3_files/figure-latex/hist_29ec14fe1bca.pdf>
-Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
-icroeconometrics/assignment_3/assignment_3_files/figure-latex/hist_29ec14fe1bca
-.pdf  used on input line 438.
-(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
-ent_3/assignment_3_files/figure-latex/boxplot_29ec71964dfc.pdf, id=82, 48.18pt 
-x 12.045pt>
-File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
-signment_3/assignment_3_files/figure-latex/boxplot_29ec71964dfc.pdf Graphic fil
-e (type pdf)
-<use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
-ignment_3/assignment_3_files/figure-latex/boxplot_29ec71964dfc.pdf>
-Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
-icroeconometrics/assignment_3/assignment_3_files/figure-latex/boxplot_29ec71964
-dfc.pdf  used on input line 439.
-(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
-ent_3/assignment_3_files/figure-latex/hist_29ec5c2e6c2a.pdf, id=83, 48.18pt x 1
-2.045pt>
-File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
-signment_3/assignment_3_files/figure-latex/hist_29ec5c2e6c2a.pdf Graphic file (
-type pdf)
-<use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
-ignment_3/assignment_3_files/figure-latex/hist_29ec5c2e6c2a.pdf>
-Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
-icroeconometrics/assignment_3/assignment_3_files/figure-latex/hist_29ec5c2e6c2a
-.pdf  used on input line 439.
-(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
-ent_3/assignment_3_files/figure-latex/boxplot_29ec2c007d4b.pdf, id=84, 48.18pt 
-x 12.045pt>
-File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
-signment_3/assignment_3_files/figure-latex/boxplot_29ec2c007d4b.pdf Graphic fil
-e (type pdf)
-<use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
-ignment_3/assignment_3_files/figure-latex/boxplot_29ec2c007d4b.pdf>
-Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
-icroeconometrics/assignment_3/assignment_3_files/figure-latex/boxplot_29ec2c007
-d4b.pdf  used on input line 439.
-(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
-ent_3/assignment_3_files/figure-latex/hist_29ecf40140a.pdf, id=85, 48.18pt x 12
-.045pt>
-File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
-signment_3/assignment_3_files/figure-latex/hist_29ecf40140a.pdf Graphic file (t
-ype pdf)
-<use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
-ignment_3/assignment_3_files/figure-latex/hist_29ecf40140a.pdf>
-Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
-icroeconometrics/assignment_3/assignment_3_files/figure-latex/hist_29ecf40140a.
-pdf  used on input line 439.
-(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
-ent_3/assignment_3_files/figure-latex/boxplot_29ec6d0e1c16.pdf, id=86, 48.18pt 
-x 12.045pt>
-File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
-signment_3/assignment_3_files/figure-latex/boxplot_29ec6d0e1c16.pdf Graphic fil
-e (type pdf)
-<use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
-ignment_3/assignment_3_files/figure-latex/boxplot_29ec6d0e1c16.pdf>
-Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
-icroeconometrics/assignment_3/assignment_3_files/figure-latex/boxplot_29ec6d0e1
-c16.pdf  used on input line 440.
-(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
-ent_3/assignment_3_files/figure-latex/hist_29ec36687afc.pdf, id=87, 48.18pt x 1
-2.045pt>
-File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
-signment_3/assignment_3_files/figure-latex/hist_29ec36687afc.pdf Graphic file (
-type pdf)
-<use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
-ignment_3/assignment_3_files/figure-latex/hist_29ec36687afc.pdf>
-Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
-icroeconometrics/assignment_3/assignment_3_files/figure-latex/hist_29ec36687afc
-.pdf  used on input line 440.
-(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
-ent_3/assignment_3_files/figure-latex/boxplot_29eca4f71d7.pdf, id=88, 48.18pt x
+ent_3/assignment_3_files/figure-latex/boxplot_25543fcc2d7.pdf, id=51, 48.18pt x
  12.045pt>
 File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
-signment_3/assignment_3_files/figure-latex/boxplot_29eca4f71d7.pdf Graphic file
+signment_3/assignment_3_files/figure-latex/boxplot_25543fcc2d7.pdf Graphic file
  (type pdf)
 <use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
-ignment_3/assignment_3_files/figure-latex/boxplot_29eca4f71d7.pdf>
+ignment_3/assignment_3_files/figure-latex/boxplot_25543fcc2d7.pdf>
 Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
-icroeconometrics/assignment_3/assignment_3_files/figure-latex/boxplot_29eca4f71
-d7.pdf  used on input line 440.
+icroeconometrics/assignment_3/assignment_3_files/figure-latex/boxplot_25543fcc2
+d7.pdf  used on input line 446.
 (pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
 <D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
-ent_3/assignment_3_files/figure-latex/hist_29ec4a966895.pdf, id=89, 48.18pt x 1
+ent_3/assignment_3_files/figure-latex/hist_2554661168d3.pdf, id=52, 48.18pt x 1
 2.045pt>
 File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
-signment_3/assignment_3_files/figure-latex/hist_29ec4a966895.pdf Graphic file (
+signment_3/assignment_3_files/figure-latex/hist_2554661168d3.pdf Graphic file (
 type pdf)
 <use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
-ignment_3/assignment_3_files/figure-latex/hist_29ec4a966895.pdf>
+ignment_3/assignment_3_files/figure-latex/hist_2554661168d3.pdf>
 Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
-icroeconometrics/assignment_3/assignment_3_files/figure-latex/hist_29ec4a966895
-.pdf  used on input line 440.
+icroeconometrics/assignment_3/assignment_3_files/figure-latex/hist_2554661168d3
+.pdf  used on input line 446.
 (pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
 <D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
-ent_3/assignment_3_files/figure-latex/boxplot_29ec2aa84fe2.pdf, id=90, 48.18pt 
+ent_3/assignment_3_files/figure-latex/boxplot_2554275e2f6d.pdf, id=53, 48.18pt 
 x 12.045pt>
 File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
-signment_3/assignment_3_files/figure-latex/boxplot_29ec2aa84fe2.pdf Graphic fil
+signment_3/assignment_3_files/figure-latex/boxplot_2554275e2f6d.pdf Graphic fil
 e (type pdf)
 <use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
-ignment_3/assignment_3_files/figure-latex/boxplot_29ec2aa84fe2.pdf>
+ignment_3/assignment_3_files/figure-latex/boxplot_2554275e2f6d.pdf>
 Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
-icroeconometrics/assignment_3/assignment_3_files/figure-latex/boxplot_29ec2aa84
-fe2.pdf  used on input line 441.
+icroeconometrics/assignment_3/assignment_3_files/figure-latex/boxplot_2554275e2
+f6d.pdf  used on input line 447.
 (pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
 <D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
-ent_3/assignment_3_files/figure-latex/hist_29ec422957a6.pdf, id=91, 48.18pt x 1
+ent_3/assignment_3_files/figure-latex/hist_2554237364d3.pdf, id=54, 48.18pt x 1
 2.045pt>
 File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
-signment_3/assignment_3_files/figure-latex/hist_29ec422957a6.pdf Graphic file (
+signment_3/assignment_3_files/figure-latex/hist_2554237364d3.pdf Graphic file (
 type pdf)
 <use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
-ignment_3/assignment_3_files/figure-latex/hist_29ec422957a6.pdf>
+ignment_3/assignment_3_files/figure-latex/hist_2554237364d3.pdf>
 Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
-icroeconometrics/assignment_3/assignment_3_files/figure-latex/hist_29ec422957a6
-.pdf  used on input line 441.
+icroeconometrics/assignment_3/assignment_3_files/figure-latex/hist_2554237364d3
+.pdf  used on input line 447.
 (pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
 <D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
-ent_3/assignment_3_files/figure-latex/boxplot_29ec34253d6c.pdf, id=92, 48.18pt 
+ent_3/assignment_3_files/figure-latex/boxplot_25545976aab.pdf, id=55, 48.18pt x
+ 12.045pt>
+File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
+signment_3/assignment_3_files/figure-latex/boxplot_25545976aab.pdf Graphic file
+ (type pdf)
+<use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
+ignment_3/assignment_3_files/figure-latex/boxplot_25545976aab.pdf>
+Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
+icroeconometrics/assignment_3/assignment_3_files/figure-latex/boxplot_25545976a
+ab.pdf  used on input line 447.
+(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
+<D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
+ent_3/assignment_3_files/figure-latex/hist_25545c442466.pdf, id=56, 48.18pt x 1
+2.045pt>
+File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
+signment_3/assignment_3_files/figure-latex/hist_25545c442466.pdf Graphic file (
+type pdf)
+<use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
+ignment_3/assignment_3_files/figure-latex/hist_25545c442466.pdf>
+Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
+icroeconometrics/assignment_3/assignment_3_files/figure-latex/hist_25545c442466
+.pdf  used on input line 447.
+(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
+<D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
+ent_3/assignment_3_files/figure-latex/boxplot_2554662571a5.pdf, id=57, 48.18pt 
 x 12.045pt>
 File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
-signment_3/assignment_3_files/figure-latex/boxplot_29ec34253d6c.pdf Graphic fil
+signment_3/assignment_3_files/figure-latex/boxplot_2554662571a5.pdf Graphic fil
 e (type pdf)
 <use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
-ignment_3/assignment_3_files/figure-latex/boxplot_29ec34253d6c.pdf>
+ignment_3/assignment_3_files/figure-latex/boxplot_2554662571a5.pdf>
 Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
-icroeconometrics/assignment_3/assignment_3_files/figure-latex/boxplot_29ec34253
-d6c.pdf  used on input line 441.
+icroeconometrics/assignment_3/assignment_3_files/figure-latex/boxplot_255466257
+1a5.pdf  used on input line 448.
 (pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
 <D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
-ent_3/assignment_3_files/figure-latex/hist_29ec4f5b657d.pdf, id=93, 48.18pt x 1
+ent_3/assignment_3_files/figure-latex/hist_2554eb816b8.pdf, id=58, 48.18pt x 12
+.045pt>
+File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
+signment_3/assignment_3_files/figure-latex/hist_2554eb816b8.pdf Graphic file (t
+ype pdf)
+<use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
+ignment_3/assignment_3_files/figure-latex/hist_2554eb816b8.pdf>
+Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
+icroeconometrics/assignment_3/assignment_3_files/figure-latex/hist_2554eb816b8.
+pdf  used on input line 448.
+(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
+<D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
+ent_3/assignment_3_files/figure-latex/boxplot_25542e652ed3.pdf, id=59, 48.18pt 
+x 12.045pt>
+File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
+signment_3/assignment_3_files/figure-latex/boxplot_25542e652ed3.pdf Graphic fil
+e (type pdf)
+<use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
+ignment_3/assignment_3_files/figure-latex/boxplot_25542e652ed3.pdf>
+Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
+icroeconometrics/assignment_3/assignment_3_files/figure-latex/boxplot_25542e652
+ed3.pdf  used on input line 448.
+(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
+<D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
+ent_3/assignment_3_files/figure-latex/hist_25543eed3088.pdf, id=60, 48.18pt x 1
 2.045pt>
 File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
-signment_3/assignment_3_files/figure-latex/hist_29ec4f5b657d.pdf Graphic file (
+signment_3/assignment_3_files/figure-latex/hist_25543eed3088.pdf Graphic file (
 type pdf)
 <use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
-ignment_3/assignment_3_files/figure-latex/hist_29ec4f5b657d.pdf>
+ignment_3/assignment_3_files/figure-latex/hist_25543eed3088.pdf>
 Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
-icroeconometrics/assignment_3/assignment_3_files/figure-latex/hist_29ec4f5b657d
-.pdf  used on input line 441.
+icroeconometrics/assignment_3/assignment_3_files/figure-latex/hist_25543eed3088
+.pdf  used on input line 448.
 (pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
-<assignment_3_files/figure-latex/unnamed-chunk-8-1.pdf, id=94, 469.755pt x 325.
+<D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
+ent_3/assignment_3_files/figure-latex/boxplot_255476b67066.pdf, id=61, 48.18pt 
+x 12.045pt>
+File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
+signment_3/assignment_3_files/figure-latex/boxplot_255476b67066.pdf Graphic fil
+e (type pdf)
+<use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
+ignment_3/assignment_3_files/figure-latex/boxplot_255476b67066.pdf>
+Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
+icroeconometrics/assignment_3/assignment_3_files/figure-latex/boxplot_255476b67
+066.pdf  used on input line 449.
+(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
+<D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
+ent_3/assignment_3_files/figure-latex/hist_255438e95eba.pdf, id=62, 48.18pt x 1
+2.045pt>
+File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
+signment_3/assignment_3_files/figure-latex/hist_255438e95eba.pdf Graphic file (
+type pdf)
+<use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
+ignment_3/assignment_3_files/figure-latex/hist_255438e95eba.pdf>
+Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
+icroeconometrics/assignment_3/assignment_3_files/figure-latex/hist_255438e95eba
+.pdf  used on input line 449.
+(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
+<D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
+ent_3/assignment_3_files/figure-latex/boxplot_2554438524dd.pdf, id=63, 48.18pt 
+x 12.045pt>
+File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
+signment_3/assignment_3_files/figure-latex/boxplot_2554438524dd.pdf Graphic fil
+e (type pdf)
+<use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
+ignment_3/assignment_3_files/figure-latex/boxplot_2554438524dd.pdf>
+Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
+icroeconometrics/assignment_3/assignment_3_files/figure-latex/boxplot_255443852
+4dd.pdf  used on input line 449.
+(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
+<D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
+ent_3/assignment_3_files/figure-latex/hist_25542213a62.pdf, id=64, 48.18pt x 12
+.045pt>
+File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
+signment_3/assignment_3_files/figure-latex/hist_25542213a62.pdf Graphic file (t
+ype pdf)
+<use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
+ignment_3/assignment_3_files/figure-latex/hist_25542213a62.pdf>
+Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
+icroeconometrics/assignment_3/assignment_3_files/figure-latex/hist_25542213a62.
+pdf  used on input line 449.
+(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
+<D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
+ent_3/assignment_3_files/figure-latex/boxplot_25542c6b2fc1.pdf, id=65, 48.18pt 
+x 12.045pt>
+File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
+signment_3/assignment_3_files/figure-latex/boxplot_25542c6b2fc1.pdf Graphic fil
+e (type pdf)
+<use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
+ignment_3/assignment_3_files/figure-latex/boxplot_25542c6b2fc1.pdf>
+Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
+icroeconometrics/assignment_3/assignment_3_files/figure-latex/boxplot_25542c6b2
+fc1.pdf  used on input line 450.
+(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
+<D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
+ent_3/assignment_3_files/figure-latex/hist_25544f3654fb.pdf, id=66, 48.18pt x 1
+2.045pt>
+File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
+signment_3/assignment_3_files/figure-latex/hist_25544f3654fb.pdf Graphic file (
+type pdf)
+<use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
+ignment_3/assignment_3_files/figure-latex/hist_25544f3654fb.pdf>
+Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
+icroeconometrics/assignment_3/assignment_3_files/figure-latex/hist_25544f3654fb
+.pdf  used on input line 450.
+(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
+<D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
+ent_3/assignment_3_files/figure-latex/boxplot_255431a0560.pdf, id=67, 48.18pt x
+ 12.045pt>
+File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
+signment_3/assignment_3_files/figure-latex/boxplot_255431a0560.pdf Graphic file
+ (type pdf)
+<use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
+ignment_3/assignment_3_files/figure-latex/boxplot_255431a0560.pdf>
+Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
+icroeconometrics/assignment_3/assignment_3_files/figure-latex/boxplot_255431a05
+60.pdf  used on input line 450.
+(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
+<D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
+ent_3/assignment_3_files/figure-latex/hist_255442286b63.pdf, id=68, 48.18pt x 1
+2.045pt>
+File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
+signment_3/assignment_3_files/figure-latex/hist_255442286b63.pdf Graphic file (
+type pdf)
+<use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
+ignment_3/assignment_3_files/figure-latex/hist_255442286b63.pdf>
+Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
+icroeconometrics/assignment_3/assignment_3_files/figure-latex/hist_255442286b63
+.pdf  used on input line 450.
+(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
+<D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
+ent_3/assignment_3_files/figure-latex/boxplot_2554586228de.pdf, id=69, 48.18pt 
+x 12.045pt>
+File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
+signment_3/assignment_3_files/figure-latex/boxplot_2554586228de.pdf Graphic fil
+e (type pdf)
+<use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
+ignment_3/assignment_3_files/figure-latex/boxplot_2554586228de.pdf>
+Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
+icroeconometrics/assignment_3/assignment_3_files/figure-latex/boxplot_255458622
+8de.pdf  used on input line 451.
+(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
+<D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
+ent_3/assignment_3_files/figure-latex/hist_255467ed2e4.pdf, id=70, 48.18pt x 12
+.045pt>
+File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
+signment_3/assignment_3_files/figure-latex/hist_255467ed2e4.pdf Graphic file (t
+ype pdf)
+<use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
+ignment_3/assignment_3_files/figure-latex/hist_255467ed2e4.pdf>
+Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
+icroeconometrics/assignment_3/assignment_3_files/figure-latex/hist_255467ed2e4.
+pdf  used on input line 451.
+(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
+<D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
+ent_3/assignment_3_files/figure-latex/boxplot_2554ed0383.pdf, id=71, 48.18pt x 
+12.045pt>
+File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
+signment_3/assignment_3_files/figure-latex/boxplot_2554ed0383.pdf Graphic file 
+(type pdf)
+<use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
+ignment_3/assignment_3_files/figure-latex/boxplot_2554ed0383.pdf>
+Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
+icroeconometrics/assignment_3/assignment_3_files/figure-latex/boxplot_2554ed038
+3.pdf  used on input line 451.
+(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
+<D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
+ent_3/assignment_3_files/figure-latex/hist_255487723d.pdf, id=72, 48.18pt x 12.
+045pt>
+File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
+signment_3/assignment_3_files/figure-latex/hist_255487723d.pdf Graphic file (ty
+pe pdf)
+<use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
+ignment_3/assignment_3_files/figure-latex/hist_255487723d.pdf>
+Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
+icroeconometrics/assignment_3/assignment_3_files/figure-latex/hist_255487723d.p
+df  used on input line 451.
+(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
+<D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
+ent_3/assignment_3_files/figure-latex/boxplot_25544b7323f9.pdf, id=73, 48.18pt 
+x 12.045pt>
+File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
+signment_3/assignment_3_files/figure-latex/boxplot_25544b7323f9.pdf Graphic fil
+e (type pdf)
+<use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
+ignment_3/assignment_3_files/figure-latex/boxplot_25544b7323f9.pdf>
+Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
+icroeconometrics/assignment_3/assignment_3_files/figure-latex/boxplot_25544b732
+3f9.pdf  used on input line 452.
+(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
+<D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
+ent_3/assignment_3_files/figure-latex/hist_2554feeeb1.pdf, id=74, 48.18pt x 12.
+045pt>
+File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
+signment_3/assignment_3_files/figure-latex/hist_2554feeeb1.pdf Graphic file (ty
+pe pdf)
+<use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
+ignment_3/assignment_3_files/figure-latex/hist_2554feeeb1.pdf>
+Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
+icroeconometrics/assignment_3/assignment_3_files/figure-latex/hist_2554feeeb1.p
+df  used on input line 452.
+(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
+<D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
+ent_3/assignment_3_files/figure-latex/boxplot_2554c3a3dbe.pdf, id=75, 48.18pt x
+ 12.045pt>
+File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
+signment_3/assignment_3_files/figure-latex/boxplot_2554c3a3dbe.pdf Graphic file
+ (type pdf)
+<use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
+ignment_3/assignment_3_files/figure-latex/boxplot_2554c3a3dbe.pdf>
+Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
+icroeconometrics/assignment_3/assignment_3_files/figure-latex/boxplot_2554c3a3d
+be.pdf  used on input line 452.
+(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
+<D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
+ent_3/assignment_3_files/figure-latex/hist_25545cde7d31.pdf, id=76, 48.18pt x 1
+2.045pt>
+File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
+signment_3/assignment_3_files/figure-latex/hist_25545cde7d31.pdf Graphic file (
+type pdf)
+<use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
+ignment_3/assignment_3_files/figure-latex/hist_25545cde7d31.pdf>
+Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
+icroeconometrics/assignment_3/assignment_3_files/figure-latex/hist_25545cde7d31
+.pdf  used on input line 452.
+(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
+<D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
+ent_3/assignment_3_files/figure-latex/boxplot_2554346573ab.pdf, id=77, 48.18pt 
+x 12.045pt>
+File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
+signment_3/assignment_3_files/figure-latex/boxplot_2554346573ab.pdf Graphic fil
+e (type pdf)
+<use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
+ignment_3/assignment_3_files/figure-latex/boxplot_2554346573ab.pdf>
+Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
+icroeconometrics/assignment_3/assignment_3_files/figure-latex/boxplot_255434657
+3ab.pdf  used on input line 453.
+(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
+<D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
+ent_3/assignment_3_files/figure-latex/hist_25544c5f4030.pdf, id=78, 48.18pt x 1
+2.045pt>
+File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
+signment_3/assignment_3_files/figure-latex/hist_25544c5f4030.pdf Graphic file (
+type pdf)
+<use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
+ignment_3/assignment_3_files/figure-latex/hist_25544c5f4030.pdf>
+Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
+icroeconometrics/assignment_3/assignment_3_files/figure-latex/hist_25544c5f4030
+.pdf  used on input line 453.
+(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
+<D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
+ent_3/assignment_3_files/figure-latex/boxplot_25541bf9be5.pdf, id=79, 48.18pt x
+ 12.045pt>
+File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
+signment_3/assignment_3_files/figure-latex/boxplot_25541bf9be5.pdf Graphic file
+ (type pdf)
+<use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
+ignment_3/assignment_3_files/figure-latex/boxplot_25541bf9be5.pdf>
+Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
+icroeconometrics/assignment_3/assignment_3_files/figure-latex/boxplot_25541bf9b
+e5.pdf  used on input line 453.
+(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
+<D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
+ent_3/assignment_3_files/figure-latex/hist_25547703398d.pdf, id=80, 48.18pt x 1
+2.045pt>
+File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
+signment_3/assignment_3_files/figure-latex/hist_25547703398d.pdf Graphic file (
+type pdf)
+<use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
+ignment_3/assignment_3_files/figure-latex/hist_25547703398d.pdf>
+Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
+icroeconometrics/assignment_3/assignment_3_files/figure-latex/hist_25547703398d
+.pdf  used on input line 453.
+(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
+<D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
+ent_3/assignment_3_files/figure-latex/boxplot_25542e61756b.pdf, id=81, 48.18pt 
+x 12.045pt>
+File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
+signment_3/assignment_3_files/figure-latex/boxplot_25542e61756b.pdf Graphic fil
+e (type pdf)
+<use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
+ignment_3/assignment_3_files/figure-latex/boxplot_25542e61756b.pdf>
+Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
+icroeconometrics/assignment_3/assignment_3_files/figure-latex/boxplot_25542e617
+56b.pdf  used on input line 454.
+(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
+<D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
+ent_3/assignment_3_files/figure-latex/hist_255464a042c5.pdf, id=82, 48.18pt x 1
+2.045pt>
+File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
+signment_3/assignment_3_files/figure-latex/hist_255464a042c5.pdf Graphic file (
+type pdf)
+<use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
+ignment_3/assignment_3_files/figure-latex/hist_255464a042c5.pdf>
+Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
+icroeconometrics/assignment_3/assignment_3_files/figure-latex/hist_255464a042c5
+.pdf  used on input line 454.
+(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
+<D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
+ent_3/assignment_3_files/figure-latex/boxplot_255433596e62.pdf, id=83, 48.18pt 
+x 12.045pt>
+File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
+signment_3/assignment_3_files/figure-latex/boxplot_255433596e62.pdf Graphic fil
+e (type pdf)
+<use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
+ignment_3/assignment_3_files/figure-latex/boxplot_255433596e62.pdf>
+Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
+icroeconometrics/assignment_3/assignment_3_files/figure-latex/boxplot_255433596
+e62.pdf  used on input line 454.
+(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
+<D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
+ent_3/assignment_3_files/figure-latex/hist_2554240f2c73.pdf, id=84, 48.18pt x 1
+2.045pt>
+File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
+signment_3/assignment_3_files/figure-latex/hist_2554240f2c73.pdf Graphic file (
+type pdf)
+<use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
+ignment_3/assignment_3_files/figure-latex/hist_2554240f2c73.pdf>
+Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
+icroeconometrics/assignment_3/assignment_3_files/figure-latex/hist_2554240f2c73
+.pdf  used on input line 454.
+(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
+<D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
+ent_3/assignment_3_files/figure-latex/boxplot_255413a67b54.pdf, id=85, 48.18pt 
+x 12.045pt>
+File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
+signment_3/assignment_3_files/figure-latex/boxplot_255413a67b54.pdf Graphic fil
+e (type pdf)
+<use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
+ignment_3/assignment_3_files/figure-latex/boxplot_255413a67b54.pdf>
+Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
+icroeconometrics/assignment_3/assignment_3_files/figure-latex/boxplot_255413a67
+b54.pdf  used on input line 455.
+(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
+<D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
+ent_3/assignment_3_files/figure-latex/hist_255488148b2.pdf, id=86, 48.18pt x 12
+.045pt>
+File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
+signment_3/assignment_3_files/figure-latex/hist_255488148b2.pdf Graphic file (t
+ype pdf)
+<use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
+ignment_3/assignment_3_files/figure-latex/hist_255488148b2.pdf>
+Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
+icroeconometrics/assignment_3/assignment_3_files/figure-latex/hist_255488148b2.
+pdf  used on input line 455.
+(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
+<D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
+ent_3/assignment_3_files/figure-latex/boxplot_25547d462c1.pdf, id=87, 48.18pt x
+ 12.045pt>
+File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
+signment_3/assignment_3_files/figure-latex/boxplot_25547d462c1.pdf Graphic file
+ (type pdf)
+<use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
+ignment_3/assignment_3_files/figure-latex/boxplot_25547d462c1.pdf>
+Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
+icroeconometrics/assignment_3/assignment_3_files/figure-latex/boxplot_25547d462
+c1.pdf  used on input line 455.
+(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
+<D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
+ent_3/assignment_3_files/figure-latex/hist_255434a718db.pdf, id=88, 48.18pt x 1
+2.045pt>
+File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
+signment_3/assignment_3_files/figure-latex/hist_255434a718db.pdf Graphic file (
+type pdf)
+<use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
+ignment_3/assignment_3_files/figure-latex/hist_255434a718db.pdf>
+Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
+icroeconometrics/assignment_3/assignment_3_files/figure-latex/hist_255434a718db
+.pdf  used on input line 455.
+(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
+<D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
+ent_3/assignment_3_files/figure-latex/boxplot_2554687f329.pdf, id=89, 48.18pt x
+ 12.045pt>
+File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
+signment_3/assignment_3_files/figure-latex/boxplot_2554687f329.pdf Graphic file
+ (type pdf)
+<use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
+ignment_3/assignment_3_files/figure-latex/boxplot_2554687f329.pdf>
+Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
+icroeconometrics/assignment_3/assignment_3_files/figure-latex/boxplot_2554687f3
+29.pdf  used on input line 456.
+(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
+<D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
+ent_3/assignment_3_files/figure-latex/hist_255426b37395.pdf, id=90, 48.18pt x 1
+2.045pt>
+File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
+signment_3/assignment_3_files/figure-latex/hist_255426b37395.pdf Graphic file (
+type pdf)
+<use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
+ignment_3/assignment_3_files/figure-latex/hist_255426b37395.pdf>
+Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
+icroeconometrics/assignment_3/assignment_3_files/figure-latex/hist_255426b37395
+.pdf  used on input line 456.
+(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
+<D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
+ent_3/assignment_3_files/figure-latex/boxplot_255411042173.pdf, id=91, 48.18pt 
+x 12.045pt>
+File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
+signment_3/assignment_3_files/figure-latex/boxplot_255411042173.pdf Graphic fil
+e (type pdf)
+<use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
+ignment_3/assignment_3_files/figure-latex/boxplot_255411042173.pdf>
+Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
+icroeconometrics/assignment_3/assignment_3_files/figure-latex/boxplot_255411042
+173.pdf  used on input line 456.
+(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
+<D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
+ent_3/assignment_3_files/figure-latex/hist_255471e66db.pdf, id=92, 48.18pt x 12
+.045pt>
+File: D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
+signment_3/assignment_3_files/figure-latex/hist_255471e66db.pdf Graphic file (t
+ype pdf)
+<use D:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/ass
+ignment_3/assignment_3_files/figure-latex/hist_255471e66db.pdf>
+Package pdftex.def Info: D:/Files/Git Projects/ti_git_projects/year_2/applied_m
+icroeconometrics/assignment_3/assignment_3_files/figure-latex/hist_255471e66db.
+pdf  used on input line 456.
+(pdftex.def)             Requested size: 48.42024pt x 12.10504pt.
+[4]
+<assignment_3_files/figure-latex/unnamed-chunk-8-1.pdf, id=98, 469.755pt x 325.
 215pt>
 File: assignment_3_files/figure-latex/unnamed-chunk-8-1.pdf Graphic file (type 
 pdf)
 <use assignment_3_files/figure-latex/unnamed-chunk-8-1.pdf>
 Package pdftex.def Info: assignment_3_files/figure-latex/unnamed-chunk-8-1.pdf 
- used on input line 481.
+ used on input line 496.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[4] [5pdfTeX warning (ext4): destination with the same identifier (name{table.2
-}) has been already used, duplicate ignored
+[5pdfTeX warning (ext4): destination with the same identifier (name{table.2}) h
+as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.491 \end{enumerate}
-                      <d:/Files/Git Projects/ti_git_projects/year_2/applied_mic
-roeconometrics/assignment_3/assignment_3_files/figure-latex/boxplot_29ec41ab10b
-4.pdf> <d:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/
-assignment_3/assignment_3_files/figure-latex/hist_29ec32322587.pdf> <d:/Files/G
-it Projects/ti_git_projects/year_2/applied_microeconometrics/assignment_3/assig
-nment_3_files/figure-latex/boxplot_29ec5b06135f.pdf> <d:/Files/Git Projects/ti_
-git_projects/year_2/applied_microeconometrics/assignment_3/assignment_3_files/f
-igure-latex/hist_29ec302071aa.pdf> <d:/Files/Git Projects/ti_git_projects/year_
-2/applied_microeconometrics/assignment_3/assignment_3_files/figure-latex/boxplo
-t_29ec468b3a49.pdf> <d:/Files/Git Projects/ti_git_projects/year_2/applied_micro
-econometrics/assignment_3/assignment_3_files/figure-latex/hist_29ec5d9a49b1.pdf
-> <d:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assig
-nment_3/assignment_3_files/figure-latex/boxplot_29ec12fd4961.pdf> <d:/Files/Git
- Projects/ti_git_projects/year_2/applied_microeconometrics/assignment_3/assignm
-ent_3_files/figure-latex/hist_29ec8af1e46.pdf> <d:/Files/Git Projects/ti_git_pr
-ojects/year_2/applied_microeconometrics/assignment_3/assignment_3_files/figure-
-latex/boxplot_29ec4490387f.pdf> <d:/Files/Git Projects/ti_git_projects/year_2/a
-pplied_microeconometrics/assignment_3/assignment_3_files/figure-latex/hist_29ec
-6d133b77.pdf> <d:/Files/Git Projects/ti_git_projects/year_2/applied_microeconom
-etrics/assignment_3/assignment_3_files/figure-latex/boxplot_29ec261f377b.pdf> <
-d:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignme
-nt_3/assignment_3_files/figure-latex/hist_29ec2d1e4808.pdf> <d:/Files/Git Proje
-cts/ti_git_projects/year_2/applied_microeconometrics/assignment_3/assignment_3_
-files/figure-latex/boxplot_29ec21a17f37.pdf> <d:/Files/Git Projects/ti_git_proj
-ects/year_2/applied_microeconometrics/assignment_3/assignment_3_files/figure-la
-tex/hist_29ec5fcb2fa.pdf> <d:/Files/Git Projects/ti_git_projects/year_2/applied
-_microeconometrics/assignment_3/assignment_3_files/figure-latex/boxplot_29ec5a3
-d27ed.pdf> <d:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometr
-ics/assignment_3/assignment_3_files/figure-latex/hist_29ec732d5b37.pdf> <d:/Fil
-es/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignment_3/a
-ssignment_3_files/figure-latex/boxplot_29ec15f21091.pdf> <d:/Files/Git Projects
-/ti_git_projects/year_2/applied_microeconometrics/assignment_3/assignment_3_fil
-es/figure-latex/hist_29ec459641cd.pdf> <d:/Files/Git Projects/ti_git_projects/y
-ear_2/applied_microeconometrics/assignment_3/assignment_3_files/figure-latex/bo
-xplot_29ecc822c2f.pdf> <d:/Files/Git Projects/ti_git_projects/year_2/applied_mi
-croeconometrics/assignment_3/assignment_3_files/figure-latex/hist_29ec1acf6506.
-pdf> <d:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
-signment_3/assignment_3_files/figure-latex/boxplot_29ec187b336a.pdf> <d:/Files/
-Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignment_3/assi
-gnment_3_files/figure-latex/hist_29ec26e46afc.pdf> <d:/Files/Git Projects/ti_gi
-t_projects/year_2/applied_microeconometrics/assignment_3/assignment_3_files/fig
-ure-latex/boxplot_29ec71a76232.pdf> <d:/Files/Git Projects/ti_git_projects/year
-_2/applied_microeconometrics/assignment_3/assignment_3_files/figure-latex/hist_
-29ec71dc625e.pdf> <d:/Files/Git Projects/ti_git_projects/year_2/applied_microec
-onometrics/assignment_3/assignment_3_files/figure-latex/boxplot_29ec6fa97323.pd
-f> <d:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assi
-gnment_3/assignment_3_files/figure-latex/hist_29ec28f13c4d.pdf> <d:/Files/Git P
-rojects/ti_git_projects/year_2/applied_microeconometrics/assignment_3/assignmen
-t_3_files/figure-latex/boxplot_29ec26671ee9.pdf> <d:/Files/Git Projects/ti_git_
-projects/year_2/applied_microeconometrics/assignment_3/assignment_3_files/figur
-e-latex/hist_29ec60066bde.pdf> <d:/Files/Git Projects/ti_git_projects/year_2/ap
-plied_microeconometrics/assignment_3/assignment_3_files/figure-latex/boxplot_29
-ec3a534ca4.pdf> <d:/Files/Git Projects/ti_git_projects/year_2/applied_microecon
-ometrics/assignment_3/assignment_3_files/figure-latex/hist_29ec423b5cc5.pdf> <d
-:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignmen
-t_3/assignment_3_files/figure-latex/boxplot_29ec24332208.pdf> <d:/Files/Git Pro
-jects/ti_git_projects/year_2/applied_microeconometrics/assignment_3/assignment_
-3_files/figure-latex/hist_29ec6f0e6321.pdf> <d:/Files/Git Projects/ti_git_proje
-cts/year_2/applied_microeconometrics/assignment_3/assignment_3_files/figure-lat
-ex/boxplot_29ec4ef2ca1.pdf> <d:/Files/Git Projects/ti_git_projects/year_2/appli
-ed_microeconometrics/assignment_3/assignment_3_files/figure-latex/hist_29ec1339
-446e.pdf> <d:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometri
-cs/assignment_3/assignment_3_files/figure-latex/boxplot_29ec6e26370c.pdf> <d:/F
-iles/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignment_3
-/assignment_3_files/figure-latex/hist_29ec233853f.pdf> <d:/Files/Git Projects/t
-i_git_projects/year_2/applied_microeconometrics/assignment_3/assignment_3_files
-/figure-latex/boxplot_29ec3f06231c.pdf> <d:/Files/Git Projects/ti_git_projects/
-year_2/applied_microeconometrics/assignment_3/assignment_3_files/figure-latex/h
-ist_29ec374a5158.pdf> <d:/Files/Git Projects/ti_git_projects/year_2/applied_mic
-roeconometrics/assignment_3/assignment_3_files/figure-latex/boxplot_29eca3b677b
-.pdf> <d:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/a
-ssignment_3/assignment_3_files/figure-latex/hist_29ec37fc696.pdf> <d:/Files/Git
- Projects/ti_git_projects/year_2/applied_microeconometrics/assignment_3/assignm
-ent_3_files/figure-latex/boxplot_29ec24e5702c.pdf> <d:/Files/Git Projects/ti_gi
-t_projects/year_2/applied_microeconometrics/assignment_3/assignment_3_files/fig
-ure-latex/hist_29ec21ec2dde.pdf> <d:/Files/Git Projects/ti_git_projects/year_2/
-applied_microeconometrics/assignment_3/assignment_3_files/figure-latex/boxplot_
-29ec1abe226d.pdf> <d:/Files/Git Projects/ti_git_projects/year_2/applied_microec
-onometrics/assignment_3/assignment_3_files/figure-latex/hist_29ec14fe1bca.pdf> 
+l.503   U
+         se propensity score matching to estimate the average treatment effect 
 <d:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignm
-ent_3/assignment_3_files/figure-latex/boxplot_29ec71964dfc.pdf> <d:/Files/Git P
+ent_3/assignment_3_files/figure-latex/boxplot_2554450f4c30.pdf> <d:/Files/Git P
 rojects/ti_git_projects/year_2/applied_microeconometrics/assignment_3/assignmen
-t_3_files/figure-latex/hist_29ec5c2e6c2a.pdf> <d:/Files/Git Projects/ti_git_pro
+t_3_files/figure-latex/hist_255456a6394d.pdf> <d:/Files/Git Projects/ti_git_pro
 jects/year_2/applied_microeconometrics/assignment_3/assignment_3_files/figure-l
-atex/boxplot_29ec2c007d4b.pdf> <d:/Files/Git Projects/ti_git_projects/year_2/ap
-plied_microeconometrics/assignment_3/assignment_3_files/figure-latex/hist_29ecf
-40140a.pdf> <d:/Files/Git Projects/ti_git_projects/year_2/applied_microeconomet
-rics/assignment_3/assignment_3_files/figure-latex/boxplot_29ec6d0e1c16.pdf> <d:
-/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignment
-_3/assignment_3_files/figure-latex/hist_29ec36687afc.pdf> <d:/Files/Git Project
-s/ti_git_projects/year_2/applied_microeconometrics/assignment_3/assignment_3_fi
-les/figure-latex/boxplot_29eca4f71d7.pdf> <d:/Files/Git Projects/ti_git_project
-s/year_2/applied_microeconometrics/assignment_3/assignment_3_files/figure-latex
-/hist_29ec4a966895.pdf> <d:/Files/Git Projects/ti_git_projects/year_2/applied_m
-icroeconometrics/assignment_3/assignment_3_files/figure-latex/boxplot_29ec2aa84
-fe2.pdf> <d:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometric
-s/assignment_3/assignment_3_files/figure-latex/hist_29ec422957a6.pdf> <d:/Files
-/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignment_3/ass
-ignment_3_files/figure-latex/boxplot_29ec34253d6c.pdf> <d:/Files/Git Projects/t
+atex/boxplot_25544fbb30b8.pdf> <d:/Files/Git Projects/ti_git_projects/year_2/ap
+plied_microeconometrics/assignment_3/assignment_3_files/figure-latex/hist_25547
+fb02373.pdf> <d:/Files/Git Projects/ti_git_projects/year_2/applied_microeconome
+trics/assignment_3/assignment_3_files/figure-latex/boxplot_255450f8780b.pdf> <d
+:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignmen
+t_3/assignment_3_files/figure-latex/hist_25544c946728.pdf> <d:/Files/Git Projec
+ts/ti_git_projects/year_2/applied_microeconometrics/assignment_3/assignment_3_f
+iles/figure-latex/boxplot_255422f964e0.pdf> <d:/Files/Git Projects/ti_git_proje
+cts/year_2/applied_microeconometrics/assignment_3/assignment_3_files/figure-lat
+ex/hist_25544fdd1ead.pdf> <d:/Files/Git Projects/ti_git_projects/year_2/applied
+_microeconometrics/assignment_3/assignment_3_files/figure-latex/boxplot_255460b
+a4655.pdf> <d:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometr
+ics/assignment_3/assignment_3_files/figure-latex/hist_25545f8f2501.pdf> <d:/Fil
+es/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignment_3/a
+ssignment_3_files/figure-latex/boxplot_25542726294.pdf> <d:/Files/Git Projects/
+ti_git_projects/year_2/applied_microeconometrics/assignment_3/assignment_3_file
+s/figure-latex/hist_25543c52125.pdf> <d:/Files/Git Projects/ti_git_projects/yea
+r_2/applied_microeconometrics/assignment_3/assignment_3_files/figure-latex/boxp
+lot_25542b1d7dfa.pdf> <d:/Files/Git Projects/ti_git_projects/year_2/applied_mic
+roeconometrics/assignment_3/assignment_3_files/figure-latex/hist_25545d52bf2.pd
+f> <d:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assi
+gnment_3/assignment_3_files/figure-latex/boxplot_25543fcc2d7.pdf> <d:/Files/Git
+ Projects/ti_git_projects/year_2/applied_microeconometrics/assignment_3/assignm
+ent_3_files/figure-latex/hist_2554661168d3.pdf> <d:/Files/Git Projects/ti_git_p
+rojects/year_2/applied_microeconometrics/assignment_3/assignment_3_files/figure
+-latex/boxplot_2554275e2f6d.pdf> <d:/Files/Git Projects/ti_git_projects/year_2/
+applied_microeconometrics/assignment_3/assignment_3_files/figure-latex/hist_255
+4237364d3.pdf> <d:/Files/Git Projects/ti_git_projects/year_2/applied_microecono
+metrics/assignment_3/assignment_3_files/figure-latex/boxplot_25545976aab.pdf> <
+d:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignme
+nt_3/assignment_3_files/figure-latex/hist_25545c442466.pdf> <d:/Files/Git Proje
+cts/ti_git_projects/year_2/applied_microeconometrics/assignment_3/assignment_3_
+files/figure-latex/boxplot_2554662571a5.pdf> <d:/Files/Git Projects/ti_git_proj
+ects/year_2/applied_microeconometrics/assignment_3/assignment_3_files/figure-la
+tex/hist_2554eb816b8.pdf> <d:/Files/Git Projects/ti_git_projects/year_2/applied
+_microeconometrics/assignment_3/assignment_3_files/figure-latex/boxplot_25542e6
+52ed3.pdf> <d:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometr
+ics/assignment_3/assignment_3_files/figure-latex/hist_25543eed3088.pdf> <d:/Fil
+es/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignment_3/a
+ssignment_3_files/figure-latex/boxplot_255476b67066.pdf> <d:/Files/Git Projects
+/ti_git_projects/year_2/applied_microeconometrics/assignment_3/assignment_3_fil
+es/figure-latex/hist_255438e95eba.pdf> <d:/Files/Git Projects/ti_git_projects/y
+ear_2/applied_microeconometrics/assignment_3/assignment_3_files/figure-latex/bo
+xplot_2554438524dd.pdf> <d:/Files/Git Projects/ti_git_projects/year_2/applied_m
+icroeconometrics/assignment_3/assignment_3_files/figure-latex/hist_25542213a62.
+pdf> <d:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/as
+signment_3/assignment_3_files/figure-latex/boxplot_25542c6b2fc1.pdf> <d:/Files/
+Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignment_3/assi
+gnment_3_files/figure-latex/hist_25544f3654fb.pdf> <d:/Files/Git Projects/ti_gi
+t_projects/year_2/applied_microeconometrics/assignment_3/assignment_3_files/fig
+ure-latex/boxplot_255431a0560.pdf> <d:/Files/Git Projects/ti_git_projects/year_
+2/applied_microeconometrics/assignment_3/assignment_3_files/figure-latex/hist_2
+55442286b63.pdf> <d:/Files/Git Projects/ti_git_projects/year_2/applied_microeco
+nometrics/assignment_3/assignment_3_files/figure-latex/boxplot_2554586228de.pdf
+> <d:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assig
+nment_3/assignment_3_files/figure-latex/hist_255467ed2e4.pdf> <d:/Files/Git Pro
+jects/ti_git_projects/year_2/applied_microeconometrics/assignment_3/assignment_
+3_files/figure-latex/boxplot_2554ed0383.pdf> <d:/Files/Git Projects/ti_git_proj
+ects/year_2/applied_microeconometrics/assignment_3/assignment_3_files/figure-la
+tex/hist_255487723d.pdf> <d:/Files/Git Projects/ti_git_projects/year_2/applied_
+microeconometrics/assignment_3/assignment_3_files/figure-latex/boxplot_25544b73
+23f9.pdf> <d:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometri
+cs/assignment_3/assignment_3_files/figure-latex/hist_2554feeeb1.pdf> <d:/Files/
+Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignment_3/assi
+gnment_3_files/figure-latex/boxplot_2554c3a3dbe.pdf> <d:/Files/Git Projects/ti_
+git_projects/year_2/applied_microeconometrics/assignment_3/assignment_3_files/f
+igure-latex/hist_25545cde7d31.pdf> <d:/Files/Git Projects/ti_git_projects/year_
+2/applied_microeconometrics/assignment_3/assignment_3_files/figure-latex/boxplo
+t_2554346573ab.pdf> <d:/Files/Git Projects/ti_git_projects/year_2/applied_micro
+econometrics/assignment_3/assignment_3_files/figure-latex/hist_25544c5f4030.pdf
+> <d:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assig
+nment_3/assignment_3_files/figure-latex/boxplot_25541bf9be5.pdf> <d:/Files/Git 
+Projects/ti_git_projects/year_2/applied_microeconometrics/assignment_3/assignme
+nt_3_files/figure-latex/hist_25547703398d.pdf> <d:/Files/Git Projects/ti_git_pr
+ojects/year_2/applied_microeconometrics/assignment_3/assignment_3_files/figure-
+latex/boxplot_25542e61756b.pdf> <d:/Files/Git Projects/ti_git_projects/year_2/a
+pplied_microeconometrics/assignment_3/assignment_3_files/figure-latex/hist_2554
+64a042c5.pdf> <d:/Files/Git Projects/ti_git_projects/year_2/applied_microeconom
+etrics/assignment_3/assignment_3_files/figure-latex/boxplot_255433596e62.pdf> <
+d:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignme
+nt_3/assignment_3_files/figure-latex/hist_2554240f2c73.pdf> <d:/Files/Git Proje
+cts/ti_git_projects/year_2/applied_microeconometrics/assignment_3/assignment_3_
+files/figure-latex/boxplot_255413a67b54.pdf> <d:/Files/Git Projects/ti_git_proj
+ects/year_2/applied_microeconometrics/assignment_3/assignment_3_files/figure-la
+tex/hist_255488148b2.pdf> <d:/Files/Git Projects/ti_git_projects/year_2/applied
+_microeconometrics/assignment_3/assignment_3_files/figure-latex/boxplot_25547d4
+62c1.pdf> <d:/Files/Git Projects/ti_git_projects/year_2/applied_microeconometri
+cs/assignment_3/assignment_3_files/figure-latex/hist_255434a718db.pdf> <d:/File
+s/Git Projects/ti_git_projects/year_2/applied_microeconometrics/assignment_3/as
+signment_3_files/figure-latex/boxplot_2554687f329.pdf> <d:/Files/Git Projects/t
 i_git_projects/year_2/applied_microeconometrics/assignment_3/assignment_3_files
-/figure-latex/hist_29ec4f5b657d.pdf> <./assignment_3_files/figure-latex/unnamed
--chunk-8-1.pdf>]
+/figure-latex/hist_255426b37395.pdf> <d:/Files/Git Projects/ti_git_projects/yea
+r_2/applied_microeconometrics/assignment_3/assignment_3_files/figure-latex/boxp
+lot_255411042173.pdf> <d:/Files/Git Projects/ti_git_projects/year_2/applied_mic
+roeconometrics/assignment_3/assignment_3_files/figure-latex/hist_255471e66db.pd
+f>] [6 <./assignment_3_files/figure-latex/unnamed-chunk-8-1.pdf>] [7pdfTeX warn
+ing (ext4): destination with the same identifier (name{table.3}) has been alrea
+dy used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.640 \end{enumerate}
+                     ]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[6] [7pdfTeX warning (ext4): destination with the same identifier (name{table.3
-}) has been already used, duplicate ignored
+[8pdfTeX warning (ext4): destination with the same identifier (name{table.4}) h
+as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.660 \end{Shaded}
-                  ] [8pdfTeX warning (ext4): destination with the same identifi
-er (name{table.4}) has been already used, duplicate ignored
+l.761 \end{Shaded}
+                  ] [9pdfTeX warning (ext4): destination with the same identifi
+er (name{table.5}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.733 \end{Shaded}
-                  pdfTeX warning (ext4): destination with the same identifier (
-name{table.5}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.733 \end{Shaded}
-                  ] [9] [10] (./assignment_3.aux)
+l.837 \end{Shaded}
+                  ] [10] (./assignment_3.aux)
 Package rerunfilecheck Info: File `assignment_3.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 14905 strings out of 480559
- 303170 string characters out of 5901529
- 573774 words of memory out of 5000000
- 32188 multiletter control sequences out of 15000+600000
+ 14906 strings out of 480559
+ 303006 string characters out of 5901780
+ 575146 words of memory out of 5000000
+ 32192 multiletter control sequences out of 15000+600000
  448662 words of font info for 70 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 70i,13n,81p,994b,833s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 70i,13n,81p,992b,827s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/Users/walte/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-math
 sy.enc}{c:/Users/walte/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm
 -mathit.enc}{c:/Users/walte/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/
@@ -1590,7 +1592,7 @@ rs/walte/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb><c
 :/Users/walte/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt8.pf
 b><c:/Users/walte/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt
 i10.pfb>
-Output written on assignment_3.pdf (10 pages, 521342 bytes).
+Output written on assignment_3.pdf (10 pages, 523162 bytes).
 PDF statistics:
  399 PDF objects out of 1000 (max. 8388607)
  233 compressed objects within 3 object streams
