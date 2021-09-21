@@ -23,7 +23,7 @@ Construct a variable full-time equivalent for both waves, which is the number of
 dataset <- dataset %>%
     mutate(employees = EMPFT  + EMPPT/2 + NMGRS,
            employees2 = EMPFT2 + EMPPT2/2 + NMGRS2,
-           changeemployees = employees - employees2)
+           changeemployees = employees2 - employees)
 
 ```
 
