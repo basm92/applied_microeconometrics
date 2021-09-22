@@ -1,0 +1,10 @@
+---
+title: "Applied Microeconometrics - Assignment 4"
+author: "Walter Verwer (589962) & Bas Machielsen (590049)"
+date: \today
+output:
+  pdf_document:
+    includes:
+      in_header: preamble.tex
+---
+
