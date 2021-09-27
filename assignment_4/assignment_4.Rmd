@@ -31,10 +31,10 @@ dataset2 <- dataset %>%
               n_female = sum(gender==2), fail_female = sum(sptype==2 & dest<=4 & gender==2),
               n_fixed = sum(contract==1), fail_fixed = sum(sptype==2 & dest<=4 & contract==1),
               n_temp = sum(contract==2), fail_temp = sum(sptype==2 & dest<=4 & contract==2)) %>%
-    mutate(exit_rate_male = fail_male / n_male, survivor_func_male = 1-exit_rate_male) %>%
-    mutate(exit_rate_female = fail_female / n_female, survivor_func_female = 1-exit_rate_female) %>%
-    mutate(exit_rate_fixed = fail_fixed / n_fixed, survivor_func_fixed = 1-exit_rate_fixed) %>%
-    mutate(exit_rate_temp = fail_temp / n_temp, survivor_func_temp = 1-exit_rate_temp)
+    mutate(exit_rate_male = fail_male / n_male, survivor_func_male = 1-exit_rate_male,
+           exit_rate_female = fail_female / n_female, survivor_func_female = 1-exit_rate_female,
+           exit_rate_fixed = fail_fixed / n_fixed, survivor_func_fixed = 1-exit_rate_fixed,
+           exit_rate_temp = fail_temp / n_temp, survivor_func_temp = 1-exit_rate_temp)
 
 
 ### Alleen nog plots...
