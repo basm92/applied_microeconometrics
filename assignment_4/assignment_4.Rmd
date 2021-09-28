@@ -12,7 +12,7 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 
 library(tidyverse); library(stargazer); library(modelsummary)
-library(kableExtra); library(sandwich)
+library(kableExtra); library(sandwich); library(survival)
 
 dataset <- haven::read_dta("./FlowSpells.dta") 
 ```
@@ -80,6 +80,7 @@ create_hazard_rate(dataset, contract) %>%
 ```
 
 ## Survivor function
+
 ```{r}
 create_hazard_rate(dataset, gender) %>%
     filter(splength <= 365) %>%
@@ -119,3 +120,20 @@ create_hazard_rate(dataset, contract) %>%
     ggtitle("Survivor Function First 14 Days")
 
 ```
+
+
+2. Estimate a Weibull and an Exponential model for sickness spells. Start with a very simple specification and you only include one regressor and subsequently add more regressors. Comment on the change in the Weibull parameters and the regression parameters when you add more variables to the model. Compare the estimates of both models.
+
+Estimate separate Weibull models for males and females. Comment on the results (is it better to estimate separate models for males and females?) Estimate the Weibull duration model for other subgroups that may differ in their behavior and where the baseline hazard may differ.
+
+```{r}
+# Cluster standard errors on school
+
+survival::survreg(data = dataset %>%
+                      filter(sptype == 2),
+                  formula = Surv(splength) ~ contract, dist = "weibull", 
+                  cluster = schoolid) 
+
+
+```
+
