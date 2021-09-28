@@ -124,16 +124,29 @@ create_hazard_rate(dataset, contract) %>%
 
 2. Estimate a Weibull and an Exponential model for sickness spells. Start with a very simple specification and you only include one regressor and subsequently add more regressors. Comment on the change in the Weibull parameters and the regression parameters when you add more variables to the model. Compare the estimates of both models.
 
+<!-- Hallo Walter, zie hier: https://www.emilyzabor.com/tutorials/survival_analysis_in_r_tutorial.html waarom ik dit zo correct doe! --> 
+
 Estimate separate Weibull models for males and females. Comment on the results (is it better to estimate separate models for males and females?) Estimate the Weibull duration model for other subgroups that may differ in their behavior and where the baseline hazard may differ.
 
 ```{r}
 # Cluster standard errors on school
 
-survival::survreg(data = dataset %>%
-                      filter(sptype == 2),
-                  formula = Surv(splength) ~ contract, dist = "weibull", 
+model1 <- survival::survreg(data = dataset %>%
+                      filter(sptype == 2) %>%
+                    mutate(rcensor = if_else(rcensor == 1, 0, 1)),
+                  formula = Surv(splength, rcensor) ~ 1 + gender, dist = "weibull", 
                   cluster = schoolid) 
 
+model2 <- update(model1, . ~ . + marstat)
+model3 <- update(model2, . ~ . + contract)
+model4 <- update(model3, . ~ . + lowgroup)
+model5 <- update(model4, . ~ . + classize + schsize + public + protest)
+model6 <- update(model5, . ~ . +  merged + avgfem + avgage + avglowgr)
 
+models <- list(model1, model2, model3, model4, model5, model6)
 ```
 
+
+```{r, results='asis'}
+modelsummary::modelsummary(models)
+```
