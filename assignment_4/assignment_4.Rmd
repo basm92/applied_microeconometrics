@@ -20,21 +20,13 @@ dataset <- haven::read_dta("./FlowSpells.dta")
 1. Describe the sickness spell data, i.e. do a simple listing of the survivor function and plot the hazard rate and the survivor function. Make separate plots for the first two weeks and for the first year. Also plot the hazard by different subgroups (for instance gender) and test whether the survival curves are the same for the different subgroups.
 
 ```{r}
-### Ik ben niet helemaal zeker of we de individuen in bins moeten plaatsen of niet...
-
-
 # Construct dataset for the survival and hazard rates
-dataset2 <- dataset %>%
-    select(spnr, sptype, splength, dest, gender, contract) %>%
+dataset %>%
+    select(teachid, spnr, sptype, splength, dest, gender, contract) %>%
+    filter(sptype==2) %>%
     group_by(splength) %>%
-    summarise(n_male = sum(gender==1), fail_male = sum(sptype==2 & dest<=4 & gender==1),
-              n_female = sum(gender==2), fail_female = sum(sptype==2 & dest<=4 & gender==2),
-              n_fixed = sum(contract==1), fail_fixed = sum(sptype==2 & dest<=4 & contract==1),
-              n_temp = sum(contract==2), fail_temp = sum(sptype==2 & dest<=4 & contract==2)) %>%
-    mutate(exit_rate_male = fail_male / n_male, survivor_func_male = 1-exit_rate_male,
-           exit_rate_female = fail_female / n_female, survivor_func_female = 1-exit_rate_female,
-           exit_rate_fixed = fail_fixed / n_fixed, survivor_func_fixed = 1-exit_rate_fixed,
-           exit_rate_temp = fail_temp / n_temp, survivor_func_temp = 1-exit_rate_temp)
+    summarise(frequency=n()) %>%
+    mutate(total = sum(frequency))
 
 
 ### Alleen nog plots...
