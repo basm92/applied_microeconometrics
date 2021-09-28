@@ -21,14 +21,101 @@ dataset <- haven::read_dta("./FlowSpells.dta")
 
 ```{r}
 # Construct dataset for the survival and hazard rates
-dataset %>%
-    select(teachid, spnr, sptype, splength, dest, gender, contract) %>%
-    filter(sptype==2) %>%
-    group_by(splength) %>%
-    summarise(frequency=n()) %>%
-    mutate(total = sum(frequency))
-
-
-### Alleen nog plots...
+create_hazard_rate <- function(df, ...) {
     
+    dataset %>%
+        filter(sptype==2) %>%
+        group_by(splength, ...) %>%
+        summarise(frequency=n()) %>%
+        group_by(...) %>%
+        mutate(total = sum(frequency), sum = cumsum(frequency)) %>%
+        mutate(riskset= lag(total - sum)) %>%
+        mutate(riskset = if_else(is.na(riskset),total, riskset)) %>%
+        mutate(exit_rate = frequency/riskset, survivor_function = lead(riskset/total))
+    
+}
+
+```
+
+## Exit Rates 
+
+```{r}
+create_hazard_rate(dataset, gender) %>%
+    filter(splength <= 365) %>%
+    ggplot(aes(x = splength, 
+               y = exit_rate, 
+               group = as.factor(gender), 
+               color = as.factor(gender))) + 
+    geom_line() +
+    ggtitle("Exit Rate First 365 Days")
+
+create_hazard_rate(dataset, gender) %>%
+    filter(splength <= 14) %>%
+    ggplot(aes(x = splength, 
+               y = exit_rate, 
+               group = as.factor(gender), 
+               color = as.factor(gender))) + 
+    geom_line() +
+    ggtitle("Exit Rate First 14 Days")
+
+
+create_hazard_rate(dataset, contract) %>%
+    filter(splength <= 365) %>%
+    ggplot(aes(x = splength, 
+               y = exit_rate, 
+               group = as.factor(contract), 
+               color = as.factor(contract))) + 
+    geom_line() +
+    ggtitle("Exit Rate First 365 Days")
+
+create_hazard_rate(dataset, contract) %>%
+    filter(splength <= 14) %>%
+    ggplot(aes(x = splength, 
+               y = exit_rate, 
+               group = as.factor(contract), 
+               color = as.factor(contract))) + 
+    geom_line() +
+    ggtitle("Exit Rate First 14 Days")
+
+```
+
+## Survivor function
+```{r}
+create_hazard_rate(dataset, gender) %>%
+    filter(splength <= 365) %>%
+    ggplot(aes(x = splength, 
+               y = survivor_function, 
+               group = as.factor(gender), 
+               color = as.factor(gender))) + 
+    geom_line() +
+    ggtitle("Survivor Function First 365 Days")
+
+create_hazard_rate(dataset, gender) %>%
+    filter(splength <= 14) %>%
+    ggplot(aes(x = splength, 
+               y = survivor_function, 
+               group = as.factor(gender), 
+               color = as.factor(gender))) + 
+    geom_line() +
+    ggtitle("Survivor Function First 14 Days")
+
+
+create_hazard_rate(dataset, contract) %>%
+    filter(splength <= 365) %>%
+    ggplot(aes(x = splength, 
+               y = survivor_function, 
+               group = as.factor(contract), 
+               color = as.factor(contract))) + 
+    geom_line() +
+    ggtitle("Survivor Function First 365 Days")
+
+create_hazard_rate(dataset, contract) %>%
+    filter(splength <= 14) %>%
+    ggplot(aes(x = splength, 
+               y = survivor_function, 
+               group = as.factor(contract), 
+               color = as.factor(contract))) + 
+    geom_line() +
+    ggtitle("Survivor Function First 14 Days")
+
 ```
