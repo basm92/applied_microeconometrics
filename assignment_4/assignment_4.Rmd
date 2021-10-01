@@ -3,13 +3,15 @@ title: "Applied Microeconometrics - Assignment 4"
 author: "Walter Verwer (589962) & Bas Machielsen (590049)"
 date: \today
 output:
-  pdf_document:
-    includes:
-      in_header: preamble.tex
+  pdf_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(out.width = '200px',
+                      out.height = '150px',
+                      echo = FALSE, # Turn into true if you want to see the code
+                      warning = FALSE,
+                      message = FALSE)
 
 library(tidyverse); library(stargazer); library(modelsummary)
 library(kableExtra); library(sandwich); library(survival)
@@ -37,7 +39,7 @@ create_hazard_rate <- function(df, ...) {
 
 ```
 
-## Exit Rates 
+First, we plot the exit rates:
 
 ```{r}
 create_hazard_rate(dataset, gender) %>%
@@ -57,8 +59,9 @@ create_hazard_rate(dataset, gender) %>%
                color = as.factor(gender))) + 
     geom_line() +
     ggtitle("Exit Rate First 14 Days")
+```
 
-
+```{r}
 create_hazard_rate(dataset, contract) %>%
     filter(splength <= 365) %>%
     ggplot(aes(x = splength, 
@@ -79,7 +82,7 @@ create_hazard_rate(dataset, contract) %>%
 
 ```
 
-## Survivor function
+Then, we plot the survivor functions: 
 
 ```{r}
 create_hazard_rate(dataset, gender) %>%
@@ -99,8 +102,9 @@ create_hazard_rate(dataset, gender) %>%
                color = as.factor(gender))) + 
     geom_line() +
     ggtitle("Survivor Function First 14 Days")
+```
 
-
+```{r}
 create_hazard_rate(dataset, contract) %>%
     filter(splength <= 365) %>%
     ggplot(aes(x = splength, 
@@ -122,15 +126,13 @@ create_hazard_rate(dataset, contract) %>%
 ```
 
 
-2. Estimate a Weibull and an Exponential model for sickness spells. Start with a very simple specification and you only include one regressor and subsequently add more regressors. Comment on the change in the Weibull parameters and the regression parameters when you add more variables to the model. Compare the estimates of both models.
+2.1 Estimate a Weibull and an Exponential model for sickness spells. Start with a very simple specification and you only include one regressor and subsequently add more regressors. Comment on the change in the Weibull parameters and the regression parameters when you add more variables to the model. Compare the estimates of both models.
 
 <!-- Hallo Walter, zie hier: https://www.emilyzabor.com/tutorials/survival_analysis_in_r_tutorial.html waarom ik dit zo correct doe! --> 
 
-Estimate separate Weibull models for males and females. Comment on the results (is it better to estimate separate models for males and females?) Estimate the Weibull duration model for other subgroups that may differ in their behavior and where the baseline hazard may differ.
 
 ```{r}
 # Cluster standard errors on school
-
 model1 <- survival::survreg(data = dataset %>%
                       filter(sptype == 2) %>%
                     mutate(rcensor = if_else(rcensor == 1, 0, 1)),
@@ -146,7 +148,101 @@ model6 <- update(model5, . ~ . +  merged + avgfem + avgage + avglowgr)
 models <- list(model1, model2, model3, model4, model5, model6)
 ```
 
+```{r, results='asis'}
+modelsummary(models,
+             stars = c("*" = 0.1, "**" = 0.05, "***" = 0.01),
+             gof_omit = c("BIC|iter"),
+             title = "Weibull Models",
+             out = "kableExtra") %>%
+  kableExtra::kable_styling(latex_options = c("hold_position", "scale_down"))
+```
+
+```{r}
+model1 <- survival::survreg(data = dataset %>%
+                      filter(sptype == 2) %>%
+                    mutate(rcensor = if_else(rcensor == 1, 0, 1)),
+                  formula = Surv(splength, rcensor) ~ 1 + gender, dist = "exponential", 
+                  cluster = schoolid) 
+
+model2 <- update(model1, . ~ . + marstat)
+model3 <- update(model2, . ~ . + contract)
+model4 <- update(model3, . ~ . + lowgroup)
+model5 <- update(model4, . ~ . + classize + schsize + public + protest)
+model6 <- update(model5, . ~ . +  merged + avgfem + avgage + avglowgr)
+
+models2 <- list(model1, model2, model3, model4, model5, model6)
+
+```
 
 ```{r, results='asis'}
-modelsummary::modelsummary(models)
+modelsummary(models2,
+             stars = c("*" = 0.1, "**" = 0.05, "***" = 0.01),
+             gof_omit = c("BIC|iter"),
+             title = "Exponential Models",
+             out = "kableExtra") %>%
+  kableExtra::kable_styling(latex_options = c("hold_position", "scale_down"))
 ```
+
+2.2 Estimate separate Weibull models for males and females. Comment on the results (is it better to estimate separate models for males and females?) Estimate the Weibull duration model for other subgroups that may differ in their behavior and where the baseline hazard may differ.
+
+First, we estimate a model for males: 
+
+```{r, results='asis'}
+model1 <- survival::survreg(data = dataset %>%
+                      filter(sptype == 2, gender == 1) %>%
+                    mutate(rcensor = if_else(rcensor == 1, 0, 1)),
+                  formula = Surv(splength, rcensor) ~ 1, dist = "weibull", 
+                  cluster = schoolid) 
+
+model2 <- update(model1, . ~ . + marstat)
+model3 <- update(model2, . ~ . + contract)
+model4 <- update(model3, . ~ . + lowgroup)
+model5 <- update(model4, . ~ . + classize + schsize + public + protest)
+model6 <- update(model5, . ~ . +  merged + avgfem + avgage + avglowgr)
+
+models <- list(model1, model2, model3, model4, model5, model6)
+```
+
+
+```{r, results='asis'}
+modelsummary(models,
+             stars = c("*" = 0.1, "**" = 0.05, "***" = 0.01),
+             gof_omit = c("BIC|iter"),
+             title = "Weibull Models - Males Only",
+             out = "kableExtra") %>%
+  kableExtra::kable_styling(latex_options = c("hold_position", "scale_down"))
+```
+
+Next, we estimate a model for females:
+
+```{r, results='asis'}
+model1 <- survival::survreg(data = dataset %>%
+                      filter(sptype == 2, gender == 2) %>%
+                    mutate(rcensor = if_else(rcensor == 1, 0, 1)),
+                  formula = Surv(splength, rcensor) ~ 1, dist = "weibull", 
+                  cluster = schoolid) 
+
+model2 <- update(model1, . ~ . + marstat)
+model3 <- update(model2, . ~ . + contract)
+model4 <- update(model3, . ~ . + lowgroup)
+model5 <- update(model4, . ~ . + classize + schsize + public + protest)
+model6 <- update(model5, . ~ . +  merged + avgfem + avgage + avglowgr)
+
+models <- list(model1, model2, model3, model4, model5, model6)
+```
+
+```{r}
+modelsummary(models,
+             stars = c("*" = 0.1, "**" = 0.05, "***" = 0.01),
+             gof_omit = c("BIC|iter"),
+             title = "Weibull Models - Females Only",
+             out = "kableExtra") %>%
+  kableExtra::kable_styling(latex_options = c("hold_position", "scale_down"))
+```
+
+3.1 Estimate a Piece Wise Constant (PWC) model for the entire sample. Use the stsplit command to create multiple record data. You can have as many steps as the data allow you to take, but first start with only a few (3 or 4 steps). Next estimate a model with 15-20 steps, or even more. Plot de duration pattern implied by the estimates and comment on these and the regression parameters. How do the regression parameters ($\beta$) compare with those of the Weibull model? 
+
+3.2 Estimate separate models for males and females. 
+
+
+
