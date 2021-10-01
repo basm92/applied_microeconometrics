@@ -217,6 +217,8 @@ modelsummary(models,
   kableExtra::kable_styling(latex_options = c("hold_position", "scale_down"))
 ```
 
+<!-- Loglik are different, survDiff kunnen we gebruiken. --> 
+
 \clearpage
 
 Next, we estimate a model for females:
@@ -246,6 +248,66 @@ modelsummary(models,
   kableExtra::kable_styling(latex_options = c("hold_position", "scale_down"))
 ```
 
+
+
+\clearpage
+
+Now, given that under question 1 we observed a difference between the exit rates and the survival functions for the different contract types, we have estimated Weibull models for the contract types. However, our results are difficult to compare. The reason for this is that the models for the temporary and mixed contract have very little observations. Especially, the mixed contract has too little (36 observations). For this reason we can not make an educated comparison for this subgroup. 
+
+```{r, results='asis'}
+# Fixed contract
+model1 <- survival::survreg(data = dataset %>%
+                      filter(sptype == 2, contract == 1) %>%
+                    mutate(rcensor = if_else(rcensor == 1, 0, 1)),
+                  formula = Surv(splength, rcensor) ~ 1, dist = "weibull", 
+                  cluster = schoolid) 
+
+model2 <- update(model1, . ~ . + marstat)
+model3 <- update(model2, . ~ . + gender)
+model4 <- update(model3, . ~ . + lowgroup)
+model5 <- update(model4, . ~ . + classize + schsize + public + protest)
+model_fixed <- update(model5, . ~ . +  merged + avgfem + avgage + avglowgr)
+
+# Temporary contract
+model1 <- survival::survreg(data = dataset %>%
+                      filter(sptype == 2, contract == 2) %>%
+                    mutate(rcensor = if_else(rcensor == 1, 0, 1)),
+                  formula = Surv(splength, rcensor) ~ 1, dist = "weibull", 
+                  cluster = schoolid) 
+
+model2 <- update(model1, . ~ . + marstat)
+model3 <- update(model2, . ~ . + gender)
+model4 <- update(model3, . ~ . + lowgroup)
+model5 <- update(model4, . ~ . + classize + schsize + public + protest)
+model_temp <- update(model5, . ~ . +  merged + avgfem + avgage + avglowgr)
+
+# Mixed contract
+model1 <- survival::survreg(data = dataset %>%
+                      filter(sptype == 2, contract == 3) %>%
+                    mutate(rcensor = if_else(rcensor == 1, 0, 1)),
+                  formula = Surv(splength, rcensor) ~ 1, dist = "weibull", 
+                  cluster = schoolid) 
+
+model2 <- update(model1, . ~ . + marstat)
+model3 <- update(model2, . ~ . + gender)
+model4 <- update(model3, . ~ . + lowgroup)
+model5 <- update(model4, . ~ . + classize + schsize + public + protest)
+model_mix <- update(model5, . ~ . +  merged + avgfem + avgage + avglowgr)
+
+
+models <- list(model_fixed, model_temp, model_mix)
+
+tab <- modelsummary(models,
+             stars = c("*" = 0.1, "**" = 0.05, "***" = 0.01),
+             gof_omit = c("BIC|iter"),
+             title = "Weibull Models - Models for the all contract types",
+             out = "kableExtra") %>%
+  kableExtra::kable_styling(latex_options = c("hold_position", "scale_down"))
+
+tab %>%
+    # column labels
+    add_header_above(c(" " = 1, "Fixed contract " = 1, "Temporary contract" = 1, "Mixed contract" = 1))
+```
 \clearpage
 
 3.1 Estimate a Piece Wise Constant (PWC) model for the entire sample. Use the stsplit command to create multiple record data. You can have as many steps as the data allow you to take, but first start with only a few (3 or 4 steps). Next estimate a model with 15-20 steps, or even more. Plot de duration pattern implied by the estimates and comment on these and the regression parameters. How do the regression parameters ($\beta$) compare with those of the Weibull model? 
