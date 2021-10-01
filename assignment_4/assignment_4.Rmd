@@ -270,3 +270,21 @@ dataset2 <- dataset %>%
 
 
 
+
+
+
+4. Estimate a Cox model and compare the most elaborate specification with the results of the PWC model
+
+```{r}
+
+baseline <- survival::coxph(data = dataset %>%
+                      filter(sptype == 2) %>%
+                    mutate(rcensor = if_else(rcensor == 1, 0, 1)),
+                  formula = Surv(splength, rcensor) ~ 1)
+
+model1 <- update(baseline, . ~ . + marstat + gender + contract + lowgroup + classize + schsize + public + protest)
+model2 <- update(model1, . ~ . + merged + avgfem + avgage + avglowgr)
+```
+
+
+
