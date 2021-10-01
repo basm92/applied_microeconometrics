@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.10.9)  1 OCT 2021 12:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.10.9)  1 OCT 2021 13:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -758,16 +758,6 @@ Package pdftex.def Info: assignment_4_files/figure-latex/unnamed-chunk-5-2.pdf
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 320.
 [2 <./assignment_4_files/figure-latex/unnamed-chunk-4-1.pdf> <./assignment_4_fi
 les/figure-latex/unnamed-chunk-4-2.pdf> <./assignment_4_files/figure-latex/unna
 med-chunk-5-1.pdf> <./assignment_4_files/figure-latex/unnamed-chunk-5-2.pdf>] [
@@ -776,49 +766,59 @@ s been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.320 \end{document}
-                    ] [4pdfTeX warning (ext4): destination with the same identi
-fier (name{table.2}) has been already used, duplicate ignored
+l.169 \clearpage
+                ] [4
+
+pdfTeX warning (ext4): destination with the same identifier (name{table.2}) has
+ been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.320 \end{document}
-                    ] [5pdfTeX warning (ext4): destination with the same identi
-fier (name{table.3}) has been already used, duplicate ignored
+l.215 \clearpage
+                ] [5
+
+pdfTeX warning (ext4): destination with the same identifier (name{table.3}) has
+ been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.320 \end{document}
-                    ] [6pdfTeX warning (ext4): destination with the same identi
-fier (name{table.4}) has been already used, duplicate ignored
+l.268 \clearpage
+                ] [6
+
+pdfTeX warning (ext4): destination with the same identifier (name{table.4}) has
+ been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.320 \end{document}
-                    ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 320.
+l.316 \clearpage
+                ]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 328.
+[7
+
+]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 328.
 (./assignment_4.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 320.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 320.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 328.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 328.
  ) 
 Here is how much of TeX's memory you used:
- 17218 strings out of 481239
- 291017 string characters out of 5920377
- 641415 words of memory out of 5000000
+ 17219 strings out of 481239
+ 291023 string characters out of 5920377
+ 593366 words of memory out of 5000000
  32115 multiletter control sequences out of 15000+600000
  586072 words of font info for 95 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,14n,42p,811b,727s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,14n,42p,811b,723s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/en
-c/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/s
+c/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/s
 hare/texmf/fonts/enc/dvips/lm/lm-ec.enc}</usr/share/texmf/fonts/type1/public/lm
 /lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf
 /fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr17.
 pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb>
-Output written on assignment_4.pdf (6 pages, 141274 bytes).
+Output written on assignment_4.pdf (7 pages, 141702 bytes).
 PDF statistics:
- 130 PDF objects out of 1000 (max. 8388607)
- 92 compressed objects within 1 object stream
- 12 named destinations out of 1000 (max. 500000)
+ 137 PDF objects out of 1000 (max. 8388607)
+ 98 compressed objects within 1 object stream
+ 13 named destinations out of 1000 (max. 500000)
  16425 words of extra memory for PDF output out of 17280 (max. 10000000)
 

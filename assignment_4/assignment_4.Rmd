@@ -157,6 +157,8 @@ modelsummary(models,
   kableExtra::kable_styling(latex_options = c("hold_position", "scale_down"))
 ```
 
+\clearpage
+
 ```{r}
 model1 <- survival::survreg(data = dataset %>%
                       filter(sptype == 2) %>%
@@ -182,6 +184,8 @@ modelsummary(models2,
              out = "kableExtra") %>%
   kableExtra::kable_styling(latex_options = c("hold_position", "scale_down"))
 ```
+
+\clearpage 
 
 2.2 Estimate separate Weibull models for males and females. Comment on the results (is it better to estimate separate models for males and females?) Estimate the Weibull duration model for other subgroups that may differ in their behavior and where the baseline hazard may differ.
 
@@ -213,6 +217,8 @@ modelsummary(models,
   kableExtra::kable_styling(latex_options = c("hold_position", "scale_down"))
 ```
 
+\clearpage
+
 Next, we estimate a model for females:
 
 ```{r, results='asis'}
@@ -240,7 +246,25 @@ modelsummary(models,
   kableExtra::kable_styling(latex_options = c("hold_position", "scale_down"))
 ```
 
+\clearpage
+
 3.1 Estimate a Piece Wise Constant (PWC) model for the entire sample. Use the stsplit command to create multiple record data. You can have as many steps as the data allow you to take, but first start with only a few (3 or 4 steps). Next estimate a model with 15-20 steps, or even more. Plot de duration pattern implied by the estimates and comment on these and the regression parameters. How do the regression parameters ($\beta$) compare with those of the Weibull model? 
+
+## We estimate a piece wise constant. 
+
+```{r}
+dataset2 <- dataset %>%
+  filter(sptype == 2) %>%
+  mutate(rcensor = if_else(rcensor == 1, 0, 1), 
+         time = case_when(
+           splength < 20 ~ "period 1",
+           between(splength, 21, 50) ~ "period 2",
+           between(splength, 51, 100) ~ "period 3",
+           splength > 100 ~ "period 4")) %>%
+                      fastDummies::dummy_cols(select_columns="time")
+                           
+
+```
 
 3.2 Estimate separate models for males and females. 
 
