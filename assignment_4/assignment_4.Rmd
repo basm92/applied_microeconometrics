@@ -508,6 +508,9 @@ tab %>%
     # column labels
     add_header_above(c(" " = 1, "PWC 14 steps" = 1, "PWC 4 steps" = 1))
 ```
+
+<!-- We moeten alleen nog plots maken voor de models. --> 
+
 4. Estimate a Cox model and compare the most elaborate specification with the results of the PWC model
 
 ```{r}
