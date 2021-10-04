@@ -324,17 +324,190 @@ dataset2 <- dataset %>%
            between(splength, 51, 100) ~ "period 3",
            splength > 100 ~ "period 4")) %>%
                       fastDummies::dummy_cols(select_columns="time")
-                           
 
+model1 <- survival::survreg(data = dataset2 %>%
+                      filter(sptype == 2) %>%
+                    mutate(rcensor = if_else(rcensor == 1, 0, 1)),
+                  formula = Surv(splength, rcensor) ~ 1 + marstat+ contract + 
+                      merged + lowgroup + classize + schsize + public + protest + 
+                      avgfem + avgage + avglowgr + time, dist = "weibull", 
+                  cluster = schoolid) 
+
+dataset3 <- dataset %>%
+  filter(sptype == 2) %>%
+  mutate(rcensor = if_else(rcensor == 1, 0, 1), 
+         time = case_when(
+           splength < 25 ~ "period 1",
+           between(splength, 26, 50) ~ "period 2",
+           between(splength, 51, 75) ~ "period 3",
+           between(splength, 76, 100) ~ "period 4",
+           between(splength, 101, 125) ~ "period 5",
+           between(splength, 126, 150) ~ "period 6",
+           between(splength, 151, 175) ~ "period 7",
+           between(splength, 176, 200) ~ "period 8",
+           between(splength, 201, 225) ~ "period 9",
+           between(splength, 226, 250) ~ "period 10",
+           between(splength, 251, 275) ~ "period 11",
+           between(splength, 300, 325) ~ "period 12",
+           between(splength, 326, 350) ~ "period 13",
+           splength > 350 ~ "period 14")) %>%
+                      fastDummies::dummy_cols(select_columns="time")
+
+model2 <- survival::survreg(data = dataset3 %>%
+                      filter(sptype == 2) %>%
+                    mutate(rcensor = if_else(rcensor == 1, 0, 1)),
+                  formula = Surv(splength, rcensor) ~ 1 + marstat+ contract + 
+                      merged + lowgroup + classize + schsize + public + protest + 
+                      avgfem + avgage + avglowgr + time, dist = "weibull", 
+                  cluster = schoolid) 
+
+models <- list(model2, model1)
+
+```
+
+```{r}
+tab <- modelsummary(models,
+             stars = c("*" = 0.1, "**" = 0.05, "***" = 0.01),
+             gof_omit = c("BIC|iter"),
+             title = "PWC (Weibull)",
+             out = "kableExtra") %>%
+  kableExtra::kable_styling(latex_options = c("hold_position", "scale_down"))
+
+tab %>%
+    # column labels
+    add_header_above(c(" " = 1, "PWC 14 steps" = 1, "PWC 4 steps" = 1))
 ```
 
 3.2 Estimate separate models for males and females. 
 
+First we estimate a PWC model for males.
+```{r}
+dataset2 <- dataset %>%
+  filter(sptype == 2, gender == 1) %>%
+  mutate(rcensor = if_else(rcensor == 1, 0, 1), 
+         time = case_when(
+           splength < 20 ~ "period 1",
+           between(splength, 21, 50) ~ "period 2",
+           between(splength, 51, 100) ~ "period 3",
+           splength > 100 ~ "period 4")) %>%
+                      fastDummies::dummy_cols(select_columns="time")
 
+model1 <- survival::survreg(data = dataset2 %>%
+                      filter(sptype == 2) %>%
+                    mutate(rcensor = if_else(rcensor == 1, 0, 1)),
+                  formula = Surv(splength, rcensor) ~ 1 + marstat+ contract + 
+                      merged + lowgroup + classize + schsize + public + protest + 
+                      avgfem + avgage + avglowgr + time, dist = "weibull", 
+                  cluster = schoolid) 
 
+dataset3 <- dataset %>%
+  filter(sptype == 2, gender == 1) %>%
+  mutate(rcensor = if_else(rcensor == 1, 0, 1), 
+         time = case_when(
+           splength < 25 ~ "period 1",
+           between(splength, 26, 50) ~ "period 2",
+           between(splength, 51, 75) ~ "period 3",
+           between(splength, 76, 100) ~ "period 4",
+           between(splength, 101, 125) ~ "period 5",
+           between(splength, 126, 150) ~ "period 6",
+           between(splength, 151, 175) ~ "period 7",
+           between(splength, 176, 200) ~ "period 8",
+           between(splength, 201, 225) ~ "period 9",
+           between(splength, 226, 250) ~ "period 10",
+           between(splength, 251, 275) ~ "period 11",
+           between(splength, 300, 325) ~ "period 12",
+           between(splength, 326, 350) ~ "period 13",
+           splength > 350 ~ "period 14")) %>%
+                      fastDummies::dummy_cols(select_columns="time")
 
+model2 <- survival::survreg(data = dataset3 %>%
+                      filter(sptype == 2) %>%
+                    mutate(rcensor = if_else(rcensor == 1, 0, 1)),
+                  formula = Surv(splength, rcensor) ~ 1 + marstat+ contract + 
+                      merged + lowgroup + classize + schsize + public + protest + 
+                      avgfem + avgage + avglowgr + time, dist = "weibull", 
+                  cluster = schoolid) 
 
+models <- list(model2, model1)
+```
 
+```{r}
+tab <- modelsummary(models,
+             stars = c("*" = 0.1, "**" = 0.05, "***" = 0.01),
+             gof_omit = c("BIC|iter"),
+             title = "PWC (Weibull) - Males only",
+             out = "kableExtra") %>%
+  kableExtra::kable_styling(latex_options = c("hold_position", "scale_down"))
+
+tab %>%
+    # column labels
+    add_header_above(c(" " = 1, "PWC 14 steps" = 1, "PWC 4 steps" = 1))
+```
+
+Now we estimate the same model for females.
+
+```{r}
+dataset2 <- dataset %>%
+  filter(sptype == 2, gender == 2) %>%
+  mutate(rcensor = if_else(rcensor == 1, 0, 1), 
+         time = case_when(
+           splength < 20 ~ "period 1",
+           between(splength, 21, 50) ~ "period 2",
+           between(splength, 51, 100) ~ "period 3",
+           splength > 100 ~ "period 4")) %>%
+                      fastDummies::dummy_cols(select_columns="time")
+
+model1 <- survival::survreg(data = dataset2 %>%
+                      filter(sptype == 2) %>%
+                    mutate(rcensor = if_else(rcensor == 1, 0, 1)),
+                  formula = Surv(splength, rcensor) ~ 1 + marstat+ contract + 
+                      merged + lowgroup + classize + schsize + public + protest + 
+                      avgfem + avgage + avglowgr + time, dist = "weibull", 
+                  cluster = schoolid) 
+
+dataset3 <- dataset %>%
+  filter(sptype == 2, gender == 2) %>%
+  mutate(rcensor = if_else(rcensor == 1, 0, 1), 
+         time = case_when(
+           splength < 25 ~ "period 1",
+           between(splength, 26, 50) ~ "period 2",
+           between(splength, 51, 75) ~ "period 3",
+           between(splength, 76, 100) ~ "period 4",
+           between(splength, 101, 125) ~ "period 5",
+           between(splength, 126, 150) ~ "period 6",
+           between(splength, 151, 175) ~ "period 7",
+           between(splength, 176, 200) ~ "period 8",
+           between(splength, 201, 225) ~ "period 9",
+           between(splength, 226, 250) ~ "period 10",
+           between(splength, 251, 275) ~ "period 11",
+           between(splength, 300, 325) ~ "period 12",
+           between(splength, 326, 350) ~ "period 13",
+           splength > 350 ~ "period 14")) %>%
+                      fastDummies::dummy_cols(select_columns="time")
+
+model2 <- survival::survreg(data = dataset3 %>%
+                      filter(sptype == 2) %>%
+                    mutate(rcensor = if_else(rcensor == 1, 0, 1)),
+                  formula = Surv(splength, rcensor) ~ 1 + marstat+ contract + 
+                      merged + lowgroup + classize + schsize + public + protest + 
+                      avgfem + avgage + avglowgr + time, dist = "weibull", 
+                  cluster = schoolid) 
+
+models <- list(model2, model1)
+```
+
+```{r}
+tab <- modelsummary(models,
+             stars = c("*" = 0.1, "**" = 0.05, "***" = 0.01),
+             gof_omit = c("BIC|iter"),
+             title = "PWC (Weibull) - Females only",
+             out = "kableExtra") %>%
+  kableExtra::kable_styling(latex_options = c("hold_position", "scale_down"))
+
+tab %>%
+    # column labels
+    add_header_above(c(" " = 1, "PWC 14 steps" = 1, "PWC 4 steps" = 1))
+```
 4. Estimate a Cox model and compare the most elaborate specification with the results of the PWC model
 
 ```{r}
