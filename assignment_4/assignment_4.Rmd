@@ -125,6 +125,7 @@ create_hazard_rate(dataset, contract) %>%
 
 ```
 
+\clearpage
 
 2.1 Estimate a Weibull and an Exponential model for sickness spells. Start with a very simple specification and you only include one regressor and subsequently add more regressors. Comment on the change in the Weibull parameters and the regression parameters when you add more variables to the model. Compare the estimates of both models.
 
@@ -248,10 +249,6 @@ modelsummary(models,
   kableExtra::kable_styling(latex_options = c("hold_position", "scale_down"))
 ```
 
-
-
-\clearpage
-
 Now, given that under question 1 we observed a difference between the exit rates and the survival functions for the different contract types, we have estimated Weibull models for the contract types. However, our results are difficult to compare. The reason for this is that the models for the temporary and mixed contract have very little observations. Especially, the mixed contract has too little (36 observations). For this reason we can not make an educated comparison for this subgroup. 
 
 ```{r, results='asis'}
@@ -302,45 +299,39 @@ tab <- modelsummary(models,
              gof_omit = c("BIC|iter"),
              title = "Weibull Models - Models for the all contract types",
              out = "kableExtra") %>%
-  kableExtra::kable_styling(latex_options = c("hold_position", "scale_down"))
+  kableExtra::kable_styling(latex_options = c("hold_position"), font_size = 8)
 
 tab %>%
     # column labels
     add_header_above(c(" " = 1, "Fixed contract " = 1, "Temporary contract" = 1, "Mixed contract" = 1))
 ```
+
 \clearpage
 
 3.1 Estimate a Piece Wise Constant (PWC) model for the entire sample. Use the stsplit command to create multiple record data. You can have as many steps as the data allow you to take, but first start with only a few (3 or 4 steps). Next estimate a model with 15-20 steps, or even more. Plot de duration pattern implied by the estimates and comment on these and the regression parameters. How do the regression parameters ($\beta$) compare with those of the Weibull model? 
 
-## We estimate a piece wise constant. 
+First, we estimate a piece wise constant model. 
 
 ```{r}
 dataset2 <- dataset %>%
   filter(sptype == 2) %>%
   mutate(rcensor = if_else(rcensor == 1, 0, 1), 
          time = case_when(
-           splength < 20 ~ "period 1",
+           between(splength, 0, 20) ~ "period 1",
            between(splength, 21, 50) ~ "period 2",
            between(splength, 51, 100) ~ "period 3",
            splength > 100 ~ "period 4")) %>%
                       fastDummies::dummy_cols(select_columns="time")
 
-model1 <- survival::survreg(data = dataset2 %>%
-                      filter(sptype == 2) %>%
-                    mutate(rcensor = if_else(rcensor == 1, 0, 1)),
-                  formula = Surv(splength, rcensor) ~ 1 + marstat+ contract + 
-                      merged + lowgroup + classize + schsize + public + protest + 
-                      avgfem + avgage + avglowgr + time, dist = "weibull", 
+model1 <- survival::survreg(data = dataset2,
+                  formula = Surv(splength, rcensor) ~ 1+ time, dist = "exponential", 
                   cluster = schoolid) 
 
 create_surv_function_with_fit <- function(model){
-    
-    # Make kaplan meier
-    
-    
+
     # Add the weibull fit to the plot for the right intervals
     period1 <- 1:20
-    period2 <- 20:50
+    period2 <- 21:50
     period3 <- 51:100
     period4 <- 100:365
     
@@ -352,16 +343,36 @@ create_surv_function_with_fit <- function(model){
     alpha <- model$scale
     
     df <- data.frame(time = c(period1, period2, period3, period4), 
-               constant = c(rep(constant1, length(period1)), rep(constant2, length(period2)), rep(constant3, length(period3)), rep(constant4, length(period4))))
+               constant = c(rep(constant1, length(period1)), 
+                            rep(constant2, length(period2)), 
+                            rep(constant3, length(period3)), 
+                            rep(constant4, length(period4))))
     
+    # Nu komt het moeilijke gedeelte, in survival function wil ik deze integraal:
+    # https://data.princeton.edu/wws509/notes/c7s1 (eq. 7.4) benaderen: 
     
     df <- df %>%
-        mutate(hazard_rate = constant*alpha*time^(alpha-1),
-               survivor_function = )
+        mutate(hazard_rate = constant*alpha*time^(alpha-1)) %>%
+        mutate(survival_function = exp(-cummean(hazard_rate)*time))
+
+    p1 <- ggplot(df,aes(x = time, y = hazard_rate)) + geom_line()
+    p2 <- ggplot(df, aes(x = time, y = survival_function)) + geom_line()
     
-    return(df)
+    return(list(p1, p2))
 }
 
+graphs <- create_surv_function_with_fit(model1)
+
+graphs[[1]]
+
+graphs[[2]]
+```
+
+Above, we plot the hazard rate and survival function of our estimated piecewise constant model. The piecewise-constant model coefficient estimates can be found in the table below. As the attrition from the sample is very high in the starting period, our Weibull model predicts a high hazard rate, and thus high attrition in the first period. Afterwards, piecewise, it attempts to catch up the imbalances by fitting a new Weibull distribution and hazard rate (implied by the new constant term), which significantly increases the hazard rate relative to the previous period. This proves the model does catch up with the decay in the data that is not as fastly decaying as implied by a Weibull model under the previous parameters. 
+
+One other consequence of including a dummy for the first twenty days is an underestimation of the survival probability in the early period. Even though it mildly realistic, it underestimates survival by only focusing on the first 20 days, under which attrition is very high. We repeat this exercise again with a piecewise constant model with more dummies, but omit the plot for brevity's sake. 
+
+```{r}
 dataset3 <- dataset %>%
   filter(sptype == 2) %>%
   mutate(rcensor = if_else(rcensor == 1, 0, 1), 
@@ -382,12 +393,9 @@ dataset3 <- dataset %>%
            splength > 350 ~ "period 14")) %>%
                       fastDummies::dummy_cols(select_columns="time")
 
-model2 <- survival::survreg(data = dataset3 %>%
-                      filter(sptype == 2) %>%
-                    mutate(rcensor = if_else(rcensor == 1, 0, 1)),
-                  formula = Surv(splength, rcensor) ~ 1 + marstat+ contract + 
-                      merged + lowgroup + classize + schsize + public + protest + 
-                      avgfem + avgage + avglowgr + time, dist = "weibull", 
+model2 <- survival::survreg(data = dataset3,
+                  formula = Surv(splength, rcensor) ~ 1 + time, 
+                  dist = "weibull", 
                   cluster = schoolid) 
 
 models <- list(model2, model1)
@@ -400,16 +408,19 @@ tab <- modelsummary(models,
              gof_omit = c("BIC|iter"),
              title = "PWC (Weibull)",
              out = "kableExtra") %>%
-  kableExtra::kable_styling(latex_options = c("hold_position", "scale_down"))
+  kableExtra::kable_styling(latex_options = c("hold_position"), font_size = 8)
 
 tab %>%
     # column labels
     add_header_above(c(" " = 1, "PWC 14 steps" = 1, "PWC 4 steps" = 1))
 ```
 
+\clearpage
+
 3.2 Estimate separate models for males and females. 
 
 First we estimate a PWC model for males.
+
 ```{r}
 dataset2 <- dataset %>%
   filter(sptype == 2, gender == 1) %>%
@@ -466,12 +477,14 @@ tab <- modelsummary(models,
              gof_omit = c("BIC|iter"),
              title = "PWC (Weibull) - Males only",
              out = "kableExtra") %>%
-  kableExtra::kable_styling(latex_options = c("hold_position", "scale_down"))
+  kableExtra::kable_styling(latex_options = c("hold_position"), font_size = 8)
 
 tab %>%
     # column labels
     add_header_above(c(" " = 1, "PWC 14 steps" = 1, "PWC 4 steps" = 1))
 ```
+
+\clearpage
 
 Now we estimate the same model for females.
 
@@ -530,20 +543,21 @@ tab <- modelsummary(models,
              stars = c("*" = 0.1, "**" = 0.05, "***" = 0.01),
              gof_omit = c("BIC|iter"),
              title = "PWC (Weibull) - Females only",
-             out = "kableExtra") %>%
-  kableExtra::kable_styling(latex_options = c("hold_position", "scale_down"))
+             out = "kableExtra") 
 
 tab %>%
     # column labels
-    add_header_above(c(" " = 1, "PWC 14 steps" = 1, "PWC 4 steps" = 1))
+  kableExtra::kable_styling(latex_options = c("hold_position"), font_size = 7) %>%
+  add_header_above(c(" " = 1, "PWC 14 steps" = 1, "PWC 4 steps" = 1))
 ```
 
 <!-- We moeten alleen nog plots maken voor de models. --> 
 
+\clearpage
+
 4. Estimate a Cox model and compare the most elaborate specification with the results of the PWC model
 
 ```{r}
-
 baseline <- survival::coxph(data = dataset %>%
                       filter(sptype == 2) %>%
                     mutate(rcensor = if_else(rcensor == 1, 0, 1)),
@@ -554,4 +568,25 @@ model2 <- update(model1, . ~ . + merged + avgfem + avgage + avglowgr)
 ```
 
 
+5. Repeat the procedure of question 2 for a Weibull model with (e.g., gamma) unobserved heterogeneity. Compare the estimates of the regression coefficients across the models with and without unobserved heterogeneity.
 
+<!-- https://devinincerti.com/2019/06/18/parametric_survival.html#generalized-gamma-distribution --> 
+
+```{r}
+library(stdReg)
+
+parfrailty(formula=splength ~ avgage + marstat + lowgroup, 
+           data = dataset2 %>%
+             filter(!is.na(splength), !is.na(avgage), !is.na(marstat), !is.na(lowgroup)))
+```
+As above, but now with a Piecewise Constant (PWC) specification, where you have an elaborate specification of the baseline hazard (say, 20 dummies).
+
+Compare the estimates of the Cox model (question 4) with the results of the PWC model with unobserved heterogeneity.
+
+6. Multiple Spells
+
+Estimate a standard Cox model (PL) and estimate Stratified Cox models (SPL). Concerning the latter, estimate SPL models, where the school is the stratum and estimate one where the teacher is the stratum. Comment on the teacher SPL approach. Compare the PL and the school SPL estimates. Can you think of a test to test for the relevance of using the school SPL (rather than doing the PL)?
+
+Estimate a model with school specific dummies and compare these estimates with those obtained from the school SPL.
+
+Observed sickness patterns vary between schools. This may be due to sorting effects (bad teachers are the reason why the school scores bad in absenteeism) and/or the school effects (it is elements of the school that make some schools worse than others. Can you think of a test/procedure to shed some more light on this issue?
