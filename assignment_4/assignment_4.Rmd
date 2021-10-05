@@ -333,6 +333,35 @@ model1 <- survival::survreg(data = dataset2 %>%
                       avgfem + avgage + avglowgr + time, dist = "weibull", 
                   cluster = schoolid) 
 
+create_surv_function_with_fit <- function(model){
+    
+    # Make kaplan meier
+    
+    
+    # Add the weibull fit to the plot for the right intervals
+    period1 <- 1:20
+    period2 <- 20:50
+    period3 <- 51:100
+    period4 <- 100:365
+    
+    constant1 <- model$coefficients['(Intercept)']
+    constant2 <- model$coefficients['timeperiod 2']
+    constant3 <- model$coefficients['timeperiod 3']
+    constant4 <- model$coefficients['timeperiod 4']
+    
+    alpha <- model$scale
+    
+    df <- data.frame(time = c(period1, period2, period3, period4), 
+               constant = c(rep(constant1, length(period1)), rep(constant2, length(period2)), rep(constant3, length(period3)), rep(constant4, length(period4))))
+    
+    
+    df <- df %>%
+        mutate(hazard_rate = constant*alpha*time^(alpha-1),
+               survivor_function = )
+    
+    return(df)
+}
+
 dataset3 <- dataset %>%
   filter(sptype == 2) %>%
   mutate(rcensor = if_else(rcensor == 1, 0, 1), 
