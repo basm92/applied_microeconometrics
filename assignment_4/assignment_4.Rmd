@@ -324,7 +324,9 @@ dataset2 <- dataset %>%
                       fastDummies::dummy_cols(select_columns="time")
 
 model1 <- survival::survreg(data = dataset2,
-                  formula = Surv(splength, rcensor) ~ 1+ time, dist = "exponential", 
+                  formula = Surv(splength, rcensor) ~ 1 + gender + marstat + contract + 
+                      merged + lowgroup + classize + schsize + public + protest + 
+                      avgfem + avgage + avglowgr + time, dist = "exponential", 
                   cluster = schoolid) 
 
 create_surv_function_with_fit <- function(model){
@@ -394,7 +396,9 @@ dataset3 <- dataset %>%
                       fastDummies::dummy_cols(select_columns="time")
 
 model2 <- survival::survreg(data = dataset3,
-                  formula = Surv(splength, rcensor) ~ 1 + time, 
+                  formula = Surv(splength, rcensor) ~ 1 + gender + marstat+ contract + 
+                      merged + lowgroup + classize + schsize + public + protest + 
+                      avgfem + avgage + avglowgr + time, 
                   dist = "weibull", 
                   cluster = schoolid) 
 
@@ -551,8 +555,6 @@ tab %>%
   add_header_above(c(" " = 1, "PWC 14 steps" = 1, "PWC 4 steps" = 1))
 ```
 
-<!-- We moeten alleen nog plots maken voor de models. --> 
-
 \clearpage
 
 4. Estimate a Cox model and compare the most elaborate specification with the results of the PWC model
@@ -561,17 +563,28 @@ tab %>%
 baseline <- survival::coxph(data = dataset %>%
                       filter(sptype == 2) %>%
                     mutate(rcensor = if_else(rcensor == 1, 0, 1)),
-                  formula = Surv(splength, rcensor) ~ 1)
+                  formula = Surv(splength, rcensor) ~ 1, cluster = schoolid)
 
 model1 <- update(baseline, . ~ . + marstat + gender + contract + lowgroup + classize + schsize + public + protest)
 model2 <- update(model1, . ~ . + merged + avgfem + avgage + avglowgr)
+
+models <- list(model1, model2)
+modelsummary(models,
+             stars = c("*" = 0.1, "**" = 0.05, "***" = 0.01),
+             gof_omit = c("BIC|iter"),
+             title = "Cox Model",
+             out = "kableExtra") %>%
+  kableExtra::kable_styling(latex_options = c("hold_position"), font_size = 8)
 ```
 
+Comparing the most elaborate specification of the Cox model with the most elaborate PWC model, we observe an ineresting finding. That is, the model estimates appear to be very sensitive to our choice of model. For example, gender appears to be significant at the 1% level for the PWC model, with a positive sign, and for the Cox model it has the same significance level, but has a negative sign. This clearly illustrates the sensitivity of the parameter estimates to the parametric form imposed.
 
 5. Repeat the procedure of question 2 for a Weibull model with (e.g., gamma) unobserved heterogeneity. Compare the estimates of the regression coefficients across the models with and without unobserved heterogeneity.
 
 <!-- Zie hier en de functieodcumentatie voor de basis syntax van deze functie, in het bijzonder die inits zijn belangrijk, en het is belangrijk dat de derde van die params altijd op 1 staat https://devinincerti.com/2019/06/18/parametric_survival.html#generalized-gamma-distribution --> 
 
+
+<!-- NIET VERGETEN: CLUSTER SE OP SCHOOLID!!!!!-->
 ```{r}
 library(flexsurv)
 
@@ -585,12 +598,95 @@ modelgw <- flexsurv::flexsurvreg(
 
 As above, but now with a Piecewise Constant (PWC) specification, where you have an elaborate specification of the baseline hazard (say, 20 dummies).
 
+```{r}
+library(flexsurv)
+
+# 23 time dummies for the PWC specification, step size is ~15.
+dataset3 <- dataset %>%
+  filter(sptype == 2) %>%
+  mutate(rcensor = if_else(rcensor == 1, 0, 1), 
+         time = case_when(
+           splength < 15 ~ "period 1",
+           between(splength, 16, 30) ~ "period 2",
+           between(splength, 31, 46) ~ "period 3",
+           between(splength, 47, 62) ~ "period 4",
+           between(splength, 63, 78) ~ "period 5",
+           between(splength, 79, 94) ~ "period 6",
+           between(splength, 95, 110) ~ "period 7",
+           between(splength, 111, 126) ~ "period 8",
+           between(splength, 127, 142) ~ "period 9",
+           between(splength, 143, 158) ~ "period 10",
+           between(splength, 159, 174) ~ "period 11",
+           between(splength, 175, 190) ~ "period 12",
+           between(splength, 191, 206) ~ "period 13",
+           between(splength, 207, 222) ~ "period 14",
+           between(splength, 223, 238) ~ "period 15",
+           between(splength, 239, 254) ~ "period 16",
+           between(splength, 255, 270) ~ "period 17",
+           between(splength, 271, 286) ~ "period 18",
+           between(splength, 287, 302) ~ "period 19",
+           between(splength, 303, 318) ~ "period 20",
+           between(splength, 319, 334) ~ "period 21",
+           between(splength, 335, 350) ~ "period 22",
+           splength > 351 ~ "period 23")) %>%
+                      fastDummies::dummy_cols(select_columns="time")
+
+modelgw <- flexsurv::flexsurvreg(
+  Surv(splength, rcensor) ~ gender + time,
+  dist = "gengamma", 
+  fixedpars = 3, # This corresponds to the parameter Q=1, making it a Gamma-Weibull model
+  inits = c(10,10,1,1),
+  data = dataset2) # First two parameters init 0 and free, third one = 1 is fixed, other two (covariates) are free
+```
 Compare the estimates of the Cox model (question 4) with the results of the PWC model with unobserved heterogeneity.
 
 6. Multiple Spells
 
 Estimate a standard Cox model (PL) and estimate Stratified Cox models (SPL). Concerning the latter, estimate SPL models, where the school is the stratum and estimate one where the teacher is the stratum. Comment on the teacher SPL approach. Compare the PL and the school SPL estimates. Can you think of a test to test for the relevance of using the school SPL (rather than doing the PL)?
 
+```{r}
+baseline <- survival::coxph(data = dataset %>%
+                      filter(sptype == 2) %>%
+                    mutate(rcensor = if_else(rcensor == 1, 0, 1)),
+                  formula = Surv(splength, rcensor) ~ 1 + strata(schoolid), cluster = schoolid)
+
+model1 <- update(baseline, . ~ . + marstat + gender + contract + lowgroup + classize + schsize + public + protest)
+model2 <- update(model1, . ~ . + merged + avgfem + avgage + avglowgr)
+
+models <- list(model1, model2)
+modelsummary(models,
+             stars = c("*" = 0.1, "**" = 0.05, "***" = 0.01),
+             gof_omit = c("BIC|iter"),
+             title = "Stratified Cox Model on Schools",
+             out = "kableExtra") %>%
+  kableExtra::kable_styling(latex_options = c("hold_position"), font_size = 8)
+```
+
 Estimate a model with school specific dummies and compare these estimates with those obtained from the school SPL.
+
+```{r}
+
+dataset3 <- dataset %>%
+  filter(sptype == 2) %>%
+  mutate(rcensor = if_else(rcensor == 1, 0, 1), 
+         schooldummies = schoolid) %>%
+                      fastDummies::dummy_cols(select_columns="schooldummies")
+
+baseline <- survival::coxph(data = dataset3 %>%
+                      filter(sptype == 2) %>%
+                    mutate(rcensor = if_else(rcensor == 1, 0, 1)),
+                  formula = Surv(splength, rcensor) ~ 1, cluster = schoolid)
+
+model1 <- update(baseline, . ~ . + schooldummies + marstat + gender + contract + lowgroup + classize + schsize + public + protest)
+model2 <- update(model1, . ~ . + merged + avgfem + avgage + avglowgr)
+
+models <- list(model1, model2)
+modelsummary(models,
+             stars = c("*" = 0.1, "**" = 0.05, "***" = 0.01),
+             gof_omit = c("BIC|iter"),
+             title = "Cox Model with School Dummies",
+             out = "kableExtra") %>%
+  kableExtra::kable_styling(latex_options = c("hold_position"), font_size = 8)
+```
 
 Observed sickness patterns vary between schools. This may be due to sorting effects (bad teachers are the reason why the school scores bad in absenteeism) and/or the school effects (it is elements of the school that make some schools worse than others. Can you think of a test/procedure to shed some more light on this issue?
