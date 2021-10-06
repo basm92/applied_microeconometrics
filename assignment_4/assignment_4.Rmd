@@ -399,7 +399,7 @@ model2 <- survival::survreg(data = dataset3,
                   formula = Surv(splength, rcensor) ~ 1 + gender + marstat+ contract + 
                       merged + lowgroup + classize + schsize + public + protest + 
                       avgfem + avgage + avglowgr + time, 
-                  dist = "weibull", 
+                  dist = "exponential", 
                   cluster = schoolid) 
 
 models <- list(model2, model1)
@@ -419,11 +419,14 @@ tab %>%
     add_header_above(c(" " = 1, "PWC 14 steps" = 1, "PWC 4 steps" = 1))
 ```
 
+In the above table, we show the estimates of two piece-wise constant models. For the first model, we have plotted the hazard rate and survival function, for the second, we omitted it for brevitiy's sake. We see that the hazard rate is increasing over time, in general, though not monotonically. The estimated survival curve is just the integral over all these hazard rates, and show a very fast tendency to go to zero. As before, this makes sense, as this is the case in the data, but piecewise dummies focusing on a small first period make the fitted distribution such that the survival rate is approaching zero in a very short period. 
+
 \clearpage
 
 3.2 Estimate separate models for males and females. 
 
 First we estimate a PWC model for males.
+
 
 ```{r}
 dataset2 <- dataset %>%
@@ -559,6 +562,8 @@ tab %>%
 
 4. Estimate a Cox model and compare the most elaborate specification with the results of the PWC model
 
+
+
 ```{r}
 baseline <- survival::coxph(data = dataset %>%
                       filter(sptype == 2) %>%
@@ -577,14 +582,14 @@ modelsummary(models,
   kableExtra::kable_styling(latex_options = c("hold_position"), font_size = 8)
 ```
 
-Comparing the most elaborate specification of the Cox model with the most elaborate PWC model, we observe an ineresting finding. That is, the model estimates appear to be very sensitive to our choice of model. For example, gender appears to be significant at the 1% level for the PWC model, with a positive sign, and for the Cox model it has the same significance level, but has a negative sign. This clearly illustrates the sensitivity of the parameter estimates to the parametric form imposed.
+Comparing the most elaborate specification of the Cox model with the most elaborate PWC model, we observe an interesting finding. That is, the model estimates appear to be very sensitive to our choice of model. For example, gender appears to be significant at the 1% level for the PWC model, with a positive sign, and for the Cox model it has the same significance level, but has a negative sign. This clearly illustrates the sensitivity of the parameter estimates to the parametric form imposed.
 
 5. Repeat the procedure of question 2 for a Weibull model with (e.g., gamma) unobserved heterogeneity. Compare the estimates of the regression coefficients across the models with and without unobserved heterogeneity.
 
 <!-- Zie hier en de functieodcumentatie voor de basis syntax van deze functie, in het bijzonder die inits zijn belangrijk, en het is belangrijk dat de derde van die params altijd op 1 staat https://devinincerti.com/2019/06/18/parametric_survival.html#generalized-gamma-distribution --> 
 
 
-<!-- NIET VERGETEN: CLUSTER SE OP SCHOOLID!!!!!-->
+<!-- NIET VERGETEN: CLUSTER SE OP SCHOOLID!!!!! -->
 ```{r}
 library(flexsurv)
 

@@ -4,10 +4,10 @@
 %
 \documentclass[
 ]{article}
+\usepackage{amsmath,amssymb}
 \usepackage{lmodern}
-\usepackage{amssymb,amsmath}
-\usepackage{ifxetex,ifluatex}
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+\usepackage{iftex}
+\ifPDFTeX
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
   \usepackage{textcomp} % provide euro and other symbols
@@ -75,7 +75,7 @@
 \usepackage{xcolor}
 \usepackage{siunitx}
 \newcolumntype{d}{S[input-symbols = ()]}
-\ifluatex
+\ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
 
@@ -414,68 +414,76 @@ omit the plot for brevity's sake.
 \cmidrule(l{3pt}r{3pt}){2-2} \cmidrule(l{3pt}r{3pt}){3-3}
   & Model 1 & Model 2\\
 \midrule
-(Intercept) & \num{1.218}*** & \num{1.024}***\\
- & (\num{0.194}) & (\num{0.181})\\
-gender & \num{0.050} & \num{0.054}*\\
- & (\num{0.032}) & (\num{0.032})\\
-marstat & \num{-0.027} & \num{-0.024}\\
- & (\num{0.023}) & (\num{0.023})\\
+(Intercept) & \num{1.109}*** & \num{1.024}***\\
+ & (\num{0.199}) & (\num{0.181})\\
+gender & \num{0.056}* & \num{0.054}*\\
+ & (\num{0.033}) & (\num{0.032})\\
+marstat & \num{-0.032} & \num{-0.024}\\
+ & (\num{0.024}) & (\num{0.023})\\
 contract & \num{-0.149}*** & \num{-0.114}**\\
  & (\num{0.044}) & (\num{0.045})\\
-merged & \num{0.005} & \num{0.012}*\\
+merged & \num{0.007} & \num{0.012}*\\
  & (\num{0.007}) & (\num{0.007})\\
-lowgroup & \num{0.015} & \num{0.005}\\
- & (\num{0.031}) & (\num{0.031})\\
+lowgroup & \num{0.012} & \num{0.005}\\
+ & (\num{0.032}) & (\num{0.031})\\
 classize & \num{-0.001} & \num{0.000}\\
  & (\num{0.001}) & (\num{0.001})\\
 schsize & \num{0.000} & \num{0.000}\\
  & (\num{0.000}) & (\num{0.000})\\
-public & \num{0.035} & \num{0.035}\\
- & (\num{0.037}) & (\num{0.034})\\
-protest & \num{0.002} & \num{0.001}\\
- & (\num{0.040}) & (\num{0.039})\\
-avgfem & \num{0.080} & \num{0.014}\\
- & (\num{0.110}) & (\num{0.104})\\
-avgage & \num{0.014}*** & \num{0.014}***\\
+public & \num{0.037} & \num{0.035}\\
+ & (\num{0.038}) & (\num{0.034})\\
+protest & \num{-0.005} & \num{0.001}\\
+ & (\num{0.041}) & (\num{0.039})\\
+avgfem & \num{0.066} & \num{0.014}\\
+ & (\num{0.113}) & (\num{0.104})\\
+avgage & \num{0.015}*** & \num{0.014}***\\
  & (\num{0.004}) & (\num{0.004})\\
-avglowgr & \num{-0.022} & \num{0.030}\\
- & (\num{0.118}) & (\num{0.115})\\
-timeperiod 10 & \num{4.375}*** & \\
- & (\num{0.195}) & \\
-timeperiod 11 & \num{4.210}*** & \\
- & (\num{0.153}) & \\
-timeperiod 12 & \num{4.678}*** & \\
- & (\num{0.198}) & \\
-timeperiod 13 & \num{4.054}*** & \\
- & (\num{0.037}) & \\
-timeperiod 14 & \num{5.286}*** & \\
- & (\num{0.253}) & \\
-timeperiod 2 & \num{1.952}*** & \num{1.955}***\\
- & (\num{0.029}) & (\num{0.029})\\
-timeperiod 3 & \num{2.583}*** & \num{2.967}***\\
- & (\num{0.044}) & (\num{0.048})\\
-timeperiod 4 & \num{3.000}*** & \num{4.334}***\\
- & (\num{0.061}) & (\num{0.075})\\
-timeperiod 5 & \num{3.264}*** & \\
- & (\num{0.065}) & \\
-timeperiod 6 & \num{3.549}*** & \\
- & (\num{0.097}) & \\
-timeperiod 7 & \num{3.923}*** & \\
- & (\num{0.125}) & \\
-timeperiod 8 & \num{3.620}*** & \\
- & (\num{0.073}) & \\
-timeperiod 9 & \num{4.282}*** & \\
- & (\num{0.213}) & \\
-Log(scale) & \num{-0.240}*** & \\
- & (\num{0.011}) & \\
+avglowgr & \num{-0.010} & \num{0.030}\\
+ & (\num{0.122}) & (\num{0.115})\\
+timeperiod 10 & \num{4.632}*** & \\
+ & (\num{0.246}) & \\
+timeperiod 11 & \num{4.397}*** & \\
+ & (\num{0.193}) & \\
+timeperiod 12 & \num{4.938}*** & \\
+ & (\num{0.250}) & \\
+timeperiod 13 & \num{4.137}*** & \\
+ & (\num{0.038}) & \\
+timeperiod 14 & \num{5.551}*** & \\
+ & (\num{0.305}) & \\
+timeperiod 2 & \num{2.058}*** & \num{1.955}***\\
+ & (\num{0.032}) & (\num{0.029})\\
+timeperiod 3 & \num{2.704}*** & \num{2.967}***\\
+ & (\num{0.052}) & (\num{0.048})\\
+timeperiod 4 & \num{3.150}*** & \num{4.334}***\\
+ & (\num{0.075}) & (\num{0.075})\\
+timeperiod 5 & \num{3.412}*** & \\
+ & (\num{0.080}) & \\
+timeperiod 6 & \num{3.731}*** & \\
+ & (\num{0.121}) & \\
+timeperiod 7 & \num{4.158}*** & \\
+ & (\num{0.157}) & \\
+timeperiod 8 & \num{3.736}*** & \\
+ & (\num{0.089}) & \\
+timeperiod 9 & \num{4.550}*** & \\
+ & (\num{0.268}) & \\
 \midrule
 Num.Obs. & \num{6473} & \num{6520}\\
-AIC & \num{35519.2} & \num{36146.3}\\
-Log.Lik. & \num{-17732.577} & \num{-18057.168}\\
+AIC & \num{36079.3} & \num{36146.3}\\
+Log.Lik. & \num{-18013.641} & \num{-18057.168}\\
 \bottomrule
 \multicolumn{3}{l}{\rule{0pt}{1em}* p $<$ 0.1, ** p $<$ 0.05, *** p $<$ 0.01}\\
 \end{tabular}
 \end{table}
+
+In the above table, we show the estimates of two piece-wise constant
+models. For the first model, we have plotted the hazard rate and
+survival function, for the second, we omitted it for brevitiy's sake. We
+see that the hazard rate is increasing over time, in general, though not
+monotonically. The estimated survival curve is just the integral over
+all these hazard rates, and show a very fast tendency to go to zero. As
+before, this makes sense, as this is the case in the data, but piecewise
+dummies focusing on a small first period make the fitted distribution
+such that the survival rate is approaching zero in a very short period.
 
 \clearpage
 
@@ -697,10 +705,10 @@ std.error.concordance & \num{0.006} & \num{0.007}\\
 \end{table}
 
 Comparing the most elaborate specification of the Cox model with the
-most elaborate PWC model, we observe an ineresting finding. That is, the
-model estimates appear to be very sensitive to our choice of model. For
-example, gender appears to be significant at the 1\% level for the PWC
-model, with a positive sign, and for the Cox model it has the same
+most elaborate PWC model, we observe an interesting finding. That is,
+the model estimates appear to be very sensitive to our choice of model.
+For example, gender appears to be significant at the 1\% level for the
+PWC model, with a positive sign, and for the Cox model it has the same
 significance level, but has a negative sign. This clearly illustrates
 the sensitivity of the parameter estimates to the parametric form
 imposed.
