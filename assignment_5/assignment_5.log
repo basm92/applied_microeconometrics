@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.10.9)  8 OCT 2021 12:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.10.9)  8 OCT 2021 15:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -743,21 +743,21 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.3}) has
                                                   \fi \fi 
 l.438 \clearpage
                 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 466.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 478.
 [5
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 466.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 478.
 (./assignment_5.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 466.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 466.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 478.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 478.
  ) 
 Here is how much of TeX's memory you used:
- 17725 strings out of 481239
- 296620 string characters out of 5920377
+ 17729 strings out of 481239
+ 296662 string characters out of 5920377
  586554 words of memory out of 5000000
  32589 multiletter control sequences out of 15000+600000
- 604557 words of font info for 113 fonts, out of 8000000 for 9000
+ 604723 words of font info for 115 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,13n,42p,811b,723s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/en
@@ -774,7 +774,7 @@ f/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf/fonts/type1/public/lm/lmri10
 /type1/public/lm/lmsy5.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy6.pfb></
 usr/share/texmf/fonts/type1/public/lm/lmsy7.pfb></usr/share/texmf/fonts/type1/p
 ublic/lm/lmtt8.pfb>
-Output written on assignment_5.pdf (5 pages, 234782 bytes).
+Output written on assignment_5.pdf (5 pages, 235694 bytes).
 PDF statistics:
  120 PDF objects out of 1000 (max. 8388607)
  96 compressed objects within 1 object stream
