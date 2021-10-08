@@ -1,0 +1,90 @@
+---
+title: "Applied Microeconometrics - Assignment 3"
+author: "Walter Verwer (589962) & Bas Machielsen (590049)"
+date: \today
+output:
+  pdf_document:
+    includes:
+      in_header: preamble.tex
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse); library(plm); library(stargazer); library(modelsummary)
+library(kableExtra); library(mlogit)
+
+dataset <- haven::read_dta("./HighSchooData.dta") 
+```
+
+1. Estimate a multinomial logit model with a choice probability $\dots$. 
+
+We estimate such that each school has a unique intercept and unique $\beta$-coefficient. It seems that individual specific factors have little predictive power, no matter what school. The only exception is school number 7, which is decidedly more attractive for students with a higher test score. 
+
+```{r}
+dataset_rdy <- mlogit::mlogit.data(dataset,
+                    choice = "choice",
+                    shape = "long",
+                    alt.var = "school",
+                    chid.var = "id"
+                    )
+
+privet <- mlogit::mlogit(formula = choice ~  0 | 1 + gender + testscore , data = dataset_rdy)
+```
+
+
+```{r}
+modelsummary(privet,
+             stars = c("*" = 0.1, "**" = 0.05, "***" = 0.01),
+             gof_omit = c("BIC|rho"),
+             title = "Multinomial Logit",
+             out = "kableExtra") %>%
+  kableExtra::kable_styling(latex_options = c("hold_position"), font_size = 7)
+```
+
+\clearpage
+
+2. Estimate a conditional logit model with the choice probability $\dots$.
+
+```{r}
+zdravstvuy <- mlogit::mlogit(formula = choice ~ distance + sibling, data = dataset_rdy)
+```
+
+```{r}
+modelsummary(zdravstvuy,
+             stars = c("*" = 0.1, "**" = 0.05, "***" = 0.01),
+             gof_omit = c("BIC|rho"),
+             title = "Conditional Logit",
+             out = "kableExtra") %>%
+  kableExtra::kable_styling(latex_options = c("hold_position"), font_size = 6)
+```
+
+2.2 How do you interpret the estimated coefficients? Based on your estimates, do you think that students prefer schools that are closer to their home? Do students prefer the high school(s) that their sibling(s) attend?
+
+We can interpret the estimates either by constructing an odds ratio, comparing the choice of an individual of two schools, but we can also calculate the point estimate, and compute the marginal effects, which are dependent on the $\beta$-coefficient magnitudes. Hence, the precise magnitude of the derivatives changes according to individual and school, but the sign of the derivative can be easily observed. That leads us to conclude that yes and yes, the closer the school, the higher the probability of an individual choosing that school. The effect's magnitude is, however, much more limited in comparison to the sibling effect, which is very strong, and in the hypothesized direction: if a sibling is in a particular school, the probability increases by a large magnitude. 
+
+<!-- Maybe calculate the derivative and mention it as interpretation here --> 
+
+\clearpage
+
+3. Now combine the previous specification, and estimate a mixed logit model that includes both individual-specific covariates (such as test score and gender) and alternative-varying regressors (such as distance and sibling).
+
+```{r}
+hoi <- mlogit::mlogit(formula = choice ~ distance + sibling | gender + testscore, data = dataset_rdy)
+```
+
+
+```{r}
+modelsummary(hoi,
+             stars = c("*" = 0.1, "**" = 0.05, "***" = 0.01),
+             gof_omit = c("BIC|rho"),
+             title = "Mixed Logit",
+             out = "kableExtra") %>%
+  kableExtra::kable_styling(latex_options = c("hold_position"), font_size = 5)
+```
+
+\clearpage 
+
+4. Explain the independence of irrelevant alternatives (IIA) assumption and discuss if it is relevant in this context
+
+In any multinomial logit model, if we take the ratio of the probabilities of choosing two alternatives (either for a given individual, or in the case in which individual effects are absent), we find that this ratio is only dependent on the the characteristics of the individuals _and/or_ the characteristics of the alternatives, but not on the characteristics of other alternatives. We think it is relevant in this situation: we are dealing with more than two situations, and even while IIA is required by theoretical choice models, behaviorally, it can be violated. For example, empirically, it is plausible that one's (reported) preference might change from alternative schools A to B if you augment the choice set from $\{ A, B \}$ to $\{ A, B, C \}$. This situation is ruled-out a priori by the logit model error structure of probabilistic choice. Theoretically, the objective is to accurately explain school choice, so if IIA is routinely being violated in empirical choices, our modeling strategy should take that into account. 
