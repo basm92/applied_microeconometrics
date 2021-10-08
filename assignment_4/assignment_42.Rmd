@@ -682,11 +682,36 @@ In the above table, we report the three different Gamma-Weibull models, with gen
 
 6.1 Estimate a standard Cox model (PL) and estimate Stratified Cox models (SPL). Concerning the latter, estimate SPL models, where the school is the stratum and estimate one where the teacher is the stratum. Comment on the teacher SPL approach. Compare the PL and the school SPL estimates. Can you think of a test to test for the relevance of using the school SPL (rather than doing the PL)?
 
+First we estimate a model with schoolid as a strata. This gives us the following output (the package we use can not produce standard tables, hence we show its output):
+
 ```{r}
 baseline <- survival::coxph(data = dataset %>%
                       filter(sptype == 2) %>%
                     mutate(rcensor = if_else(rcensor == 1, 0, 1)),
                   formula = Surv(splength, rcensor) ~ 1 + strata(schoolid), cluster = schoolid)
+
+model1 <- update(baseline, . ~ . + marstat + gender + contract + lowgroup + classize + schsize + public + protest)
+model2 <- update(model1, . ~ . + merged + avgfem + avgage + avglowgr)
+
+models <- list(model1, model2)
+
+summary(model1)
+
+summary(model2)
+#modelsummary(models,
+#             stars = c("*" = 0.1, "**" = 0.05, "***" = 0.01),
+#             gof_omit = c("BIC|iter"),
+#             title = "Stratified Cox Model on Schools",
+#             out = "kableExtra") %>%
+#  kableExtra::kable_styling(latex_options = c("hold_position"), font_size = 8)
+```
+
+The estimated model with teachers as the strata is:
+```{r}
+baseline <- survival::coxph(data = dataset %>%
+                      filter(sptype == 2) %>%
+                    mutate(rcensor = if_else(rcensor == 1, 0, 1)),
+                  formula = Surv(splength, rcensor) ~ 1 + strata(teachid), cluster = schoolid)
 
 model1 <- update(baseline, . ~ . + marstat + gender + contract + lowgroup + classize + schsize + public + protest)
 model2 <- update(model1, . ~ . + merged + avgfem + avgage + avglowgr)
@@ -733,4 +758,29 @@ modelsummary(models,
   kableExtra::kable_styling(latex_options = c("hold_position"), font_size = 8)
 ```
 
+The results of the model with school specific dummies 
+
+\clearpage
+
 6.3 Observed sickness patterns vary between schools. This may be due to sorting effects (bad teachers are the reason why the school scores bad in absenteeism) and/or the school effects (it is elements of the school that make some schools worse than others. Can you think of a test/procedure to shed some more light on this issue?
+
+We decide to test the model specification of schoolid as a strata against the standard cox model based on the log partial likelihood. This test indicates whether stratas based on schoolid matter. We implement this test using the survival package in R. Our test results are shown below. The results indicate that the standard model is worse compared to the stratified model. The associated p-value is a lot smaller than 0.01, meaning it is a highly significant result according to the test. If we now compare the estimates of the stratified model to the standard model, we observe
+```{r}
+baseline <- survival::coxph(data = dataset %>%
+                      filter(sptype == 2) %>%
+                    mutate(rcensor = if_else(rcensor == 1, 0, 1)),
+                  formula = Surv(splength, rcensor) ~ 1 + strata(schoolid))
+
+model1 <- update(baseline, . ~ . + marstat + gender + contract + lowgroup + classize + schsize + public + protest)
+modelstratacox <- update(model1, . ~ . + merged + avgfem + avgage + avglowgr)
+
+baseline <- survival::coxph(data = dataset %>%
+                      filter(sptype == 2) %>%
+                    mutate(rcensor = if_else(rcensor == 1, 0, 1)),
+                  formula = Surv(splength, rcensor) ~ 1)
+
+model1 <- update(baseline, . ~ . + marstat + gender + contract + lowgroup + classize + schsize + public + protest)
+modelstandardcox <- update(model1, . ~ . + merged + avgfem + avgage + avglowgr)
+
+anova(modelstandardcox, modelstratacox)
+```
