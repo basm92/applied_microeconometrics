@@ -642,6 +642,15 @@ modelgw <- flexsurv::flexsurvreg(
   fixedpars = 3, # This corresponds to the parameter Q=1, making it a Gamma-Weibull model
   inits = c(10,10,1,1),
   data = dataset2) # First two parameters init 0 and free, third one = 1 is fixed, other two (covariates) are free
+
+modelgw2 <- flexsurv::flexsurvreg(
+  Surv(splength, rcensor) ~ gender + time,
+  dist = "gengamma",
+  fixedpars = 3,
+  inits = c(10,10,1), 
+  data = dataset3
+)
+
 ```
 
 5.2 Compare the estimates of the Cox model (question 4) with the results of the PWC model with unobserved heterogeneity.
