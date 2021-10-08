@@ -595,6 +595,7 @@ Comparing the most elaborate specification of the Cox model with the most elabor
 
 
 \clearpage
+
 5. Repeat the procedure of question 2 for a Weibull model with (e.g., gamma) unobserved heterogeneity. Compare the estimates of the regression coefficients across the models with and without unobserved heterogeneity.
 
 <!-- Zie hier en de functieodcumentatie voor de basis syntax van deze functie, in het bijzonder die inits zijn belangrijk, en het is belangrijk dat de derde van die params altijd op 1 staat https://devinincerti.com/2019/06/18/parametric_survival.html#generalized-gamma-distribution --> 
@@ -670,11 +671,12 @@ modelsummary(list("No time dummies" = modelgw, "4 Time Dummies" = modelgw2, "22 
              out = "kableExtra") %>%
   kableExtra::kable_styling(latex_options = c("hold_position"), font_size = 9)
 ```
+
 In the above table, we report the three different Gamma-Weibull models, with gender as an explanatory variable and no time dummies (model 1), 4 time dummies (model 2), and 22 time dummies (model 3). We observe that the gender coefficient is significant in the third case, indicating that an extensive and non-parametric baseline hazard helps us identify the effect of gender. When contrasting the results with the Weibull model from question 2, we find that the coefficient on gender is again much smaller, indicating that the results might have been due to spurious correlation and subject-specific effects, rather than within-subject variation. 
 
 5.2 Compare the estimates of the Cox model (question 4) with the results of the PWC model with unobserved heterogeneity.
 
-
+The results from the Cox model in question four come closer to the results in this question, when focusing on the coefficient on gender. Still, if we take these results to be the true results, the Cox model overestimates the coefficient by a factor of roughly three, which is substantial. That means that also in case of duration data, a non-panel model cannot easily reflect the within-subjects effect, as we know from linear and other simpler models. 
 
 \clearpage
 
