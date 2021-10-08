@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.10.9)  8 OCT 2021 16:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.10.9)  8 OCT 2021 17:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -888,35 +888,35 @@ s been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1050 \clearpage
+l.1067 \clearpage
                  ]
-Overfull \hbox (217.99298pt too wide) in paragraph at lines 1078--1078
+Overfull \hbox (217.99298pt too wide) in paragraph at lines 1096--1096
 []\T1/lmtt/m/n/10 ##  Model 1: ~ marstat + gender + contract + lowgroup + class
 ize + schsize + public + protest + merged + avgfem + avgage + avglowgr[] 
  []
 
 
-Overfull \hbox (317.74269pt too wide) in paragraph at lines 1078--1078
+Overfull \hbox (317.74269pt too wide) in paragraph at lines 1096--1096
 []\T1/lmtt/m/n/10 ##  Model 2: ~ strata(schoolid) + marstat + gender + contract
  + lowgroup + classize + schsize + public + protest + merged + avgfem + avgage 
 + avglowgr[] 
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1080.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1098.
 [19
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1080.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1098.
 (./assignment_42.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1080.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1080.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1098.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1098.
  ) 
 Here is how much of TeX's memory you used:
- 17417 strings out of 481239
- 294304 string characters out of 5920377
+ 17419 strings out of 481239
+ 294324 string characters out of 5920377
  593893 words of memory out of 5000000
  32223 multiletter control sequences out of 15000+600000
- 604870 words of font info for 132 fonts, out of 8000000 for 9000
+ 604953 words of font info for 133 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,14n,42p,812b,859s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/share/texmf/fonts/enc/d
@@ -932,7 +932,7 @@ f/fonts/type1/public/lm/lmr9.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10
 .pfb></usr/share/texmf/fonts/type1/public/lm/lmsy7.pfb></usr/share/texmf/fonts/
 type1/public/lm/lmsy8.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy9.pfb></u
 sr/share/texmf/fonts/type1/public/lm/lmtt10.pfb>
-Output written on assignment_42.pdf (19 pages, 311953 bytes).
+Output written on assignment_42.pdf (19 pages, 313035 bytes).
 PDF statistics:
  266 PDF objects out of 1000 (max. 8388607)
  198 compressed objects within 2 object streams
