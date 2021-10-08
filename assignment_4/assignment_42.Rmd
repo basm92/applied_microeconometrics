@@ -708,6 +708,10 @@ summary(model2)
 #  kableExtra::kable_styling(latex_options = c("hold_position"), font_size = 8)
 ```
 
+
+Let us first compare the PL model with the SPL model with schoolid as the strata. The most striking feauture of the PL model was that gender and contract were highly statistically and economically significant. This feauture is also observable in the SPL model, and the signs are the same. Apart from these findings we do not observe any other interesting findings.
+
+Second, we can compare the teacher stratified model with the school stratified model. Again we obtain very comparable estimates. This indicates that choosing a strata does not seem to have an added value.
 \clearpage
 
 6.2 Estimate a model with school specific dummies and compare these estimates with those obtained from the school SPL.
@@ -737,13 +741,13 @@ modelsummary(models,
   kableExtra::kable_styling(latex_options = c("hold_position"), font_size = 8)
 ```
 
-The results of the model with school specific dummies 
+The results of the model with school specific dummies compared to the school stratas show us that the schooldummies are highly significant and including them seem to have an effect on the gender and contract variables. Gender becomes less significant (depending on the model 10% or 5% level), contract becomes insignificant and changes sign. Allowing for schooldummies implies that the base hazard rate per school can be different, but we do not study the variation of the covariates within schools. 
 
 \clearpage
 
 6.3 Observed sickness patterns vary between schools. This may be due to sorting effects (bad teachers are the reason why the school scores bad in absenteeism) and/or the school effects (it is elements of the school that make some schools worse than others. Can you think of a test/procedure to shed some more light on this issue?
 
-We decide to test the model specification of schoolid as a strata against the standard cox model based on the log partial likelihood. This test indicates whether stratas based on schoolid matter. We implement this test using the survival package in R. Our test results are shown below. The results indicate that the standard model is worse compared to the stratified model. The associated p-value is a lot smaller than 0.01, meaning it is a highly significant result according to the test. If we now compare the estimates of the stratified model to the standard model, we observe
+We decide to test the model specification of schoolid as a strata against the standard cox model based on the log partial likelihood. This test indicates whether stratas based on schoolid matter. We implement this test using the survival package in R. Our test results are shown below. The results indicate that the standard model is worse compared to the stratified model (likelihoods differ highly significantly). The associated p-value is a lot smaller than 0.01, meaning it is a highly significant result according to the test. However, given the previous comparison of the model's estimates, we cannot conclude that there might be sorting effect, even though it intuitively makes sense.
 ```{r}
 baseline <- survival::coxph(data = dataset %>%
                       filter(sptype == 2) %>%
