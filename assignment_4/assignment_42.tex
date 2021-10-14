@@ -1,0 +1,1101 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Applied Microeconometrics - Assignment 4},
+  pdfauthor={Walter Verwer (589962) \& Bas Machielsen (590049)},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+\usepackage{siunitx}
+\newcolumntype{d}{S[input-symbols = ()]}
+\ifluatex
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\title{Applied Microeconometrics - Assignment 4}
+\author{Walter Verwer (589962) \& Bas Machielsen (590049)}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Describe the sickness spell data, i.e.~do a simple listing of the
+  survivor function and plot the hazard rate and the survivor function.
+  Make separate plots for the first two weeks and for the first year.
+  Also plot the hazard by different subgroups (for instance gender) and
+  test whether the survival curves are the same for the different
+  subgroups.
+\end{enumerate}
+
+First, we plot the exit rates:
+
+\includegraphics[width=200px,height=150px]{assignment_42_files/figure-latex/unnamed-chunk-2-1}
+\includegraphics[width=200px,height=150px]{assignment_42_files/figure-latex/unnamed-chunk-2-2}
+
+\includegraphics[width=200px,height=150px]{assignment_42_files/figure-latex/unnamed-chunk-3-1}
+\includegraphics[width=200px,height=150px]{assignment_42_files/figure-latex/unnamed-chunk-3-2}
+
+Then, we plot the survivor functions:
+
+\includegraphics[width=200px,height=150px]{assignment_42_files/figure-latex/unnamed-chunk-4-1}
+\includegraphics[width=200px,height=150px]{assignment_42_files/figure-latex/unnamed-chunk-4-2}
+
+\includegraphics[width=200px,height=150px]{assignment_42_files/figure-latex/unnamed-chunk-5-1}
+\includegraphics[width=200px,height=150px]{assignment_42_files/figure-latex/unnamed-chunk-5-2}
+
+Now we test whether the survival function and hazard rate of the
+subgroups are significantly different.
+
+\clearpage
+
+2.1 Estimate a Weibull and an Exponential model for sickness spells.
+Start with a very simple specification and you only include one
+regressor and subsequently add more regressors. Comment on the change in
+the Weibull parameters and the regression parameters when you add more
+variables to the model. Compare the estimates of both models.
+
+\begin{table}[!h]
+
+\caption{\label{tab:unnamed-chunk-8}Weibull Models}
+\centering
+\resizebox{\linewidth}{!}{
+\begin{tabular}[t]{lcccccc}
+\toprule
+  & Model 1 & Model 2 & Model 3 & Model 4 & Model 5 & Model 6\\
+\midrule
+(Intercept) & \num{1.938}*** & \num{1.795}*** & \num{2.280}*** & \num{2.279}*** & \num{2.334}*** & \num{0.979}*\\
+ & (\num{0.127}) & (\num{0.195}) & (\num{0.213}) & (\num{0.213}) & (\num{0.251}) & (\num{0.530})\\
+gender & \num{0.243}*** & \num{0.254}*** & \num{0.273}*** & \num{0.274}*** & \num{0.278}*** & \num{0.319}***\\
+ & (\num{0.077}) & (\num{0.078}) & (\num{0.078}) & (\num{0.087}) & (\num{0.087}) & (\num{0.092})\\
+Log(scale) & \num{0.490}*** & \num{0.490}*** & \num{0.487}*** & \num{0.487}*** & \num{0.486}*** & \num{0.483}***\\
+ & (\num{0.013}) & (\num{0.013}) & (\num{0.013}) & (\num{0.013}) & (\num{0.013}) & (\num{0.013})\\
+marstat &  & \num{0.069} & \num{0.055} & \num{0.055} & \num{0.049} & \num{0.031}\\
+ &  & (\num{0.066}) & (\num{0.066}) & (\num{0.066}) & (\num{0.066}) & (\num{0.068})\\
+contract &  &  & \num{-0.467}*** & \num{-0.467}*** & \num{-0.467}*** & \num{-0.423}***\\
+ &  &  & (\num{0.093}) & (\num{0.093}) & (\num{0.094}) & (\num{0.093})\\
+lowgroup &  &  &  & \num{-0.004} & \num{-0.005} & \num{-0.020}\\
+ &  &  &  & (\num{0.079}) & (\num{0.079}) & (\num{0.080})\\
+classize &  &  &  &  & \num{0.002} & \num{0.002}\\
+ &  &  &  &  & (\num{0.005}) & (\num{0.005})\\
+schsize &  &  &  &  & \num{0.000} & \num{0.000}\\
+ &  &  &  &  & (\num{0.000}) & (\num{0.000})\\
+public &  &  &  &  & \num{-0.056} & \num{-0.048}\\
+ &  &  &  &  & (\num{0.091}) & (\num{0.089})\\
+protest &  &  &  &  & \num{-0.153} & \num{-0.078}\\
+ &  &  &  &  & (\num{0.106}) & (\num{0.108})\\
+merged &  &  &  &  &  & \num{0.005}\\
+ &  &  &  &  &  & (\num{0.013})\\
+avgfem &  &  &  &  &  & \num{-0.206}\\
+ &  &  &  &  &  & (\num{0.284})\\
+avgage &  &  &  &  &  & \num{0.034}***\\
+ &  &  &  &  &  & (\num{0.011})\\
+avglowgr &  &  &  &  &  & \num{0.122}\\
+ &  &  &  &  &  & (\num{0.259})\\
+\midrule
+Num.Obs. & \num{6520} & \num{6520} & \num{6520} & \num{6520} & \num{6520} & \num{6520}\\
+AIC & \num{44443.9} & \num{44442.6} & \num{44415.1} & \num{44417.1} & \num{44416.8} & \num{44383.2}\\
+Log.Lik. & \num{-22218.934} & \num{-22217.295} & \num{-22202.540} & \num{-22202.537} & \num{-22198.402} & \num{-22177.593}\\
+\bottomrule
+\multicolumn{7}{l}{\rule{0pt}{1em}* p $<$ 0.1, ** p $<$ 0.05, *** p $<$ 0.01}\\
+\end{tabular}}
+\end{table}
+
+Most of the parameters remain stable over the models, with the exception
+of the intercept, which has no theoretical meaning. The significant
+variables are gender, the Weibull scale parameter, contract, and, in the
+last specification, the average age in class. People with a less stable
+contract are more likely to remain sick, and females are more likely to
+get better again than males at any point in time. The average age is
+also correlated positively with the hazard rate of ending a sickness
+spell. \clearpage
+
+\begin{table}[!h]
+
+\caption{\label{tab:unnamed-chunk-10}Exponential Models}
+\centering
+\resizebox{\linewidth}{!}{
+\begin{tabular}[t]{lcccccc}
+\toprule
+  & Model 1 & Model 2 & Model 3 & Model 4 & Model 5 & Model 6\\
+\midrule
+(Intercept) & \num{2.435}*** & \num{2.247}*** & \num{2.852}*** & \num{2.848}*** & \num{2.909}*** & \num{1.601}**\\
+ & (\num{0.164}) & (\num{0.236}) & (\num{0.255}) & (\num{0.254}) & (\num{0.290}) & (\num{0.633})\\
+gender & \num{0.267}*** & \num{0.280}*** & \num{0.303}*** & \num{0.324}*** & \num{0.332}*** & \num{0.377}***\\
+ & (\num{0.097}) & (\num{0.098}) & (\num{0.097}) & (\num{0.104}) & (\num{0.103}) & (\num{0.108})\\
+marstat &  & \num{0.091} & \num{0.077} & \num{0.076} & \num{0.077} & \num{0.058}\\
+ &  & (\num{0.080}) & (\num{0.079}) & (\num{0.079}) & (\num{0.078}) & (\num{0.080})\\
+contract &  &  & \num{-0.594}*** & \num{-0.595}*** & \num{-0.600}*** & \num{-0.537}***\\
+ &  &  & (\num{0.112}) & (\num{0.111}) & (\num{0.112}) & (\num{0.116})\\
+lowgroup &  &  &  & \num{-0.044} & \num{-0.043} & \num{-0.063}\\
+ &  &  &  & (\num{0.096}) & (\num{0.097}) & (\num{0.098})\\
+classize &  &  &  &  & \num{0.003} & \num{0.003}\\
+ &  &  &  &  & (\num{0.005}) & (\num{0.005})\\
+schsize &  &  &  &  & \num{0.000} & \num{0.000}\\
+ &  &  &  &  & (\num{0.000}) & (\num{0.000})\\
+public &  &  &  &  & \num{-0.116} & \num{-0.093}\\
+ &  &  &  &  & (\num{0.103}) & (\num{0.104})\\
+protest &  &  &  &  & \num{-0.160} & \num{-0.083}\\
+ &  &  &  &  & (\num{0.124}) & (\num{0.128})\\
+merged &  &  &  &  &  & \num{-0.004}\\
+ &  &  &  &  &  & (\num{0.015})\\
+avgfem &  &  &  &  &  & \num{-0.237}\\
+ &  &  &  &  &  & (\num{0.335})\\
+avgage &  &  &  &  &  & \num{0.033}***\\
+ &  &  &  &  &  & (\num{0.012})\\
+avglowgr &  &  &  &  &  & \num{0.091}\\
+ &  &  &  &  &  & (\num{0.297})\\
+\midrule
+Num.Obs. & \num{6520} & \num{6520} & \num{6520} & \num{6520} & \num{6520} & \num{6520}\\
+AIC & \num{49147.6} & \num{49133.1} & \num{49022.5} & \num{49022.1} & \num{48996.4} & \num{48893.8}\\
+Log.Lik. & \num{-24571.812} & \num{-24563.554} & \num{-24507.235} & \num{-24506.073} & \num{-24489.220} & \num{-24433.900}\\
+\bottomrule
+\multicolumn{7}{l}{\rule{0pt}{1em}* p $<$ 0.1, ** p $<$ 0.05, *** p $<$ 0.01}\\
+\end{tabular}}
+\end{table}
+
+The parameters of the exponential model are very similar to the
+parameters of the Weibull model. The baseline hazard is, as in the
+Weibull model, sensitive to the inclusion of covariates. Intuitively,
+this makes sense: more covariates allows for a better isolation of the
+baseline (unconditional) hazard.
+
+\clearpage
+
+2.2 Estimate separate Weibull models for males and females. Comment on
+the results (is it better to estimate separate models for males and
+females?) Estimate the Weibull duration model for other subgroups that
+may differ in their behavior and where the baseline hazard may differ.
+
+First, we estimate a model for males:
+
+\begin{table}[!h]
+
+\caption{\label{tab:unnamed-chunk-12}Weibull Models - Males Only}
+\centering
+\resizebox{\linewidth}{!}{
+\begin{tabular}[t]{lcccccc}
+\toprule
+  & Model 1 & Model 2 & Model 3 & Model 4 & Model 5 & Model 6\\
+\midrule
+(Intercept) & \num{2.204}*** & \num{2.446}*** & \num{3.162}*** & \num{3.149}*** & \num{3.363}*** & \num{1.558}*\\
+ & (\num{0.048}) & (\num{0.329}) & (\num{0.394}) & (\num{0.394}) & (\num{0.419}) & (\num{0.904})\\
+Log(scale) & \num{0.461}*** & \num{0.460}*** & \num{0.458}*** & \num{0.457}*** & \num{0.456}*** & \num{0.449}***\\
+ & (\num{0.024}) & (\num{0.024}) & (\num{0.024}) & (\num{0.024}) & (\num{0.024}) & (\num{0.024})\\
+marstat &  & \num{-0.125} & \num{-0.138} & \num{-0.138} & \num{-0.150} & \num{-0.149}\\
+ &  & (\num{0.168}) & (\num{0.165}) & (\num{0.166}) & (\num{0.161}) & (\num{0.157})\\
+contract &  &  & \num{-0.675}*** & \num{-0.685}*** & \num{-0.631}*** & \num{-0.559}***\\
+ &  &  & (\num{0.169}) & (\num{0.174}) & (\num{0.179}) & (\num{0.188})\\
+lowgroup &  &  &  & \num{0.083} & \num{0.084} & \num{0.094}\\
+ &  &  &  & (\num{0.122}) & (\num{0.122}) & (\num{0.123})\\
+classize &  &  &  &  & \num{-0.009} & \num{-0.008}\\
+ &  &  &  &  & (\num{0.007}) & (\num{0.007})\\
+schsize &  &  &  &  & \num{0.000} & \num{0.000}\\
+ &  &  &  &  & (\num{0.000}) & (\num{0.000})\\
+public &  &  &  &  & \num{-0.073} & \num{-0.036}\\
+ &  &  &  &  & (\num{0.128}) & (\num{0.132})\\
+protest &  &  &  &  & \num{0.009} & \num{0.032}\\
+ &  &  &  &  & (\num{0.180}) & (\num{0.174})\\
+merged &  &  &  &  &  & \num{0.035}\\
+ &  &  &  &  &  & (\num{0.028})\\
+avgfem &  &  &  &  &  & \num{0.457}\\
+ &  &  &  &  &  & (\num{0.400})\\
+avgage &  &  &  &  &  & \num{0.041}**\\
+ &  &  &  &  &  & (\num{0.016})\\
+avglowgr &  &  &  &  &  & \num{-0.357}\\
+ &  &  &  &  &  & (\num{0.410})\\
+\midrule
+Num.Obs. & \num{2046} & \num{2046} & \num{2046} & \num{2046} & \num{2046} & \num{2046}\\
+AIC & \num{13422.3} & \num{13422.4} & \num{13416.2} & \num{13417.1} & \num{13421.4} & \num{13405.4}\\
+Log.Lik. & \num{-6709.152} & \num{-6708.217} & \num{-6704.101} & \num{-6703.534} & \num{-6701.689} & \num{-6689.697}\\
+\bottomrule
+\multicolumn{7}{l}{\rule{0pt}{1em}* p $<$ 0.1, ** p $<$ 0.05, *** p $<$ 0.01}\\
+\end{tabular}}
+\end{table}
+
+\clearpage
+
+Next, we estimate a model for females:
+
+\begin{table}[!h]
+
+\caption{\label{tab:unnamed-chunk-14}Weibull Models - Females Only}
+\centering
+\resizebox{\linewidth}{!}{
+\begin{tabular}[t]{lcccccc}
+\toprule
+  & Model 1 & Model 2 & Model 3 & Model 4 & Model 5 & Model 6\\
+\midrule
+(Intercept) & \num{2.414}*** & \num{2.228}*** & \num{2.715}*** & \num{2.755}*** & \num{2.763}*** & \num{1.729}***\\
+ & (\num{0.042}) & (\num{0.138}) & (\num{0.174}) & (\num{0.197}) & (\num{0.260}) & (\num{0.643})\\
+Log(scale) & \num{0.503}*** & \num{0.502}*** & \num{0.499}*** & \num{0.499}*** & \num{0.498}*** & \num{0.494}***\\
+ & (\num{0.016}) & (\num{0.016}) & (\num{0.016}) & (\num{0.016}) & (\num{0.016}) & (\num{0.016})\\
+marstat &  & \num{0.106} & \num{0.093} & \num{0.092} & \num{0.076} & \num{0.058}\\
+ &  & (\num{0.074}) & (\num{0.074}) & (\num{0.074}) & (\num{0.073}) & (\num{0.076})\\
+contract &  &  & \num{-0.435}*** & \num{-0.435}*** & \num{-0.433}*** & \num{-0.393}***\\
+ &  &  & (\num{0.103}) & (\num{0.102}) & (\num{0.106}) & (\num{0.103})\\
+lowgroup &  &  &  & \num{-0.048} & \num{-0.038} & \num{-0.081}\\
+ &  &  &  & (\num{0.099}) & (\num{0.099}) & (\num{0.103})\\
+classize &  &  &  &  & \num{0.005} & \num{0.006}\\
+ &  &  &  &  & (\num{0.006}) & (\num{0.006})\\
+schsize &  &  &  &  & \num{0.000} & \num{0.000}\\
+ &  &  &  &  & (\num{0.000}) & (\num{0.000})\\
+public &  &  &  &  & \num{-0.039} & \num{-0.030}\\
+ &  &  &  &  & (\num{0.116}) & (\num{0.114})\\
+protest &  &  &  &  & \num{-0.211}* & \num{-0.123}\\
+ &  &  &  &  & (\num{0.127}) & (\num{0.133})\\
+merged &  &  &  &  &  & \num{-0.008}\\
+ &  &  &  &  &  & (\num{0.014})\\
+avgfem &  &  &  &  &  & \num{-0.557}\\
+ &  &  &  &  &  & (\num{0.383})\\
+avgage &  &  &  &  &  & \num{0.030}**\\
+ &  &  &  &  &  & (\num{0.013})\\
+avglowgr &  &  &  &  &  & \num{0.403}\\
+ &  &  &  &  &  & (\num{0.334})\\
+\midrule
+Num.Obs. & \num{4474} & \num{4474} & \num{4474} & \num{4474} & \num{4474} & \num{4474}\\
+AIC & \num{31018.2} & \num{31013.9} & \num{30994.0} & \num{30995.4} & \num{30991.3} & \num{30969.4}\\
+Log.Lik. & \num{-15507.109} & \num{-15503.936} & \num{-15493.017} & \num{-15492.706} & \num{-15486.663} & \num{-15471.686}\\
+\bottomrule
+\multicolumn{7}{l}{\rule{0pt}{1em}* p $<$ 0.1, ** p $<$ 0.05, *** p $<$ 0.01}\\
+\end{tabular}}
+\end{table}
+
+The results show that the coefficients for males and females are quite
+similar, but it might be different to estimate separate models because
+the results do not suffer from a lack of efficiency (the same
+coefficients show significance), and the log-likelihoods are smaller
+(closer to zero) relative to the pooled model.
+
+\clearpage
+
+Now, given that under question 1 we observed a difference between the
+exit rates and the survival functions for the different contract types,
+we have estimated Weibull models for the contract types. However, our
+results are difficult to compare. The reason for this is that the models
+for the temporary and mixed contract have very little observations.
+Especially, the mixed contract has too little (36 observations). For
+this reason we can not make an educated comparison for this subgroup.
+
+\begin{table}[!h]
+
+\caption{\label{tab:unnamed-chunk-15}Weibull Models - Models for the all contract types}
+\centering
+\fontsize{8}{10}\selectfont
+\begin{tabular}[t]{lccc}
+\toprule
+\multicolumn{1}{c}{ } & \multicolumn{1}{c}{Fixed contract } & \multicolumn{1}{c}{Temporary contract} & \multicolumn{1}{c}{Mixed contract} \\
+\cmidrule(l{3pt}r{3pt}){2-2} \cmidrule(l{3pt}r{3pt}){3-3} \cmidrule(l{3pt}r{3pt}){4-4}
+  & Model 1 & Model 2 & Model 3\\
+\midrule
+(Intercept) & \num{0.526} & \num{0.290} & \num{2.377}\\
+ & (\num{0.523}) & (\num{1.742}) & (\num{2.100})\\
+marstat & \num{0.019} & \num{0.439}** & \num{-0.323}\\
+ & (\num{0.070}) & (\num{0.220}) & (\num{0.225})\\
+gender & \num{0.304}*** & \num{0.781}** & \num{0.616}\\
+ & (\num{0.095}) & (\num{0.309}) & (\num{0.629})\\
+lowgroup & \num{-0.010} & \num{-0.083} & \num{-0.089}\\
+ & (\num{0.083}) & (\num{0.271}) & (\num{0.739})\\
+classize & \num{0.003} & \num{0.002} & \num{0.008}\\
+ & (\num{0.005}) & (\num{0.009}) & (\num{0.035})\\
+schsize & \num{0.000} & \num{0.000} & \num{0.005}*\\
+ & (\num{0.000}) & (\num{0.001}) & (\num{0.003})\\
+public & \num{-0.041} & \num{-0.087} & \num{-0.464}**\\
+ & (\num{0.090}) & (\num{0.264}) & (\num{0.189})\\
+protest & \num{-0.085} & \num{0.154} & \num{0.367}\\
+ & (\num{0.108}) & (\num{0.372}) & (\num{0.522})\\
+merged & \num{0.002} & \num{0.056} & \num{-0.013}\\
+ & (\num{0.014}) & (\num{0.046}) & (\num{0.052})\\
+avgfem & \num{-0.172} & \num{-0.796} & \num{-1.661}*\\
+ & (\num{0.285}) & (\num{0.934}) & (\num{1.003})\\
+avgage & \num{0.035}*** & \num{-0.013} & \num{-0.045}\\
+ & (\num{0.011}) & (\num{0.038}) & (\num{0.040})\\
+avglowgr & \num{0.080} & \num{0.978} & \num{0.581}\\
+ & (\num{0.262}) & (\num{0.820}) & (\num{1.867})\\
+Log(scale) & \num{0.490}*** & \num{0.317}*** & \num{-0.226}*\\
+ & (\num{0.014}) & (\num{0.050}) & (\num{0.127})\\
+\midrule
+Num.Obs. & \num{6196} & \num{288} & \num{36}\\
+AIC & \num{42336.4} & \num{1838.7} & \num{202.8}\\
+Log.Lik. & \num{-21155.217} & \num{-906.333} & \num{-88.386}\\
+\bottomrule
+\multicolumn{4}{l}{\rule{0pt}{1em}* p $<$ 0.1, ** p $<$ 0.05, *** p $<$ 0.01}\\
+\end{tabular}
+\end{table}
+
+\clearpage
+
+3.1 Estimate a Piece Wise Constant (PWC) model for the entire sample.
+Use the stsplit command to create multiple record data. You can have as
+many steps as the data allow you to take, but first start with only a
+few (3 or 4 steps). Next estimate a model with 15-20 steps, or even
+more. Plot de duration pattern implied by the estimates and comment on
+these and the regression parameters. How do the regression parameters
+(\(\beta\)) compare with those of the Weibull model?
+
+First, we estimate a piece wise constant model.
+
+\includegraphics[width=200px,height=150px]{assignment_42_files/figure-latex/unnamed-chunk-16-1}
+\includegraphics[width=200px,height=150px]{assignment_42_files/figure-latex/unnamed-chunk-16-2}
+
+Above, we plot the hazard rate and survival function of our estimated
+piecewise constant model. The piecewise-constant model coefficient
+estimates can be found in the table below. As the attrition from the
+sample is very high in the starting period, our Weibull model predicts a
+high hazard rate, and thus high attrition in the first period.
+Afterwards, piecewise, it attempts to catch up the imbalances by fitting
+a new Weibull distribution and hazard rate (implied by the new constant
+term), which significantly increases the hazard rate relative to the
+previous period. This proves the model does catch up with the decay in
+the data that is not as fastly decaying as implied by a Weibull model
+under the previous parameters.
+
+One other consequence of including a dummy for the first twenty days is
+an underestimation of the survival probability in the early period. Even
+though it mildly realistic, it underestimates survival by only focusing
+on the first 20 days, under which attrition is very high. We repeat this
+exercise again with a piecewise constant model with more dummies, but
+omit the plot for brevity's sake.
+
+\begin{table}[!h]
+
+\caption{\label{tab:unnamed-chunk-18}PWC (Weibull)}
+\centering
+\fontsize{8}{10}\selectfont
+\begin{tabular}[t]{lcc}
+\toprule
+\multicolumn{1}{c}{ } & \multicolumn{1}{c}{PWC 14 steps} & \multicolumn{1}{c}{PWC 4 steps} \\
+\cmidrule(l{3pt}r{3pt}){2-2} \cmidrule(l{3pt}r{3pt}){3-3}
+  & Model 1 & Model 2\\
+\midrule
+(Intercept) & \num{1.109}*** & \num{1.024}***\\
+ & (\num{0.199}) & (\num{0.181})\\
+gender & \num{0.056}* & \num{0.054}*\\
+ & (\num{0.033}) & (\num{0.032})\\
+marstat & \num{-0.032} & \num{-0.024}\\
+ & (\num{0.024}) & (\num{0.023})\\
+contract & \num{-0.149}*** & \num{-0.114}**\\
+ & (\num{0.044}) & (\num{0.045})\\
+merged & \num{0.007} & \num{0.012}*\\
+ & (\num{0.007}) & (\num{0.007})\\
+lowgroup & \num{0.012} & \num{0.005}\\
+ & (\num{0.032}) & (\num{0.031})\\
+classize & \num{-0.001} & \num{0.000}\\
+ & (\num{0.001}) & (\num{0.001})\\
+schsize & \num{0.000} & \num{0.000}\\
+ & (\num{0.000}) & (\num{0.000})\\
+public & \num{0.037} & \num{0.035}\\
+ & (\num{0.038}) & (\num{0.034})\\
+protest & \num{-0.005} & \num{0.001}\\
+ & (\num{0.041}) & (\num{0.039})\\
+avgfem & \num{0.066} & \num{0.014}\\
+ & (\num{0.113}) & (\num{0.104})\\
+avgage & \num{0.015}*** & \num{0.014}***\\
+ & (\num{0.004}) & (\num{0.004})\\
+avglowgr & \num{-0.010} & \num{0.030}\\
+ & (\num{0.122}) & (\num{0.115})\\
+timeperiod 10 & \num{4.632}*** & \\
+ & (\num{0.246}) & \\
+timeperiod 11 & \num{4.397}*** & \\
+ & (\num{0.193}) & \\
+timeperiod 12 & \num{4.938}*** & \\
+ & (\num{0.250}) & \\
+timeperiod 13 & \num{4.137}*** & \\
+ & (\num{0.038}) & \\
+timeperiod 14 & \num{5.551}*** & \\
+ & (\num{0.305}) & \\
+timeperiod 2 & \num{2.058}*** & \num{1.955}***\\
+ & (\num{0.032}) & (\num{0.029})\\
+timeperiod 3 & \num{2.704}*** & \num{2.967}***\\
+ & (\num{0.052}) & (\num{0.048})\\
+timeperiod 4 & \num{3.150}*** & \num{4.334}***\\
+ & (\num{0.075}) & (\num{0.075})\\
+timeperiod 5 & \num{3.412}*** & \\
+ & (\num{0.080}) & \\
+timeperiod 6 & \num{3.731}*** & \\
+ & (\num{0.121}) & \\
+timeperiod 7 & \num{4.158}*** & \\
+ & (\num{0.157}) & \\
+timeperiod 8 & \num{3.736}*** & \\
+ & (\num{0.089}) & \\
+timeperiod 9 & \num{4.550}*** & \\
+ & (\num{0.268}) & \\
+\midrule
+Num.Obs. & \num{6473} & \num{6520}\\
+AIC & \num{36079.3} & \num{36146.3}\\
+Log.Lik. & \num{-18013.641} & \num{-18057.168}\\
+\bottomrule
+\multicolumn{3}{l}{\rule{0pt}{1em}* p $<$ 0.1, ** p $<$ 0.05, *** p $<$ 0.01}\\
+\end{tabular}
+\end{table}
+
+In the table below, we show the estimates of two piece-wise constant
+models. For the first model, we have plotted the hazard rate and
+survival function, for the second, we omitted it for brevitiy's sake. We
+see that the hazard rate is increasing over time, in general, though not
+monotonically. The estimated survival curve is just the integral over
+all these hazard rates, and show a very fast tendency to go to zero. As
+before, this makes sense, as this is the case in the data, but piecewise
+dummies focusing on a small first period make the fitted distribution
+such that the survival rate is approaching zero in a very short period.
+
+Comparing these results to the Weibull models, we observe that the
+inclusion of piece-wise constants greatly affects the coefficient
+estimates for the covariates: in particular, variation that was
+previously attributed to the covariates is now attributed to a more
+flexible baseline hazard over time: likely, we have overestimated the
+influence of covariates in the preceding analyses, because the
+covariates should only be modeled after the baseline hazard is
+accurately specified.
+
+\clearpage
+
+3.2 Estimate separate models for males and females.
+
+First we estimate a PWC model for males.
+
+\begin{table}[!h]
+
+\caption{\label{tab:unnamed-chunk-20}PWC (Weibull) - Males only}
+\centering
+\fontsize{8}{10}\selectfont
+\begin{tabular}[t]{lcc}
+\toprule
+\multicolumn{1}{c}{ } & \multicolumn{1}{c}{PWC 14 steps} & \multicolumn{1}{c}{PWC 4 steps} \\
+\cmidrule(l{3pt}r{3pt}){2-2} \cmidrule(l{3pt}r{3pt}){3-3}
+  & Model 1 & Model 2\\
+\midrule
+(Intercept) & \num{-850.507}*** & \num{-1.016}\\
+ & (\num{0.322}) & (\num{0.958})\\
+marstat & \num{-0.017} & \num{0.260}**\\
+ & (\num{0.060}) & (\num{0.130})\\
+contract & \num{853.775}*** & \num{5.494}***\\
+ & (\num{0.000}) & (\num{0.661})\\
+merged & \num{0.006} & \num{0.017}\\
+ & (\num{0.014}) & (\num{0.022})\\
+lowgroup & \num{0.067} & \num{-0.082}\\
+ & (\num{0.045}) & (\num{0.097})\\
+classize & \num{0.001} & \num{-0.008}\\
+ & (\num{0.003}) & (\num{0.007})\\
+schsize & \num{0.000} & \num{0.000}\\
+ & (\num{0.000}) & (\num{0.000})\\
+public & \num{0.075} & \num{-0.103}\\
+ & (\num{0.054}) & (\num{0.165})\\
+protest & \num{-0.049} & \num{-0.341}**\\
+ & (\num{0.052}) & (\num{0.145})\\
+avgfem & \num{-0.009} & \num{-0.445}\\
+ & (\num{0.190}) & (\num{0.457})\\
+avgage & \num{0.003} & \num{-0.012}\\
+ & (\num{0.006}) & (\num{0.015})\\
+avglowgr & \num{-0.086} & \num{0.172}\\
+ & (\num{0.180}) & (\num{0.338})\\
+timeperiod 10 & \num{2.133}*** & \\
+ & (\num{0.102}) & \\
+timeperiod 11 & \num{2.191}*** & \\
+ & (\num{0.105}) & \\
+timeperiod 12 & \num{2.437}*** & \\
+ & (\num{0.090}) & \\
+timeperiod 14 & \num{3.320}*** & \\
+ & (\num{0.151}) & \\
+timeperiod 2 & \num{0.530}*** & \num{0.256}\\
+ & (\num{0.070}) & (\num{0.222})\\
+timeperiod 3 & \num{1.068}*** & \num{0.807}***\\
+ & (\num{0.096}) & (\num{0.225})\\
+timeperiod 4 & \num{1.217}*** & \num{1.813}***\\
+ & (\num{0.087}) & (\num{0.240})\\
+timeperiod 5 & \num{1.558}*** & \\
+ & (\num{0.103}) & \\
+timeperiod 6 & \num{1.688}*** & \\
+ & (\num{0.087}) & \\
+timeperiod 7 & \num{1.832}*** & \\
+ & (\num{0.068}) & \\
+timeperiod 8 & \num{2.041}*** & \\
+ & (\num{0.131}) & \\
+timeperiod 9 & \num{1.997}*** & \\
+ & (\num{0.072}) & \\
+Log(scale) & \num{-1.998}*** & \num{-1.072}***\\
+ & (\num{0.210}) & (\num{0.114})\\
+\midrule
+Num.Obs. & \num{2029} & \num{2036}\\
+AIC & \num{597.1} & \num{725.3}\\
+Log.Lik. & \num{-273.545} & \num{-346.670}\\
+\bottomrule
+\multicolumn{3}{l}{\rule{0pt}{1em}* p $<$ 0.1, ** p $<$ 0.05, *** p $<$ 0.01}\\
+\end{tabular}
+\end{table}
+
+\clearpage
+
+Now we estimate the same model for females.
+
+\begin{table}[!h]
+
+\caption{\label{tab:unnamed-chunk-22}PWC (Weibull) - Females only}
+\centering
+\fontsize{7}{9}\selectfont
+\begin{tabular}[t]{lcc}
+\toprule
+\multicolumn{1}{c}{ } & \multicolumn{1}{c}{PWC 14 steps} & \multicolumn{1}{c}{PWC 4 steps} \\
+\cmidrule(l{3pt}r{3pt}){2-2} \cmidrule(l{3pt}r{3pt}){3-3}
+  & Model 1 & Model 2\\
+\midrule
+(Intercept) & \num{3.084}*** & \num{3.780}***\\
+ & (\num{0.220}) & (\num{0.615})\\
+marstat & \num{0.019} & \num{0.097}*\\
+ & (\num{0.019}) & (\num{0.059})\\
+contract & \num{0.150} & \num{0.309}\\
+ & (\num{0.099}) & (\num{0.251})\\
+merged & \num{0.002} & \num{0.001}\\
+ & (\num{0.007}) & (\num{0.019})\\
+lowgroup & \num{-0.073}* & \num{-0.172}\\
+ & (\num{0.038}) & (\num{0.125})\\
+classize & \num{-0.001} & \num{-0.002}\\
+ & (\num{0.001}) & (\num{0.004})\\
+schsize & \num{0.000} & \num{0.000}\\
+ & (\num{0.000}) & (\num{0.000})\\
+public & \num{0.045} & \num{0.014}\\
+ & (\num{0.032}) & (\num{0.103})\\
+protest & \num{0.104}** & \num{0.137}\\
+ & (\num{0.045}) & (\num{0.143})\\
+avgfem & \num{-0.151} & \num{-0.160}\\
+ & (\num{0.103}) & (\num{0.347})\\
+avgage & \num{0.004} & \num{0.008}\\
+ & (\num{0.004}) & (\num{0.010})\\
+avglowgr & \num{0.198}** & \num{0.226}\\
+ & (\num{0.086}) & (\num{0.326})\\
+timeperiod 10 & \num{2.116}*** & \\
+ & (\num{0.057}) & \\
+timeperiod 11 & \num{2.302}*** & \\
+ & (\num{0.064}) & \\
+timeperiod 12 & \num{2.437}*** & \\
+ & (\num{0.058}) \vphantom{1} & \\
+timeperiod 13 & \num{42.067}*** & \\
+ & (\num{0.000}) & \\
+timeperiod 14 & \num{3.169}*** & \\
+ & (\num{0.119}) & \\
+timeperiod 2 & \num{0.591}*** & \num{0.045}\\
+ & (\num{0.051}) & (\num{0.168})\\
+timeperiod 3 & \num{1.002}*** & \num{0.522}***\\
+ & (\num{0.060}) & (\num{0.174})\\
+timeperiod 4 & \num{1.297}*** & \num{1.500}***\\
+ & (\num{0.054}) & (\num{0.195})\\
+timeperiod 5 & \num{1.509}*** & \\
+ & (\num{0.053}) \vphantom{1} & \\
+timeperiod 6 & \num{1.627}*** & \\
+ & (\num{0.058}) & \\
+timeperiod 7 & \num{1.749}*** & \\
+ & (\num{0.053}) & \\
+timeperiod 8 & \num{2.137}*** & \\
+ & (\num{0.099}) & \\
+timeperiod 9 & \num{2.069}*** & \\
+ & (\num{0.070}) & \\
+Log(scale) & \num{-1.882}*** & \num{-0.874}***\\
+ & (\num{0.141}) & (\num{0.060})\\
+\midrule
+Num.Obs. & \num{4444} & \num{4456}\\
+AIC & \num{1619.9} & \num{1922.2}\\
+Log.Lik. & \num{-783.936} & \num{-945.106}\\
+\bottomrule
+\multicolumn{3}{l}{\rule{0pt}{1em}* p $<$ 0.1, ** p $<$ 0.05, *** p $<$ 0.01}\\
+\end{tabular}
+\end{table}
+
+\clearpage
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  Estimate a Cox model and compare the most elaborate specification with
+  the results of the PWC model
+\end{enumerate}
+
+\begin{table}[!h]
+
+\caption{\label{tab:unnamed-chunk-23}Cox Model}
+\centering
+\fontsize{8}{10}\selectfont
+\begin{tabular}[t]{lcc}
+\toprule
+  & Model 1 & Model 2\\
+\midrule
+marstat & \num{-0.007} & \num{0.002}\\
+ & (\num{0.024}) & (\num{0.024})\\
+gender & \num{-0.129}*** & \num{-0.147}***\\
+ & (\num{0.031}) & (\num{0.034})\\
+contract & \num{0.224}*** & \num{0.206}***\\
+ & (\num{0.050}) & (\num{0.050})\\
+lowgroup & \num{-0.004} & \num{0.002}\\
+ & (\num{0.030}) & (\num{0.031})\\
+classize & \num{0.000} & \num{0.000}\\
+ & (\num{0.002}) & (\num{0.002})\\
+schsize & \num{0.000} & \num{0.000}\\
+ & (\num{0.000}) & (\num{0.000})\\
+public & \num{-0.007} & \num{-0.006}\\
+ & (\num{0.029}) & (\num{0.029})\\
+protest & \num{0.075} & \num{0.038}\\
+ & (\num{0.034}) & (\num{0.035})\\
+merged &  & \num{-0.009}\\
+ &  & (\num{0.006})\\
+avgfem &  & \num{0.076}\\
+ &  & (\num{0.099})\\
+avgage &  & \num{-0.018}***\\
+ &  & (\num{0.004})\\
+avglowgr &  & \num{-0.071}\\
+ &  & (\num{0.096})\\
+\midrule
+Num.Obs. & \num{6520} & \num{6520}\\
+R2 & \num{0.007} & \num{0.012}\\
+AIC & \num{99424.7} & \num{99398.2}\\
+Log.Lik. & \num{-49704.363} & \num{-49687.124}\\
+\bottomrule
+\multicolumn{3}{l}{\rule{0pt}{1em}* p $<$ 0.1, ** p $<$ 0.05, *** p $<$ 0.01}\\
+\end{tabular}
+\end{table}
+
+Comparing the most elaborate specification of the Cox model with the
+most elaborate PWC model, we observe an interesting finding. That is,
+the model estimates appear to be very sensitive to our choice of model.
+For example, gender appears to be significant at the 1\% level for the
+PWC model, with a positive sign, and for the Cox model it has the same
+significance level, but has a negative sign. This clearly illustrates
+the sensitivity of the parameter estimates to the parametric form
+imposed.
+
+\clearpage
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\tightlist
+\item
+  Repeat the procedure of question 2 for a Weibull model with (e.g.,
+  gamma) unobserved heterogeneity. Compare the estimates of the
+  regression coefficients across the models with and without unobserved
+  heterogeneity.
+\end{enumerate}
+
+As above, but now with a Piecewise Constant (PWC) specification, where
+you have an elaborate specification of the baseline hazard (say, 20
+dummies).
+
+\begin{table}[!h]
+
+\caption{\label{tab:unnamed-chunk-25}Gamma Weibull Models}
+\centering
+\fontsize{9}{11}\selectfont
+\begin{tabular}[t]{lccc}
+\toprule
+  & No time dummies & 4 Time Dummies & 22 Time Dummeis\\
+\midrule
+mu & \num{4.481} & \num{7.907} & \num{1.541}\\
+ &  & (\num{1153.496}) & (\num{0.033})\\
+sigma & \num{1.654} & \num{0.732} & \num{0.686}\\
+ &  & (\num{0.094}) & (\num{0.007})\\
+Q & \num{1.000} & \num{1.000} & \num{1.000}\\
+gender & \num{-1.034} & \num{-3.114} & \num{0.042}**\\
+ &  & (\num{576.748}) & (\num{0.019})\\
+AIC & \num{31020.2} & \num{24329.4} & \num{34240.8}\\
+\midrule
+Log.Lik. & \num{-15507.109} & \num{-12158.676} & \num{-17095.402}\\
+N & \num{4474.000} & \num{4456.000} & \num{6501.000}\\
+\bottomrule
+\multicolumn{4}{l}{\rule{0pt}{1em}* p $<$ 0.1, ** p $<$ 0.05, *** p $<$ 0.01}\\
+\end{tabular}
+\end{table}
+
+In the above table, we report the three different Gamma-Weibull models,
+with gender as an explanatory variable and no time dummies (model 1), 4
+time dummies (model 2), and 22 time dummies (model 3). We observe that
+the gender coefficient is significant in the third case, indicating that
+an extensive and non-parametric baseline hazard helps us identify the
+effect of gender. When contrasting the results with the Weibull model
+from question 2, we find that the coefficient on gender is again much
+smaller, indicating that the results might have been due to spurious
+correlation and subject-specific effects, rather than within-subject
+variation.
+
+5.2 Compare the estimates of the Cox model (question 4) with the results
+of the PWC model with unobserved heterogeneity.
+
+The results from the Cox model in question four come closer to the
+results in this question, when focusing on the coefficient on gender.
+Still, if we take these results to be the true results, the Cox model
+overestimates the coefficient by a factor of roughly three, which is
+substantial. That means that also in case of duration data, a non-panel
+model cannot easily reflect the within-subjects effect, as we know from
+linear and other simpler models.
+
+\clearpage
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{5}
+\tightlist
+\item
+  Multiple Spells
+\end{enumerate}
+
+6.1 Estimate a standard Cox model (PL) and estimate Stratified Cox
+models (SPL). Concerning the latter, estimate SPL models, where the
+school is the stratum and estimate one where the teacher is the stratum.
+Comment on the teacher SPL approach. Compare the PL and the school SPL
+estimates. Can you think of a test to test for the relevance of using
+the school SPL (rather than doing the PL)?
+
+First we estimate a model with schoolid as a strata. This gives us the
+following output (the package we use can not produce standard tables,
+hence we show its output):
+
+\begin{verbatim}
+## Call:
+## survival::coxph(formula = Surv(splength, rcensor) ~ strata(schoolid) + 
+##     marstat + gender + contract + lowgroup + classize + schsize + 
+##     public + protest, data = dataset %>% filter(sptype == 2) %>% 
+##     mutate(rcensor = if_else(rcensor == 1, 0, 1)), cluster = schoolid)
+## 
+##   n= 6520, number of events= 6324 
+## 
+##                coef  exp(coef)   se(coef)  robust se      z Pr(>|z|)    
+## marstat   0.0171112  1.0172584  0.0284297  0.0349686  0.489 0.624607    
+## gender   -0.1523871  0.8586559  0.0369382  0.0462039 -3.298 0.000973 ***
+## contract  0.1928554  1.2127074  0.0582814  0.0550957  3.500 0.000465 ***
+## lowgroup -0.0274227  0.9729499  0.0341762  0.0395282 -0.694 0.487838    
+## classize -0.0006756  0.9993246  0.0021278  0.0020257 -0.334 0.738734    
+## schsize  -0.0002969  0.9997031  0.0005075  0.0003643 -0.815 0.415017    
+## public   -0.1253421  0.8821950  0.1397192  0.1740631 -0.720 0.471466    
+## protest  -0.2016655  0.8173683  0.1689328  0.1500950 -1.344 0.179082    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+##          exp(coef) exp(-coef) lower .95 upper .95
+## marstat     1.0173     0.9830    0.9499     1.089
+## gender      0.8587     1.1646    0.7843     0.940
+## contract    1.2127     0.8246    1.0886     1.351
+## lowgroup    0.9729     1.0278    0.9004     1.051
+## classize    0.9993     1.0007    0.9954     1.003
+## schsize     0.9997     1.0003    0.9990     1.000
+## public      0.8822     1.1335    0.6272     1.241
+## protest     0.8174     1.2234    0.6091     1.097
+## 
+## Concordance= 0.516  (se = 0.012 )
+## Likelihood ratio test= 37.8  on 8 df,   p=8e-06
+## Wald test            = 33.26  on 8 df,   p=6e-05
+## Score (logrank) test = 38.38  on 8 df,   p=6e-06,   Robust = 29.2  p=3e-04
+## 
+##   (Note: the likelihood ratio and score tests assume independence of
+##      observations within a cluster, the Wald and robust score tests do not).
+\end{verbatim}
+
+\begin{verbatim}
+## Call:
+## survival::coxph(formula = Surv(splength, rcensor) ~ strata(schoolid) + 
+##     marstat + gender + contract + lowgroup + classize + schsize + 
+##     public + protest + merged + avgfem + avgage + avglowgr, data = dataset %>% 
+##     filter(sptype == 2) %>% mutate(rcensor = if_else(rcensor == 
+##     1, 0, 1)), cluster = schoolid)
+## 
+##   n= 6520, number of events= 6324 
+## 
+##                coef  exp(coef)   se(coef)  robust se      z Pr(>|z|)    
+## marstat   0.0180778  1.0182422  0.0284262  0.0350296  0.516 0.605805    
+## gender   -0.1518962  0.8590774  0.0369293  0.0460497 -3.299 0.000972 ***
+## contract  0.1923285  1.2120687  0.0583153  0.0549965  3.497 0.000470 ***
+## lowgroup -0.0255371  0.9747863  0.0341763  0.0393892 -0.648 0.516774    
+## classize -0.0006425  0.9993577  0.0021221  0.0019948 -0.322 0.747373    
+## schsize  -0.0004039  0.9995962  0.0005133  0.0003913 -1.032 0.301978    
+## public   -0.1228420  0.8844034  0.1397313  0.1737639 -0.707 0.479599    
+## protest  -0.2045353  0.8150260  0.1689518  0.1514714 -1.350 0.176912    
+## merged   -0.0198450  0.9803506  0.0097281  0.0099312 -1.998 0.045689 *  
+## avgfem           NA         NA  0.0000000  0.0000000     NA       NA    
+## avgage           NA         NA  0.0000000  0.0000000     NA       NA    
+## avglowgr         NA         NA  0.0000000  0.0000000     NA       NA    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+##          exp(coef) exp(-coef) lower .95 upper .95
+## marstat     1.0182     0.9821    0.9507    1.0906
+## gender      0.8591     1.1640    0.7849    0.9402
+## contract    1.2121     0.8250    1.0882    1.3500
+## lowgroup    0.9748     1.0259    0.9024    1.0530
+## classize    0.9994     1.0006    0.9955    1.0033
+## schsize     0.9996     1.0004    0.9988    1.0004
+## public      0.8844     1.1307    0.6291    1.2432
+## protest     0.8150     1.2270    0.6057    1.0967
+## merged      0.9804     1.0200    0.9615    0.9996
+## avgfem          NA         NA        NA        NA
+## avgage          NA         NA        NA        NA
+## avglowgr        NA         NA        NA        NA
+## 
+## Concordance= 0.523  (se = 0.012 )
+## Likelihood ratio test= 42  on 9 df,   p=3e-06
+## Wald test            = 35.67  on 9 df,   p=5e-05
+## Score (logrank) test = 42.53  on 9 df,   p=3e-06,   Robust = 31.07  p=3e-04
+## 
+##   (Note: the likelihood ratio and score tests assume independence of
+##      observations within a cluster, the Wald and robust score tests do not).
+\end{verbatim}
+
+The estimated model with teachers as the strata is:
+
+\begin{verbatim}
+## Call:
+## survival::coxph(formula = Surv(splength, rcensor) ~ strata(teachid) + 
+##     marstat + gender + contract + lowgroup + classize + schsize + 
+##     public + protest, data = dataset %>% filter(sptype == 2) %>% 
+##     mutate(rcensor = if_else(rcensor == 1, 0, 1)), cluster = schoolid)
+## 
+##   n= 6520, number of events= 6324 
+## 
+##                coef  exp(coef)   se(coef)  robust se      z Pr(>|z|)    
+## marstat   3.810e-03  1.004e+00  2.436e-02  2.887e-02  0.132 0.894994    
+## gender   -1.357e-01  8.731e-01  3.251e-02  4.001e-02 -3.392 0.000695 ***
+## contract  2.280e-01  1.256e+00  5.307e-02  6.491e-02  3.512 0.000445 ***
+## lowgroup -1.182e-02  9.882e-01  3.058e-02  3.810e-02 -0.310 0.756286    
+## classize -2.504e-05  1.000e+00  1.781e-03  1.935e-03 -0.013 0.989673    
+## schsize  -1.006e-04  9.999e-01  1.270e-04  2.149e-04 -0.468 0.639710    
+## public   -2.719e-03  9.973e-01  2.939e-02  4.571e-02 -0.059 0.952576    
+## protest   7.510e-02  1.078e+00  3.423e-02  5.156e-02  1.457 0.145182    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+##          exp(coef) exp(-coef) lower .95 upper .95
+## marstat     1.0038     0.9962    0.9486    1.0623
+## gender      0.8731     1.1454    0.8072    0.9443
+## contract    1.2560     0.7962    1.1060    1.4264
+## lowgroup    0.9882     1.0119    0.9171    1.0649
+## classize    1.0000     1.0000    0.9962    1.0038
+## schsize     0.9999     1.0001    0.9995    1.0003
+## public      0.9973     1.0027    0.9118    1.0908
+## protest     1.0780     0.9276    0.9744    1.1926
+## 
+## Concordance= 0.529  (se = 0.007 )
+## Likelihood ratio test= 47.01  on 8 df,   p=2e-07
+## Wald test            = 30.95  on 8 df,   p=1e-04
+## Score (logrank) test = 48.85  on 8 df,   p=7e-08,   Robust = 29.2  p=3e-04
+## 
+##   (Note: the likelihood ratio and score tests assume independence of
+##      observations within a cluster, the Wald and robust score tests do not).
+\end{verbatim}
+
+\begin{verbatim}
+## Call:
+## survival::coxph(formula = Surv(splength, rcensor) ~ strata(teachid) + 
+##     marstat + gender + contract + lowgroup + classize + schsize + 
+##     public + protest + merged + avgfem + avgage + avglowgr, data = dataset %>% 
+##     filter(sptype == 2) %>% mutate(rcensor = if_else(rcensor == 
+##     1, 0, 1)), cluster = schoolid)
+## 
+##   n= 6520, number of events= 6324 
+## 
+##                coef  exp(coef)   se(coef)  robust se      z Pr(>|z|)    
+## marstat   0.0132498  1.0133379  0.0246037  0.0292414  0.453 0.650465    
+## gender   -0.1517235  0.8592258  0.0348124  0.0423751 -3.580 0.000343 ***
+## contract  0.2114603  1.2354809  0.0533250  0.0637240  3.318 0.000905 ***
+## lowgroup -0.0057975  0.9942192  0.0321718  0.0380892 -0.152 0.879022    
+## classize -0.0002979  0.9997021  0.0017902  0.0019545 -0.152 0.878852    
+## schsize  -0.0002714  0.9997286  0.0001325  0.0001915 -1.417 0.156416    
+## public   -0.0006410  0.9993592  0.0296442  0.0439327 -0.015 0.988360    
+## protest   0.0388644  1.0396295  0.0351635  0.0526585  0.738 0.460486    
+## merged   -0.0105901  0.9894657  0.0056826  0.0073454 -1.442 0.149374    
+## avgfem    0.0553857  1.0569482  0.1004482  0.1392552  0.398 0.690831    
+## avgage   -0.0186106  0.9815615  0.0035485  0.0049979 -3.724 0.000196 ***
+## avglowgr -0.0726250  0.9299495  0.0976814  0.1429178 -0.508 0.611342    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+##          exp(coef) exp(-coef) lower .95 upper .95
+## marstat     1.0133     0.9868    0.9569    1.0731
+## gender      0.8592     1.1638    0.7907    0.9336
+## contract    1.2355     0.8094    1.0904    1.3998
+## lowgroup    0.9942     1.0058    0.9227    1.0713
+## classize    0.9997     1.0003    0.9959    1.0035
+## schsize     0.9997     1.0003    0.9994    1.0001
+## public      0.9994     1.0006    0.9169    1.0892
+## protest     1.0396     0.9619    0.9377    1.1527
+## merged      0.9895     1.0106    0.9753    1.0038
+## avgfem      1.0569     0.9461    0.8045    1.3886
+## avgage      0.9816     1.0188    0.9720    0.9912
+## avglowgr    0.9299     1.0753    0.7028    1.2306
+## 
+## Concordance= 0.541  (se = 0.007 )
+## Likelihood ratio test= 81.48  on 12 df,   p=2e-12
+## Wald test            = 45.53  on 12 df,   p=8e-06
+## Score (logrank) test = 83.08  on 12 df,   p=1e-12,   Robust = 38.96  p=1e-04
+## 
+##   (Note: the likelihood ratio and score tests assume independence of
+##      observations within a cluster, the Wald and robust score tests do not).
+\end{verbatim}
+
+Let us first compare the PL model with the SPL model with schoolid as
+the strata. The most striking feauture of the PL model was that gender
+and contract were highly statistically and economically significant.
+This feauture is also observable in the SPL model, and the signs are the
+same. Apart from these findings we do not observe any other interesting
+findings.
+
+Second, we can compare the teacher stratified model with the school
+stratified model. Again we obtain very comparable estimates. This
+indicates that choosing a strata does not seem to have an added value.
+\clearpage
+
+6.2 Estimate a model with school specific dummies and compare these
+estimates with those obtained from the school SPL.
+
+\begin{table}[!h]
+
+\caption{\label{tab:unnamed-chunk-28}Cox Model with School Dummies}
+\centering
+\fontsize{8}{10}\selectfont
+\begin{tabular}[t]{lcc}
+\toprule
+  & Model 1 & Model 2\\
+\midrule
+schooldummies & \num{0.001}*** & \num{0.001}***\\
+ & (\num{0.000}) & (\num{0.000})\\
+marstat & \num{-0.092} & \num{-0.079}\\
+ & (\num{0.129}) & (\num{0.129})\\
+gender & \num{-0.316}* & \num{-0.392}**\\
+ & (\num{0.182}) & (\num{0.192})\\
+contract & \num{-0.419} & \num{-0.445}\\
+ & (\num{0.706}) & (\num{0.711})\\
+lowgroup & \num{0.094} & \num{0.110}\\
+ & (\num{0.172}) & (\num{0.179})\\
+classize & \num{0.003} & \num{0.004}\\
+ & (\num{0.008}) & (\num{0.008})\\
+schsize & \num{0.000} & \num{-0.001}\\
+ & (\num{0.001}) & (\num{0.001})\\
+public & \num{0.027} & \num{0.006}\\
+ & (\num{0.166}) & (\num{0.169})\\
+protest & \num{-0.002} & \num{-0.036}\\
+ & (\num{0.196}) & (\num{0.202})\\
+merged &  & \num{-0.008}\\
+ &  & (\num{0.036})\\
+avgfem &  & \num{0.559}\\
+ &  & (\num{0.571})\\
+avgage &  & \num{-0.011}\\
+ &  & (\num{0.020})\\
+avglowgr &  & \num{0.038}\\
+ &  & (\num{0.567})\\
+\midrule
+Num.Obs. & \num{6520} & \num{6520}\\
+R2 & \num{0.002} & \num{0.002}\\
+AIC & \num{2051.4} & \num{2057.4}\\
+Log.Lik. & \num{-1016.708} & \num{-1015.698}\\
+\bottomrule
+\multicolumn{3}{l}{\rule{0pt}{1em}* p $<$ 0.1, ** p $<$ 0.05, *** p $<$ 0.01}\\
+\end{tabular}
+\end{table}
+
+The results of the model with school specific dummies compared to the
+school stratas show us that the schooldummies are highly significant and
+including them seem to have an effect on the gender and contract
+variables. Gender becomes less significant (depending on the model 10\%
+or 5\% level), contract becomes insignificant and changes sign. Allowing
+for schooldummies implies that the base hazard rate per school can be
+different, but we do not study the variation of the covariates within
+schools.
+
+\clearpage
+
+6.3 Observed sickness patterns vary between schools. This may be due to
+sorting effects (bad teachers are the reason why the school scores bad
+in absenteeism) and/or the school effects (it is elements of the school
+that make some schools worse than others. Can you think of a
+test/procedure to shed some more light on this issue?
+
+We decide to test the model specification of schoolid as a strata
+against the standard cox model based on the log partial likelihood. This
+test indicates whether stratas based on schoolid matter. We implement
+this test using the survival package in R. Our test results are shown
+below. The results indicate that the standard model is worse compared to
+the stratified model (likelihoods differ highly significantly). The
+associated p-value is a lot smaller than 0.01, meaning it is a highly
+significant result according to the test. However, given the previous
+comparison of the model's estimates, we cannot conclude that there might
+be sorting effect, even though it intuitively makes sense.
+
+\begin{verbatim}
+## Analysis of Deviance Table
+##  Cox model: response is  Surv(splength, rcensor)
+##  Model 1: ~ marstat + gender + contract + lowgroup + classize + schsize + public + protest + merged + avgfem + avgage + avglowgr
+##  Model 2: ~ strata(schoolid) + marstat + gender + contract + lowgroup + classize + schsize + public + protest + merged + avgfem + avgage + avglowgr
+##   loglik Chisq Df P(>|Chi|)    
+## 1 -49687                       
+## 2 -14554 70267  3 < 2.2e-16 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+\end{verbatim}
+
+\end{document}

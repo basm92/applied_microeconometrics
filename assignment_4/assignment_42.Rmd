@@ -125,6 +125,36 @@ create_hazard_rate(dataset, contract) %>%
 
 ```
 
+Now we test whether the survival function and hazard rate of the subgroups are significantly different.
+```{r, result='asis'}
+gender_data <- create_hazard_rate(dataset, gender)
+contract_data <- create_hazard_rate(dataset, contract)
+
+
+# For gender group:
+modelsummary::datasummary_balance(~ gender,
+                                  data = gender_data %>%
+                                      select(gender, exit_rate, survivor_function),
+                                  output = "latex", 
+                                  fmt = "%.3f",
+                                  dinm = TRUE,
+                                  dinm_statistic = "p.value"
+                                    ) %>%
+    kableExtra::kable_styling(font_size = 10)
+
+
+# For contract group:
+modelsummary::datasummary_balance(~ contract,
+                                  data = contract_data %>%
+                                      select(contract, exit_rate, survivor_function),
+                                  output = "latex", 
+                                  fmt = "%.3f",
+                                  dinm = TRUE,
+                                  dinm_statistic = "p.value"
+                                    ) %>%
+    kableExtra::kable_styling(font_size = 10)
+```
+
 \clearpage
 
 2.1 Estimate a Weibull and an Exponential model for sickness spells. Start with a very simple specification and you only include one regressor and subsequently add more regressors. Comment on the change in the Weibull parameters and the regression parameters when you add more variables to the model. Compare the estimates of both models.
